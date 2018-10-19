@@ -5,16 +5,17 @@ using UnityEngine.UI;
 
 public class TowerSelection : MonoBehaviour {
     
-    public Button[] BUTTONS;
+    [SerializeField]
+    private Button[] _buttons;
 
-    private bool blackPressed = false;
-    private bool redPressed = false;
+    private bool _blackPressed = false;
+    private bool _redPressed = false;
 
 	// Use this for initialization
 	void Start ()
     {
-        this.BUTTONS[0].GetComponent<Button>().onClick.AddListener(delegate { ButtonClick(0); });
-        this.BUTTONS[1].GetComponent<Button>().onClick.AddListener(delegate { ButtonClick(1); });
+        this._buttons[0].GetComponent<Button>().onClick.AddListener(delegate { ButtonClick(0); });
+        this._buttons[1].GetComponent<Button>().onClick.AddListener(delegate { ButtonClick(1); });
     }
 	
 	// Update is called once per frame
@@ -24,33 +25,38 @@ public class TowerSelection : MonoBehaviour {
 
     void ButtonClick(int i)
     {
-        this.BUTTONS[0].GetComponent<Button>().GetComponent<Image>().color = new Color(255, 255, 255);
-        this.BUTTONS[1].GetComponent<Button>().GetComponent<Image>().color = new Color(255, 255, 255);
-        this.blackPressed = false;
-        this.redPressed = false;
+        this.ResetButtons();
 
         switch (i)
         {
             case 0:
-                this.BUTTONS[0].GetComponent<Button>().GetComponent<Image>().color = new Color(0, 255, 0);
-                this.blackPressed = true;
+                this._buttons[0].GetComponent<Button>().GetComponent<Image>().color = new Color(0, 255, 0);
+                this._blackPressed = true;
                 break;
             case 1:
-                this.BUTTONS[1].GetComponent<Button>().GetComponent<Image>().color = new Color(0, 255, 0);
-                this.redPressed = true;
+                this._buttons[1].GetComponent<Button>().GetComponent<Image>().color = new Color(0, 255, 0);
+                this._redPressed = true;
                 break;
             default:
                 break;
         }
     }
 
+    public void ResetButtons()
+    {
+        this._buttons[0].GetComponent<Button>().GetComponent<Image>().color = new Color(255, 255, 255);
+        this._buttons[1].GetComponent<Button>().GetComponent<Image>().color = new Color(255, 255, 255);
+        this._blackPressed = false;
+        this._redPressed = false;
+    }
+
     public bool RedTowerSelected()
     {
-        return this.redPressed;
+        return this._redPressed;
     }
 
     public bool BlackTowerSelected()
     {
-        return this.blackPressed;
+        return this._blackPressed;
     }
 }

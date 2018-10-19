@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3b1e1391f944f41a0ee705a695047c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BUTTONS:
+  _buttons:
   - {fileID: 1686093849}
   - {fileID: 1015523030}
 --- !u!1 &5324116
@@ -1051,8 +1051,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fb24b571cdb57a419886238129d7c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  redPrefab: {fileID: 1622330107129480, guid: a59e8ed5f6e3ff345a1aa76c370a7405, type: 2}
-  blackPrefab: {fileID: 1259875683501524, guid: db7623f96539a7d4d81a92e8c364e3ff,
+  _redPrefab: {fileID: 1622330107129480, guid: a59e8ed5f6e3ff345a1aa76c370a7405, type: 2}
+  _blackPrefab: {fileID: 1259875683501524, guid: db7623f96539a7d4d81a92e8c364e3ff,
     type: 2}
 --- !u!20 &282840813
 Camera:

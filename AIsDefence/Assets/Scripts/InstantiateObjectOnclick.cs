@@ -4,52 +4,45 @@ using UnityEngine;
 
 public class InstantiateObjectOnclick : MonoBehaviour {
 
-    private Ray ray;
-    private RaycastHit hit;
+    private Ray _ray;
+    private RaycastHit _hit;
 
-    public GameObject redPrefab;
-    public GameObject blackPrefab;
+    [SerializeField]
+    private GameObject _redPrefab;
+    [SerializeField]
+    private GameObject _blackPrefab;
 
-    private bool pressedDelay = false;
+    private bool _pressedDelay = false;
 
-    private TowerSelection towerSelection;
+    private TowerSelection _towerSelection;
 
 	// Use this for initialization
 	void Start () {
-		this.towerSelection = GameObject.Find("Canvas").GetComponent<TowerSelection>();
-        Debug.Log(this.towerSelection == null);
+		this._towerSelection = GameObject.Find("Canvas").GetComponent<TowerSelection>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(_ray, out _hit))
         {
-            if (this.pressedDelay == false && (this.towerSelection.RedTowerSelected() || this.towerSelection.BlackTowerSelected())) {
+            if (this._towerSelection.RedTowerSelected() || this._towerSelection.BlackTowerSelected()) {
                 if (Input.GetKey(KeyCode.Mouse0))
                 {
-                    pressedDelay = true;
-
-                    if (this.towerSelection.RedTowerSelected())
+                    if (this._towerSelection.RedTowerSelected())
                     {
-                        GameObject obj = Instantiate(redPrefab, new Vector3(hit.point.x, hit.point.y, hit.point.z), Quaternion.identity) as GameObject;
+                        GameObject obj = Instantiate(_redPrefab, new Vector3(_hit.point.x, _hit.point.y, _hit.point.z), Quaternion.identity) as GameObject;
                     }
-                    else if (this.towerSelection.BlackTowerSelected())
+                    else if (this._towerSelection.BlackTowerSelected())
                     {
-                        GameObject obj = Instantiate(blackPrefab, new Vector3(hit.point.x, hit.point.y, hit.point.z), Quaternion.identity) as GameObject;
+                        GameObject obj = Instantiate(_blackPrefab, new Vector3(_hit.point.x, _hit.point.y, _hit.point.z), Quaternion.identity) as GameObject;
                     }
 
-                    StartCoroutine(ResetDelay());
+                    this._towerSelection.ResetButtons();
                 }
             }
-
         }
     }
 
-    IEnumerator ResetDelay()
-    {
-        yield return new WaitForSeconds(1);
-        pressedDelay = false;
-    }
 }
