@@ -7,7 +7,10 @@ public class Enemy : MonoBehaviour{
     public float Speed;
     public string Name;
     public int Worth;
+
+    [SerializeField]
     private int _maxHealth;
+
     public int Health;
     public int Damage;
     public float DistanceToEnd;
@@ -18,6 +21,12 @@ public class Enemy : MonoBehaviour{
     private void Start()
     {
         _height = transform.position.y;
+        Health = _maxHealth;
+    }
+
+    private void OnEnable()
+    {
+        Health = _maxHealth;
     }
 
     public void TakeDamage(int damage)

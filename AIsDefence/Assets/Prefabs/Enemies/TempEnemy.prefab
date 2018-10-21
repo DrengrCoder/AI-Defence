@@ -31,7 +31,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4671910314177904
 Transform:
   m_ObjectHideFlags: 1
@@ -116,9 +116,10 @@ MonoBehaviour:
   Speed: 10
   Name: BasicSuicide
   Worth: 10
-  Health: 10
+  _maxHealth: 10
+  Health: 1
   Damage: 10
-  DistanceToEnd: 0
+  DistanceToEnd: 1e+9
   EnemyTarget: {fileID: 0}
 --- !u!135 &135277456767133436
 SphereCollider:
