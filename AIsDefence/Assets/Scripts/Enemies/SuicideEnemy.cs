@@ -15,7 +15,11 @@ public class SuicideEnemy : Enemy {
 
     private void Attack()
     {
-        Debug.Log("Attack");
+        if(EnemyTarget.GetComponent<Objective>())
+        {
+            EnemyTarget.GetComponent<Objective>().TakeDamage(Damage);
+        }
+
         Death();
     }
 

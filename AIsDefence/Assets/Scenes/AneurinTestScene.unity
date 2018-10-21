@@ -1283,6 +1283,19 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 7e4c0a234ba31544e9e4b1aa3e1fae7d, type: 3}
   m_PrefabInternal: {fileID: 1233841456}
+--- !u!114 &587084279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 587084278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdf63926302b9c948b450bedb17c4699, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  CurrentHealth: 0
 --- !u!65 &587084282
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2488,6 +2501,11 @@ Prefab:
       propertyPath: EnemyTarget
       value: 
       objectReference: {fileID: 587084278}
+    - target: {fileID: 114607656507749626, guid: b4982e46a55e0e84e811be252b93b637,
+        type: 2}
+      propertyPath: DistanceToEnd
+      value: 1e+9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b4982e46a55e0e84e811be252b93b637, type: 2}
   m_IsPrefabParent: 0

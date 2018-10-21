@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour{
     public void Death()
     {
         Debug.Log("I be dead");
+        gameObject.SetActive(false);
     }
 
     public void Move()
