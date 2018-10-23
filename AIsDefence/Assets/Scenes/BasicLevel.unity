@@ -1051,8 +1051,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fb24b571cdb57a419886238129d7c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _redPrefab: {fileID: 1622330107129480, guid: a59e8ed5f6e3ff345a1aa76c370a7405, type: 2}
-  _blackPrefab: {fileID: 1259875683501524, guid: db7623f96539a7d4d81a92e8c364e3ff,
+  _redPrefab: {fileID: 1873505635767864, guid: a59e8ed5f6e3ff345a1aa76c370a7405, type: 2}
+  _blackPrefab: {fileID: 1356574647339794, guid: db7623f96539a7d4d81a92e8c364e3ff,
     type: 2}
 --- !u!20 &282840813
 Camera:

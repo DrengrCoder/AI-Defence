@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 65522090602897300}
   - component: {fileID: 54979925792504630}
   m_Layer: 0
-  m_Name: Red Enemy
+  m_Name: Black Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +87,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: df41c8f7a996569419444eab67139f5b, type: 2}
+  - {fileID: 2100000, guid: cdcdeb8cd09402041bb801b4c277a2bc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
