@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour{
 
     private void OnEnable()
     {
+        _height = transform.position.y;
         Health = _maxHealth;
     }
 
