@@ -16,33 +16,41 @@ public class InstantiateObjectOnclick : MonoBehaviour {
 
     private TowerSelection _towerSelection;
 
+    private GameObject _thisSpot;
+
 	// Use this for initialization
 	void Start () {
 		this._towerSelection = GameObject.Find("Canvas").GetComponent<TowerSelection>();
+        this._thisSpot = this.gameObject;
     }
 	
 	// Update is called once per frame
 	void Update () {
         _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(_ray, out _hit))
+        if (Physics.Raycast(_ray, out _hit) && this._hit.transform.name == this._thisSpot.name)
         {
             if (this._towerSelection.RedTowerSelected() || this._towerSelection.BlackTowerSelected()) {
                 if (Input.GetKey(KeyCode.Mouse0))
                 {
                     if (this._towerSelection.RedTowerSelected())
                     {
-                        GameObject obj = Instantiate(_redPrefab, new Vector3(_hit.point.x, _hit.point.y, _hit.point.z), Quaternion.identity) as GameObject;
+                        GameObject obj = Instantiate(_redPrefab, SpawnPosition(), Quaternion.identity) as GameObject;
                     }
                     else if (this._towerSelection.BlackTowerSelected())
                     {
-                        GameObject obj = Instantiate(_blackPrefab, new Vector3(_hit.point.x, _hit.point.y, _hit.point.z), Quaternion.identity) as GameObject;
+                        GameObject obj = Instantiate(_blackPrefab, SpawnPosition(), Quaternion.identity) as GameObject;
                     }
 
                     this._towerSelection.ResetButtons();
                 }
             }
         }
+    }
+
+    private Vector3 SpawnPosition()
+    {
+        return new Vector3(this._thisSpot.transform.position.x, this._thisSpot.transform.position.y, this._thisSpot.transform.position.z);
     }
 
 }
