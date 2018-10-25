@@ -28,10 +28,11 @@ public class InstantiateObjectOnclick : MonoBehaviour {
 	void Update () {
         _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(_ray, out _hit) && this._hit.transform.name == this._thisSpot.name)
+        if (Input.GetKey(KeyCode.Mouse0))
         {
-            if (this._towerSelection.RedTowerSelected() || this._towerSelection.BlackTowerSelected()) {
-                if (Input.GetKey(KeyCode.Mouse0))
+            if (Physics.Raycast(_ray, out _hit))
+            {
+                if (this._hit.transform.name == this._thisSpot.name && (this._towerSelection.RedTowerSelected() || this._towerSelection.BlackTowerSelected()))
                 {
                     if (this._towerSelection.RedTowerSelected())
                     {
