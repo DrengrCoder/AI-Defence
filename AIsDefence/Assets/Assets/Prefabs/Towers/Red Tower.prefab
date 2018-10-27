@@ -22,8 +22,6 @@ GameObject:
   - component: {fileID: 33398450368465626}
   - component: {fileID: 23630978725205054}
   - component: {fileID: 65114754029926458}
-  - component: {fileID: 135750076578086176}
-  - component: {fileID: 114990820431952208}
   m_Layer: 2
   m_Name: Red Tower
   m_TagString: Untagged
@@ -39,7 +37,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4488743231416632}
-  m_Layer: 0
+  - component: {fileID: 135335272737081456}
+  - component: {fileID: 114632903003397904}
+  m_Layer: 2
   m_Name: Red Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,27 +127,28 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114990820431952208
+--- !u!114 &114632903003397904
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1310894772800724}
+  m_GameObject: {fileID: 1873505635767864}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc61a95e4132bca41936560885aee1c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _bullet: {fileID: 1195412905759990, guid: 3f26251a6a5e3cc4eb27be0c9f0ad369, type: 2}
---- !u!135 &135750076578086176
+  _bomb: {fileID: 1808151321666730, guid: a44d5d444f103e54e8f3e9c0360fe465, type: 2}
+--- !u!135 &135335272737081456
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1310894772800724}
+  m_GameObject: {fileID: 1873505635767864}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 25
   m_Center: {x: 0, y: 0, z: 0}
