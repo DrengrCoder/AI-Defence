@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TowerController : MonoBehaviour {
 
+    private int _health = 100;
+
     [SerializeField]
     private GameObject _bullet;
     [SerializeField]
@@ -36,5 +38,10 @@ public class TowerController : MonoBehaviour {
 
             _projectileManager.FireProjectile(this.gameObject, obj, prefabProjectile, force);
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        _health -= damage;
     }
 }
