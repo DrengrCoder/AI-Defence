@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EditTowerMenu : MonoBehaviour {
 
@@ -15,10 +17,17 @@ public class EditTowerMenu : MonoBehaviour {
         {
             ToggleMenu();
         }
+        else if (_on)
+        {
+            UpdateTree();
+        }
 	}
 
     private void ToggleMenu()
     {
+        _editMenu.transform.GetChild(3).GetComponent<Text>().text = "Selected Tower";
+        _editMenu.transform.GetChild(4).GetComponent<Text>().text = "";
+
         if (!_on)
         {
             this._editMenu.SetActive(true);
@@ -31,5 +40,37 @@ public class EditTowerMenu : MonoBehaviour {
         }
 
         _on = !_on;
+    }
+    
+    private void UpdateTree()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (_editMenu.transform.GetChild(3).GetComponent<Text>().text == "Selected Tower" ||
+                _editMenu.transform.GetChild(3).GetComponent<Text>().text == "Black Tower")
+            {
+                _editMenu.transform.GetChild(3).GetComponent<Text>().text = "Red Tower";
+                _editMenu.transform.GetChild(4).GetComponent<Text>().text = "text";
+            }
+            else
+            {
+                _editMenu.transform.GetChild(3).GetComponent<Text>().text = "Selected Tower";
+                _editMenu.transform.GetChild(4).GetComponent<Text>().text = "";
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.B))
+        {
+            if (_editMenu.transform.GetChild(3).GetComponent<Text>().text == "Selected Tower" ||
+                _editMenu.transform.GetChild(3).GetComponent<Text>().text == "Red Tower")
+            {
+                _editMenu.transform.GetChild(3).GetComponent<Text>().text = "Black Tower";
+                _editMenu.transform.GetChild(4).GetComponent<Text>().text = "text";
+            }
+            else
+            {
+                _editMenu.transform.GetChild(3).GetComponent<Text>().text = "Selected Tower";
+                _editMenu.transform.GetChild(4).GetComponent<Text>().text = "";
+            }
+        }
     }
 }
