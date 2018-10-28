@@ -7,7 +7,6 @@ public class Enemy : MonoBehaviour{
 
     //public float Speed; replaced by navmesh
     public string Name;
-    public int Worth;
 
     [SerializeField]
     private int _maxHealth;
@@ -17,8 +16,11 @@ public class Enemy : MonoBehaviour{
     public int Damage;
     public float DistanceToEnd;
     public GameObject EnemyTarget;
+    public float AttackCooldown = 2.0f;
 
     private float _height;
+    private float _timeTillAttack = 0.0f;
+    public bool CanAttack = true;
 
     private void Start()
     {
@@ -31,6 +33,8 @@ public class Enemy : MonoBehaviour{
         _height = transform.position.y;
         Health = _maxHealth;
         gameObject.GetComponent<NavMeshAgent>().SetDestination(EnemyTarget.transform.position);
+        _timeTillAttack = 0.0f;
+        CanAttack = true;
     }
 
     private void OnDisable()
@@ -52,7 +56,6 @@ public class Enemy : MonoBehaviour{
 
     public void Death()
     {
-        Debug.Log("I be dead");
         gameObject.SetActive(false);
     }
 
@@ -64,6 +67,17 @@ public class Enemy : MonoBehaviour{
     private void Update()
     {
         Move();
+
+        if (CanAttack == false)
+        {
+            _timeTillAttack = _timeTillAttack + Time.deltaTime;
+
+            if (_timeTillAttack >= AttackCooldown)
+            {
+                _timeTillAttack = 0.0f;
+                CanAttack = true;
+            }
+        }
     }
 
     public void Attack()

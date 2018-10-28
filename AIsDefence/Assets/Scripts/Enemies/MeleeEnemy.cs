@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SuicideEnemy : Enemy {
+public class MeleeEnemy : Enemy {
 
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log(other.gameObject.name);
-        if (other.gameObject == EnemyTarget)//ignores players and towers
+        Debug.Log(other.gameObject.name);
+        if (other.gameObject == EnemyTarget)//attacks player
         {
             Attack(other.gameObject);
         }
@@ -20,8 +20,6 @@ public class SuicideEnemy : Enemy {
             target.GetComponent<Objective>().TakeDamage(Damage);
         }
 
-        CreditsOnDeath = 0;
-        Death();
+        Debug.Log("Melee Attack");
     }
-
 }

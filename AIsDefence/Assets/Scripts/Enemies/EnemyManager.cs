@@ -24,6 +24,8 @@ public class EnemyManager : MonoBehaviour {
     [SerializeField]
     private GameObject EnemyTarget;
     [SerializeField]
+    private EnemyProjectilePool _bulletPool;
+    [SerializeField]
     private float _delayOnOverSpawn = 3.0f;
     [SerializeField]
     private float _spawnDelay = 30.0f;
@@ -46,6 +48,12 @@ public class EnemyManager : MonoBehaviour {
             for (int j = 0; j < _pools[i].Num.Length; j++)
             {
                 GameObject temp = Instantiate(_spawnableEnemies[i]);
+
+                if (temp.GetComponent<RangedEnemy>())
+                {
+                    temp.GetComponent<RangedEnemy>().BulletPool = _bulletPool;
+                }
+
                 _pools[i].Num[j] = temp;
             }
         }
