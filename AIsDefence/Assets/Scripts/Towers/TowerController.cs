@@ -10,18 +10,22 @@ public class TowerController : MonoBehaviour {
     private GameObject _bullet;
     [SerializeField]
     private GameObject _bomb;
-
+    [SerializeField]
+    private int _cost;
+  
     private ProjectileManager _projectileManager;
 
-	// Use this for initialization
-	void Start () {
-        _projectileManager = GameObject.Find("ProjectileManager").GetComponent<ProjectileManager>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    // Use this for initialization
+    private void OnEnable()
+    {
+        CreditBanks Bank = FindObjectOfType<CreditBanks>();
+        Bank.MinusCredits(_cost);
+    }
+
+    // Use this for initialization
+    void Start () {
+          _projectileManager = GameObject.Find("ProjectileManager").GetComponent<ProjectileManager>();
+    }
 
     private void OnTriggerEnter(Collider obj)
     {

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyManager : MonoBehaviour {
 
@@ -23,21 +24,36 @@ public class EnemyManager : MonoBehaviour {
     [SerializeField]
     private GameObject EnemyTarget;
     [SerializeField]
+    private EnemyProjectilePool _bulletPool;
+    [SerializeField]
     private float _delayOnOverSpawn = 3.0f;
     [SerializeField]
     private float _spawnDelay = 30.0f;
     private float _spawnIn = 0.0f;
 
+    [SerializeField]
+    private Text _waveNum;
+    [SerializeField]
+    private Text _waveTimerNum;
+
     private void Start()
     {
         Wave = 0;
         _spawnIn = 30.0f;
+        _waveNum.text = Wave.ToString();
+        _waveTimerNum.text = _spawnIn.ToString();
 
         for (int i = 0; i < _pools.Length; i++)
         {
             for (int j = 0; j < _pools[i].Num.Length; j++)
             {
                 GameObject temp = Instantiate(_spawnableEnemies[i]);
+
+                if (temp.GetComponent<RangedEnemy>())
+                {
+                    temp.GetComponent<RangedEnemy>().BulletPool = _bulletPool;
+                }
+
                 _pools[i].Num[j] = temp;
             }
         }
@@ -65,6 +81,12 @@ public class EnemyManager : MonoBehaviour {
         DelayedSpawns(tospawnEnemies);
 
         Wave = Wave + 1;
+        _waveNum.text = Wave.ToString();
+
+        if (Wave == _waves.Length)
+        {
+            _waveTimerNum.text = "0.00";
+        }
     }
 
     //Need to add a protector
@@ -101,7 +123,6 @@ public class EnemyManager : MonoBehaviour {
 
     private IEnumerator MoreSpawns(List<GameObject> tospawnEnemies)
     {
-        Debug.Log("entered");
         yield return new WaitForSeconds(_delayOnOverSpawn);
         DelayedSpawns(tospawnEnemies);
     }
@@ -114,7 +135,12 @@ public class EnemyManager : MonoBehaviour {
             SpawnEnemy();
         }
 
-        _spawnIn = _spawnIn + Time.deltaTime;
+        if (Wave != (_waves.Length))
+        {
+            _spawnIn = _spawnIn + Time.deltaTime;
+            float temp = _spawnDelay - _spawnIn;
+            _waveTimerNum.text = temp.ToString("F2");
+        }
     }
 
 }
