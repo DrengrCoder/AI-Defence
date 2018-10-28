@@ -9,9 +9,11 @@ public class TowerController : MonoBehaviour {
     [SerializeField]
     private GameObject _bomb;
 
+    private ProjectileManager _projectileManager;
+
 	// Use this for initialization
 	void Start () {
-		
+        _projectileManager = GameObject.Find("ProjectileManager").GetComponent<ProjectileManager>();
 	}
 	
 	// Update is called once per frame
@@ -23,21 +25,16 @@ public class TowerController : MonoBehaviour {
     {
         if (!obj.isTrigger && obj.tag == "Enemy")
         {
-            Vector3 vect = new Vector3(transform.position.x, obj.transform.position.y, transform.position.z);
-
-            GameObject inst = this._bullet;
+            GameObject prefabProjectile = this._bullet;
             int force = 2500;
+
             if (this.gameObject.name.Contains("Red Tower"))
             {
                 force = 1500;
-                inst = this._bomb;
+                prefabProjectile = this._bomb;
             }
 
-            GameObject firedBullet = Instantiate(inst, vect, Quaternion.identity) as GameObject;
-
-            firedBullet.transform.LookAt(obj.transform);
-
-            firedBullet.GetComponent<Rigidbody>().AddRelativeForce(transform.forward * force);
+            _projectileManager.FireProjectile(this.gameObject, obj, prefabProjectile, force);
         }
     }
 }
