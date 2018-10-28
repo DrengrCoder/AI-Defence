@@ -123,7 +123,6 @@ public class EnemyManager : MonoBehaviour {
 
     private IEnumerator MoreSpawns(List<GameObject> tospawnEnemies)
     {
-        Debug.Log("entered");
         yield return new WaitForSeconds(_delayOnOverSpawn);
         DelayedSpawns(tospawnEnemies);
     }

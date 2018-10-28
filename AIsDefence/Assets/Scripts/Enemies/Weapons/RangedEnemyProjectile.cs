@@ -34,7 +34,7 @@ public class RangedEnemyProjectile : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.gameObject.GetComponent<Enemy>())
+        if ((!other.gameObject.GetComponent<Enemy>()) && (!other.isTrigger))
         {
             if (other.gameObject.GetComponent<Objective>())//attacks player and tower
             {

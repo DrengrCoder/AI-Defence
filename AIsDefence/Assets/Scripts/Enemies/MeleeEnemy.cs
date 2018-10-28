@@ -1,12 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MeleeEnemy : Enemy {
 
+    [SerializeField]
+    private StabbingMelee _meleeWeapon;
+
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.name);
+        if (other.gameObject == EnemyTarget)//attacks player
+        {
+            Attack(other.gameObject);
+            gameObject.GetComponent<NavMeshAgent>().SetDestination(transform.position);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject == EnemyTarget)//corrects movement
+        {
+            gameObject.GetComponent<NavMeshAgent>().SetDestination(EnemyTarget.transform.position);
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
         if (other.gameObject == EnemyTarget)//attacks player
         {
             Attack(other.gameObject);
@@ -15,11 +35,13 @@ public class MeleeEnemy : Enemy {
 
     private void Attack(GameObject target)
     {
-        if (target.GetComponent<Objective>())
+        if (CanAttack == true)
         {
-            target.GetComponent<Objective>().TakeDamage(Damage);
+            if (target.GetComponent<Objective>())
+            {
+                _meleeWeapon.MeleeAttack();
+                CanAttack = false;
+            }
         }
-
-        Debug.Log("Melee Attack");
     }
 }

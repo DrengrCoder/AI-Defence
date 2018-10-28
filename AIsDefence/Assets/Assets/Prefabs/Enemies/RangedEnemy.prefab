@@ -115,15 +115,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: BasicRanged
-  _maxHealth: 10
+  _maxHealth: 5
   CreditsOnDeath: 250
-  Health: 10
+  Health: 5
   Damage: 5
   DistanceToEnd: 0
   EnemyTarget: {fileID: 0}
   AttackCooldown: 2
   CanAttack: 1
-  CanMove: 1
   BulletPool: {fileID: 0}
 --- !u!135 &135421186009765156
 SphereCollider:
@@ -159,7 +158,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5000001
-  m_Speed: 30
+  m_Speed: 8
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

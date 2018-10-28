@@ -23,9 +23,9 @@ GameObject:
   - component: {fileID: 23831397329634124}
   - component: {fileID: 136414648221270710}
   - component: {fileID: 135277456767133436}
-  - component: {fileID: 114607656507749626}
   - component: {fileID: 54761218413928308}
   - component: {fileID: 195093992185716394}
+  - component: {fileID: 114607656507749626}
   m_Layer: 0
   m_Name: TempEnemy
   m_TagString: Enemy
@@ -123,7 +123,6 @@ MonoBehaviour:
   EnemyTarget: {fileID: 0}
   AttackCooldown: 0
   CanAttack: 1
-  CanMove: 1
 --- !u!135 &135277456767133436
 SphereCollider:
   m_ObjectHideFlags: 1
