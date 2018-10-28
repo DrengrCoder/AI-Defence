@@ -4543,6 +4543,50 @@ MonoBehaviour:
   _redPrefab: {fileID: 1873505635767864, guid: a59e8ed5f6e3ff345a1aa76c370a7405, type: 2}
   _blackPrefab: {fileID: 1356574647339794, guid: db7623f96539a7d4d81a92e8c364e3ff,
     type: 2}
+--- !u!1 &1609375598
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1609375600}
+  - component: {fileID: 1609375599}
+  m_Layer: 0
+  m_Name: ProjectileManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1609375599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1609375598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57a45a7d2915e674cba4b62f7d79a932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefabProjectiles:
+  - {fileID: 1195412905759990, guid: 3f26251a6a5e3cc4eb27be0c9f0ad369, type: 2}
+  - {fileID: 1808151321666730, guid: a44d5d444f103e54e8f3e9c0360fe465, type: 2}
+  _pool: []
+--- !u!4 &1609375600
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1609375598}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1611752519
 GameObject:
   m_ObjectHideFlags: 0

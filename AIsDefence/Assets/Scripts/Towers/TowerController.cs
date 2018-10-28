@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class TowerController : MonoBehaviour {
 
+    private int _health = 100;
+
     [SerializeField]
     private GameObject _bullet;
     [SerializeField]
     private GameObject _bomb;
-
     [SerializeField]
     private int _cost;
+  
+    private ProjectileManager _projectileManager;
 
     // Use this for initialization
     private void OnEnable()
@@ -19,25 +22,30 @@ public class TowerController : MonoBehaviour {
         Bank.MinusCredits(_cost);
     }
 
+    // Use this for initialization
+    void Start () {
+          _projectileManager = GameObject.Find("ProjectileManager").GetComponent<ProjectileManager>();
+    }
+
     private void OnTriggerEnter(Collider obj)
     {
         if (!obj.isTrigger && obj.tag == "Enemy")
         {
-            Vector3 vect = new Vector3(transform.position.x, obj.transform.position.y, transform.position.z);
-
-            GameObject inst = this._bullet;
+            GameObject prefabProjectile = this._bullet;
             int force = 2500;
+
             if (this.gameObject.name.Contains("Red Tower"))
             {
                 force = 1500;
-                inst = this._bomb;
+                prefabProjectile = this._bomb;
             }
 
-            GameObject firedBullet = Instantiate(inst, vect, Quaternion.identity) as GameObject;
-
-            firedBullet.transform.LookAt(obj.transform);
-
-            firedBullet.GetComponent<Rigidbody>().AddRelativeForce(transform.forward * force);
+            _projectileManager.FireProjectile(this.gameObject, obj, prefabProjectile, force);
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        _health -= damage;
     }
 }
