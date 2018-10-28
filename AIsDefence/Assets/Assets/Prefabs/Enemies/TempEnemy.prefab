@@ -114,11 +114,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f66b9f6c10af92947a18045b38bbba76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 10
   Name: BasicSuicide
   Worth: 10
   _maxHealth: 10
-  CreditsOnDeath: 30
+  CreditsOnDeath: 100
   Health: 1
   Damage: 10
   DistanceToEnd: 1e+9

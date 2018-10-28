@@ -8,19 +8,34 @@ public class TowerSelection : MonoBehaviour {
     [SerializeField]
     private Button[] _buttons;
 
+    [SerializeField]
+    private int[] _costs;
+
     private bool _blackPressed = false;
     private bool _redPressed = false;
+    private CreditBanks _bank;
 
 	// Use this for initialization
 	void Start ()
     {
         this._buttons[0].GetComponent<Button>().onClick.AddListener(delegate { ButtonClick(0); });
         this._buttons[1].GetComponent<Button>().onClick.AddListener(delegate { ButtonClick(1); });
+        _bank = FindObjectOfType<CreditBanks>();
+        CreditUpdated();
     }
 	
-	// Update is called once per frame
-	void Update () {
-		
+	public void CreditUpdated() {
+		for (int i = 0; i < _costs.Length; i++)
+        {
+            if (_costs[i] > _bank.CreditBank)
+            {
+                _buttons[i].interactable = false; 
+            }
+            else
+            {
+                _buttons[i].interactable = true;
+            }
+        }
 	}
 
     void ButtonClick(int i)

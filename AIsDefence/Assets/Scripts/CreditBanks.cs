@@ -5,28 +5,34 @@ using UnityEngine.UI;
 
 public class CreditBanks : MonoBehaviour {
 
-    [SerializeField]
-    private int _creditBank = 0;
+    public int CreditBank = 0;
+
     [SerializeField]
     private Text _CreditDisplay;
+    [SerializeField]
+    private TowerSelection _towerSelection;
 
     private void Start()
     {
-        _CreditDisplay.text = _creditBank.ToString();
+        _CreditDisplay.text = CreditBank.ToString();
     }
 
     public void AddCredits(int credits)
     {
-        _creditBank = _creditBank + credits;
+        CreditBank = CreditBank + credits;
 
-        _CreditDisplay.text = _creditBank.ToString();
+        _CreditDisplay.text = CreditBank.ToString();
+
+        _towerSelection.CreditUpdated();
     }
 
     public void MinusCredits(int credits)
     {
-        _creditBank = _creditBank - credits;
+        CreditBank = CreditBank - credits;
 
-        _CreditDisplay.text = _creditBank.ToString();
+        _CreditDisplay.text = CreditBank.ToString();
+
+        _towerSelection.CreditUpdated();
     }
 
 }

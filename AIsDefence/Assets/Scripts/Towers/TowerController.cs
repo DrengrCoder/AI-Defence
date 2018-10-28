@@ -9,15 +9,15 @@ public class TowerController : MonoBehaviour {
     [SerializeField]
     private GameObject _bomb;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    [SerializeField]
+    private int _cost;
+
+    // Use this for initialization
+    private void OnEnable()
+    {
+        CreditBanks Bank = FindObjectOfType<CreditBanks>();
+        Bank.MinusCredits(_cost);
+    }
 
     private void OnTriggerEnter(Collider obj)
     {
