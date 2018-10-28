@@ -117,6 +117,7 @@ MonoBehaviour:
   Name: BasicSuicide
   Worth: 10
   _maxHealth: 10
+  CreditsOnDeath: 30
   Health: 1
   Damage: 10
   DistanceToEnd: 1e+9

@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour{
     [SerializeField]
     private int _maxHealth;
 
+    public int CreditsOnDeath;
     public int Health;
     public int Damage;
     public float DistanceToEnd;
@@ -28,6 +29,13 @@ public class Enemy : MonoBehaviour{
     {
         _height = transform.position.y;
         Health = _maxHealth;
+    }
+
+    private void OnDisable()
+    {
+        //Move to Death() when turrets deal health damage
+        CreditBanks Bank = FindObjectOfType<CreditBanks>();
+        Bank.AddCredits(CreditsOnDeath);
     }
 
     public void TakeDamage(int damage)

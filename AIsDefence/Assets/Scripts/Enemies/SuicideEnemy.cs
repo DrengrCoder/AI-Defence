@@ -20,6 +20,7 @@ public class SuicideEnemy : Enemy {
             EnemyTarget.GetComponent<Objective>().TakeDamage(Damage);
         }
 
+        CreditsOnDeath = 0;
         Death();
     }
 
