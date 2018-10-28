@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class BulletDamage : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private void OnEnable()
+    {
+        Invoke("DestroyBullet", 2f);
+    }
 
     private void OnTriggerEnter(Collider obj)
     {
@@ -39,7 +34,19 @@ public class BulletDamage : MonoBehaviour {
                 }
             }
 
-            Destroy(this.gameObject);
+            this.DestroyBullet();
         }
+    }
+
+    private void DestroyBullet()
+    {
+        this.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+        this.gameObject.SetActive(false);
+        this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+    }
+
+    private void OnDisable()
+    {
+        CancelInvoke();
     }
 }
