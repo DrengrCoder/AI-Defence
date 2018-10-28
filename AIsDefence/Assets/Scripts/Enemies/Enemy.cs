@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour{
 
-    public float Speed;
+    //public float Speed; replaced by navmesh
     public string Name;
     public int Worth;
 
@@ -29,6 +30,7 @@ public class Enemy : MonoBehaviour{
     {
         _height = transform.position.y;
         Health = _maxHealth;
+        gameObject.GetComponent<NavMeshAgent>().SetDestination(EnemyTarget.transform.position);
     }
 
     private void OnDisable()
@@ -56,11 +58,6 @@ public class Enemy : MonoBehaviour{
 
     public void Move()
     {
-        float step = Speed * Time.deltaTime;
-        Vector3 newposition = Vector3.MoveTowards(transform.position, EnemyTarget.transform.position, step);
-        newposition.y = _height;
-        transform.position = newposition;
-
         DistanceToEnd = Vector3.Distance(transform.position, EnemyTarget.transform.position);
     }
 
