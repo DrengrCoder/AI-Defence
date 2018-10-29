@@ -16,8 +16,9 @@ public class TowerController : MonoBehaviour {
     private int _cost;
   
     private ProjectileManager _projectileManager;
+    private EditTowerMenu _towerEditMenu;
 
-    private List<GameObject> _inRangeEnemies;
+    private List<GameObject> _inRangeEnemies = new List<GameObject>();
     private GameObject _currentTarget;
     private AttackChoice _aiAttackOption = AttackChoice.First;
 
@@ -44,6 +45,8 @@ public class TowerController : MonoBehaviour {
             default:
                 break;
         }
+
+        AllocateNewTarget();
     }
     
     private void OnEnable()
@@ -53,7 +56,9 @@ public class TowerController : MonoBehaviour {
     }
     
     void Start () {
-          _projectileManager = GameObject.Find("ProjectileManager").GetComponent<ProjectileManager>();
+        _projectileManager = GameObject.Find("ProjectileManager").GetComponent<ProjectileManager>();
+        _towerEditMenu = GameObject.Find("UI/Menus").GetComponent<EditTowerMenu>();
+        _towerEditMenu.AddTower(this.gameObject);
     }
 
     void Update()
@@ -81,10 +86,10 @@ public class TowerController : MonoBehaviour {
                 _inRangeEnemies.Sort((e1, e2) => -1* e1.GetComponent<Enemy>().DistanceToEnd.CompareTo( e2.GetComponent<Enemy>().DistanceToEnd ));
                 break;
             case AttackChoice.Strongest:
-                _inRangeEnemies.Sort((e1, e2) => e1.GetComponent<Enemy>().Health.CompareTo( e2.GetComponent<Enemy>().Health ));
+                _inRangeEnemies.Sort((e1, e2) => -1* e1.GetComponent<Enemy>().Health.CompareTo( e2.GetComponent<Enemy>().Health ));
                 break;
             case AttackChoice.Weakest:
-                _inRangeEnemies.Sort((e1, e2) => -1* e1.GetComponent<Enemy>().Health.CompareTo(e2.GetComponent<Enemy>().Health));
+                _inRangeEnemies.Sort((e1, e2) => e1.GetComponent<Enemy>().Health.CompareTo(e2.GetComponent<Enemy>().Health));
                 break;
             default:
                 break;
@@ -106,7 +111,7 @@ public class TowerController : MonoBehaviour {
     {
         if (!obj.isTrigger && obj.tag == "Enemy" && _canAttack)
         {
-            Attack(obj);
+            Attack();
             _canAttack = false;
         }
     }
@@ -123,7 +128,7 @@ public class TowerController : MonoBehaviour {
         }
     }
 
-    private void Attack(Collider target)
+    private void Attack()
     {
         GameObject prefabProjectile = this._bullet;
         int force = 2500;
@@ -134,7 +139,7 @@ public class TowerController : MonoBehaviour {
             prefabProjectile = this._bomb;
         }
 
-        _projectileManager.FireProjectile(this.gameObject, target, prefabProjectile, force);
+        _projectileManager.FireProjectile(this.gameObject, _currentTarget.GetComponent<CapsuleCollider>(), prefabProjectile, force);
     }
 
     public void TakeDamage(int damage)

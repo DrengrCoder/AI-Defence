@@ -9,6 +9,8 @@ public class EditTowerMenu : MonoBehaviour {
     [SerializeField]
     private GameObject _editMenu;
 
+    private List<GameObject> _towers = new List<GameObject>();
+
     private bool _on = false;
     	
 	// Update is called once per frame
@@ -102,6 +104,11 @@ public class EditTowerMenu : MonoBehaviour {
                     _editMenu.transform.GetChild(6).GetComponent<Text>().text = "Black Tower (B) - Attacking " + attackingText + " Enemy";
                 }
 
+                foreach (GameObject tower in _towers)
+                {
+                    tower.GetComponent<TowerController>().SetAttackOption(attackingText);
+                }
+
                 ResetText();
             }
 
@@ -113,5 +120,15 @@ public class EditTowerMenu : MonoBehaviour {
     {
         _editMenu.transform.GetChild(3).GetComponent<Text>().text = "Selected Tower";
         _editMenu.transform.GetChild(4).GetComponent<Text>().text = "";
+    }
+
+    public void AddTower(GameObject tower)
+    {
+        this._towers.Add(tower);
+    }
+
+    public void RemoveTower(GameObject tower)
+    {
+        this._towers.Remove(tower);
     }
 }
