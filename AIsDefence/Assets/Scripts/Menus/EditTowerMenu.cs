@@ -44,33 +44,74 @@ public class EditTowerMenu : MonoBehaviour {
     
     private void UpdateTree()
     {
+        string selectedTowerText = _editMenu.transform.GetChild(3).GetComponent<Text>().text;
+
         if (Input.GetKeyDown(KeyCode.R))
         {
-            if (_editMenu.transform.GetChild(3).GetComponent<Text>().text == "Selected Tower" ||
-                _editMenu.transform.GetChild(3).GetComponent<Text>().text == "Black Tower")
+            if (selectedTowerText == "Selected Tower" || selectedTowerText == "Black Tower")
             {
                 _editMenu.transform.GetChild(3).GetComponent<Text>().text = "Red Tower";
-                _editMenu.transform.GetChild(4).GetComponent<Text>().text = "text";
+                _editMenu.transform.GetChild(4).GetComponent<Text>().text = "Attack First Enemy (1)  |  Attack Last Enemy (2)  |  Attack Strongest Enemy (3)  |  Attack Weakest Enemy (4)";
             }
             else
             {
-                _editMenu.transform.GetChild(3).GetComponent<Text>().text = "Selected Tower";
-                _editMenu.transform.GetChild(4).GetComponent<Text>().text = "";
+                ResetText();
             }
         }
         else if (Input.GetKeyDown(KeyCode.B))
         {
-            if (_editMenu.transform.GetChild(3).GetComponent<Text>().text == "Selected Tower" ||
-                _editMenu.transform.GetChild(3).GetComponent<Text>().text == "Red Tower")
+            if (selectedTowerText == "Selected Tower" || selectedTowerText == "Red Tower")
             {
                 _editMenu.transform.GetChild(3).GetComponent<Text>().text = "Black Tower";
-                _editMenu.transform.GetChild(4).GetComponent<Text>().text = "text";
+                _editMenu.transform.GetChild(4).GetComponent<Text>().text = "Attack First Enemy (1)  |  Attack Last Enemy (2)  |  Attack Strongest Enemy (3)  |  Attack Weakest Enemy (4)";
             }
             else
             {
-                _editMenu.transform.GetChild(3).GetComponent<Text>().text = "Selected Tower";
-                _editMenu.transform.GetChild(4).GetComponent<Text>().text = "";
+                ResetText();
             }
         }
+        else if (_editMenu.transform.GetChild(4).GetComponent<Text>().text != "")
+        {
+            string attackingText = "";
+
+            if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
+            {
+                attackingText = "First";
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
+            {
+                attackingText = "Last";
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))
+            {
+                attackingText = "Strongest";
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Keypad4))
+            {
+                attackingText = "Weakest";
+            }
+
+            if (attackingText != "")
+            {
+                if (selectedTowerText == "Red Tower")
+                {
+                    _editMenu.transform.GetChild(5).GetComponent<Text>().text = "Red Tower (R) - Attacking " + attackingText + " Enemy";
+                }
+                else if (selectedTowerText == "Black Tower")
+                {
+                    _editMenu.transform.GetChild(6).GetComponent<Text>().text = "Black Tower (B) - Attacking " + attackingText + " Enemy";
+                }
+
+                ResetText();
+            }
+
+        }
+
+    }
+
+    private void ResetText()
+    {
+        _editMenu.transform.GetChild(3).GetComponent<Text>().text = "Selected Tower";
+        _editMenu.transform.GetChild(4).GetComponent<Text>().text = "";
     }
 }
