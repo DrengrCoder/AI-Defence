@@ -4957,7 +4957,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1689630553}
   - component: {fileID: 1689630554}
-  - component: {fileID: 1689630555}
   m_Layer: 0
   m_Name: UI/Menus
   m_TagString: Untagged
@@ -4991,18 +4990,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ESCMenu: {fileID: 1653131347}
---- !u!114 &1689630555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1689630552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7e906799a8e28d449cc6d6275fefb31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _editMenu: {fileID: 0}
 --- !u!1001 &1746043320
 Prefab:
   m_ObjectHideFlags: 0
