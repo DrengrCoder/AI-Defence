@@ -15,7 +15,20 @@ public class BulletDamage : MonoBehaviour {
         {
             if (this.gameObject.name.Contains("Bullet"))
             {
-                obj.gameObject.SetActive(false);
+                switch (obj.gameObject.name)
+                {
+                    case "TempEnemy(Clone)":
+                        obj.gameObject.GetComponent<SuicideEnemy>().TakeDamage(5);
+                        break;
+                    case "RangedEnemy(Clone)":
+                        obj.gameObject.GetComponent<RangedEnemy>().TakeDamage(5);
+                        break;
+                    case "MeleeEnemy(Clone)":
+                        obj.gameObject.GetComponent<MeleeEnemy>().TakeDamage(5);
+                        break;
+                    default:
+                        break;
+                }
             }
             else if (this.gameObject.name.Contains("Bomb"))
             {
@@ -29,7 +42,20 @@ public class BulletDamage : MonoBehaviour {
                 {
                     if (col.gameObject.tag == "Enemy")
                     {
-                        col.gameObject.SetActive(false);
+                        switch (col.gameObject.name)
+                        {
+                            case "TempEnemy(Clone)":
+                                col.gameObject.GetComponent<SuicideEnemy>().TakeDamage(50);
+                                break;
+                            case "RangedEnemy(Clone)":
+                                col.gameObject.GetComponent<RangedEnemy>().TakeDamage(10);
+                                break;
+                            case "MeleeEnemy(Clone)":
+                                col.gameObject.GetComponent<MeleeEnemy>().TakeDamage(10);
+                                break;
+                            default:
+                                break;
+                        }
                     }
                 }
             }

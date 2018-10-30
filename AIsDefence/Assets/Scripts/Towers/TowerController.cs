@@ -131,7 +131,7 @@ public class TowerController : MonoBehaviour {
     private void Attack()
     {
         GameObject prefabProjectile = this._bullet;
-        int force = 2500;
+        int force = 4000;
 
         if (this.gameObject.name.Contains("Red Tower"))
         {
@@ -145,6 +145,11 @@ public class TowerController : MonoBehaviour {
     public void TakeDamage(int damage)
     {
         _health -= damage;
+
+        if (_health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
 
