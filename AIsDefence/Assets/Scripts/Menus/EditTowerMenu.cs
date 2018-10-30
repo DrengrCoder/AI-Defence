@@ -9,12 +9,19 @@ public class EditTowerMenu : MonoBehaviour {
     [SerializeField]
     private GameObject _editMenu;
 
+    private TowerSelection _towerSelection;
+
     private List<GameObject> _towers = new List<GameObject>();
 
     private bool _on = false;
-    	
-	// Update is called once per frame
-	void Update () {
+
+    void Start()
+    {
+        _towerSelection = GameObject.Find("TowerSelectUI").GetComponent<TowerSelection>();
+    }
+
+    // Update is called once per frame
+    void Update () {
 		if (Input.GetKeyDown(KeyCode.Tab))
         {
             ToggleMenu();
@@ -39,6 +46,11 @@ public class EditTowerMenu : MonoBehaviour {
         {
             this._editMenu.SetActive(false);
             Time.timeScale = 1;
+        }
+
+        foreach (Button btn in this._towerSelection._buttons)
+        {
+            btn.interactable = _on;
         }
 
         _on = !_on;

@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class TowerSelection : MonoBehaviour {
     
-    [SerializeField]
-    private Button[] _buttons;
+    public Button[] _buttons;
 
     [SerializeField]
     private int[] _costs;
