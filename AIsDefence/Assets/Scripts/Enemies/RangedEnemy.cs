@@ -13,7 +13,7 @@ public class RangedEnemy : Enemy {
         if (other.gameObject == EnemyTarget)//attacks player and tower
         {
             Attack(other.gameObject);
-            gameObject.GetComponent<NavMeshAgent>().SetDestination(transform.position);
+            gameObject.GetComponent<NavMeshAgent>().updatePosition = false;
         }
     }
 
