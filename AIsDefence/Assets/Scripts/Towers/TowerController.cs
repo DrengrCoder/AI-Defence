@@ -63,6 +63,11 @@ public class TowerController : MonoBehaviour {
 
     void Update()
     {
+        if (this._currentTarget != null && !this._currentTarget.activeInHierarchy && this._inRangeEnemies.Count > 0)
+        {
+            AllocateNewTarget();
+        }
+
         if (!_canAttack)
         {
             _waitTime = _waitTime + Time.deltaTime;
@@ -75,8 +80,28 @@ public class TowerController : MonoBehaviour {
         }
     }
 
+    private void ValidateEnemiesInRange()
+    {
+        List<GameObject> enemiesToRemove = new List<GameObject>();
+
+        foreach (GameObject enemy in this._inRangeEnemies)
+        {
+            if (!enemy.activeInHierarchy)
+            {
+                enemiesToRemove.Add(enemy);
+            }
+        }
+
+        foreach (GameObject enemy in enemiesToRemove)
+        {
+            this._inRangeEnemies.Remove(enemy);
+        }
+    }
+
     private void AllocateNewTarget()
     {
+        ValidateEnemiesInRange();
+
         switch (this._aiAttackOption)
         {
             case AttackChoice.First:
@@ -95,7 +120,10 @@ public class TowerController : MonoBehaviour {
                 break;
         }
 
-        this._currentTarget = _inRangeEnemies[0];
+        if (_inRangeEnemies.Count > 0)
+        {
+            this._currentTarget = _inRangeEnemies[0];
+        }
     }
 
     private void OnTriggerEnter(Collider obj)
