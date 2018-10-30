@@ -41,9 +41,19 @@ public class StabbingMelee : MonoBehaviour{
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if ((other.gameObject.GetComponent<Objective>()) && (_attacking == true))//attacks player
+        {
+            other.gameObject.GetComponent<Objective>().TakeDamage(Damage);
+
+            _attacking = false;
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<Objective>())//attacks player
+        if ((other.gameObject.GetComponent<Objective>()) && (_attacking == true))//attacks player
         {
             other.gameObject.GetComponent<Objective>().TakeDamage(Damage);
 

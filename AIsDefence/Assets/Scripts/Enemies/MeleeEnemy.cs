@@ -13,7 +13,7 @@ public class MeleeEnemy : Enemy {
         if (other.gameObject == EnemyTarget)//attacks player
         {
             Attack(other.gameObject);
-            gameObject.GetComponent<NavMeshAgent>().SetDestination(transform.position);
+            gameObject.GetComponent<NavMeshAgent>().updatePosition = false;
         }
     }
 
@@ -21,7 +21,7 @@ public class MeleeEnemy : Enemy {
     {
         if (other.gameObject == EnemyTarget)//corrects movement
         {
-            gameObject.GetComponent<NavMeshAgent>().SetDestination(EnemyTarget.transform.position);
+            gameObject.GetComponent<NavMeshAgent>().updatePosition = true;
         }
     }
 

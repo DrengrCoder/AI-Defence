@@ -67,6 +67,7 @@ public class Enemy : MonoBehaviour{
     private void Update()
     {
         Move();
+        FaceTarget();
 
         if (CanAttack == false)
         {
@@ -78,6 +79,15 @@ public class Enemy : MonoBehaviour{
                 CanAttack = true;
             }
         }
+    }
+
+    private void FaceTarget()
+    {
+        Vector3 lookPos = EnemyTarget.transform.position - transform.position;
+        lookPos.y = 0;
+        Quaternion rotation = Quaternion.LookRotation(lookPos);
+        float rotateSpeed = gameObject.GetComponent<NavMeshAgent>().angularSpeed;
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotateSpeed);
     }
 
     public void Attack()
