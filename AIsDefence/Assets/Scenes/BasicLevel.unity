@@ -7207,7 +7207,7 @@ GameObject:
   - component: {fileID: 1888959300}
   - component: {fileID: 1888959299}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: TowerSelectUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -20,7 +20,7 @@ public class InstantiateObjectOnclick : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		this._towerSelection = GameObject.Find("Canvas").GetComponent<TowerSelection>();
+		this._towerSelection = GameObject.Find("TowerSelectUI").GetComponent<TowerSelection>();
         this._thisSpot = this.gameObject;
     }
 	
