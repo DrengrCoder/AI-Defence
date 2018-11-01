@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33398450368465626}
   - component: {fileID: 23630978725205054}
   - component: {fileID: 65114754029926458}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Red Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -45,7 +45,7 @@ public class BulletDamage : MonoBehaviour {
                         switch (col.gameObject.name)
                         {
                             case "TempEnemy(Clone)":
-                                col.gameObject.GetComponent<SuicideEnemy>().TakeDamage(50);
+                                col.gameObject.GetComponent<SuicideEnemy>().TakeDamage(10);
                                 break;
                             case "RangedEnemy(Clone)":
                                 col.gameObject.GetComponent<RangedEnemy>().TakeDamage(10);
