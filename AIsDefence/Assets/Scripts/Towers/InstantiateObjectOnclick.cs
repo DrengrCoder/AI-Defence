@@ -12,8 +12,6 @@ public class InstantiateObjectOnclick : MonoBehaviour {
     [SerializeField]
     private GameObject _blackPrefab;
 
-    private bool _pressedDelay = false;
-
     private TowerSelection _towerSelection;
 
     private GameObject _thisSpot;
