@@ -10,12 +10,21 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private Slider _healthBar;
 
+    [SerializeField]
+    private float _switchWeaponTime = 0.3f;
+    private float _switch = 0.3f;
+
+    public GameObject[] Guns;
+    private int _currentGun = 0;
+
     public int Health = 100;
 
     private void Start()
     {
         _healthBar.maxValue = _maxHealth;
         Respawn();
+
+        Guns[0].SetActive(true);
     }
 
     private void OnEnable()
@@ -44,4 +53,55 @@ public class Player : MonoBehaviour {
     {
         gameObject.SetActive(false);
     }
+
+    private void ChangeGun()
+    {
+        for (int i = 0; i < Guns.Length; i++)
+        {
+            if (_currentGun != i)
+            {
+                Guns[i].SetActive(false);
+            }
+            else
+            {
+                Guns[i].SetActive(true);
+            }
+        }
+    }
+
+    private void Update()
+    {
+        float switchWeapon = Input.GetAxis("Mouse ScrollWheel");
+
+        if (_switch >= _switchWeaponTime)
+        {
+            if (switchWeapon > 0f) //Next
+            {
+                _switch = 0.0f;
+                _currentGun = _currentGun + 1;
+
+                if (_currentGun == Guns.Length)
+                {
+                    _currentGun = 0;
+                }
+                ChangeGun();
+            }
+            else if (switchWeapon < 0f) //Previous
+            {
+                _switch = 0.0f;
+                _currentGun = _currentGun - 1;
+
+                if (_currentGun < 0)
+                {
+                    _currentGun = Guns.Length - 1;
+                }
+                ChangeGun();
+            }
+        }
+        else
+        {
+            _switch = _switch + Time.deltaTime;
+        }
+    }
+
 }
