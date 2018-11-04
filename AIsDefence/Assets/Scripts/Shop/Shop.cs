@@ -17,7 +17,6 @@ public class Shop : MonoBehaviour {
         if (other.gameObject.GetComponent<Player>())
         {
             _canShop = true;
-            Debug.Log("In");
         }
     }
 
@@ -26,7 +25,6 @@ public class Shop : MonoBehaviour {
         if (other.gameObject.GetComponent<Player>())
         {
             _canShop = false;
-            Debug.Log("Out");
         }
     }
 

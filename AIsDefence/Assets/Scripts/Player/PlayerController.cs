@@ -35,7 +35,6 @@ public class PlayerController : MonoBehaviour {
 
             transform.Rotate(0, horizontal, 0);
 
-            Debug.Log(nextRotation);
             if (((nextRotation <= 80) && (nextRotation >= -80)) || ((nextRotation <= 440) && (nextRotation >= 280)))
             {
                 _cam.gameObject.transform.Rotate(vertical, 0, 0);
