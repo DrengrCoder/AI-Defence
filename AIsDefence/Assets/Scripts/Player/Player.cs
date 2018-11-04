@@ -14,7 +14,7 @@ public class Player : MonoBehaviour {
     private float _switchWeaponTime = 0.3f;
     private float _switch = 0.3f;
 
-    public GameObject[] Guns;
+    public List<GameObject> Guns = new List<GameObject>();
     private int _currentGun = 0;
 
     public int Health = 100;
@@ -23,8 +23,6 @@ public class Player : MonoBehaviour {
     {
         _healthBar.maxValue = _maxHealth;
         Respawn();
-
-        Guns[0].SetActive(true);
     }
 
     private void OnEnable()
@@ -56,7 +54,7 @@ public class Player : MonoBehaviour {
 
     private void ChangeGun()
     {
-        for (int i = 0; i < Guns.Length; i++)
+        for (int i = 0; i < Guns.Count; i++)
         {
             if (_currentGun != i)
             {
@@ -80,7 +78,7 @@ public class Player : MonoBehaviour {
                 _switch = 0.0f;
                 _currentGun = _currentGun + 1;
 
-                if (_currentGun == Guns.Length)
+                if (_currentGun == Guns.Count)
                 {
                     _currentGun = 0;
                 }
@@ -93,7 +91,7 @@ public class Player : MonoBehaviour {
 
                 if (_currentGun < 0)
                 {
-                    _currentGun = Guns.Length - 1;
+                    _currentGun = Guns.Count - 1;
                 }
                 ChangeGun();
             }
