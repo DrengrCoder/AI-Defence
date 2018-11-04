@@ -6,7 +6,10 @@ public class pauseMenu : MonoBehaviour {
 
 	public GameObject ESCMenu;
 
-    private bool _on = false;
+    [SerializeField]
+    private PlayerController _controller;
+
+    private bool _on = true;
 
     void Update()
     {
@@ -23,12 +26,14 @@ public class pauseMenu : MonoBehaviour {
             ESCMenu.SetActive(true);
             Time.timeScale = 0;
             _on = false;
+            _controller.Pause = true;
         }
         else
         {
             ESCMenu.SetActive(false);
             Time.timeScale = 1;
             _on = true;
+            _controller.Pause = false;
         }
     }
 
