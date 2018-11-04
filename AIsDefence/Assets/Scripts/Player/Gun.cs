@@ -5,8 +5,11 @@ using UnityEngine;
 public class Gun : MonoBehaviour {
 
     [SerializeField]
-    private float _fireRate;
+    private float _fireRate = 0.3f;
+    private float _nextFire = 0.0f;
 
+    [SerializeField]
+    private GameObject _bulletSpawn;
     [SerializeField]
     private GameObject _bullet;
     [SerializeField]
@@ -24,11 +27,35 @@ public class Gun : MonoBehaviour {
         }
     }
 
+    private GameObject GetBullet()
+    {
+        for (int i = 0; i < _numInPool; i++)
+        {
+            if (_bulletPool[i].activeSelf == false)
+            {
+                return _bulletPool[i];
+            }
+        }
+
+        return null;
+    }
+
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1") == true)
+        if (_nextFire >= _fireRate)
         {
-            //Shoot
+            if (Input.GetButton("Fire1") == true)
+            {
+                GameObject bullet = GetBullet();
+                bullet.transform.position = _bulletSpawn.transform.position;
+                bullet.transform.rotation = _bulletSpawn.transform.rotation;
+                bullet.SetActive(true);
+                _nextFire = 0.0f;
+            }
+        }
+        else
+        {
+            _nextFire = _nextFire + Time.deltaTime;
         }
     }
 
