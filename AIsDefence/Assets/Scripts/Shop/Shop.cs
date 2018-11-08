@@ -38,21 +38,24 @@ public class Shop : MonoBehaviour {
 
     public void SwitchState()
     {
-        if (_on == true)
+        if ((Time.timeScale == 0 && ShopMenu.activeSelf == true) || (Time.timeScale == 1))
         {
-            ShopMenu.SetActive(true);
-            Time.timeScale = 0;
-            _on = false;
-            _controller.Pause = true;
-            Cursor.visible = true;
-        }
-        else
-        {
-            ShopMenu.SetActive(false);
-            Time.timeScale = 1;
-            _on = true;
-            _controller.Pause = false;
-            Cursor.visible = false;
+            if ((_on == true) && (Time.timeScale != 0))
+            {
+                ShopMenu.SetActive(true);
+                Time.timeScale = 0;
+                _on = false;
+                _controller.Pause = true;
+                Cursor.visible = true;
+            }
+            else
+            {
+                ShopMenu.SetActive(false);
+                Time.timeScale = 1;
+                _on = true;
+                _controller.Pause = false;
+                Cursor.visible = false;
+            }
         }
     }
 }

@@ -21,19 +21,22 @@ public class pauseMenu : MonoBehaviour {
 
     public void SwitchState()
     {
-        if (_on == true)
+        if ((Time.timeScale == 0 && ESCMenu.activeSelf == true) || (Time.timeScale == 1))
         {
-            ESCMenu.SetActive(true);
-            Time.timeScale = 0;
-            _on = false;
-            _controller.Pause = true;
-        }
-        else
-        {
-            ESCMenu.SetActive(false);
-            Time.timeScale = 1;
-            _on = true;
-            _controller.Pause = false;
+            if (_on == true)
+            {
+                ESCMenu.SetActive(true);
+                Time.timeScale = 0;
+                _on = false;
+                _controller.Pause = true;
+            }
+            else
+            {
+                ESCMenu.SetActive(false);
+                Time.timeScale = 1;
+                _on = true;
+                _controller.Pause = false;
+            }
         }
     }
 

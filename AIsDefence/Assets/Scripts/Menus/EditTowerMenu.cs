@@ -9,6 +9,9 @@ public class EditTowerMenu : MonoBehaviour {
     [SerializeField]
     private GameObject _editMenu;
 
+    [SerializeField]
+    private PlayerController _controller;
+
     private TowerSelection _towerSelection;
 
     private List<GameObject> _towers = new List<GameObject>();
@@ -22,7 +25,7 @@ public class EditTowerMenu : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-		if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             ToggleMenu();
         }
@@ -34,26 +37,30 @@ public class EditTowerMenu : MonoBehaviour {
 
     private void ToggleMenu()
     {
-        _editMenu.transform.GetChild(3).GetComponent<Text>().text = "Selected Tower";
-        _editMenu.transform.GetChild(4).GetComponent<Text>().text = "";
-
-        if (!_on)
+        if (((Time.timeScale == 0 && _editMenu.activeSelf == true) || (Time.timeScale == 1)) && (_controller.gameObject.activeSelf == false))
         {
-            this._editMenu.SetActive(true);
-            Time.timeScale = 0;
-        }
-        else
-        {
-            this._editMenu.SetActive(false);
-            Time.timeScale = 1;
-        }
 
-        foreach (Button btn in this._towerSelection._buttons)
-        {
-            btn.interactable = _on;
-        }
+            _editMenu.transform.GetChild(3).GetComponent<Text>().text = "Selected Tower";
+            _editMenu.transform.GetChild(4).GetComponent<Text>().text = "";
 
-        _on = !_on;
+            if (!_on)
+            {
+                this._editMenu.SetActive(true);
+                Time.timeScale = 0;
+                _on = !_on;
+            }
+            else
+            {
+                this._editMenu.SetActive(false);
+                Time.timeScale = 1;
+                _on = !_on;
+            }
+
+            foreach (Button btn in this._towerSelection._buttons)
+            {
+                btn.interactable = _on;
+            }
+        }
     }
     
     private void UpdateTree()
