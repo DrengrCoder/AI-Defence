@@ -80,6 +80,12 @@ public class EnemyManager : MonoBehaviour {
             }
         }
 
+        if ((Wave - 1) != -1)
+        {
+            CreditBanks Bank = FindObjectOfType<CreditBanks>();
+            Bank.AddPlayerCredits(_waves[Wave - 1].PlayerCredits);
+        }
+
         Wave = Wave + 1;
         _waveNum.text = Wave.ToString();
 
@@ -121,22 +127,25 @@ public class EnemyManager : MonoBehaviour {
                 return;
             }
         }
-
+        
         int bossNum = _waves[Wave - 1].Boss;
 
-        for (int j = 0; j < _pools[bossNum].Num.Length; j++)
+        if (bossNum != 100)
         {
-            if ((bossNum != 100) && (_pools[bossNum].Num[j].activeSelf == false))
+            for (int j = 0; j < _pools[bossNum].Num.Length; j++)
             {
-                GameObject boss = _pools[bossNum].Num[j];
+                if (_pools[bossNum].Num[j].activeSelf == false)
+                {
+                    GameObject boss = _pools[bossNum].Num[j];
 
-                float height = boss.transform.position.y;
-                Vector3 spawn = _bossSpawn.transform.position;
-                spawn.y = height;
-                boss.transform.position = spawn;
+                    float height = boss.transform.position.y;
+                    Vector3 spawn = _bossSpawn.transform.position;
+                    spawn.y = height;
+                    boss.transform.position = spawn;
 
-                boss.GetComponent<Enemy>().EnemyTarget = EnemyTarget;
-                boss.SetActive(true);
+                    boss.GetComponent<Enemy>().EnemyTarget = EnemyTarget;
+                    boss.SetActive(true);
+                }
             }
         }
     }
@@ -176,4 +185,6 @@ public class Waves
 {
     public int[] Spawns;
     public int Boss = 100;
+
+    public int PlayerCredits;
 }
