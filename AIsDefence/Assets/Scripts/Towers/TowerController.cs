@@ -80,6 +80,11 @@ public class TowerController : MonoBehaviour {
         }
     }
 
+    void FixedUpdate()
+    {
+        AllocateNewTarget();
+    }
+
     private void ValidateEnemiesInRange()
     {
         List<GameObject> enemiesToRemove = new List<GameObject>();
@@ -114,7 +119,7 @@ public class TowerController : MonoBehaviour {
                 _inRangeEnemies.Sort((e1, e2) => -1* e1.GetComponent<Enemy>().Health.CompareTo( e2.GetComponent<Enemy>().Health ));
                 break;
             case AttackChoice.Weakest:
-                _inRangeEnemies.Sort((e1, e2) => e1.GetComponent<Enemy>().Health.CompareTo(e2.GetComponent<Enemy>().Health));
+                _inRangeEnemies.Sort((e1, e2) => e1.GetComponent<Enemy>().Health.CompareTo( e2.GetComponent<Enemy>().Health ));
                 break;
             default:
                 break;
