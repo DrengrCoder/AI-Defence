@@ -18,12 +18,12 @@ public class TowerController : MonoBehaviour {
     private ProjectileManager _projectileManager;
     private EditTowerMenu _towerEditMenu;
 
-    private List<GameObject> _inRangeEnemies = new List<GameObject>();
-    private GameObject _currentTarget;
+    public List<GameObject> _inRangeEnemies = new List<GameObject>();
+    public GameObject _currentTarget;
     private AttackChoice _aiAttackOption = AttackChoice.First;
 
-    private bool _canAttack = true;
-    private float _attackCooldown = 0.5f;
+    public bool _canAttack = true;
+    private float _attackCooldown = 0.0f;
     private float _waitTime = 0.0f;
 
     public void SetAttackOption(string option)
@@ -47,6 +47,11 @@ public class TowerController : MonoBehaviour {
         }
 
         AllocateNewTarget();
+    }
+
+    public void SetAttackCooldown(float delay)
+    {
+        this._attackCooldown = delay;
     }
     
     private void OnEnable()
@@ -103,7 +108,7 @@ public class TowerController : MonoBehaviour {
         }
     }
 
-    private void AllocateNewTarget()
+    public void AllocateNewTarget()
     {
         ValidateEnemiesInRange();
 
@@ -128,36 +133,6 @@ public class TowerController : MonoBehaviour {
         if (_inRangeEnemies.Count > 0)
         {
             this._currentTarget = _inRangeEnemies[0];
-        }
-    }
-
-    private void OnTriggerEnter(Collider obj)
-    {
-        if (!obj.isTrigger && obj.tag == "Enemy")
-        {
-            this._inRangeEnemies.Add(obj.gameObject);
-            AllocateNewTarget();
-        }
-    }
-
-    private void OnTriggerStay(Collider obj)
-    {
-        if (!obj.isTrigger && obj.tag == "Enemy" && _canAttack)
-        {
-            Attack();
-            _canAttack = false;
-        }
-    }
-
-    private void OnTriggerExit(Collider obj)
-    {
-        if (!obj.isTrigger && obj.tag == "Enemy")
-        {
-            this._inRangeEnemies.Remove(obj.gameObject);
-            if (obj == _currentTarget)
-            {
-                AllocateNewTarget();
-            }
         }
     }
 
