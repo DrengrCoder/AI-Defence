@@ -2,11 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BurstFireTower : TowerController
-{
-    void Start()
+public class BurstFireTower : TowerController {
+
+    [SerializeField]
+    private GameObject _bullet;
+
+    [SerializeField]
+    private int _force = 5000;
+    [SerializeField]
+    private int _damage = 5;
+
+    private const float _originalDelay = 0.1f;
+    private const float _burstDelay = 0.7f;
+
+    private int _burstCount = 0;
+    private const int _maxBurst = 3;
+
+    void Awake()
     {
-        SetAttackCooldown(0.1f);
+        AttackCooldown = _originalDelay;
     }
 
     private void OnTriggerEnter(Collider obj)
@@ -41,6 +55,14 @@ public class BurstFireTower : TowerController
 
     private void Attack()
     {
+        if (++_burstCount >= _maxBurst)
+        {
+            _burstCount = 0;
+            AttackCooldown = _burstDelay;
+            ResettingDelay = true;
+            DelayReset = _originalDelay;
+        }
 
+        _projectileManager.FireProjectile(this.gameObject, _currentTarget.GetComponent<CapsuleCollider>(), _bullet, _force, _damage);
     }
 }

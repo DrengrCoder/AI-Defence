@@ -45,4 +45,42 @@ public class ProjectileManager : MonoBehaviour {
             }
         }
     }
+
+    public void FireSpreadProjectile(GameObject tower, Collider target, GameObject projectilePrefab, int force, int damage)
+    {
+        Vector3 startPosition = new Vector3(tower.transform.position.x, target.transform.position.y, tower.transform.position.z);
+
+        List<GameObject> projectiles = new List<GameObject>();
+
+        int totalCount = 0;
+        for (int i = 0; i < this._pool.Count; i++)
+        {
+            if (_pool[i].name.Contains(projectilePrefab.name) && !_pool[i].activeInHierarchy)
+            {
+                projectiles.Add(_pool[i]);
+                if (++totalCount >= 5)
+                {
+                    break;
+                }
+            }
+        }
+
+        projectiles[0].transform.position = startPosition;
+        projectiles[0].transform.LookAt(target.transform);
+        projectiles[0].transform.rotation *= Quaternion.Euler(0, -18, 0);
+
+        for (int i = 0; i < projectiles.Count; i++) 
+        {
+            projectiles[i].GetComponent<BulletDamage>().BulletDamageValue = damage;
+
+            if (i != 0)
+            {
+                projectiles[i].transform.position = startPosition;
+                projectiles[i].transform.rotation = projectiles[0].transform.rotation * Quaternion.Euler(0, i * 9, 0);
+            }
+
+            projectiles[i].SetActive(true);
+            projectiles[i].GetComponent<Rigidbody>().AddRelativeForce(transform.forward * force);
+        }
+    }
 }

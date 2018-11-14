@@ -25,6 +25,9 @@ public class TowerController : MonoBehaviour {
     public bool _canAttack = true;
     private float _attackCooldown = 0.0f;
     private float _waitTime = 0.0f;
+    
+    private bool _resettingDelay = false;
+    private float _resetDelayTo = 0.0f;
 
     public void SetAttackOption(string option)
     {
@@ -56,6 +59,20 @@ public class TowerController : MonoBehaviour {
             this._attackCooldown = value;
         }
     }
+    public bool ResettingDelay
+    {
+        set
+        {
+            _resettingDelay = value;
+        }
+    }
+    public float DelayReset
+    {
+        set
+        {
+            _resetDelayTo = value;
+        }
+    }
     
     private void OnEnable()
     {
@@ -82,6 +99,11 @@ public class TowerController : MonoBehaviour {
 
             if (_waitTime >= _attackCooldown)
             {
+                if (_resettingDelay)//currently only reset for burst tower
+                {
+                    _resettingDelay = false;
+                    _attackCooldown = _resetDelayTo;
+                }
                 _waitTime = 0.0f;
                 _canAttack = true;
             }

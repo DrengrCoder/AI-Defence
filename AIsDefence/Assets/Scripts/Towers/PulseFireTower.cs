@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PulseFireTower : TowerController {
+    
+    [SerializeField]
+    private int _damage = 1;
 
-    void Start()
+    void Awake()
     {
-        SetAttackCooldown(0.5f);
+        AttackCooldown = 1.0f;
     }
 
     private void OnTriggerEnter(Collider obj)
@@ -41,6 +44,9 @@ public class PulseFireTower : TowerController {
 
     private void Attack()
     {
-
+        foreach (GameObject enemy in _inRangeEnemies)
+        {
+            enemy.GetComponent<Enemy>().TakeDamage(_damage);
+        }
     }
 }

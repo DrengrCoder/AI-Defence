@@ -2,11 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpreadFireTower : TowerController
-{
-    void Start()
+public class SpreadFireTower : TowerController {
+
+    [SerializeField]
+    private GameObject _bullet;
+
+    [SerializeField]
+    private int _force = 3000;
+    [SerializeField]
+    private int _damage = 3;
+
+    void Awake()
     {
-        SetAttackCooldown(0.75f);
+        AttackCooldown = 0.75f;
     }
 
     private void OnTriggerEnter(Collider obj)
@@ -41,6 +49,6 @@ public class SpreadFireTower : TowerController
 
     private void Attack()
     {
-
+        _projectileManager.FireSpreadProjectile(this.gameObject, _currentTarget.GetComponent<CapsuleCollider>(), _bullet, _force, _damage);
     }
 }
