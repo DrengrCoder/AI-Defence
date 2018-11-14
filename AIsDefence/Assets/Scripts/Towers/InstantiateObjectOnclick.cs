@@ -8,9 +8,15 @@ public class InstantiateObjectOnclick : MonoBehaviour {
     private RaycastHit _hit;
 
     [SerializeField]
-    private GameObject _redPrefab;
+    private GameObject _aoeTower;
     [SerializeField]
-    private GameObject _blackPrefab;
+    private GameObject _singleFireTower;
+    [SerializeField]
+    private GameObject _burstFireTower;
+    [SerializeField]
+    private GameObject _spreadFireTower;
+    [SerializeField]
+    private GameObject _pulseFireTower;
 
     private TowerSelection _towerSelection;
 
@@ -34,11 +40,11 @@ public class InstantiateObjectOnclick : MonoBehaviour {
                 {
                     if (this._towerSelection.RedTowerSelected())
                     {
-                        GameObject obj = Instantiate(_redPrefab, SpawnPosition(), Quaternion.identity) as GameObject;
+                        GameObject obj = Instantiate(_aoeTower, SpawnPosition(), Quaternion.identity) as GameObject;
                     }
                     else if (this._towerSelection.BlackTowerSelected())
                     {
-                        GameObject obj = Instantiate(_blackPrefab, SpawnPosition(), Quaternion.identity) as GameObject;
+                        GameObject obj = Instantiate(_singleFireTower, SpawnPosition(), Quaternion.identity) as GameObject;
                     }
 
                     this._towerSelection.ResetButtons();
