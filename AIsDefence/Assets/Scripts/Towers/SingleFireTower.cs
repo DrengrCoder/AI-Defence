@@ -2,12 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SingleFireTower : TowerController
-{
+public class SingleFireTower : TowerController {
 
-    void Start()
+    [SerializeField]
+    private GameObject _bullet;
+
+    [SerializeField]
+    private int _force = 4000;
+    [SerializeField]
+    private int _damage = 10;
+
+    void Awake()
     {
-        SetAttackCooldown(0.5f);
+        AttackCooldown = 0.5f;
     }
 
     private void OnTriggerEnter(Collider obj)
@@ -42,6 +49,6 @@ public class SingleFireTower : TowerController
 
     private void Attack()
     {
-
+        _projectileManager.FireProjectile(this.gameObject, _currentTarget.GetComponent<CapsuleCollider>(), _bullet, _force, _damage);
     }
 }

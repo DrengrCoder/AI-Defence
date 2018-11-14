@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class AoeTower : TowerController {
 
-    void Start()
+    [SerializeField]
+    private GameObject _bullet;
+
+    [SerializeField]
+    private int _force = 1500;
+    [SerializeField]
+    private int _damage = 5;
+
+    void Awake()
     {
-        SetAttackCooldown(1.0f);
+        AttackCooldown = 1.0f;
     }
 
     private void OnTriggerEnter(Collider obj)
@@ -41,6 +49,6 @@ public class AoeTower : TowerController {
 
     private void Attack()
     {
-
+        _projectileManager.FireProjectile(this.gameObject, _currentTarget.GetComponent<CapsuleCollider>(), _bullet, _force, _damage);
     }
 }

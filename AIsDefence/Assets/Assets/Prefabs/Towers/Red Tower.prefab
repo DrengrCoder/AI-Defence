@@ -38,7 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4488743231416632}
   - component: {fileID: 135335272737081456}
-  - component: {fileID: 114632903003397904}
+  - component: {fileID: 114656270081523906}
   m_Layer: 2
   m_Name: Red Tower
   m_TagString: Untagged
@@ -127,7 +127,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114632903003397904
+--- !u!114 &114656270081523906
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -135,12 +135,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1873505635767864}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc61a95e4132bca41936560885aee1c5, type: 3}
+  m_Script: {fileID: 11500000, guid: fe8236b18cfc8374d9def09022681652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bullet: {fileID: 1195412905759990, guid: 3f26251a6a5e3cc4eb27be0c9f0ad369, type: 2}
-  _bomb: {fileID: 1808151321666730, guid: a44d5d444f103e54e8f3e9c0360fe465, type: 2}
   _cost: 1000
+  _projectileManager: {fileID: 0}
+  _inRangeEnemies: []
+  _currentTarget: {fileID: 0}
+  _canAttack: 1
+  _bullet: {fileID: 1808151321666730, guid: a44d5d444f103e54e8f3e9c0360fe465, type: 2}
+  _force: 1500
+  _damage: 5
 --- !u!135 &135335272737081456
 SphereCollider:
   m_ObjectHideFlags: 1
