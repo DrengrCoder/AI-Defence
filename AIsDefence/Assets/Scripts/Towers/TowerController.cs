@@ -7,21 +7,21 @@ public class TowerController : MonoBehaviour {
     enum AttackChoice { First, Last, Strongest, Weakest};
 
     private int _health = 100;
-
-    [SerializeField]
-    private GameObject _bullet;
-    [SerializeField]
-    private GameObject _bomb;
+    
     [SerializeField]
     private int _cost;
   
-    private ProjectileManager _projectileManager;
+    [HideInInspector]
+    public ProjectileManager _projectileManager;
     private EditTowerMenu _towerEditMenu;
 
+    [HideInInspector]
     public List<GameObject> _inRangeEnemies = new List<GameObject>();
+    [HideInInspector]
     public GameObject _currentTarget;
     private AttackChoice _aiAttackOption = AttackChoice.First;
 
+    [HideInInspector]
     public bool _canAttack = true;
     private float _attackCooldown = 0.0f;
     private float _waitTime = 0.0f;
@@ -49,9 +49,12 @@ public class TowerController : MonoBehaviour {
         AllocateNewTarget();
     }
 
-    public void SetAttackCooldown(float delay)
+    public float AttackCooldown
     {
-        this._attackCooldown = delay;
+        set
+        {
+            this._attackCooldown = value;
+        }
     }
     
     private void OnEnable()
@@ -134,20 +137,6 @@ public class TowerController : MonoBehaviour {
         {
             this._currentTarget = _inRangeEnemies[0];
         }
-    }
-
-    private void Attack()
-    {
-        GameObject prefabProjectile = this._bullet;
-        int force = 4000;
-
-        if (this.gameObject.name.Contains("Red Tower"))
-        {
-            force = 1500;
-            prefabProjectile = this._bomb;
-        }
-
-        _projectileManager.FireProjectile(this.gameObject, _currentTarget.GetComponent<CapsuleCollider>(), prefabProjectile, force);
     }
 
     public void TakeDamage(int damage)
