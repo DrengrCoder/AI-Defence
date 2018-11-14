@@ -1914,8 +1914,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fb24b571cdb57a419886238129d7c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _redPrefab: {fileID: 1873505635767864, guid: a59e8ed5f6e3ff345a1aa76c370a7405, type: 2}
-  _blackPrefab: {fileID: 1356574647339794, guid: db7623f96539a7d4d81a92e8c364e3ff,
+  _aoeTower: {fileID: 1230573349253824, guid: f32ed324b7181e8458b753337275beae, type: 2}
+  _singleFireTower: {fileID: 1822989851690312, guid: bcfe2f4495705064ab55712f57c3dba0,
     type: 2}
 --- !u!65 &442342346
 BoxCollider:
@@ -2758,8 +2758,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fb24b571cdb57a419886238129d7c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _redPrefab: {fileID: 1873505635767864, guid: a59e8ed5f6e3ff345a1aa76c370a7405, type: 2}
-  _blackPrefab: {fileID: 1356574647339794, guid: db7623f96539a7d4d81a92e8c364e3ff,
+  _aoeTower: {fileID: 1230573349253824, guid: f32ed324b7181e8458b753337275beae, type: 2}
+  _singleFireTower: {fileID: 1822989851690312, guid: bcfe2f4495705064ab55712f57c3dba0,
     type: 2}
 --- !u!65 &582857129
 BoxCollider:
