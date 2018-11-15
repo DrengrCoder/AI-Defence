@@ -13,15 +13,6 @@ public class MeleeEnemy : Enemy {
         if (other.gameObject == EnemyTarget)//attacks player
         {
             Attack(other.gameObject);
-            gameObject.GetComponent<NavMeshAgent>().updatePosition = false;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject == EnemyTarget)//corrects movement
-        {
-            gameObject.GetComponent<NavMeshAgent>().updatePosition = true;
         }
     }
 
