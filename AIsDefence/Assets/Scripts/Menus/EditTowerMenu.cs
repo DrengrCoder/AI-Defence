@@ -58,7 +58,7 @@ public class EditTowerMenu : MonoBehaviour {
 
             foreach (Button btn in this._towerSelection._buttons)
             {
-                btn.interactable = _on;
+                btn.interactable = !_on;
             }
         }
     }
