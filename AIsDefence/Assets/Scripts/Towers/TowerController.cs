@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TowerController : MonoBehaviour {
 
-    enum AttackChoice { First, Last, Strongest, Weakest};
+    public enum AttackChoice { First = 1, Last = 2, HighHealth = 3, LowHealth = 4, HighDamage = 5, LowDamage = 6 };
 
     private int _health = 100;
     
@@ -19,6 +19,7 @@ public class TowerController : MonoBehaviour {
     public List<GameObject> _inRangeEnemies = new List<GameObject>();
     [HideInInspector]
     public GameObject _currentTarget;
+    [SerializeField]
     private AttackChoice _aiAttackOption = AttackChoice.First;
 
     [HideInInspector]
@@ -29,25 +30,9 @@ public class TowerController : MonoBehaviour {
     private bool _resettingDelay = false;
     private float _resetDelayTo = 0.0f;
 
-    public void SetAttackOption(string option)
+    public void SetAttackOption(int option)
     {
-        switch (option)
-        {
-            case "First":
-                _aiAttackOption = AttackChoice.First;
-                break;
-            case "Last":
-                _aiAttackOption = AttackChoice.Last;
-                break;
-            case "Strongest":
-                _aiAttackOption = AttackChoice.Strongest;
-                break;
-            case "Weakest":
-                _aiAttackOption = AttackChoice.Weakest;
-                break;
-            default:
-                break;
-        }
+        _aiAttackOption = (AttackChoice)option;
 
         AllocateNewTarget();
     }
@@ -145,11 +130,17 @@ public class TowerController : MonoBehaviour {
             case AttackChoice.Last:
                 _inRangeEnemies.Sort((e1, e2) => -1* e1.GetComponent<Enemy>().DistanceToEnd.CompareTo( e2.GetComponent<Enemy>().DistanceToEnd ));
                 break;
-            case AttackChoice.Strongest:
+            case AttackChoice.HighHealth:
                 _inRangeEnemies.Sort((e1, e2) => -1* e1.GetComponent<Enemy>().Health.CompareTo( e2.GetComponent<Enemy>().Health ));
                 break;
-            case AttackChoice.Weakest:
+            case AttackChoice.LowHealth:
                 _inRangeEnemies.Sort((e1, e2) => e1.GetComponent<Enemy>().Health.CompareTo( e2.GetComponent<Enemy>().Health ));
+                break;
+            case AttackChoice.HighDamage:
+                _inRangeEnemies.Sort((e1, e2) => -1* e1.GetComponent<Enemy>().Health.CompareTo( e2.GetComponent<Enemy>().Damage ));
+                break;
+            case AttackChoice.LowDamage:
+                _inRangeEnemies.Sort((e1, e2) => e1.GetComponent<Enemy>().Health.CompareTo( e2.GetComponent<Enemy>().Damage ));
                 break;
             default:
                 break;
