@@ -8,9 +8,15 @@ public class InstantiateObjectOnclick : MonoBehaviour {
     private RaycastHit _hit;
 
     [SerializeField]
-    private GameObject _redPrefab;
+    private GameObject _aoeTower;
     [SerializeField]
-    private GameObject _blackPrefab;
+    private GameObject _singleFireTower;
+    [SerializeField]
+    private GameObject _burstFireTower;
+    [SerializeField]
+    private GameObject _spreadFireTower;
+    [SerializeField]
+    private GameObject _pulseFireTower;
 
     private TowerSelection _towerSelection;
 
@@ -30,15 +36,28 @@ public class InstantiateObjectOnclick : MonoBehaviour {
         {
             if (Physics.Raycast(_ray, out _hit))
             {
-                if (this._hit.transform.name == this._thisSpot.name && (this._towerSelection.RedTowerSelected() || this._towerSelection.BlackTowerSelected()))
+                if (this._hit.transform.name == this._thisSpot.name && TowerIsSelected())
                 {
-                    if (this._towerSelection.RedTowerSelected())
+
+                    if (this._towerSelection.AoeTowerSelected())
                     {
-                        GameObject obj = Instantiate(_redPrefab, SpawnPosition(), Quaternion.identity) as GameObject;
+                        GameObject obj = Instantiate(_aoeTower, SpawnPosition(), Quaternion.identity) as GameObject;
                     }
-                    else if (this._towerSelection.BlackTowerSelected())
+                    else if (this._towerSelection.SingleFireTowerSelected())
                     {
-                        GameObject obj = Instantiate(_blackPrefab, SpawnPosition(), Quaternion.identity) as GameObject;
+                        GameObject obj = Instantiate(_singleFireTower, SpawnPosition(), Quaternion.identity) as GameObject;
+                    }
+                    else if (this._towerSelection.BurstFireTowerSelected())
+                    {
+                        GameObject obj = Instantiate(_burstFireTower, SpawnPosition(), Quaternion.identity) as GameObject;
+                    }
+                    else if (this._towerSelection.PulseTowerSelected())
+                    {
+                        GameObject obj = Instantiate(_pulseFireTower, SpawnPosition(), Quaternion.identity) as GameObject;
+                    }
+                    else if (this._towerSelection.SpreadTowerSelected())
+                    {
+                        GameObject obj = Instantiate(_spreadFireTower, SpawnPosition(), Quaternion.identity) as GameObject;
                     }
 
                     this._towerSelection.ResetButtons();
@@ -50,6 +69,15 @@ public class InstantiateObjectOnclick : MonoBehaviour {
     private Vector3 SpawnPosition()
     {
         return new Vector3(this._thisSpot.transform.position.x, this._thisSpot.transform.position.y, this._thisSpot.transform.position.z);
+    }
+
+    private bool TowerIsSelected()
+    {
+        return this._towerSelection.AoeTowerSelected() || 
+            this._towerSelection.SingleFireTowerSelected() || 
+            this._towerSelection.BurstFireTowerSelected() ||
+            this._towerSelection.PulseTowerSelected() ||
+            this._towerSelection.SpreadTowerSelected();
     }
 
 }

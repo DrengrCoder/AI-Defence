@@ -10,15 +10,23 @@ public class TowerSelection : MonoBehaviour {
     [SerializeField]
     private int[] _costs;
 
-    private bool _blackPressed = false;
-    private bool _redPressed = false;
+    private bool _singleFireTowerPressed = false;
+    private bool _aoeTowerPressed = false;
+    private bool _burstFireTowerPressed = false;
+    private bool _pulseTowerPressed = false;
+    private bool _spreadFireTowerPressed = false;
+
     private CreditBanks _bank;
 
 	// Use this for initialization
 	void Start ()
     {
-        this._buttons[0].GetComponent<Button>().onClick.AddListener(delegate { ButtonClick(0); });
-        this._buttons[1].GetComponent<Button>().onClick.AddListener(delegate { ButtonClick(1); });
+        this._buttons[0].GetComponent<Button>().onClick.AddListener(delegate { ButtonClick(0); });//single fire
+        this._buttons[1].GetComponent<Button>().onClick.AddListener(delegate { ButtonClick(1); });//AOE bomb
+        this._buttons[2].GetComponent<Button>().onClick.AddListener(delegate { ButtonClick(2); });//burst fire
+        this._buttons[3].GetComponent<Button>().onClick.AddListener(delegate { ButtonClick(3); });//pulse fire
+        this._buttons[4].GetComponent<Button>().onClick.AddListener(delegate { ButtonClick(4); });//spread fire
+        
         _bank = FindObjectOfType<CreditBanks>();
         CreditUpdated();
     }
@@ -41,15 +49,24 @@ public class TowerSelection : MonoBehaviour {
     {
         this.ResetButtons();
 
+        this._buttons[i].GetComponent<Button>().GetComponent<Image>().color = new Color(0, 255, 0);
+
         switch (i)
         {
-            case 0:
-                this._buttons[0].GetComponent<Button>().GetComponent<Image>().color = new Color(0, 255, 0);
-                this._blackPressed = true;
+            case 0://single fire
+                this._singleFireTowerPressed = true;
                 break;
-            case 1:
-                this._buttons[1].GetComponent<Button>().GetComponent<Image>().color = new Color(0, 255, 0);
-                this._redPressed = true;
+            case 1://AOE bomb
+                this._aoeTowerPressed = true;
+                break;
+            case 2://burst fire
+                this._burstFireTowerPressed = true;
+                break;
+            case 3://pulse fire
+                this._pulseTowerPressed = true;
+                break;
+            case 4://spread fire
+                this._spreadFireTowerPressed = true;
                 break;
             default:
                 break;
@@ -58,19 +75,40 @@ public class TowerSelection : MonoBehaviour {
 
     public void ResetButtons()
     {
-        this._buttons[0].GetComponent<Button>().GetComponent<Image>().color = new Color(255, 255, 255);
-        this._buttons[1].GetComponent<Button>().GetComponent<Image>().color = new Color(255, 255, 255);
-        this._blackPressed = false;
-        this._redPressed = false;
+        for (int i = 0; i < _buttons.Length; i++)
+        {
+            this._buttons[i].GetComponent<Button>().GetComponent<Image>().color = new Color(255, 255, 255);
+        }
+
+        this._singleFireTowerPressed = false;
+        this._aoeTowerPressed = false;
+        this._burstFireTowerPressed = false;
+        this._pulseTowerPressed = false;
+        this._spreadFireTowerPressed = false;
     }
 
-    public bool RedTowerSelected()
+    public bool AoeTowerSelected()
     {
-        return this._redPressed;
+        return this._aoeTowerPressed;
     }
 
-    public bool BlackTowerSelected()
+    public bool SingleFireTowerSelected()
     {
-        return this._blackPressed;
+        return this._singleFireTowerPressed;
+    }
+
+    public bool BurstFireTowerSelected()
+    {
+        return this._burstFireTowerPressed;
+    }
+
+    public bool PulseTowerSelected()
+    {
+        return this._pulseTowerPressed;
+    }
+
+    public bool SpreadTowerSelected()
+    {
+        return this._spreadFireTowerPressed;
     }
 }

@@ -7,24 +7,27 @@ public class TowerController : MonoBehaviour {
     enum AttackChoice { First, Last, Strongest, Weakest};
 
     private int _health = 100;
-
-    [SerializeField]
-    private GameObject _bullet;
-    [SerializeField]
-    private GameObject _bomb;
+    
     [SerializeField]
     private int _cost;
   
-    private ProjectileManager _projectileManager;
+    [HideInInspector]
+    public ProjectileManager _projectileManager;
     private EditTowerMenu _towerEditMenu;
 
-    private List<GameObject> _inRangeEnemies = new List<GameObject>();
-    private GameObject _currentTarget;
+    [HideInInspector]
+    public List<GameObject> _inRangeEnemies = new List<GameObject>();
+    [HideInInspector]
+    public GameObject _currentTarget;
     private AttackChoice _aiAttackOption = AttackChoice.First;
 
-    private bool _canAttack = true;
-    private float _attackCooldown = 0.5f;
+    [HideInInspector]
+    public bool _canAttack = true;
+    private float _attackCooldown = 0.0f;
     private float _waitTime = 0.0f;
+    
+    private bool _resettingDelay = false;
+    private float _resetDelayTo = 0.0f;
 
     public void SetAttackOption(string option)
     {
@@ -47,6 +50,28 @@ public class TowerController : MonoBehaviour {
         }
 
         AllocateNewTarget();
+    }
+
+    public float AttackCooldown
+    {
+        set
+        {
+            this._attackCooldown = value;
+        }
+    }
+    public bool ResettingDelay
+    {
+        set
+        {
+            _resettingDelay = value;
+        }
+    }
+    public float DelayReset
+    {
+        set
+        {
+            _resetDelayTo = value;
+        }
     }
     
     private void OnEnable()
@@ -74,10 +99,20 @@ public class TowerController : MonoBehaviour {
 
             if (_waitTime >= _attackCooldown)
             {
+                if (_resettingDelay)//currently only reset for burst tower
+                {
+                    _resettingDelay = false;
+                    _attackCooldown = _resetDelayTo;
+                }
                 _waitTime = 0.0f;
                 _canAttack = true;
             }
         }
+    }
+
+    void FixedUpdate()
+    {
+        AllocateNewTarget();
     }
 
     private void ValidateEnemiesInRange()
@@ -98,7 +133,7 @@ public class TowerController : MonoBehaviour {
         }
     }
 
-    private void AllocateNewTarget()
+    public void AllocateNewTarget()
     {
         ValidateEnemiesInRange();
 
@@ -114,7 +149,7 @@ public class TowerController : MonoBehaviour {
                 _inRangeEnemies.Sort((e1, e2) => -1* e1.GetComponent<Enemy>().Health.CompareTo( e2.GetComponent<Enemy>().Health ));
                 break;
             case AttackChoice.Weakest:
-                _inRangeEnemies.Sort((e1, e2) => e1.GetComponent<Enemy>().Health.CompareTo(e2.GetComponent<Enemy>().Health));
+                _inRangeEnemies.Sort((e1, e2) => e1.GetComponent<Enemy>().Health.CompareTo( e2.GetComponent<Enemy>().Health ));
                 break;
             default:
                 break;
@@ -124,50 +159,6 @@ public class TowerController : MonoBehaviour {
         {
             this._currentTarget = _inRangeEnemies[0];
         }
-    }
-
-    private void OnTriggerEnter(Collider obj)
-    {
-        if (!obj.isTrigger && obj.tag == "Enemy")
-        {
-            this._inRangeEnemies.Add(obj.gameObject);
-            AllocateNewTarget();
-        }
-    }
-
-    private void OnTriggerStay(Collider obj)
-    {
-        if (!obj.isTrigger && obj.tag == "Enemy" && _canAttack)
-        {
-            Attack();
-            _canAttack = false;
-        }
-    }
-
-    private void OnTriggerExit(Collider obj)
-    {
-        if (!obj.isTrigger && obj.tag == "Enemy")
-        {
-            this._inRangeEnemies.Remove(obj.gameObject);
-            if (obj == _currentTarget)
-            {
-                AllocateNewTarget();
-            }
-        }
-    }
-
-    private void Attack()
-    {
-        GameObject prefabProjectile = this._bullet;
-        int force = 4000;
-
-        if (this.gameObject.name.Contains("Red Tower"))
-        {
-            force = 1500;
-            prefabProjectile = this._bomb;
-        }
-
-        _projectileManager.FireProjectile(this.gameObject, _currentTarget.GetComponent<CapsuleCollider>(), prefabProjectile, force);
     }
 
     public void TakeDamage(int damage)
