@@ -249,6 +249,7 @@ public class EditTowerMenu : MonoBehaviour {
         }
 
         _editingTower = TowerType.None;
+        UpdateTowers();
     }
 
     private void UpdateTowers()
