@@ -37,13 +37,13 @@ public class EditTowerMenu : MonoBehaviour {
             case AttackChoice.Last:
                 return "Last";
             case AttackChoice.HighHealth:
-                return "Most Health";
+                return "Most-Health";
             case AttackChoice.LowHealth:
-                return "Least Health";
+                return "Least-Health";
             case AttackChoice.HighDamage:
-                return "Most Damage";
+                return "Most-Damage";
             case AttackChoice.LowDamage:
-                return "Least Damage";
+                return "Least-Damage";
             default:
                 return "";
         }
@@ -56,13 +56,13 @@ public class EditTowerMenu : MonoBehaviour {
                 return AttackChoice.First;
             case "Last":
                 return AttackChoice.Last;
-            case "Most Health":
+            case "Most-Health":
                 return AttackChoice.HighHealth;
-            case "Least Health":
+            case "Least-Health":
                 return AttackChoice.LowHealth;
-            case "Most Damage":
+            case "Most-Damage":
                 return AttackChoice.HighDamage;
-            case "Least Damage":
+            case "Least-Damage":
                 return AttackChoice.LowDamage;
             default:
                 return AttackChoice.First;
@@ -117,6 +117,7 @@ public class EditTowerMenu : MonoBehaviour {
                 this._editMenu.SetActive(false);
                 Time.timeScale = 1;
                 _menuOn = !_menuOn;
+                ResetText();
             }
 
             foreach (Button btn in this._towerSelection._buttons)
@@ -221,11 +222,16 @@ public class EditTowerMenu : MonoBehaviour {
                 _editMenu.transform.GetChild(3).GetComponent<Text>().text = "AOE Tower Selected - Targeting " + TargetParameterText(_aoeTarget) + " Enemy";
                 break;
             default://assumed EditingTower.None;
-                _editMenu.transform.GetChild(3).GetComponent<Text>().text = "No Selected Tower";
-                _editMenu.transform.GetChild(4).GetComponent<Text>().text = "";
+                ResetText();
                 break;
         }
 
+    }
+    private void ResetText()
+    {
+        _editingTower = TowerType.None;
+        _editMenu.transform.GetChild(3).GetComponent<Text>().text = "No Selected Tower";
+        _editMenu.transform.GetChild(4).GetComponent<Text>().text = "";
     }
 
     private void UpdateAttackParameters(AttackChoice option)
@@ -300,7 +306,7 @@ public class EditTowerMenu : MonoBehaviour {
             while ((line = reader.ReadLine()) != null)
             {
                 string attackString = line.Substring(line.LastIndexOf(" ") + 1);
-                AttackChoice attackChoice = TargetParameterEnum(attackString);
+                AttackChoice attackChoice = TargetParameterEnum(attackString);//the last word, being the attack choice as a string
                 switch (line.Substring(0, line.IndexOf(" ")))//the first word, being the tower name
                 {
                     case "Single":
