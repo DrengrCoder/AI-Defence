@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 public class EditTowerMenu : MonoBehaviour {
 
     public enum AttackChoice { First = 1, Last = 2, HighHealth = 3, LowHealth = 4, HighDamage = 5, LowDamage = 6 };
-    enum EditingTower { None = 1, SingleFire = 2, BurstFire = 3, SpreadFire = 4, AoeFire = 5, PulseFire = 6 };
+    enum TowerType { None = 1, SingleFire = 2, BurstFire = 3, SpreadFire = 4, AoeFire = 5, PulseFire = 6 };
 
     [SerializeField]
     private GameObject _editMenu;
@@ -20,7 +21,7 @@ public class EditTowerMenu : MonoBehaviour {
     private List<GameObject> _towers = new List<GameObject>();
 
     private bool _menuOn = false;
-    private EditingTower _editingTower = EditingTower.None;
+    private TowerType _editingTower = TowerType.None;
 
     private AttackChoice _singleFireTarget = AttackChoice.First;
     private AttackChoice _burstFireTarget = AttackChoice.First;
@@ -47,6 +48,26 @@ public class EditTowerMenu : MonoBehaviour {
                 return "";
         }
     }
+    private AttackChoice TargetParameterEnum(string option)
+    {
+        switch (option)
+        {
+            case "First":
+                return AttackChoice.First;
+            case "Last":
+                return AttackChoice.Last;
+            case "Most Health":
+                return AttackChoice.HighHealth;
+            case "Least Health":
+                return AttackChoice.LowHealth;
+            case "Most Damage":
+                return AttackChoice.HighDamage;
+            case "Least Damage":
+                return AttackChoice.LowDamage;
+            default:
+                return AttackChoice.First;
+        }
+    }
 
     void OnGUI()
     {
@@ -56,6 +77,14 @@ public class EditTowerMenu : MonoBehaviour {
             if (e.keyCode == KeyCode.Tab)//tab button is hotkey to edit menu
             {
                 ToggleMenu();
+            }
+            else if (e.keyCode == KeyCode.S && e.modifiers == EventModifiers.Shift)
+            {
+                SavePreferences();
+            }
+            else if (e.keyCode == KeyCode.L && e.modifiers == EventModifiers.Shift)
+            {
+                LoadPreferences();
             }
             else if (_menuOn)//any other keys whilst menu is on
             {
@@ -102,50 +131,50 @@ public class EditTowerMenu : MonoBehaviour {
         switch (e.keyCode)//selecting tower
         {
             case KeyCode.Q:
-                if (_editingTower != EditingTower.SingleFire)
+                if (_editingTower != TowerType.SingleFire)
                 {
-                    _editingTower = EditingTower.SingleFire;
+                    _editingTower = TowerType.SingleFire;
                 }
                 else
                 {
-                    _editingTower = EditingTower.None;
+                    _editingTower = TowerType.None;
                 }
                 break;
             case KeyCode.W:
-                if (_editingTower != EditingTower.BurstFire)
+                if (_editingTower != TowerType.BurstFire)
                 {
-                    _editingTower = EditingTower.BurstFire;
+                    _editingTower = TowerType.BurstFire;
                 }
                 else
                 {
-                    _editingTower = EditingTower.None;
+                    _editingTower = TowerType.None;
                 }
                 break;
             case KeyCode.E:
-                if (_editingTower != EditingTower.SpreadFire)
+                if (_editingTower != TowerType.SpreadFire)
                 {
-                    _editingTower = EditingTower.SpreadFire;
+                    _editingTower = TowerType.SpreadFire;
                 }
                 else
                 {
-                    _editingTower = EditingTower.None;
+                    _editingTower = TowerType.None;
                 }
                 break;
             case KeyCode.R:
-                if (_editingTower != EditingTower.AoeFire)
+                if (_editingTower != TowerType.AoeFire)
                 {
-                    _editingTower = EditingTower.AoeFire;
+                    _editingTower = TowerType.AoeFire;
                 }
                 else
                 {
-                    _editingTower = EditingTower.None;
+                    _editingTower = TowerType.None;
                 }
                 break;
             default:
                 break;
         }
 
-        if (_editingTower != EditingTower.None)//if a tower is already selected for editing
+        if (_editingTower != TowerType.None)//if a tower is already selected for editing
         {
             switch (e.keyCode)//selecting attack parameters
             {
@@ -179,16 +208,16 @@ public class EditTowerMenu : MonoBehaviour {
 
         switch (this._editingTower)
         {
-            case EditingTower.SingleFire:
+            case TowerType.SingleFire:
                 _editMenu.transform.GetChild(3).GetComponent<Text>().text = "Single Fire Tower Selected - Targeting " + TargetParameterText(_singleFireTarget) + " Enemy";
                 break;
-            case EditingTower.BurstFire:
+            case TowerType.BurstFire:
                 _editMenu.transform.GetChild(3).GetComponent<Text>().text = "Burst Fire Tower Selected - Targeting " + TargetParameterText(_burstFireTarget) + " Enemy";
                 break;
-            case EditingTower.SpreadFire:
+            case TowerType.SpreadFire:
                 _editMenu.transform.GetChild(3).GetComponent<Text>().text = "Spread Fire Tower Selected - Targeting " + TargetParameterText(_spreadFireTarget) + " Enemy";
                 break;
-            case EditingTower.AoeFire:
+            case TowerType.AoeFire:
                 _editMenu.transform.GetChild(3).GetComponent<Text>().text = "AOE Tower Selected - Targeting " + TargetParameterText(_aoeTarget) + " Enemy";
                 break;
             default://assumed EditingTower.None;
@@ -203,28 +232,97 @@ public class EditTowerMenu : MonoBehaviour {
     {
         switch (_editingTower)
         {
-            case EditingTower.SingleFire:
+            case TowerType.SingleFire:
                 _singleFireTarget = option;
                 break;
-            case EditingTower.BurstFire:
+            case TowerType.BurstFire:
                 _burstFireTarget = option;
                 break;
-            case EditingTower.SpreadFire:
+            case TowerType.SpreadFire:
                 _spreadFireTarget = option;
                 break;
-            case EditingTower.AoeFire:
+            case TowerType.AoeFire:
                 _aoeTarget = option;
                 break;
             default:
                 break;
         }
 
+        _editingTower = TowerType.None;
+    }
+
+    private void UpdateTowers()
+    {
+
         foreach (GameObject tower in _towers)
         {
-            tower.GetComponent<TowerController>().SetAttackOption((int)option);
+            switch (tower.GetComponent<TowerController>().ReturnTowerType())
+            {
+                case (int)TowerType.SingleFire:
+                    tower.GetComponent<TowerController>().SetAttackOption((int)_singleFireTarget);
+                    break;
+                case (int)TowerType.BurstFire:
+                    tower.GetComponent<TowerController>().SetAttackOption((int)_burstFireTarget);
+                    break;
+                case (int)TowerType.SpreadFire:
+                    tower.GetComponent<TowerController>().SetAttackOption((int)_spreadFireTarget);
+                    break;
+                case (int)TowerType.AoeFire:
+                    tower.GetComponent<TowerController>().SetAttackOption((int)_aoeTarget);
+                    break;
+                default:
+                    break;
+            }
         }
 
-        _editingTower = EditingTower.None;
+    }
+
+    private void SavePreferences()
+    {
+        using (StreamWriter writer = new StreamWriter("Assets/Assets/SaveData/test.txt", false))
+        {
+            writer.WriteLine("Single - " + TargetParameterText(_singleFireTarget));
+            writer.WriteLine("Burst - " + TargetParameterText(_burstFireTarget));
+            writer.WriteLine("Spread - " + TargetParameterText(_spreadFireTarget));
+            writer.WriteLine("AOE - " + TargetParameterText(_aoeTarget));
+
+            writer.Close();
+        }
+    }
+
+    private void LoadPreferences()
+    {
+        string line = "";
+
+        using (StreamReader reader = new StreamReader("Assets/Assets/SaveData/test.txt", true))
+        {
+            while ((line = reader.ReadLine()) != null)
+            {
+                string attackString = line.Substring(line.LastIndexOf(" ") + 1);
+                AttackChoice attackChoice = TargetParameterEnum(attackString);
+                switch (line.Substring(0, line.IndexOf(" ")))//the first word, being the tower name
+                {
+                    case "Single":
+                        _singleFireTarget = attackChoice;
+                        break;
+                    case "Burst":
+                        _burstFireTarget = attackChoice;
+                        break;
+                    case "Spread":
+                        _spreadFireTarget = attackChoice;
+                        break;
+                    case "AOE":
+                        _aoeTarget = attackChoice;
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            UpdateTowers();
+
+            reader.Close();
+        }
     }
 
     public void AddTower(GameObject tower)

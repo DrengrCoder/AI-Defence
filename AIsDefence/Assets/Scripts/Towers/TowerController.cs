@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TowerController : MonoBehaviour {
 
     public enum AttackChoice { First = 1, Last = 2, HighHealth = 3, LowHealth = 4, HighDamage = 5, LowDamage = 6 };
+    public enum TowerType { None = 1, SingleFire = 2, BurstFire = 3, SpreadFire = 4, AoeFire = 5, PulseFire = 6 };
 
     private int _health = 100;
     
@@ -19,8 +21,10 @@ public class TowerController : MonoBehaviour {
     public List<GameObject> _inRangeEnemies = new List<GameObject>();
     [HideInInspector]
     public GameObject _currentTarget;
-    [SerializeField]
     private AttackChoice _aiAttackOption = AttackChoice.First;
+    [SerializeField]
+    private string asdfghjk = "";
+    private TowerType _towerType = TowerType.None;
 
     [HideInInspector]
     public bool _canAttack = true;
@@ -33,7 +37,7 @@ public class TowerController : MonoBehaviour {
     public void SetAttackOption(int option)
     {
         _aiAttackOption = (AttackChoice)option;
-
+        asdfghjk = _aiAttackOption.ToString();
         AllocateNewTarget();
     }
 
@@ -59,18 +63,46 @@ public class TowerController : MonoBehaviour {
         }
     }
     
+    private void InitialiseTowerType()
+    {
+        switch (this.gameObject.name)
+        {
+            case "Single Fire Tower(Clone)":
+                this._towerType = TowerType.SingleFire;
+                break;
+            case "Burst Fire Tower(Clone)":
+                this._towerType = TowerType.BurstFire;
+                break;
+            case "Spread Fire Tower(Clone)":
+                this._towerType = TowerType.SpreadFire;
+                break;
+            case "AOE Tower(Clone)":
+                this._towerType = TowerType.AoeFire;
+                break;
+            case "Pulse Fire Tower(Clone)":
+                this._towerType = TowerType.PulseFire;
+                break;
+            default:
+                break;
+        }
+    }
+    public int ReturnTowerType()
+    {
+        return (int)_towerType;
+    }
+
     private void OnEnable()
     {
         CreditBanks Bank = FindObjectOfType<CreditBanks>();
         Bank.MinusCredits(_cost);
     }
-    
     void Start () {
         _projectileManager = GameObject.Find("ProjectileManager").GetComponent<ProjectileManager>();
         _towerEditMenu = GameObject.Find("UI/Menus").GetComponent<EditTowerMenu>();
         _towerEditMenu.AddTower(this.gameObject);
+        InitialiseTowerType();
+        asdfghjk = _aiAttackOption.ToString();
     }
-
     void Update()
     {
         if (this._currentTarget != null && !this._currentTarget.activeInHierarchy && this._inRangeEnemies.Count > 0)
@@ -94,7 +126,6 @@ public class TowerController : MonoBehaviour {
             }
         }
     }
-
     void FixedUpdate()
     {
         AllocateNewTarget();
@@ -117,7 +148,6 @@ public class TowerController : MonoBehaviour {
             this._inRangeEnemies.Remove(enemy);
         }
     }
-
     public void AllocateNewTarget()
     {
         ValidateEnemiesInRange();
