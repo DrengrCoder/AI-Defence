@@ -69,6 +69,23 @@ public class EditTowerMenu : MonoBehaviour {
         }
     }
 
+    public int CheckTargetParameters(int towertype)
+    {
+        switch ((TowerType)towertype)
+        {
+            case TowerType.SingleFire:
+                return (int)_singleFireTarget;
+            case TowerType.BurstFire:
+                return (int)_burstFireTarget;
+            case TowerType.SpreadFire:
+                return (int)_spreadFireTarget;
+            case TowerType.AoeFire:
+                return (int)_aoeTarget;
+            default:
+                return 0;
+        }
+    }
+
     void OnGUI()
     {
         Event e = Event.current;
@@ -93,7 +110,6 @@ public class EditTowerMenu : MonoBehaviour {
             }
         }
     }
-
     void Start()
     {
         _towerSelection = GameObject.Find("TowerSelectUI").GetComponent<TowerSelection>();
@@ -257,7 +273,6 @@ public class EditTowerMenu : MonoBehaviour {
         _editingTower = TowerType.None;
         UpdateTowers();
     }
-
     private void UpdateTowers()
     {
 
@@ -296,7 +311,6 @@ public class EditTowerMenu : MonoBehaviour {
             writer.Close();
         }
     }
-
     private void LoadPreferences()
     {
         string line = "";
@@ -336,7 +350,6 @@ public class EditTowerMenu : MonoBehaviour {
     {
         this._towers.Add(tower);
     }
-
     public void RemoveTower(GameObject tower)
     {
         this._towers.Remove(tower);

@@ -22,8 +22,6 @@ public class TowerController : MonoBehaviour {
     [HideInInspector]
     public GameObject _currentTarget;
     private AttackChoice _aiAttackOption = AttackChoice.First;
-    [SerializeField]
-    private string asdfghjk = "";
     private TowerType _towerType = TowerType.None;
 
     [HideInInspector]
@@ -37,7 +35,6 @@ public class TowerController : MonoBehaviour {
     public void SetAttackOption(int option)
     {
         _aiAttackOption = (AttackChoice)option;
-        asdfghjk = _aiAttackOption.ToString();
         AllocateNewTarget();
     }
 
@@ -101,7 +98,7 @@ public class TowerController : MonoBehaviour {
         _towerEditMenu = GameObject.Find("UI/Menus").GetComponent<EditTowerMenu>();
         _towerEditMenu.AddTower(this.gameObject);
         InitialiseTowerType();
-        asdfghjk = _aiAttackOption.ToString();
+        _aiAttackOption = (AttackChoice)_towerEditMenu.CheckTargetParameters((int)_towerType);
     }
     void Update()
     {
