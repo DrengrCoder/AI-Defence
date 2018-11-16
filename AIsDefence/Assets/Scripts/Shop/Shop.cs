@@ -12,6 +12,18 @@ public class Shop : MonoBehaviour {
     private bool _on = true;
     private bool _canShop = false;
 
+    //ScrapShops
+    [SerializeField]
+    private WeaponShop _weaponShop;
+    [SerializeField]
+    private PlayerUpgradeShop _upgradeShop;
+
+    public void UpdateShops()
+    {
+        _weaponShop.CheckPrices();
+        _upgradeShop.CheckPrices();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<Player>())

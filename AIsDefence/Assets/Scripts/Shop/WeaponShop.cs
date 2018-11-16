@@ -9,6 +9,9 @@ public class WeaponShop : MonoBehaviour {
     private Player _player;
 
     [SerializeField]
+    private Shop _shop;
+
+    [SerializeField]
     private CreditBanks _bank;
 
     public GameObject[] Guns;
@@ -25,15 +28,15 @@ public class WeaponShop : MonoBehaviour {
     public void BuyWeapon(int gun)
     {
         _player.Guns.Add(Guns[gun]);
-        _bank.MinusCredits(costs[gun]);
+        _bank.MinusPlayerCredits(costs[gun]);
 
         costs[gun] = 0;
-        CheckPrices();
+        _shop.UpdateShops();
     }
 
-    private void CheckPrices()
+    public void CheckPrices()
     {
-        int curr = _bank.CreditBank;
+        int curr = _bank.PlayerCreditBank;
 
         for (int i = 0; i < costs.Length; i++)
         {

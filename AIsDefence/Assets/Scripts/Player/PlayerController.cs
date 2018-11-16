@@ -9,16 +9,31 @@ public class PlayerController : MonoBehaviour {
     public bool Pause = false;
 
     [SerializeField]
+    private Upgrades _upgrades;
+
+    [SerializeField]
     private Camera _cam;
 
     private void OnEnable()
     {
         Cursor.visible = false;
+
+        int speedPointer = _upgrades.SpeedPointer;
+        Speed = _upgrades.Speeds[speedPointer];
     }
 
     private void OnDisable()
     {
         Cursor.visible = true;
+    }
+
+    public void UpgradeSpeed()
+    {
+        int speedPointer = _upgrades.SpeedPointer;
+        speedPointer = speedPointer + 1;
+        _upgrades.SpeedPointer = speedPointer;
+
+        Speed = _upgrades.Speeds[speedPointer];
     }
 
     void Update()

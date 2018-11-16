@@ -11,6 +11,9 @@ public class Player : MonoBehaviour {
     private Slider _healthBar;
 
     [SerializeField]
+    private Upgrades _upgrades;
+
+    [SerializeField]
     private float _switchWeaponTime = 0.3f;
     private float _switch = 0.3f;
 
@@ -22,18 +25,28 @@ public class Player : MonoBehaviour {
     private void Start()
     {
         _healthBar.maxValue = _maxHealth;
-        Respawn();
+        Health = _maxHealth;
+
+        int healthPointer = _upgrades.MaxHealthPointer;
+        _maxHealth = _upgrades.MaxHealths[healthPointer];
     }
 
     private void OnEnable()
     {
         Health = _maxHealth;
         _healthBar.value = Health;
+
+        int healthPointer = _upgrades.MaxHealthPointer;
+        _maxHealth = _upgrades.MaxHealths[healthPointer];
     }
 
-    public void Respawn()
+    public void UpgradeHealth()
     {
-        Health = _maxHealth;
+        int healthPointer = _upgrades.MaxHealthPointer;
+        healthPointer = healthPointer + 1;
+        _upgrades.MaxHealthPointer = healthPointer;
+
+        _maxHealth = _upgrades.MaxHealths[healthPointer];
     }
 
     public void TakeDamage(int damage)

@@ -8,8 +8,7 @@ public class Enemy : MonoBehaviour{
     //public float Speed; replaced by navmesh
     public string Name;
 
-    [SerializeField]
-    private int _maxHealth;
+    public int _maxHealth;
 
     public int CreditsOnDeath;
     public int Health;
