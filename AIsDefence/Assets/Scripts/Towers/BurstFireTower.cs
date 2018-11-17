@@ -1,27 +1,27 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BurstFireTower : TowerController {
+public class BurstFireTower : Tower {
 
     [SerializeField]
     private GameObject _bullet;
 
     [SerializeField]
     private int _force = 5000;
-    [SerializeField]
+
     private int _damage = 5;
 
-    private const float _originalDelay = 0.1f;
-    private const float _burstDelay = 0.7f;
+    private float _originalDelay = 0.1f;
+    private float _burstDelay = 0.7f;
+    private float _fireRate = 0.1f;
 
     private int _burstCount = 0;
     private const int _maxBurst = 3;
 
-    void Awake()
-    {
-        AttackCooldown = _originalDelay;
-    }
+    private TowerType _type = TowerType.BurstFire;
+
 
     private void OnTriggerEnter(Collider obj)
     {
@@ -34,10 +34,10 @@ public class BurstFireTower : TowerController {
 
     private void OnTriggerStay(Collider obj)
     {
-        if (!obj.isTrigger && obj.tag == "Enemy" && _canAttack)
+        if (!obj.isTrigger && obj.tag == "Enemy" && _canFire)
         {
             Attack();
-            _canAttack = false;
+            _canFire = false;
         }
     }
 
@@ -58,11 +58,52 @@ public class BurstFireTower : TowerController {
         if (++_burstCount >= _maxBurst)
         {
             _burstCount = 0;
-            AttackCooldown = _burstDelay;
+            _fireRate = _burstDelay;
             ResettingDelay = true;
-            DelayReset = _originalDelay;
+            ResetDelayTo = _originalDelay;
         }
 
         _projectileManager.FireProjectile(this.gameObject, _currentTarget.GetComponent<CapsuleCollider>(), _bullet, _force, _damage);
+    }
+
+
+    public override void SetTowerFireRate(float rate)
+    {
+        _fireRate = rate;
+    }
+
+    public override void SetTowerDamage(int damage)
+    {
+        _damage = damage;
+    }
+
+    public override float GetTowerFireRate()
+    {
+        return _fireRate;
+    }
+
+    public override int GetTowerDamage()
+    {
+        return _damage;
+    }
+
+    public override TowerType GetTowerType()
+    {
+        return _type;
+    }
+
+    public override int BaseDamage()
+    {
+        return 5;
+    }
+
+    public override float BaseFireRate()
+    {
+        return 0.7f;
+    }
+
+    public override int BaseRange()
+    {
+        return 50;
     }
 }

@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114233095400056512}
   m_Layer: 2
   m_Name: Pulse Fire Tower
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,12 +138,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e639db1b7954246845ceb881935a7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _baseHealth: 100
   _cost: 1000
-  _projectileManager: {fileID: 0}
-  _inRangeEnemies: []
+  _canFire: 0
   _currentTarget: {fileID: 0}
-  _canAttack: 1
-  _damage: 1
+  _inRangeEnemies: []
+  _projectileManager: {fileID: 0}
 --- !u!135 &135175075778392608
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -154,5 +154,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 30
+  m_Radius: 35
   m_Center: {x: 0, y: 0, z: 0}
