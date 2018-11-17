@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114579748026863752}
   m_Layer: 2
   m_Name: AOE Tower
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,14 +138,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe8236b18cfc8374d9def09022681652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _baseHealth: 100
   _cost: 1000
-  _projectileManager: {fileID: 0}
-  _inRangeEnemies: []
+  _canFire: 0
   _currentTarget: {fileID: 0}
-  _canAttack: 1
+  _inRangeEnemies: []
+  _projectileManager: {fileID: 0}
   _bullet: {fileID: 1808151321666730, guid: a44d5d444f103e54e8f3e9c0360fe465, type: 2}
-  _force: 1500
-  _damage: 5
 --- !u!135 &135667024020758172
 SphereCollider:
   m_ObjectHideFlags: 1
