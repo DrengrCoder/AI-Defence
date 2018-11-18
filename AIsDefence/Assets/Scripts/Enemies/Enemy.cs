@@ -21,6 +21,8 @@ public class Enemy : MonoBehaviour{
     private float _timeTillAttack = 0.0f;
     public bool CanAttack = true;
 
+    public GameObject FaceObjective;
+
     private void Start()
     {
         _height = transform.position.y;
@@ -32,6 +34,7 @@ public class Enemy : MonoBehaviour{
         _height = transform.position.y;
         Health = _maxHealth;
         gameObject.GetComponent<NavMeshAgent>().SetDestination(EnemyTarget.transform.position);
+        FaceObjective = EnemyTarget;
         _timeTillAttack = 0.0f;
         CanAttack = true;
     }
@@ -66,7 +69,7 @@ public class Enemy : MonoBehaviour{
     private void Update()
     {
         Move();
-        FaceTarget();
+        FaceTarget(FaceObjective);
 
         if (CanAttack == false)
         {
@@ -80,9 +83,9 @@ public class Enemy : MonoBehaviour{
         }
     }
 
-    private void FaceTarget()
+    public void FaceTarget(GameObject enemyTarget)
     {
-        Vector3 lookPos = EnemyTarget.transform.position - transform.position;
+        Vector3 lookPos = enemyTarget.transform.position - transform.position;
         lookPos.y = 0;
         Quaternion rotation = Quaternion.LookRotation(lookPos);
         float rotateSpeed = gameObject.GetComponent<NavMeshAgent>().angularSpeed;

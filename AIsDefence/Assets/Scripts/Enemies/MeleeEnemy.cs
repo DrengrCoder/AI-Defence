@@ -6,13 +6,25 @@ using UnityEngine.AI;
 public class MeleeEnemy : Enemy {
 
     [SerializeField]
-    private StabbingMelee _meleeWeapon;
+    private Melee _meleeWeapon;
+
+    [SerializeField]
+    private string _playerTag;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == EnemyTarget)//attacks player
         {
             Attack(other.gameObject);
+            GetComponent<NavMeshAgent>().isStopped = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject == EnemyTarget)//attacks player
+        {
+            GetComponent<NavMeshAgent>().isStopped = false;
         }
     }
 
@@ -28,11 +40,22 @@ public class MeleeEnemy : Enemy {
     {
         if (CanAttack == true)
         {
-            if (target.GetComponent<Objective>())
-            {
-                _meleeWeapon.MeleeAttack();
-                CanAttack = false;
-            }
+            _meleeWeapon.MeleeAttack();
+            CanAttack = false;
         }
+    }
+
+    public void Enrage()
+    {
+        GameObject newTarget = GameObject.FindGameObjectWithTag(_playerTag);
+
+        EnemyTarget = newTarget;
+        FaceObjective = newTarget;
+        gameObject.GetComponent<NavMeshAgent>().SetDestination(EnemyTarget.transform.position);
+    }
+
+    private void FixedUpdate()
+    {
+        gameObject.GetComponent<NavMeshAgent>().SetDestination(EnemyTarget.transform.position);
     }
 }

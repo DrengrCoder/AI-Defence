@@ -1,4 +1,4 @@
-Single - Last
-Burst - Least-Damage
-Spread - Most-Health
-AOE - Least-Health
+Single - First
+Burst - First
+Spread - First
+AOE - First

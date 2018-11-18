@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4543014655400678}
   - component: {fileID: 33065438793205074}
   - component: {fileID: 23571339150075104}
-  - component: {fileID: 135297424140349634}
   m_Layer: 0
   m_Name: hand
   m_TagString: Untagged
@@ -39,7 +38,6 @@ GameObject:
   - component: {fileID: 4486276596606000}
   - component: {fileID: 33245119558246590}
   - component: {fileID: 23180208400453700}
-  - component: {fileID: 135681366281630290}
   m_Layer: 0
   m_Name: hand (1)
   m_TagString: Untagged
@@ -107,7 +105,7 @@ GameObject:
   - component: {fileID: 114574426939131944}
   m_Layer: 0
   m_Name: machinegun
-  m_TagString: Untagged
+  m_TagString: Guns
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -382,27 +380,3 @@ MonoBehaviour:
   _bulletSpawn: {fileID: 0}
   _bullet: {fileID: 1140044280796334, guid: ce9476dab4d149941970eef9188a2c91, type: 2}
   _numInPool: 20
---- !u!135 &135297424140349634
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1121312147501158}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &135681366281630290
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1334565506820320}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
