@@ -8,7 +8,7 @@ public class EnemyManager : MonoBehaviour {
     [SerializeField]
     private GameObject[] _spawnableEnemies;
     [SerializeField]
-    private GameObject[] _spawnPoints;
+    private Spawns[] _spawnPoints;
     [SerializeField]
     private GameObject _bossSpawn;
 
@@ -97,17 +97,16 @@ public class EnemyManager : MonoBehaviour {
         DelayedSpawns(tospawnEnemies);
     }
 
-    //Need to add a protector
     private void DelayedSpawns(List<GameObject> tospawnEnemies)
     {
         List<GameObject> toRemoveFromList = new List<GameObject>();
 
         for (int k = 0; k < tospawnEnemies.Count; k++)
         {
-            if (_spawnPoints[k].name != _protectorName)
+            if (_spawnPoints[Wave - 1].SpawnPoints[k].name != _protectorName)
             {
                 float height = tospawnEnemies[k].transform.position.y;
-                Vector3 spawn = _spawnPoints[k].transform.position;
+                Vector3 spawn = _spawnPoints[Wave - 1].SpawnPoints[k].transform.position;
                 spawn.y = height;
                 tospawnEnemies[k].transform.position = spawn;
 
@@ -127,7 +126,7 @@ public class EnemyManager : MonoBehaviour {
                 return;
             }
         }
-        
+
         int bossNum = _waves[Wave - 1].Boss;
 
         if (bossNum != 100)
@@ -181,10 +180,17 @@ public class Pools
 }
 
 [System.Serializable]
+public class Spawns
+{
+    public GameObject[] SpawnPoints;
+}
+
+[System.Serializable]
 public class Waves
 {
     public int[] Spawns;
     public int Boss = 100;
+    public int SpawnPoint;
 
     public int PlayerCredits;
 }
