@@ -6,13 +6,22 @@ using UnityEngine.AI;
 public class MeleeEnemy : Enemy {
 
     [SerializeField]
-    private StabbingMelee _meleeWeapon;
+    private Melee _meleeWeapon;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == EnemyTarget)//attacks player
         {
             Attack(other.gameObject);
+            GetComponent<NavMeshAgent>().isStopped = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject == EnemyTarget)//attacks player
+        {
+            GetComponent<NavMeshAgent>().isStopped = false;
         }
     }
 

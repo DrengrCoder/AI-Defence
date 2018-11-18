@@ -507,6 +507,8 @@ MonoBehaviour:
   CanAttack: 1
   BulletPool: {fileID: 0}
   _bulletSpawn: {fileID: 1249394339035450}
+  _playerTag: Player
+  _towerTag: Tower
 --- !u!135 &135421186009765156
 SphereCollider:
   m_ObjectHideFlags: 1

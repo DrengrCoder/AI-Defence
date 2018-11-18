@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 114574426939131944}
   m_Layer: 0
   m_Name: machinegun
-  m_TagString: Untagged
+  m_TagString: Guns
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -6,6 +6,8 @@ public class RangedEnemyProjectile : MonoBehaviour {
 
     [SerializeField]
     private float _speed;
+    [SerializeField]
+    private string _guns = "Guns";
 
     private Vector3 _target;
     private bool _shot = false;
@@ -34,11 +36,21 @@ public class RangedEnemyProjectile : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if ((!other.gameObject.GetComponent<Enemy>()) && (!other.isTrigger))
+        if ((!other.gameObject.GetComponent<Enemy>()) && (other.gameObject.tag != _guns) && (!other.isTrigger))
         {
             if (other.gameObject.GetComponent<Objective>())//attacks player and tower
             {
                 other.gameObject.GetComponent<Objective>().TakeDamage(Damage);
+                this.gameObject.SetActive(false);
+            }
+            else if (other.gameObject.GetComponent<Player>())
+            {
+                other.gameObject.GetComponent<Player>().TakeDamage(Damage);
+                this.gameObject.SetActive(false);
+            }
+            else if (other.gameObject.GetComponent<Tower>())
+            {
+                other.gameObject.GetComponent<Tower>().TakeDamage(Damage);
                 this.gameObject.SetActive(false);
             }
             else
