@@ -18,8 +18,6 @@ public class SlicingMelee : Melee {
 
     private void Update()
     {
-        Debug.Log(_arm.transform.localEulerAngles.x);
-
         if (AttackMovement == true)
         {
             _arm.transform.Rotate(-_slashSpeed * Time.deltaTime, 0, 0);

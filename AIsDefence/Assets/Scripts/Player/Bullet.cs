@@ -34,7 +34,14 @@ public class Bullet : MonoBehaviour {
         {
             if (other.gameObject.GetComponent<Enemy>())//attacks player and tower
             {
+                if (other.gameObject.GetComponent<MeleeEnemy>())
                 other.gameObject.GetComponent<Enemy>().TakeDamage(_damage);
+
+                if (other.gameObject.GetComponent<MeleeEnemy>())
+                {
+                    other.gameObject.GetComponent<MeleeEnemy>().Enrage();
+                }
+
                 gameObject.SetActive(false);
             }
             else

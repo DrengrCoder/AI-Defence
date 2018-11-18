@@ -8,6 +8,9 @@ public class MeleeEnemy : Enemy {
     [SerializeField]
     private Melee _meleeWeapon;
 
+    [SerializeField]
+    private string _playerTag;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == EnemyTarget)//attacks player
@@ -37,11 +40,22 @@ public class MeleeEnemy : Enemy {
     {
         if (CanAttack == true)
         {
-            if (target.GetComponent<Objective>())
-            {
-                _meleeWeapon.MeleeAttack();
-                CanAttack = false;
-            }
+            _meleeWeapon.MeleeAttack();
+            CanAttack = false;
         }
+    }
+
+    public void Enrage()
+    {
+        GameObject newTarget = GameObject.FindGameObjectWithTag(_playerTag);
+
+        EnemyTarget = newTarget;
+        FaceObjective = newTarget;
+        gameObject.GetComponent<NavMeshAgent>().SetDestination(EnemyTarget.transform.position);
+    }
+
+    private void FixedUpdate()
+    {
+        gameObject.GetComponent<NavMeshAgent>().SetDestination(EnemyTarget.transform.position);
     }
 }

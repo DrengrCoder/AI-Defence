@@ -8,8 +8,9 @@ public class RangedEnemyProjectile : MonoBehaviour {
     private float _speed;
     [SerializeField]
     private string _guns = "Guns";
-
+    [SerializeField]
     private Vector3 _target;
+    [SerializeField]
     private bool _shot = false;
 
     public int Damage;
@@ -31,31 +32,36 @@ public class RangedEnemyProjectile : MonoBehaviour {
         {
             float step = _speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, _target, step);
+
+            if (transform.position == _target)
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if ((!other.gameObject.GetComponent<Enemy>()) && (other.gameObject.tag != _guns) && (!other.isTrigger))
+        if ((!other.gameObject.GetComponent<Enemy>()) && (!other.isTrigger))
         {
             if (other.gameObject.GetComponent<Objective>())//attacks player and tower
             {
                 other.gameObject.GetComponent<Objective>().TakeDamage(Damage);
-                this.gameObject.SetActive(false);
+                gameObject.SetActive(false);
             }
             else if (other.gameObject.GetComponent<Player>())
             {
                 other.gameObject.GetComponent<Player>().TakeDamage(Damage);
-                this.gameObject.SetActive(false);
+                gameObject.SetActive(false);
             }
             else if (other.gameObject.GetComponent<Tower>())
             {
                 other.gameObject.GetComponent<Tower>().TakeDamage(Damage);
-                this.gameObject.SetActive(false);
+                gameObject.SetActive(false);
             }
             else
             {
-                this.gameObject.SetActive(false);
+                gameObject.SetActive(false);
             }
         }
     }

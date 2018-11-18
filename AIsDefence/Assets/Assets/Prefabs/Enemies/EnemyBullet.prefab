@@ -113,6 +113,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 50
+  _guns: Guns
+  _target: {x: 0, y: 0, z: 0}
+  _shot: 0
   Damage: 0
 --- !u!135 &135101475270389938
 SphereCollider:

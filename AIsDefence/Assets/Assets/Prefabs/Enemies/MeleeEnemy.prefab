@@ -139,7 +139,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4754803881251824}
-  - component: {fileID: 136707391914549976}
+  - component: {fileID: 65580699898183570}
   - component: {fileID: 54766661879167286}
   - component: {fileID: 114675776274056094}
   m_Layer: 0
@@ -502,6 +502,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65580699898183570
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1970940304122638}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 5, z: 1}
+  m_Center: {x: -1, y: 2.5, z: 0}
 --- !u!114 &114675776274056094
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -540,7 +552,9 @@ MonoBehaviour:
   EnemyTarget: {fileID: 0}
   AttackCooldown: 1
   CanAttack: 1
+  FaceObjective: {fileID: 0}
   _meleeWeapon: {fileID: 114675776274056094}
+  _playerTag: Player
 --- !u!135 &135188361350012970
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -566,19 +580,6 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!136 &136707391914549976
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1970940304122638}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 5
-  m_Direction: 1
-  m_Center: {x: 0, y: 2.5, z: 0}
 --- !u!195 &195587586840754980
 NavMeshAgent:
   m_ObjectHideFlags: 1
@@ -589,7 +590,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 1.4
   m_Speed: 12
-  m_Acceleration: 2
+  m_Acceleration: 8
   avoidancePriority: 1
   m_AngularSpeed: 120
   m_StoppingDistance: 8

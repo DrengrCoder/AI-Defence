@@ -17,9 +17,16 @@ public class Melee : MonoBehaviour {
 
     private void OnTriggerStay(Collider other)
     {
-        if ((other.gameObject.GetComponent<Objective>()) && (Attacking == true))//attacks player
+        if (Attacking == true)//attacks player
         {
-            other.gameObject.GetComponent<Objective>().TakeDamage(Damage);
+            if (other.gameObject.GetComponent<Objective>())
+            {
+                other.gameObject.GetComponent<Objective>().TakeDamage(Damage);
+            }
+            else if (other.gameObject.GetComponent<Player>())
+            {
+                other.gameObject.GetComponent<Player>().TakeDamage(Damage);
+            }
 
             Attacking = false;
         }
@@ -27,9 +34,16 @@ public class Melee : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if ((other.gameObject.GetComponent<Objective>()) && (Attacking == true))//attacks player
+        if (Attacking == true)//attacks player
         {
-            other.gameObject.GetComponent<Objective>().TakeDamage(Damage);
+            if (other.gameObject.GetComponent<Objective>())
+            {
+                other.gameObject.GetComponent<Objective>().TakeDamage(Damage);
+            }
+            else if (other.gameObject.GetComponent<Player>())
+            {
+                other.gameObject.GetComponent<Player>().TakeDamage(Damage);
+            }
 
             Attacking = false;
         }
