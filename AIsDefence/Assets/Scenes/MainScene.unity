@@ -13486,13 +13486,22 @@ MonoBehaviour:
   - {fileID: 1120145660894748, guid: 0a38bac92a7cecc4c94c4742b81e84e4, type: 2}
   - {fileID: 1214841693572402, guid: f7472270806c1794684979ec52574f05, type: 2}
   _spawnPoints:
-  - SpawnPoints: []
-  - SpawnPoints: []
-  - SpawnPoints: []
-  - SpawnPoints: []
-  - SpawnPoints: []
-  - SpawnPoints: []
-  - SpawnPoints: []
+  - SpawnPoints:
+    - {fileID: 148663678}
+    - {fileID: 1059105959}
+    - {fileID: 753330131}
+    - {fileID: 149428484}
+    - {fileID: 1058316124}
+    - {fileID: 2103508202}
+    - {fileID: 1066293334}
+  - SpawnPoints:
+    - {fileID: 148663678}
+    - {fileID: 1059105959}
+    - {fileID: 753330131}
+    - {fileID: 149428484}
+    - {fileID: 1058316124}
+    - {fileID: 2103508202}
+    - {fileID: 1066293334}
   _bossSpawn: {fileID: 156038381}
   _waves:
   - Spawns: 020000000100000001000000
