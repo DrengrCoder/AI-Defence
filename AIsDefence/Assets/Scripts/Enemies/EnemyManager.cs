@@ -112,6 +112,7 @@ public class EnemyManager : MonoBehaviour {
 
                 tospawnEnemies[k].GetComponent<Enemy>().EnemyTarget = EnemyTarget;
                 tospawnEnemies[k].SetActive(true);
+                tospawnEnemies[k].GetComponent<Enemy>().SetWaveNum(Wave - 1);
                 toRemoveFromList.Add(tospawnEnemies[k]);
             }
             else
@@ -144,6 +145,7 @@ public class EnemyManager : MonoBehaviour {
 
                     boss.GetComponent<Enemy>().EnemyTarget = EnemyTarget;
                     boss.SetActive(true);
+                    boss.GetComponent<Enemy>().SetWaveNum(Wave - 1);
                 }
             }
         }

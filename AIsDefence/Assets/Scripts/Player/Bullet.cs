@@ -11,8 +11,13 @@ public class Bullet : MonoBehaviour {
     [SerializeField]
     private float _lifeTime = 10f;
 
+    [SerializeField]
+    private EndGameStats _stats;
+
     private void OnEnable()
     {
+        _stats.Shots = _stats.Shots + 1;
+
         StartCoroutine(LifeTime());
     }
 
@@ -34,6 +39,7 @@ public class Bullet : MonoBehaviour {
         {
             if (other.gameObject.GetComponent<Enemy>())//attacks player and tower
             {
+                _stats.Hits = _stats.Hits + 1;
                 other.gameObject.GetComponent<Enemy>().TakeDamage(_damage);
 
                 if (other.gameObject.GetComponent<MeleeEnemy>())

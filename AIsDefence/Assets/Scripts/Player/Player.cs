@@ -22,6 +22,9 @@ public class Player : MonoBehaviour {
 
     public int Health = 100;
 
+    [SerializeField]
+    private EndGameStats _stats;
+
     private void Start()
     {
         _healthBar.maxValue = _maxHealth;
@@ -53,6 +56,8 @@ public class Player : MonoBehaviour {
     {
         Health = Health - damage;
         _healthBar.value = Health;
+
+        _stats.DamageTaken = _stats.DamageTaken + damage;
 
         if (Health <= 0)
         {

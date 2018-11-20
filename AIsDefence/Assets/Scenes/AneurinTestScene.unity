@@ -5270,6 +5270,7 @@ MonoBehaviour:
   Guns:
   - {fileID: 1175660794}
   Health: 100
+  _stats: {fileID: 11400000, guid: 6f22d35d4c48dd6498355172d68ca31a, type: 2}
 --- !u!195 &440864381
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -10999,7 +11000,6 @@ Transform:
   - {fileID: 997954480}
   - {fileID: 1833626567}
   - {fileID: 263175607}
-  - {fileID: 851526031}
   - {fileID: 310707900}
   - {fileID: 594434589}
   - {fileID: 882906460}
@@ -11018,6 +11018,7 @@ Transform:
   - {fileID: 1052102005}
   - {fileID: 1682623578}
   - {fileID: 1126803404}
+  - {fileID: 851526031}
   - {fileID: 151606412}
   - {fileID: 1961216013}
   - {fileID: 1384036161}
@@ -19925,6 +19926,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1820969596}
+  - component: {fileID: 1820969597}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -19948,6 +19950,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1820969597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1820969595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e43c5eece8e3c204086f8b82f3dfd966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stats: {fileID: 11400000, guid: 6f22d35d4c48dd6498355172d68ca31a, type: 2}
+  Completed: 0
 --- !u!1001 &1821276261
 Prefab:
   m_ObjectHideFlags: 0
