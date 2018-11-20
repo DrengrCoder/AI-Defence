@@ -3471,6 +3471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _towerShopMenu: {fileID: 739856080}
   _playerCharacter: {fileID: 1117733334}
+  _bank: {fileID: 0}
   _statTexts:
   - {fileID: 1201480525}
   - {fileID: 1296145599}
@@ -3484,6 +3485,7 @@ MonoBehaviour:
   - {fileID: 1230573349253824, guid: f32ed324b7181e8458b753337275beae, type: 2}
   - {fileID: 1423272939445210, guid: a14a554444e157c49b11597d88980336, type: 2}
   _upgradeButtons: []
+  _costs: 
 --- !u!114 &520313058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13481,23 +13483,25 @@ MonoBehaviour:
   _spawnableEnemies:
   - {fileID: 1148468775563760, guid: b4982e46a55e0e84e811be252b93b637, type: 2}
   - {fileID: 1277602665834034, guid: 26a2e114182799541b5d03bb204038c7, type: 2}
-  - {fileID: 1317940048262604, guid: 0a38bac92a7cecc4c94c4742b81e84e4, type: 2}
+  - {fileID: 1120145660894748, guid: 0a38bac92a7cecc4c94c4742b81e84e4, type: 2}
   - {fileID: 1214841693572402, guid: f7472270806c1794684979ec52574f05, type: 2}
   _spawnPoints:
-  - {fileID: 148663678}
-  - {fileID: 1059105959}
-  - {fileID: 753330131}
-  - {fileID: 149428484}
-  - {fileID: 1058316124}
-  - {fileID: 2103508202}
-  - {fileID: 1066293334}
+  - SpawnPoints: []
+  - SpawnPoints: []
+  - SpawnPoints: []
+  - SpawnPoints: []
+  - SpawnPoints: []
+  - SpawnPoints: []
+  - SpawnPoints: []
   _bossSpawn: {fileID: 156038381}
   _waves:
   - Spawns: 020000000100000001000000
     Boss: 100
+    SpawnPoint: 0
     PlayerCredits: 400
   - Spawns: 040000000200000002000000
     Boss: 3
+    SpawnPoint: 0
     PlayerCredits: 800
   _pools:
   - Num:
