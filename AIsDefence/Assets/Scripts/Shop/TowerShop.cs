@@ -12,15 +12,15 @@ public class TowerShop : MonoBehaviour {
 
     [SerializeField]
     private PlayerController _playerCharacter;
+    [SerializeField]
+    private CreditBanks _bank;
 
     [SerializeField]
     private List<GameObject> _statTexts = new List<GameObject>();
-
     [SerializeField]
-    private List<GameObject> _towerPrefabs = new List<GameObject>();
-
+    private List<GameObject> _towerPrefabs;
     [SerializeField]
-    private List<GameObject> _upgradeButtons = new List<GameObject>();
+    private List<Button> _upgradeButtons;
 
     private TowerSelection _towerSelector;
 
@@ -53,7 +53,20 @@ public class TowerShop : MonoBehaviour {
             tower.TowerHealth = tower._baseHealth;
             tower.SetTowerDamage(tower.BaseDamage());
             tower.SetTowerFireRate(tower.BaseFireRate());
+            tower._upgradeCost = tower._baseUpgradeCost;
+            tower._upgradePointer = 0;
             prefab.GetComponent<SphereCollider>().radius = tower.BaseRange();
+
+            int currentCost = 0;
+            int costIncrement = 0;
+            tower._futureCosts = new int[5];
+            for (int i = 0; i < tower._maxUpgrades; i++)
+            {
+                costIncrement += 100;
+                currentCost += costIncrement;
+
+                tower._futureCosts[i] = currentCost;
+            }
         }
     }
 
@@ -67,18 +80,22 @@ public class TowerShop : MonoBehaviour {
                 Time.timeScale = 0;
                 _menuOn = !_menuOn;
                 SetStatText();
+
+                CheckPrices();
+
+                foreach (Button btn in _towerSelector._buttons)
+                {
+                    btn.interactable = false;
+                }
             }
             else
             {
                 _towerShopMenu.SetActive(false);
                 Time.timeScale = 1;
                 _menuOn = !_menuOn;
+                _towerSelector.CreditUpdated();
             }
 
-            foreach (Button btn in _towerSelector._buttons)
-            {
-                btn.interactable = !_menuOn;
-            }
         }
     }
 
@@ -108,31 +125,47 @@ public class TowerShop : MonoBehaviour {
         _statTexts[1].GetComponent<Text>().text = health.ToString();
         _statTexts[2].GetComponent<Text>().text = range.ToString();
         _statTexts[3].GetComponent<Text>().text = firerate.ToString();
+
+        for (int i = 0; i < _upgradeButtons.Count; i++)
+        {
+            string text = _towerPrefabs[i].GetComponent<Tower>()._upgradeCost.ToString() + "QE";
+            if (_towerPrefabs[i].GetComponent<Tower>()._upgradeCost < 1)
+            {
+                text = "MAXED";
+            }
+            _upgradeButtons[i].GetComponentInChildren<Text>().text = text;
+        }
     }
     
     public void BuyUpgrade(GameObject tower)
     {
         GameObject prefab = null;
+        int pressedButton = -1;
 
         switch (tower.GetComponent<Tower>().GetTowerType())
         {
             case TowerType.SingleFire:
-                prefab = _towerPrefabs[0];
+                pressedButton = 0;
                 break;
             case TowerType.BurstFire:
-                prefab = _towerPrefabs[1];
+                pressedButton = 1;
                 break;
             case TowerType.SpreadFire:
-                prefab = _towerPrefabs[2];
+                pressedButton = 2;
                 break;
             case TowerType.AoeFire:
-                prefab = _towerPrefabs[3];
+                pressedButton = 3;
                 break;
             case TowerType.PulseFire:
-                prefab = _towerPrefabs[4];
+                pressedButton = 4;
                 break;
             default:
                 break;
+        }
+
+        if (pressedButton > -1)
+        {
+            prefab = _towerPrefabs[pressedButton];
         }
 
         if (prefab != null)
@@ -140,6 +173,8 @@ public class TowerShop : MonoBehaviour {
             //baseTower and prefab variables are objects outside of scene
 
             Tower baseTower = prefab.GetComponent<Tower>();
+
+            _bank.MinusCredits(baseTower._upgradeCost);
 
             baseTower.TowerHealth = prefab.GetComponent<Tower>().TowerHealth + 50;
             baseTower.SetTowerDamage(baseTower.GetTowerDamage() + 3);
@@ -150,6 +185,8 @@ public class TowerShop : MonoBehaviour {
             }
 
             prefab.GetComponent<SphereCollider>().radius = prefab.GetComponent<SphereCollider>().radius + 15;
+            
+            baseTower._upgradeCost = baseTower._futureCosts[++baseTower._upgradePointer];
 
             foreach (GameObject instancedObject in GameObject.FindGameObjectsWithTag("Tower"))
             {
@@ -163,11 +200,37 @@ public class TowerShop : MonoBehaviour {
                     instancedTower.TowerHealth = baseTower.TowerHealth;
                     instancedTower.SetTowerDamage(baseTower.GetTowerDamage());
                     instancedTower.SetTowerFireRate(baseTower.GetTowerFireRate());
+                    instancedTower._upgradeCost = baseTower._upgradeCost;
                     instancedObject.GetComponent<SphereCollider>().radius = prefab.GetComponent<SphereCollider>().radius;
                 }
             }
+
+            //check to see if the tower can be upgraded any further
+            if (baseTower._upgradePointer + 1 >= baseTower._maxUpgrades)
+            {
+                _upgradeButtons[pressedButton].GetComponentInChildren<Text>().text = "MAXED";
+                baseTower._upgradeCost = 0;
+            }
+
+            CheckPrices();
         }
         
         SetStatText();
+    }
+
+    private void CheckPrices()
+    {
+        for (int i = 0; i < _towerPrefabs.Count; i++)
+        {
+            Tower t = _towerPrefabs[i].GetComponent<Tower>();
+            if (t._upgradeCost <= _bank.CreditBank && t._upgradeCost > 0)
+            {
+                _upgradeButtons[i].interactable = true;
+            }
+            else
+            {
+                _upgradeButtons[i].interactable = false;
+            }
+        }
     }
 }
