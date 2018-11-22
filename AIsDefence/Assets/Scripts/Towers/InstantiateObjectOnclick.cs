@@ -8,6 +8,9 @@ public class InstantiateObjectOnclick : MonoBehaviour {
     private RaycastHit _hit;
 
     [SerializeField]
+    private int _num = 0;
+
+    [SerializeField]
     private GameObject _aoeTower;
     [SerializeField]
     private GameObject _singleFireTower;
@@ -38,26 +41,32 @@ public class InstantiateObjectOnclick : MonoBehaviour {
             {
                 if (this._hit.transform.name == this._thisSpot.name && TowerIsSelected())
                 {
+                    GameObject obj = null;
 
                     if (this._towerSelection.AoeTowerSelected())
                     {
-                        GameObject obj = Instantiate(_aoeTower, SpawnPosition(), Quaternion.identity) as GameObject;
+                        obj = Instantiate(_aoeTower, SpawnPosition(), Quaternion.identity) as GameObject;
                     }
                     else if (this._towerSelection.SingleFireTowerSelected())
                     {
-                        GameObject obj = Instantiate(_singleFireTower, SpawnPosition(), Quaternion.identity) as GameObject;
+                        obj = Instantiate(_singleFireTower, SpawnPosition(), Quaternion.identity) as GameObject;
                     }
                     else if (this._towerSelection.BurstFireTowerSelected())
                     {
-                        GameObject obj = Instantiate(_burstFireTower, SpawnPosition(), Quaternion.identity) as GameObject;
+                        obj = Instantiate(_burstFireTower, SpawnPosition(), Quaternion.identity) as GameObject;
                     }
                     else if (this._towerSelection.PulseTowerSelected())
                     {
-                        GameObject obj = Instantiate(_pulseFireTower, SpawnPosition(), Quaternion.identity) as GameObject;
+                        obj = Instantiate(_pulseFireTower, SpawnPosition(), Quaternion.identity) as GameObject;
                     }
                     else if (this._towerSelection.SpreadTowerSelected())
                     {
-                        GameObject obj = Instantiate(_spreadFireTower, SpawnPosition(), Quaternion.identity) as GameObject;
+                        obj = Instantiate(_spreadFireTower, SpawnPosition(), Quaternion.identity) as GameObject;
+                    }
+
+                    if (obj.GetComponent<Tower>())
+                    {
+                        obj.GetComponent<Tower>().Num = _num;
                     }
 
                     this._towerSelection.ResetButtons();

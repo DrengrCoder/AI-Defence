@@ -38,6 +38,12 @@ public class StatManager : MonoBehaviour {
         }
     }
 
+    public void CompletedLevel()
+    {
+        Completed = true;
+        Debug.Log("Completed");
+    }
+
     private void Update()
     {
         if (Completed == false)

@@ -12,6 +12,9 @@ public abstract class Tower : MonoBehaviour {
     [SerializeField]
     private int _cost;
 
+    //This is for the end game stats, should only be edited by InstantiateObjectOnclick.cs
+    public int Num = 0;
+
     //firing mechanics variables
     [HideInInspector]
     public bool _canFire = true;

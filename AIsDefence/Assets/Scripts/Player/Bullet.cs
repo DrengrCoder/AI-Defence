@@ -40,11 +40,18 @@ public class Bullet : MonoBehaviour {
             if (other.gameObject.GetComponent<Enemy>())//attacks player and tower
             {
                 _stats.Hits = _stats.Hits + 1;
-                other.gameObject.GetComponent<Enemy>().TakeDamage(_damage);
+                _stats.DamageDealt = _stats.DamageDealt + _damage;
+
+                bool killed = other.gameObject.GetComponent<Enemy>().TakeDamage(_damage);
 
                 if (other.gameObject.GetComponent<MeleeEnemy>())
                 {
                     other.gameObject.GetComponent<MeleeEnemy>().Enrage();
+                }
+
+                if (killed == true)
+                {
+                    _stats.Kills = _stats.Kills + 1;
                 }
 
                 gameObject.SetActive(false);

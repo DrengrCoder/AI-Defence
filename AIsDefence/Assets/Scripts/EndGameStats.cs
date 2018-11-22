@@ -9,10 +9,10 @@ public class EndGameStats : ScriptableObject //Every stat need to start at 0 for
 
     //PlayerStats
     public int DamageTaken = 0;
-    public int DamageDealt = 0; //To Do
+    public int DamageDealt = 0;
     public int Shots = 0;
     public int Hits = 0;
-    public int Kills = 0; //To Do
+    public int Kills = 0;
 
     public WaveStats[] WaveStats;
     public TowerStats[] TowerStats;
