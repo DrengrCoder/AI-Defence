@@ -1,11 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StatManager : MonoBehaviour {
 
     [SerializeField]
     private EndGameStats _stats;
+    [SerializeField]
+    private PlayerController _controller;
+
+    [SerializeField]
+    private GameObject _endgame;
+    [SerializeField]
+    private EndScreenWaves _endgameWaves;
+    [SerializeField]
+    private EndScreenTowers _endgameTowers;
+
+    [SerializeField]
+    private Text _damageDealtText;
+    [SerializeField]
+    private Text _damageTakenText;
+    [SerializeField]
+    private Text _hitRateText;
+    [SerializeField]
+    private Text _killsText;
+    [SerializeField]
+    private Text _timerText;
 
     private float _timer = 0.0f;
     public bool Completed = false;
@@ -41,7 +62,26 @@ public class StatManager : MonoBehaviour {
     public void CompletedLevel()
     {
         Completed = true;
-        Debug.Log("Completed");
+
+        _timerText.text = _stats.TimeTaken.ToString();
+        _killsText.text = _stats.Kills.ToString();
+        _damageTakenText.text = _stats.DamageTaken.ToString();
+        _damageDealtText.text = _stats.DamageDealt.ToString();
+
+        int hitRate = 0;
+        if (_stats.Shots != 0)
+        {
+            hitRate = (_stats.Hits / _stats.Shots) * 100;
+        }
+        _hitRateText.text = hitRate.ToString();
+
+        _endgame.SetActive(true);
+        _endgameWaves.Populate();
+        _endgameTowers.Populate();
+
+        Cursor.visible = true;
+        Time.timeScale = 0;
+        _controller.Pause = true;
     }
 
     private void Update()

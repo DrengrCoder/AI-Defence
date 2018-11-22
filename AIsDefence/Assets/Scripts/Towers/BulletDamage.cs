@@ -9,7 +9,7 @@ public class BulletDamage : MonoBehaviour {
     [SerializeField]
     private EndGameStats _stats;
 
-    public int _tVal = 1;
+    public int _tVal = 0;
 
     public int BulletDamageValue
     {
@@ -25,7 +25,10 @@ public class BulletDamage : MonoBehaviour {
 
     private void OnEnable()
     {
-        _stats.TowerStats[_tVal - 1].Shots = _stats.TowerStats[_tVal - 1].Shots + 1;
+        if (_tVal != 0)
+        {
+            _stats.TowerStats[_tVal - 1].Shots = _stats.TowerStats[_tVal - 1].Shots + 1;
+        }
         Invoke("DestroyBullet", 2f);
     }
 
