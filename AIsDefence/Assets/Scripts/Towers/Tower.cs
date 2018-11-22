@@ -12,6 +12,13 @@ public abstract class Tower : MonoBehaviour {
     [SerializeField]
     private int _cost;
 
+    //upgrade properties
+    public /*const*/ int _baseUpgradeCost = 100;//cant be accessed if its a const variable
+    public int _upgradeCost = 100;
+    public int[] _futureCosts;
+    public /*const*/ int _maxUpgrades = 5;
+    public int _upgradePointer = 0;
+    
     //firing mechanics variables
     [HideInInspector]
     public bool _canFire = true;

@@ -8,7 +8,7 @@ public class AoeTower : Tower {
     [SerializeField]
     private GameObject _bullet;
     
-    private int _force = 1500;
+    private int _force = 4000;
 
     private int _damage = 5;
     
@@ -49,7 +49,7 @@ public class AoeTower : Tower {
 
     private void Attack()
     {
-        _projectileManager.FireProjectile(this.gameObject, _currentTarget.GetComponent<CapsuleCollider>(), _bullet, _force, _damage);
+        _projectileManager.FireArcProjectile(this.gameObject, _currentTarget.GetComponent<CapsuleCollider>(), _bullet, _force, _damage);
     }
 
 

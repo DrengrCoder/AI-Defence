@@ -32,15 +32,18 @@ public class TowerSelection : MonoBehaviour {
     }
 	
 	public void CreditUpdated() {
-		for (int i = 0; i < _costs.Length; i++)
+        if (Time.timeScale == 1)
         {
-            if (_costs[i] > _bank.CreditBank)
+            for (int i = 0; i < _costs.Length; i++)
             {
-                _buttons[i].interactable = false; 
-            }
-            else
-            {
-                _buttons[i].interactable = true;
+                if (_costs[i] > _bank.CreditBank)
+                {
+                    _buttons[i].interactable = false;
+                }
+                else
+                {
+                    _buttons[i].interactable = true;
+                }
             }
         }
 	}

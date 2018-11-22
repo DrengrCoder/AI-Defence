@@ -140,6 +140,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _baseHealth: 100
   _cost: 500
+  _baseUpgradeCost: 100
+  _upgradeCost: 100
+  _futureCosts: 640000002c01000058020000e8030000dc050000
+  _maxUpgrades: 5
+  _upgradePointer: 0
   _canFire: 0
   _currentTarget: {fileID: 0}
   _inRangeEnemies: []

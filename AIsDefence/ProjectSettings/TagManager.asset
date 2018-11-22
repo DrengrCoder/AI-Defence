@@ -8,6 +8,7 @@ TagManager:
   - Tower
   - Guns
   - EnemyBullet
+  - Ground
   layers:
   - Default
   - TransparentFX
