@@ -63,7 +63,7 @@ public class BurstFireTower : Tower {
             ResetDelayTo = _originalDelay;
         }
 
-        _projectileManager.FireProjectile(this.gameObject, _currentTarget.GetComponent<CapsuleCollider>(), _bullet, _force, _damage);
+        _projectileManager.FireProjectile(this.gameObject, _currentTarget.GetComponent<CapsuleCollider>(), _bullet, _force, _damage, Num);
     }
 
 

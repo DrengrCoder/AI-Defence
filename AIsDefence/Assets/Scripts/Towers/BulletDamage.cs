@@ -6,6 +6,11 @@ public class BulletDamage : MonoBehaviour {
 
     private int _damage = 0;
 
+    [SerializeField]
+    private EndGameStats _stats;
+
+    public int _tVal = 1;
+
     public int BulletDamageValue
     {
         get
@@ -20,6 +25,7 @@ public class BulletDamage : MonoBehaviour {
 
     private void OnEnable()
     {
+        _stats.TowerStats[_tVal - 1].Shots = _stats.TowerStats[_tVal - 1].Shots + 1;
         Invoke("DestroyBullet", 2f);
     }
 
@@ -29,19 +35,26 @@ public class BulletDamage : MonoBehaviour {
         {
             if (this.gameObject.name.Contains("Bullet"))
             {
+                _stats.TowerStats[_tVal - 1].Hits = _stats.TowerStats[_tVal - 1].Hits + 1;
+                _stats.TowerStats[_tVal - 1].Damage = _stats.TowerStats[_tVal - 1].Damage + _damage;
+                bool killed = false;
                 switch (obj.gameObject.name)
                 {
                     case "TempEnemy(Clone)":
-                        obj.gameObject.GetComponent<SuicideEnemy>().TakeDamage(_damage);
+                        killed = obj.gameObject.GetComponent<SuicideEnemy>().TakeDamage(_damage);
                         break;
                     case "RangedEnemy(Clone)":
-                        obj.gameObject.GetComponent<RangedEnemy>().TakeDamage(_damage);
+                        killed = obj.gameObject.GetComponent<RangedEnemy>().TakeDamage(_damage);
                         break;
                     case "MeleeEnemy(Clone)":
-                        obj.gameObject.GetComponent<MeleeEnemy>().TakeDamage(_damage);
+                        killed = obj.gameObject.GetComponent<MeleeEnemy>().TakeDamage(_damage);
                         break;
                     default:
                         break;
+                }
+                if (killed == true)//Aneurin Addition
+                {
+                    _stats.TowerStats[_tVal - 1].Kills = _stats.TowerStats[_tVal - 1].Kills + 1;
                 }
             }
             else if (this.gameObject.name.Contains("Bomb"))
@@ -56,22 +69,30 @@ public class BulletDamage : MonoBehaviour {
                 {
                     if (col.gameObject.tag == "Enemy")
                     {
+                        _stats.TowerStats[_tVal - 1].Hits = _stats.TowerStats[_tVal - 1].Hits + 1;
+                        _stats.TowerStats[_tVal - 1].Damage = _stats.TowerStats[_tVal - 1].Damage + _damage;
+                        bool killed = false;
                         switch (col.gameObject.name)
                         {
                             case "TempEnemy(Clone)":
-                                col.gameObject.GetComponent<SuicideEnemy>().TakeDamage(_damage);
+                                killed = col.gameObject.GetComponent<SuicideEnemy>().TakeDamage(_damage);
                                 break;
                             case "RangedEnemy(Clone)":
-                                col.gameObject.GetComponent<RangedEnemy>().TakeDamage(_damage);
+                                killed = col.gameObject.GetComponent<RangedEnemy>().TakeDamage(_damage);
                                 break;
                             case "MeleeEnemy(Clone)":
-                                col.gameObject.GetComponent<MeleeEnemy>().TakeDamage(_damage);
+                                killed = col.gameObject.GetComponent<MeleeEnemy>().TakeDamage(_damage);
                                 break;
                             default:
                                 break;
                         }
+                        if (killed == true)//Aneurin Addition
+                        {
+                            _stats.TowerStats[_tVal - 1].Kills = _stats.TowerStats[_tVal - 1].Kills + 1;
+                        }
                     }
                 }
+                //
             }
 
             this.DestroyBullet();

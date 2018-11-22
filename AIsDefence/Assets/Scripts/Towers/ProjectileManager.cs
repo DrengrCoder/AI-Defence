@@ -27,7 +27,7 @@ public class ProjectileManager : MonoBehaviour {
 
 	}
 	
-	public void FireProjectile(GameObject tower, Collider target, GameObject projectilePrefab, int force, int damage)
+	public void FireProjectile(GameObject tower, Collider target, GameObject projectilePrefab, int force, int damage, int tVal)
     {
         Vector3 position = new Vector3(tower.transform.position.x, target.transform.position.y, tower.transform.position.z);
         
@@ -37,6 +37,7 @@ public class ProjectileManager : MonoBehaviour {
             {
                 GameObject firedProjectile = _pool[i];
                 firedProjectile.GetComponent<BulletDamage>().BulletDamageValue = damage;
+                firedProjectile.GetComponent<BulletDamage>()._tVal = tVal;
                 firedProjectile.transform.position = position;
                 firedProjectile.transform.LookAt(target.transform);
                 firedProjectile.SetActive(true);
@@ -46,7 +47,7 @@ public class ProjectileManager : MonoBehaviour {
         }
     }
 
-    public void FireSpreadProjectile(GameObject tower, Collider target, GameObject projectilePrefab, int force, int damage)
+    public void FireSpreadProjectile(GameObject tower, Collider target, GameObject projectilePrefab, int force, int damage, int tVal)
     {
         Vector3 startPosition = new Vector3(tower.transform.position.x, target.transform.position.y, tower.transform.position.z);
 
@@ -72,6 +73,7 @@ public class ProjectileManager : MonoBehaviour {
         for (int i = 0; i < projectiles.Count; i++) 
         {
             projectiles[i].GetComponent<BulletDamage>().BulletDamageValue = damage;
+            projectiles[i].GetComponent<BulletDamage>()._tVal = tVal;
 
             if (i != 0)
             {
