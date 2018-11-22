@@ -30,7 +30,7 @@ public class ProjectileManager : MonoBehaviour {
 	public void FireProjectile(GameObject tower, Collider target, GameObject projectilePrefab, int force, int damage)
     {
         Vector3 position = new Vector3(tower.transform.position.x, target.transform.position.y, tower.transform.position.z);
-        
+
         for (int i = 0; i < this._pool.Count; i++)
         {
             if (_pool[i].name.Contains(projectilePrefab.name) && !_pool[i].activeInHierarchy)
@@ -82,5 +82,41 @@ public class ProjectileManager : MonoBehaviour {
             projectiles[i].SetActive(true);
             projectiles[i].GetComponent<Rigidbody>().AddRelativeForce(transform.forward * force);
         }
+    }
+
+    public void FireArcProjectile(GameObject tower, Collider target, GameObject projectilePrefab, int force, int damage)
+    {
+        Vector3 position = new Vector3(tower.transform.position.x, target.transform.position.y, tower.transform.position.z);
+
+        for (int i = 0; i < _pool.Count; i++)
+        {
+            if (_pool[i].name.Contains(projectilePrefab.name) && !_pool[i].activeInHierarchy)
+            {
+                GameObject projectileObject = _pool[i];
+                projectileObject.GetComponent<BombProjectile>().BulletDamage = damage;
+                projectileObject.transform.position = position;
+                projectileObject.transform.LookAt(target.transform);
+
+                projectileObject.transform.rotation *= Quaternion.Euler(-45, 0, 0);
+                
+                projectileObject.SetActive(true);
+                projectileObject.GetComponent<Rigidbody>().AddRelativeForce(transform.forward * CalculateForce(position, target.transform.position));
+                break;
+            }
+        }
+    }
+
+
+    private float CalculateForce(Vector3 startPosition, Vector3 target)
+    {
+        float x0 = startPosition.x;
+        float z0 = startPosition.z;
+
+        float xDist = x0 - target.x;
+        float zDist = z0 - target.z;
+
+        float distance = Mathf.Sqrt((xDist * xDist) + (zDist * zDist));
+
+        return distance / 0.0452f;
     }
 }
