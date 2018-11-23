@@ -73,6 +73,11 @@ public abstract class Tower : MonoBehaviour {
                 _canFire = true;
             }
         }
+
+        if (_currentTarget != null)
+        {
+            transform.LookAt(new Vector3(_currentTarget.transform.position.x, 0, _currentTarget.transform.position.z));
+        }
     }
     void FixedUpdate()
     {
