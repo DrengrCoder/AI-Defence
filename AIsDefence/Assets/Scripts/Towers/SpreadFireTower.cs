@@ -50,7 +50,7 @@ public class SpreadFireTower : Tower {
 
     private void Attack()
     {
-        _projectileManager.FireSpreadProjectile(this.gameObject, _currentTarget.GetComponent<CapsuleCollider>(), _bullet, _force, _damage);
+        _projectileManager.FireSpreadProjectile(this.gameObject, _currentTarget.GetComponent<CapsuleCollider>(), _bullet, _force, _damage, Num);
     }
 
 

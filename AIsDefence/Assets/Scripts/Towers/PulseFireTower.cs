@@ -11,6 +11,8 @@ public class PulseFireTower : Tower {
 
     private TowerType _type = TowerType.PulseFire;
 
+    [SerializeField]
+    private EndGameStats _stats;
 
     private void OnTriggerEnter(Collider obj)
     {
@@ -46,7 +48,13 @@ public class PulseFireTower : Tower {
     {
         foreach (GameObject enemy in _inRangeEnemies)
         {
-            enemy.GetComponent<Enemy>().TakeDamage(_damage);
+            bool killed = enemy.GetComponent<Enemy>().TakeDamage(_damage);
+
+            _stats.TowerStats[Num - 1].Damage = _stats.TowerStats[Num - 1].Damage + _damage;
+            if (killed == true)
+            {
+                _stats.TowerStats[Num - 1].Kills = _stats.TowerStats[Num - 1].Kills + 1;
+            }
         }
     }
 

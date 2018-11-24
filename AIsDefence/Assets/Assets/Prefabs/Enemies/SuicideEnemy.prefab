@@ -371,6 +371,9 @@ MonoBehaviour:
   EnemyTarget: {fileID: 0}
   AttackCooldown: 0
   CanAttack: 1
+  FaceObjective: {fileID: 0}
+  _boss: 0
+  _stats: {fileID: 11400000, guid: 6f22d35d4c48dd6498355172d68ca31a, type: 2}
 --- !u!135 &135277456767133436
 SphereCollider:
   m_ObjectHideFlags: 1

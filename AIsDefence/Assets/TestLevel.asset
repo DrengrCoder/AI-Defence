@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e29c5aee1fa9d41946c0e298d86df6, type: 3}
+  m_Name: TestLevel
+  m_EditorClassIdentifier: 
+  TimeTaken: 0
+  WaveStats:
+  - NumEnemies: 0
+    Bosses: 0
+    EnemiesKilled: 0
+    BossesKilled: 0
+  - NumEnemies: 0
+    Bosses: 0
+    EnemiesKilled: 0
+    BossesKilled: 0
+  TowerStats:
+  - Kills: 0
+    Shots: 0
+    Hits: 0
+    Damage: 0
+  - Kills: 0
+    Shots: 0
+    Hits: 0
+    Damage: 0
+  - Kills: 0
+    Shots: 0
+    Hits: 0
+    Damage: 0
+  - Kills: 0
+    Shots: 0
+    Hits: 0
+    Damage: 0
+  - Kills: 0
+    Shots: 0
+    Hits: 0
+    Damage: 0
+  - Kills: 0
+    Shots: 0
+    Hits: 0
+    Damage: 0
+  - Kills: 0
+    Shots: 0
+    Hits: 0
+    Damage: 0
+  - Kills: 0
+    Shots: 0
+    Hits: 0
+    Damage: 0
+  DamageTaken: 0
+  DamageDealt: 0

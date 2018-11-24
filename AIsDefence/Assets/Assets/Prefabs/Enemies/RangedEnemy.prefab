@@ -506,6 +506,8 @@ MonoBehaviour:
   AttackCooldown: 2
   CanAttack: 1
   FaceObjective: {fileID: 0}
+  _boss: 0
+  _stats: {fileID: 11400000, guid: 6f22d35d4c48dd6498355172d68ca31a, type: 2}
   BulletPool: {fileID: 0}
   _bulletSpawn: {fileID: 1249394339035450}
   _playerTag: Player

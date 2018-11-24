@@ -7,6 +7,9 @@ public class Objective : MonoBehaviour {
     [SerializeField]
     private int _maxHealth;
 
+    [SerializeField]
+    private StatManager _statManager;
+
     public int CurrentHealth;
 
     private void Start()
@@ -26,7 +29,7 @@ public class Objective : MonoBehaviour {
 
     private void Death()
     {
-        Debug.Log("Objective Destroyed, Game Over");
+        _statManager.CompletedLevel();
     }
 
 }

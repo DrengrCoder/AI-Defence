@@ -6,7 +6,6 @@ public class SuicideEnemy : Enemy {
 
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log(other.gameObject.name);
         if (other.gameObject == EnemyTarget)//ignores players and towers
         {
             Attack(other.gameObject);

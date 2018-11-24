@@ -23,6 +23,12 @@ public class Enemy : MonoBehaviour{
 
     public GameObject FaceObjective;
 
+    private int _waveBelongTo = 100;
+    [SerializeField]
+    private bool _boss = false;
+    [SerializeField]
+    private EndGameStats _stats;
+
     private void Start()
     {
         _height = transform.position.y;
@@ -44,20 +50,46 @@ public class Enemy : MonoBehaviour{
         //Move to Death() when turrets deal health damage
         CreditBanks Bank = FindObjectOfType<CreditBanks>();
         Bank.AddCredits(CreditsOnDeath);
+        _waveBelongTo = 100;
     }
 
-    public void TakeDamage(int damage)
+    public void SetWaveNum(int i)
+    {
+        _waveBelongTo = i;
+
+        if (_boss == false)
+        {
+            _stats.WaveStats[_waveBelongTo].NumEnemies = _stats.WaveStats[_waveBelongTo].NumEnemies + 1;
+        }
+        else
+        {
+            _stats.WaveStats[_waveBelongTo].Bosses = _stats.WaveStats[_waveBelongTo].Bosses + 1;
+        }
+    }
+
+    public bool TakeDamage(int damage)//returns true for killed, false for damaged
     {
         Health = Health - damage;
 
         if (Health <= 0)
         {
             Death();
+            return true;
         }
+        return false;
     }
 
     public void Death()
     {
+        if (_boss == false)
+        {
+            _stats.WaveStats[_waveBelongTo].EnemiesKilled = _stats.WaveStats[_waveBelongTo].EnemiesKilled + 1;
+        }
+        else
+        {
+            _stats.WaveStats[_waveBelongTo].BossesKilled = _stats.WaveStats[_waveBelongTo].BossesKilled + 1;
+        }
+
         gameObject.SetActive(false);
     }
 

@@ -12,6 +12,9 @@ public abstract class Tower : MonoBehaviour {
     [SerializeField]
     private int _cost;
 
+    //This is for the end game stats, should only be edited by InstantiateObjectOnclick.cs
+    public int Num = 0;
+
     //upgrade properties
     public /*const*/ int _baseUpgradeCost = 100;//cant be accessed if its a const variable
     public int _upgradeCost = 100;

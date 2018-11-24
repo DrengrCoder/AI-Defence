@@ -141,6 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _baseHealth: 100
   _cost: 1000
+  Num: 0
   _baseUpgradeCost: 100
   _upgradeCost: 100
   _futureCosts: 640000002c01000058020000e8030000dc050000
@@ -150,6 +151,8 @@ MonoBehaviour:
   _currentTarget: {fileID: 0}
   _inRangeEnemies: []
   _projectileManager: {fileID: 0}
+  _stats: {fileID: 11400000, guid: 6f22d35d4c48dd6498355172d68ca31a, type: 2}
+--- !u!135 &135175075778392608
 --- !u!135 &135218179687731978
 SphereCollider:
   m_ObjectHideFlags: 1
