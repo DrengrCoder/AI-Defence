@@ -15,6 +15,13 @@ public abstract class Tower : MonoBehaviour {
     //This is for the end game stats, should only be edited by InstantiateObjectOnclick.cs
     public int Num = 0;
 
+    //upgrade properties
+    public /*const*/ int _baseUpgradeCost = 100;//cant be accessed if its a const variable
+    public int _upgradeCost = 100;
+    public int[] _futureCosts;
+    public /*const*/ int _maxUpgrades = 5;
+    public int _upgradePointer = 0;
+    
     //firing mechanics variables
     [HideInInspector]
     public bool _canFire = true;
@@ -68,6 +75,11 @@ public abstract class Tower : MonoBehaviour {
                 _currentWaitTime = 0.0f;
                 _canFire = true;
             }
+        }
+
+        if (_currentTarget != null)
+        {
+            transform.LookAt(new Vector3(_currentTarget.transform.position.x, 0, _currentTarget.transform.position.z));
         }
     }
     void FixedUpdate()

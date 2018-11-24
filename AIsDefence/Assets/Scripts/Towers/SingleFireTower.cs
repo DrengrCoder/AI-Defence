@@ -15,7 +15,7 @@ public class SingleFireTower : Tower {
     
     private float _fireRate = 0.5f;
 
-    private TowerType _type = TowerType.SingleFire;
+    private const TowerType _type = TowerType.SingleFire;
     
 
     private void OnTriggerEnter(Collider obj)
