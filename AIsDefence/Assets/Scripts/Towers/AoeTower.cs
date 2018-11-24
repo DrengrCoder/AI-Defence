@@ -49,8 +49,7 @@ public class AoeTower : Tower {
 
     private void Attack()
     {
-        //_projectileManager.FireProjectile(this.gameObject, _currentTarget.GetComponent<CapsuleCollider>(), _bullet, _force, _damage, Num);
-        _projectileManager.FireArcProjectile(this.gameObject, _currentTarget.GetComponent<CapsuleCollider>(), _bullet, _force, _damage);
+        _projectileManager.FireArcProjectile(this.gameObject, _currentTarget.GetComponent<CapsuleCollider>(), _bullet, _force, _damage, Num);
     }
 
 

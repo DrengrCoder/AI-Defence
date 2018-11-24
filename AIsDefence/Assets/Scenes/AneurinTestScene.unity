@@ -14906,7 +14906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 658287b9abd4bfb458763a94248ae618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CreditBank: 1000
+  CreditBank: 10000
   PlayerCreditBank: 2000
   _CreditDisplay: {fileID: 1377882722}
   _towerSelection: {fileID: 101835857}
@@ -24709,6 +24709,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _towerShopMenu: {fileID: 1385180904}
   _playerCharacter: {fileID: 440864378}
+  _bank: {fileID: 0}
   _statTexts:
   - {fileID: 1465682032}
   - {fileID: 1484499886}
@@ -24716,11 +24717,11 @@ MonoBehaviour:
   - {fileID: 746909674}
   - {fileID: 0}
   _towerPrefabs:
-  - {fileID: 1822989851690312, guid: bcfe2f4495705064ab55712f57c3dba0, type: 2}
-  - {fileID: 1552094588194006, guid: 210b0e33f3a1d7144a927aa8f11123d5, type: 2}
-  - {fileID: 1232944356012886, guid: f3094cefa7e83884782f6ea860f1f953, type: 2}
-  - {fileID: 1230573349253824, guid: f32ed324b7181e8458b753337275beae, type: 2}
-  - {fileID: 1423272939445210, guid: a14a554444e157c49b11597d88980336, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _upgradeButtons: []
 --- !u!114 &1916576514
 MonoBehaviour:

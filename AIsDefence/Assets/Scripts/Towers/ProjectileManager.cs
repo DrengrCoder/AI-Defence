@@ -10,7 +10,7 @@ public class ProjectileManager : MonoBehaviour {
     [SerializeField]
     private List<GameObject> _pool;
 
-    private int _poolMax = 10;
+    private int _poolMax = 100;
 
 	// Use this for initialization
 	void Start () {
@@ -86,7 +86,7 @@ public class ProjectileManager : MonoBehaviour {
         }
     }
 
-    public void FireArcProjectile(GameObject tower, Collider target, GameObject projectilePrefab, int force, int damage)
+    public void FireArcProjectile(GameObject tower, Collider target, GameObject projectilePrefab, int force, int damage, int tVal)
     {
         Vector3 position = new Vector3(tower.transform.position.x, target.transform.position.y, tower.transform.position.z);
 
@@ -96,6 +96,7 @@ public class ProjectileManager : MonoBehaviour {
             {
                 GameObject projectileObject = _pool[i];
                 projectileObject.GetComponent<BombProjectile>().BulletDamage = damage;
+                projectileObject.GetComponent<BombProjectile>()._tVal = tVal;
                 projectileObject.transform.position = position;
                 projectileObject.transform.LookAt(target.transform);
 

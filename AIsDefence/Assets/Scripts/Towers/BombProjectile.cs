@@ -8,6 +8,18 @@ public class BombProjectile : MonoBehaviour {
 
     private bool _inMotion = false;
 
+    [SerializeField]
+    private EndGameStats _stats;
+
+    public int _tVal = 0;
+
+    private void OnEnable()
+    {
+        if (_tVal != 0)
+        {
+            _stats.TowerStats[_tVal - 1].Shots = _stats.TowerStats[_tVal - 1].Shots + 1;
+        }
+    }
 
     public int BulletDamage
     {
@@ -32,9 +44,19 @@ public class BombProjectile : MonoBehaviour {
 
             foreach (Collider col in detectedColliders)
             {
+                bool killed = false; 
+
                 if (col.gameObject.tag == "Enemy")
                 {
-                    col.GetComponent<Enemy>().TakeDamage(_damage);
+                    _stats.TowerStats[_tVal - 1].Hits = _stats.TowerStats[_tVal - 1].Hits + 1;
+                    _stats.TowerStats[_tVal - 1].Damage = _stats.TowerStats[_tVal - 1].Damage + _damage;
+
+                    killed = col.GetComponent<Enemy>().TakeDamage(_damage);
+                }
+
+                if (killed == true)//Aneurin Addition
+                {
+                    _stats.TowerStats[_tVal - 1].Kills = _stats.TowerStats[_tVal - 1].Kills + 1;
                 }
             }
 
