@@ -15,9 +15,30 @@ public class SaveAndLoad : MonoBehaviour {
     [SerializeField]
     private string dataFilePath = "/SaveData/data.json";
 
-    private void OnEnable()
+    private void Awake()
     {
-        Save();
+        Load();
+    }
+
+    public void Load()
+    {
+        string filePath = Application.dataPath + dataFilePath;
+
+        if (File.Exists(filePath))
+        {
+            string dataAsJson = File.ReadAllText(filePath);
+            _saveInfo = JsonUtility.FromJson<SaveInfo>(dataAsJson);
+        }
+        else
+        {
+            _saveInfo = new SaveInfo();
+        }
+
+        _saveData.PlayerScraps = _saveInfo.PlayerScraps;
+        _saveData.LevelsUnlocked = _saveInfo.LevelsUnlocked;
+
+        _upgrades.MaxHealthPointer = _saveInfo.MaxHealthPointer;
+        _upgrades.SpeedPointer = _saveInfo.SpeedPointer;
     }
 
     public void Save()
