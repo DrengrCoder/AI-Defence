@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35dcc3ec85ca3444d8c3ceae9bb25349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fireRate: 0.3
-  _bulletSpawn: {fileID: 0}
+  _fireRate: 0.1
+  _bulletSpawn: {fileID: 1500736832107530}
   _bullet: {fileID: 1140044280796334, guid: ce9476dab4d149941970eef9188a2c91, type: 2}
-  _numInPool: 20
+  _numInPool: 80

@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Name: TestLevel
   m_EditorClassIdentifier: 
   TimeTaken: 0
+  DamageTaken: 0
+  DamageDealt: 0
+  Shots: 0
+  Hits: 0
+  Kills: 0
   WaveStats:
   - NumEnemies: 0
     Bosses: 0
@@ -54,5 +59,3 @@ MonoBehaviour:
     Shots: 0
     Hits: 0
     Damage: 0
-  DamageTaken: 0
-  DamageDealt: 0

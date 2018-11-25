@@ -49,7 +49,12 @@ public class Enemy : MonoBehaviour{
     {
         //Move to Death() when turrets deal health damage
         CreditBanks Bank = FindObjectOfType<CreditBanks>();
-        Bank.AddCredits(CreditsOnDeath);
+
+        if (Bank != null)
+        {
+            Bank.AddCredits(CreditsOnDeath);
+        }
+
         _waveBelongTo = 100;
     }
 

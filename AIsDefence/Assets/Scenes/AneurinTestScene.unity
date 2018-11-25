@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -348,6 +348,7 @@ MonoBehaviour:
   _CreditDisplay: {fileID: 1328692006}
   _towerSelection: {fileID: 298951278}
   _PlayerCreditDisplay: {fileID: 35274967}
+  _saveData: {fileID: 11400000, guid: a9cf9b7fc093e0745ba39e0e7c0c1f33, type: 2}
 --- !u!1001 &27364256
 Prefab:
   m_ObjectHideFlags: 0
@@ -4296,32 +4297,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114574426939131944, guid: 14f86176d708b9d429f87f2acec5cf86,
-        type: 2}
-      propertyPath: _bulletSpawn
-      value: 
-      objectReference: {fileID: 308560443}
-    - target: {fileID: 114574426939131944, guid: 14f86176d708b9d429f87f2acec5cf86,
-        type: 2}
-      propertyPath: _fireRate
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114574426939131944, guid: 14f86176d708b9d429f87f2acec5cf86,
-        type: 2}
-      propertyPath: _numInPool
-      value: 80
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 14f86176d708b9d429f87f2acec5cf86, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &308560442 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4785188535413178, guid: 14f86176d708b9d429f87f2acec5cf86,
-    type: 2}
-  m_PrefabInternal: {fileID: 308560441}
---- !u!1 &308560443 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1500736832107530, guid: 14f86176d708b9d429f87f2acec5cf86,
     type: 2}
   m_PrefabInternal: {fileID: 308560441}
 --- !u!1 &308560444 stripped
@@ -4453,39 +4434,6 @@ Prefab:
     - target: {fileID: 4769819139044870, guid: 7655ad9320ec4ef4881cdd1e21fc6a21, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4968569737505472, guid: 7655ad9320ec4ef4881cdd1e21fc6a21, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4968569737505472, guid: 7655ad9320ec4ef4881cdd1e21fc6a21, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4968569737505472, guid: 7655ad9320ec4ef4881cdd1e21fc6a21, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4968569737505472, guid: 7655ad9320ec4ef4881cdd1e21fc6a21, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4968569737505472, guid: 7655ad9320ec4ef4881cdd1e21fc6a21, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4968569737505472, guid: 7655ad9320ec4ef4881cdd1e21fc6a21, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1119102863238884, guid: 7655ad9320ec4ef4881cdd1e21fc6a21, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114398358601888782, guid: 7655ad9320ec4ef4881cdd1e21fc6a21,
-        type: 2}
-      propertyPath: _fireRate
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7655ad9320ec4ef4881cdd1e21fc6a21, type: 2}
@@ -9683,40 +9631,6 @@ Prefab:
     - target: {fileID: 4065719677206724, guid: dfead8bd8fc40e64188c37cf4c73adea, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4388432567472426, guid: dfead8bd8fc40e64188c37cf4c73adea, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4388432567472426, guid: dfead8bd8fc40e64188c37cf4c73adea, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4388432567472426, guid: dfead8bd8fc40e64188c37cf4c73adea, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4388432567472426, guid: dfead8bd8fc40e64188c37cf4c73adea, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4388432567472426, guid: dfead8bd8fc40e64188c37cf4c73adea, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4388432567472426, guid: dfead8bd8fc40e64188c37cf4c73adea, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 114020331518803482, guid: dfead8bd8fc40e64188c37cf4c73adea,
-        type: 2}
-      propertyPath: _fireRate
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 114020331518803482, guid: dfead8bd8fc40e64188c37cf4c73adea,
-        type: 2}
-      propertyPath: _numInPool
-      value: 70
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dfead8bd8fc40e64188c37cf4c73adea, type: 2}
@@ -21708,10 +21622,13 @@ MonoBehaviour:
   - {fileID: 1331418302}
   - {fileID: 1462711454}
   _costs:
-  - FutureCosts: c8000000f4010000e8030000d0070000
+  - FutureCosts: c8000000f4010000e8030000
+    Pointer: 0
     CurrentCosts: 200
-  - FutureCosts: 640000002c010000bc020000e8030000
+  - FutureCosts: 640000002c010000bc020000
+    Pointer: 0
     CurrentCosts: 100
+  _upgrades: {fileID: 11400000, guid: a6a2f61ab21837345b42179e7867bd51, type: 2}
 --- !u!114 &1680906846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21733,6 +21650,7 @@ MonoBehaviour:
   - {fileID: 1242430692}
   - {fileID: 1042000250}
   costs: c8000000f4010000
+  _upgrades: {fileID: 11400000, guid: a6a2f61ab21837345b42179e7867bd51, type: 2}
 --- !u!114 &1680906847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23116,7 +23034,7 @@ MonoBehaviour:
   Guns:
   - {fileID: 314848339}
   Health: 100
-  _stats: {fileID: 0}
+  _stats: {fileID: 11400000, guid: 6f22d35d4c48dd6498355172d68ca31a, type: 2}
 --- !u!195 &1747198444
 NavMeshAgent:
   m_ObjectHideFlags: 0

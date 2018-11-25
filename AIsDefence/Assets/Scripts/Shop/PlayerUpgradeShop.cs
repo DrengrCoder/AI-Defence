@@ -18,10 +18,23 @@ public class PlayerUpgradeShop : MonoBehaviour {
     [SerializeField]
     private Costs[] _costs;
 
-    private int[] _costPointer;
+    [SerializeField]
+    private Upgrades _upgrades;
 
     private void OnEnable()
     {
+        for (int i = 0; i < _upgrades.MaxHealthPointer; i++)
+        {
+            _costs[0].NextCost();
+        }
+        _costTexts[0].text = _costs[0].CurrentCosts.ToString() + "QE";
+
+        for (int i = 0; i < _upgrades.SpeedPointer; i++)
+        {
+            _costs[1].NextCost();
+        }
+        _costTexts[1].text = _costs[1].CurrentCosts.ToString() + "QE";
+
         CheckPrices();
     }
 
@@ -57,16 +70,16 @@ public class PlayerUpgradeShop : MonoBehaviour {
     public class Costs
     {
         public int[] FutureCosts;//Controls num time it can be upgraded too
-        private int pointer = 0;
+        public int Pointer = 0;
 
         public int CurrentCosts;
 
         public void NextCost()
         {
-            pointer = pointer + 1;
+            Pointer = Pointer + 1;
 
-            if (FutureCosts.Length > pointer) {
-                CurrentCosts = FutureCosts[pointer];
+            if (FutureCosts.Length > Pointer) {
+                CurrentCosts = FutureCosts[Pointer];
             }
             else
             {

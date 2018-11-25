@@ -8,10 +8,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddd3ebf1359cb174fb0db8bac3215b61, type: 3}
-  m_Name: Upgrades
+  m_Script: {fileID: 11500000, guid: 445b8674c58ec9a47b325291c392e382, type: 3}
+  m_Name: SaveData
   m_EditorClassIdentifier: 
-  MaxHealths: 6400000096000000c8000000fa000000
-  MaxHealthPointer: 0
-  Speeds: 06000000080000000a0000000c000000
-  SpeedPointer: 0
+  PlayerScraps: 30000
+  LevelsUnlocked: 1

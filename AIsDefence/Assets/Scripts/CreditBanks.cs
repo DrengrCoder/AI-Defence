@@ -12,12 +12,15 @@ public class CreditBanks : MonoBehaviour {
     private Text _CreditDisplay;
     [SerializeField]
     private TowerSelection _towerSelection;
-
     [SerializeField]
     private Text _PlayerCreditDisplay;
+    [SerializeField]
+    private SaveData _saveData;
 
     private void Start()
     {
+        PlayerCreditBank = _saveData.PlayerScraps;
+
         _CreditDisplay.text = CreditBank.ToString();
         _PlayerCreditDisplay.text = PlayerCreditBank.ToString();
     }
@@ -43,14 +46,14 @@ public class CreditBanks : MonoBehaviour {
     public void AddPlayerCredits(int credits)
     {
         PlayerCreditBank = PlayerCreditBank + credits;
-
+        _saveData.PlayerScraps = PlayerCreditBank;
         _PlayerCreditDisplay.text = PlayerCreditBank.ToString();
     }
 
     public void MinusPlayerCredits(int credits)
     {
         PlayerCreditBank = PlayerCreditBank - credits;
-
+        _saveData.PlayerScraps = PlayerCreditBank;
         _PlayerCreditDisplay.text = PlayerCreditBank.ToString();
     }
 
