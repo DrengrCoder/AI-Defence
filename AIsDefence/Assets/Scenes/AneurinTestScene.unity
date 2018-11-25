@@ -20031,6 +20031,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1584775581}
   - component: {fileID: 1584775580}
+  - component: {fileID: 1584775582}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -20076,6 +20077,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1584775582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1584775579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d08d2fc605e203418c72ad12b4e8002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _saveInfo:
+    PlayerScraps: 0
+    LevelsUnlocked: 1
+    MaxHealthPointer: 0
+    SpeedPointer: 0
+  _saveData: {fileID: 11400000, guid: a9cf9b7fc093e0745ba39e0e7c0c1f33, type: 2}
+  _upgrades: {fileID: 11400000, guid: a6a2f61ab21837345b42179e7867bd51, type: 2}
+  dataFilePath: /SaveData/data.json
 --- !u!1 &1594270818
 GameObject:
   m_ObjectHideFlags: 0
