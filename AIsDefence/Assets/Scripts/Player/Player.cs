@@ -27,29 +27,32 @@ public class Player : MonoBehaviour {
 
     private void Start()
     {
-        _healthBar.maxValue = _maxHealth;
-        Health = _maxHealth;
-
         int healthPointer = _upgrades.MaxHealthPointer;
         _maxHealth = _upgrades.MaxHealths[healthPointer];
+
+        Health = _maxHealth;
+        _healthBar.value = Health;
     }
 
     private void OnEnable()
     {
-        Health = _maxHealth;
-        _healthBar.value = Health;
-
         int healthPointer = _upgrades.MaxHealthPointer;
         _maxHealth = _upgrades.MaxHealths[healthPointer];
+
+        Health = _maxHealth;
+        _healthBar.value = Health;
     }
 
-    public void UpgradeHealth()
+    public void UpgradeHealth()//Player heals when they upgrade health
     {
         int healthPointer = _upgrades.MaxHealthPointer;
         healthPointer = healthPointer + 1;
         _upgrades.MaxHealthPointer = healthPointer;
 
         _maxHealth = _upgrades.MaxHealths[healthPointer];
+
+        Health = _maxHealth;
+        _healthBar.value = Health;
     }
 
     public void TakeDamage(int damage)

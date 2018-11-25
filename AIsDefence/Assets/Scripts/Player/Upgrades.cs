@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Upgrades")]
 public class Upgrades : ScriptableObject{
 
+    public List<string> Guns = new List<string>();
+
     public int[] MaxHealths;
     public int MaxHealthPointer = 0;
 

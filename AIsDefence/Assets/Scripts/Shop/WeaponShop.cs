@@ -20,6 +20,25 @@ public class WeaponShop : MonoBehaviour {
     [SerializeField]
     private int[] costs;
 
+    [SerializeField]
+    private Upgrades _upgrades;
+
+    private void Start()
+    {
+        for (int i = 0; i < Guns.Length; i++)
+        {
+            for (int k = 0; k < _upgrades.Guns.Count; k++)
+            {
+                if (_upgrades.Guns[k] == Guns[i].name)
+                {
+                    _player.Guns.Add(Guns[i]);
+                    costs[i] = 0;
+                    PurchaseButtons[i].interactable = false;
+                }
+            }
+        }
+    }
+
     private void OnEnable()
     {
         CheckPrices();
@@ -28,6 +47,7 @@ public class WeaponShop : MonoBehaviour {
     public void BuyWeapon(int gun)
     {
         _player.Guns.Add(Guns[gun]);
+        _upgrades.Guns.Add(Guns[gun].name);
         _bank.MinusPlayerCredits(costs[gun]);
 
         costs[gun] = 0;
