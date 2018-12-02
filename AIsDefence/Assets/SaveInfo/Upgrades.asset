@@ -11,7 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddd3ebf1359cb174fb0db8bac3215b61, type: 3}
   m_Name: Upgrades
   m_EditorClassIdentifier: 
-  Guns: []
+  Guns:
+  - machinegun
   MaxHealths: 6400000096000000c8000000fa000000
   MaxHealthPointer: 0
   Speeds: 06000000080000000a0000000c000000

@@ -9,6 +9,8 @@ public class StatManager : MonoBehaviour {
     private EndGameStats _stats;
     [SerializeField]
     private PlayerController _controller;
+    [SerializeField]
+    private SaveAndLoad _save;
 
     [SerializeField]
     private GameObject _endgame;
@@ -62,16 +64,19 @@ public class StatManager : MonoBehaviour {
     public void CompletedLevel()
     {
         Completed = true;
+        _save.Save();
 
         _timerText.text = _stats.TimeTaken.ToString();
         _killsText.text = _stats.Kills.ToString();
         _damageTakenText.text = _stats.DamageTaken.ToString();
         _damageDealtText.text = _stats.DamageDealt.ToString();
 
-        int hitRate = 0;
+        float hitRate = 0.0f;
         if (_stats.Shots != 0)
         {
-            hitRate = (_stats.Hits / _stats.Shots) * 100;
+            float hits = _stats.Hits;
+            float shots = _stats.Shots;
+            hitRate = (hits / shots) * 100.0f;
         }
         _hitRateText.text = hitRate.ToString();
 

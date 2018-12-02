@@ -33,4 +33,19 @@ public class SlicingMelee : Melee {
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if ((!other.gameObject.GetComponent<Enemy>()) && (!other.isTrigger))
+        {
+            if (other.gameObject.GetComponent<Objective>())
+            {
+                other.gameObject.GetComponent<Objective>().TakeDamage(Damage);
+            }
+            else if (other.gameObject.GetComponent<Player>())
+            {
+                other.gameObject.GetComponent<Player>().TakeDamage(Damage);
+            }
+        }
+    }
+
 }

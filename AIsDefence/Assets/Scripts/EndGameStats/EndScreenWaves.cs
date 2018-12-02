@@ -24,10 +24,9 @@ public class EndScreenWaves : MonoBehaviour {
         for (int i = 0; i < num; i++)
         {
             GameObject waveStats = Instantiate(_WaveStatTemp);
-            waveStats.transform.parent = gameObject.transform;
+            waveStats.transform.SetParent(gameObject.transform);
 
             float y = _startY - (_difference * i) - _correction;
-            Debug.Log(y);
             waveStats.GetComponent<RectTransform>().localPosition = new Vector3(0, y, 0);
             waveStats.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
             waveStats.GetComponent<PopulateWaveInfo>().Populate(i);

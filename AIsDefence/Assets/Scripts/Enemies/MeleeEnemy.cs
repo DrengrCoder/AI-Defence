@@ -47,11 +47,15 @@ public class MeleeEnemy : Enemy {
 
     public void Enrage()
     {
-        GameObject newTarget = GameObject.FindGameObjectWithTag(_playerTag);
+        if (gameObject.activeSelf == true)
+        {
+            GameObject newTarget = GameObject.FindGameObjectWithTag(_playerTag);
 
-        EnemyTarget = newTarget;
-        FaceObjective = newTarget;
-        gameObject.GetComponent<NavMeshAgent>().SetDestination(EnemyTarget.transform.position);
+            EnemyTarget = newTarget;
+            FaceObjective = newTarget;
+            gameObject.GetComponent<NavMeshAgent>().SetDestination(EnemyTarget.transform.position);
+            GetComponent<NavMeshAgent>().isStopped = false;
+        }
     }
 
     private void FixedUpdate()
