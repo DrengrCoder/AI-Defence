@@ -24,7 +24,7 @@ public class EndScreenWaves : MonoBehaviour {
         for (int i = 0; i < num; i++)
         {
             GameObject waveStats = Instantiate(_WaveStatTemp);
-            waveStats.transform.parent = gameObject.transform;
+            waveStats.transform.SetParent(gameObject.transform);
 
             float y = _startY - (_difference * i) - _correction;
             Debug.Log(y);
