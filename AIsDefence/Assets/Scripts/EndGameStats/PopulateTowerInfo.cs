@@ -23,10 +23,12 @@ public class PopulateTowerInfo : MonoBehaviour {
         _damage.text = _stats.TowerStats[non].Damage.ToString();
         _kills.text = _stats.TowerStats[non].Kills.ToString();
 
-        int hitRate = 0;
+        float hitRate = 0.0f;
         if (_stats.TowerStats[non].Shots != 0)
         {
-            hitRate = (_stats.TowerStats[non].Hits / _stats.TowerStats[non].Shots) * 100;
+            float hits = _stats.TowerStats[non].Hits;
+            float shots = _stats.TowerStats[non].Shots;
+            hitRate = (hits / shots) * 100.0f;
         }
         _hitRate.text = hitRate.ToString();
     }
