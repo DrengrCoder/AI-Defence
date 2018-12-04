@@ -11,20 +11,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e29c5aee1fa9d41946c0e298d86df6, type: 3}
   m_Name: TestLevel
   m_EditorClassIdentifier: 
-  TimeTaken: 0
+  TimeTaken: 34.212143
   DamageTaken: 0
   DamageDealt: 0
   Shots: 0
   Hits: 0
   Kills: 0
   WaveStats:
-  - NumEnemies: 0
+  - NumEnemies: 10
     Bosses: 0
-    EnemiesKilled: 0
+    EnemiesKilled: 10
     BossesKilled: 0
-  - NumEnemies: 0
+  - NumEnemies: 10
     Bosses: 0
-    EnemiesKilled: 0
+    EnemiesKilled: 10
+    BossesKilled: 0
+  - NumEnemies: 10
+    Bosses: 0
+    EnemiesKilled: 10
+    BossesKilled: 0
+  - NumEnemies: 10
+    Bosses: 0
+    EnemiesKilled: 10
+    BossesKilled: 0
+  - NumEnemies: 10
+    Bosses: 0
+    EnemiesKilled: 10
     BossesKilled: 0
   TowerStats:
   - Kills: 0
@@ -43,19 +55,19 @@ MonoBehaviour:
     Shots: 0
     Hits: 0
     Damage: 0
+  - Kills: 7
+    Shots: 45
+    Hits: 27
+    Damage: 189
+  - Kills: 11
+    Shots: 55
+    Hits: 34
+    Damage: 238
+  - Kills: 2
+    Shots: 18
+    Hits: 8
+    Damage: 56
   - Kills: 0
-    Shots: 0
-    Hits: 0
-    Damage: 0
-  - Kills: 0
-    Shots: 0
-    Hits: 0
-    Damage: 0
-  - Kills: 0
-    Shots: 0
-    Hits: 0
-    Damage: 0
-  - Kills: 0
-    Shots: 0
-    Hits: 0
-    Damage: 0
+    Shots: 22
+    Hits: 9
+    Damage: 63

@@ -497,7 +497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: BasicRanged
-  _maxHealth: 5
+  _maxHealth: 10
   CreditsOnDeath: 250
   Health: 5
   Damage: 5

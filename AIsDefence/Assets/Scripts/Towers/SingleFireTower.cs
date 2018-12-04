@@ -11,9 +11,9 @@ public class SingleFireTower : Tower {
     [SerializeField]
     private int _force = 4000;
     
-    private int _damage = 10;
+    private int _damage = 50;
     
-    private float _fireRate = 0.5f;
+    private float _fireRate = 0.7f;
 
     private const TowerType _type = TowerType.SingleFire;
     
