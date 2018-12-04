@@ -126,8 +126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
-  _speed: 1
-  _lifeTime: 5
+  _speed: 2
+  _lifeTime: 3
   _stats: {fileID: 11400000, guid: 6f22d35d4c48dd6498355172d68ca31a, type: 2}
 --- !u!135 &135338544621094404
 SphereCollider:

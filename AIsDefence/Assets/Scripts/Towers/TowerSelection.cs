@@ -81,6 +81,33 @@ public class TowerSelection : MonoBehaviour {
         }
     }
 
+    public void DisableTowers(bool disable)
+    {
+        if (disable == true)
+        {
+            _hidden = true;
+            _text.text = "Show";
+
+            float xVal = _hiddenX;
+
+            for (int i = 0; i < _buttons.Length; i++)
+            {
+                float y = this._buttons[i].gameObject.GetComponent<RectTransform>().localPosition.y;
+                Vector3 newPos = new Vector3(xVal, y, 0);
+                this._buttons[i].gameObject.GetComponent<RectTransform>().localPosition = newPos;
+
+                _shortCuts[i].GetComponent<Button>().interactable = false;
+            }
+        }
+        else
+        {
+            for (int i = 0; i < _shortCuts.Length; i++)
+            {
+                _shortCuts[i].GetComponent<Button>().interactable = true;
+            }
+        }
+    }
+
     public void ButtonClick(int i)
     {
         this.ResetButtons();

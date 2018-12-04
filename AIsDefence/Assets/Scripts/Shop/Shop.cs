@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Shop : MonoBehaviour {
 
     public GameObject ShopMenu;
 
     [SerializeField]
     private PlayerController _controller;
+    [SerializeField]
+    private GameObject _text;
 
     private bool _on = true;
     private bool _canShop = false;
@@ -29,6 +32,7 @@ public class Shop : MonoBehaviour {
         if (other.gameObject.GetComponent<Player>())
         {
             _canShop = true;
+            _text.SetActive(true);
         }
     }
 
@@ -37,6 +41,7 @@ public class Shop : MonoBehaviour {
         if (other.gameObject.GetComponent<Player>())
         {
             _canShop = false;
+            _text.SetActive(false);
         }
     }
 
