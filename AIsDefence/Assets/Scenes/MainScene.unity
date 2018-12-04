@@ -6868,7 +6868,7 @@ MonoBehaviour:
   EnemyTarget: {fileID: 599037290}
   _bulletPool: {fileID: 2076735394}
   _delayOnOverSpawn: 2
-  _spawnDelay: 10
+  _spawnDelay: 60
   _waveNum: {fileID: 586507566}
   _waveTimerNum: {fileID: 283379765}
 --- !u!4 &453446569
