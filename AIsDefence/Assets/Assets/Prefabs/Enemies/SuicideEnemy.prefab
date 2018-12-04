@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: BasicSuicide
-  _maxHealth: 10
+  _maxHealth: 20
   CreditsOnDeath: 100
   Health: 1
   Damage: 10

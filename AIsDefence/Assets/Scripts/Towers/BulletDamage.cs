@@ -36,66 +36,18 @@ public class BulletDamage : MonoBehaviour {
     {
         if (!obj.isTrigger && obj.tag == "Enemy")
         {
-            if (this.gameObject.name.Contains("Bullet"))
+            _stats.TowerStats[_tVal - 1].Hits = _stats.TowerStats[_tVal - 1].Hits + 1;
+            _stats.TowerStats[_tVal - 1].Damage = _stats.TowerStats[_tVal - 1].Damage + _damage;
+            bool killed = false;
+
+            if (obj.gameObject.GetComponent<Enemy>())
             {
-                _stats.TowerStats[_tVal - 1].Hits = _stats.TowerStats[_tVal - 1].Hits + 1;
-                _stats.TowerStats[_tVal - 1].Damage = _stats.TowerStats[_tVal - 1].Damage + _damage;
-                bool killed = false;
-                switch (obj.gameObject.name)
-                {
-                    case "TempEnemy(Clone)":
-                        killed = obj.gameObject.GetComponent<SuicideEnemy>().TakeDamage(_damage);
-                        break;
-                    case "RangedEnemy(Clone)":
-                        killed = obj.gameObject.GetComponent<RangedEnemy>().TakeDamage(_damage);
-                        break;
-                    case "MeleeEnemy(Clone)":
-                        killed = obj.gameObject.GetComponent<MeleeEnemy>().TakeDamage(_damage);
-                        break;
-                    default:
-                        break;
-                }
-                if (killed == true)//Aneurin Addition
-                {
-                    _stats.TowerStats[_tVal - 1].Kills = _stats.TowerStats[_tVal - 1].Kills + 1;
-                }
+                killed = obj.gameObject.GetComponent<Enemy>().TakeDamage(_damage);
             }
-            else if (this.gameObject.name.Contains("Bomb"))
+
+            if (killed == true)//Aneurin Addition
             {
-                Transform bombChild = this.gameObject.transform.GetChild(0);
-                
-                Vector3 vect = new Vector3(bombChild.position.x, bombChild.position.y, bombChild.position.z);
-
-                Collider[] detectedColliders = Physics.OverlapSphere(vect, 0.1f);
-
-                foreach (Collider col in detectedColliders)
-                {
-                    if (col.gameObject.tag == "Enemy")
-                    {
-                        _stats.TowerStats[_tVal - 1].Hits = _stats.TowerStats[_tVal - 1].Hits + 1;
-                        _stats.TowerStats[_tVal - 1].Damage = _stats.TowerStats[_tVal - 1].Damage + _damage;
-                        bool killed = false;
-                        switch (col.gameObject.name)
-                        {
-                            case "TempEnemy(Clone)":
-                                killed = col.gameObject.GetComponent<SuicideEnemy>().TakeDamage(_damage);
-                                break;
-                            case "RangedEnemy(Clone)":
-                                killed = col.gameObject.GetComponent<RangedEnemy>().TakeDamage(_damage);
-                                break;
-                            case "MeleeEnemy(Clone)":
-                                killed = col.gameObject.GetComponent<MeleeEnemy>().TakeDamage(_damage);
-                                break;
-                            default:
-                                break;
-                        }
-                        if (killed == true)//Aneurin Addition
-                        {
-                            _stats.TowerStats[_tVal - 1].Kills = _stats.TowerStats[_tVal - 1].Kills + 1;
-                        }
-                    }
-                }
-                //
+                _stats.TowerStats[_tVal - 1].Kills = _stats.TowerStats[_tVal - 1].Kills + 1;
             }
 
             this.DestroyBullet();

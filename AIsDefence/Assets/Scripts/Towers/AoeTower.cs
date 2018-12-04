@@ -10,7 +10,7 @@ public class AoeTower : Tower {
     
     private int _force = 4000;
 
-    private int _damage = 5;
+    private int _damage = 15;
     
     private float _fireRate = 1.0f;
 

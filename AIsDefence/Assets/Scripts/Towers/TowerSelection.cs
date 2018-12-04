@@ -8,6 +8,18 @@ public class TowerSelection : MonoBehaviour {
     public Button[] _buttons;
 
     [SerializeField]
+    private Image[] _shortCuts;
+
+    [SerializeField]
+    private float _hiddenX = 0;
+    [SerializeField]
+    private float _visX = 0;
+    [SerializeField]
+    private Text _text;
+
+    private bool _hidden = false;
+
+    [SerializeField]
     private int[] _costs;
 
     private bool _singleFireTowerPressed = false;
@@ -21,12 +33,6 @@ public class TowerSelection : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        this._buttons[0].GetComponent<Button>().onClick.AddListener(delegate { ButtonClick(0); });//single fire
-        this._buttons[1].GetComponent<Button>().onClick.AddListener(delegate { ButtonClick(1); });//AOE bomb
-        this._buttons[2].GetComponent<Button>().onClick.AddListener(delegate { ButtonClick(2); });//burst fire
-        this._buttons[3].GetComponent<Button>().onClick.AddListener(delegate { ButtonClick(3); });//pulse fire
-        this._buttons[4].GetComponent<Button>().onClick.AddListener(delegate { ButtonClick(4); });//spread fire
-        
         _bank = FindObjectOfType<CreditBanks>();
         CreditUpdated();
     }
@@ -48,11 +54,39 @@ public class TowerSelection : MonoBehaviour {
         }
 	}
 
-    void ButtonClick(int i)
+    public void ChangeTowerButtonStates()
+    {
+        float xVal = 0.0f;
+
+        if (_hidden == true)
+        {
+            _hidden = false;
+            _text.text = "Hide";
+
+            xVal = _visX;
+        }
+        else if (_hidden == false)
+        {
+            _hidden = true;
+            _text.text = "Show";
+
+            xVal = _hiddenX;
+        }
+
+        for (int i = 0; i < _buttons.Length; i++)
+        {
+            float y = this._buttons[i].gameObject.GetComponent<RectTransform>().localPosition.y;
+            Vector3 newPos = new Vector3(xVal, y, 0);
+            this._buttons[i].gameObject.GetComponent<RectTransform>().localPosition = newPos;
+        }
+    }
+
+    public void ButtonClick(int i)
     {
         this.ResetButtons();
 
         this._buttons[i].GetComponent<Button>().GetComponent<Image>().color = new Color(0, 255, 0);
+        _shortCuts[i].fillCenter = false;
 
         switch (i)
         {
@@ -81,6 +115,7 @@ public class TowerSelection : MonoBehaviour {
         for (int i = 0; i < _buttons.Length; i++)
         {
             this._buttons[i].GetComponent<Button>().GetComponent<Image>().color = new Color(255, 255, 255);
+            _shortCuts[i].fillCenter = true;
         }
 
         this._singleFireTowerPressed = false;

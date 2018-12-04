@@ -469,9 +469,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: BasicSuicide
-  _maxHealth: 100
+  _maxHealth: 250
   CreditsOnDeath: 1000
-  Health: 100
+  Health: 250
   Damage: 100
   DistanceToEnd: 1e+9
   EnemyTarget: {fileID: 0}

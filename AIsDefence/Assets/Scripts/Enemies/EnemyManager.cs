@@ -11,6 +11,8 @@ public class EnemyManager : MonoBehaviour {
     private Spawns[] _spawnPoints;
     [SerializeField]
     private GameObject _bossSpawn;
+    [SerializeField]
+    private StatManager _statManager;
 
     [SerializeField]
     private Waves[] _waves;
@@ -37,6 +39,8 @@ public class EnemyManager : MonoBehaviour {
     private Text _waveNum;
     [SerializeField]
     private Text _waveTimerNum;
+
+    private bool _finished = false;
 
     private void Start()
     {
@@ -92,6 +96,8 @@ public class EnemyManager : MonoBehaviour {
         if (Wave == _waves.Length)
         {
             _waveTimerNum.text = "0.00";
+
+            _finished = true;
         }
 
         DelayedSpawns(tospawnEnemies);
@@ -103,10 +109,10 @@ public class EnemyManager : MonoBehaviour {
 
         for (int k = 0; k < tospawnEnemies.Count; k++)
         {
-            if (_spawnPoints[Wave - 1].SpawnPoints[k].name != _protectorName)
+            if (_spawnPoints[_waves[Wave - 1].SpawnPoint].SpawnPoints[k].name != _protectorName)
             {
                 float height = tospawnEnemies[k].transform.position.y;
-                Vector3 spawn = _spawnPoints[Wave - 1].SpawnPoints[k].transform.position;
+                Vector3 spawn = _spawnPoints[_waves[Wave - 1].SpawnPoint].SpawnPoints[k].transform.position;
                 spawn.y = height;
                 tospawnEnemies[k].transform.position = spawn;
 
@@ -170,6 +176,34 @@ public class EnemyManager : MonoBehaviour {
             _spawnIn = _spawnIn + Time.deltaTime;
             float temp = _spawnDelay - _spawnIn;
             _waveTimerNum.text = temp.ToString("F2");
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (_finished == true)
+        {
+            CheckWin();
+        }
+    }
+
+    private void CheckWin()
+    {
+        bool won = true;
+        GameObject[] Enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        for(int i =0; i < Enemies.Length; i++)
+        {
+            if (Enemies[i].activeSelf == true)
+            {
+                won = false;
+                break;
+            }
+        }
+
+        if (won == true)
+        {
+            _statManager.CompletedLevel();
         }
     }
 

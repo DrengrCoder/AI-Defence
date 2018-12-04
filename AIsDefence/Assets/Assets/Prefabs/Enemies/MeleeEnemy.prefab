@@ -544,7 +544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: BasicMelee
-  _maxHealth: 15
+  _maxHealth: 30
   CreditsOnDeath: 200
   Health: 15
   Damage: 8
