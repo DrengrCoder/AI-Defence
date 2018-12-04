@@ -6,6 +6,10 @@ public class ActivatePlayer : MonoBehaviour {
 
     [SerializeField]
     private GameObject _character;
+    [SerializeField]
+    private TowerSelection _TowerSelect;
+    [SerializeField]
+    private GameObject _shopHighlight;
 
     private string _button = "PlayCharacter";
     private bool _active = false;
@@ -14,8 +18,17 @@ public class ActivatePlayer : MonoBehaviour {
     {
         if (Input.GetButtonDown(_button))
         {
-            _active = !_active;
-            _character.SetActive(_active);
+            Character();
         }
+    }
+
+    public void Character()
+    {
+        _active = !_active;
+
+        _character.SetActive(_active);
+        _shopHighlight.SetActive(_active);
+
+        _TowerSelect.DisableTowers(_active);
     }
 }
