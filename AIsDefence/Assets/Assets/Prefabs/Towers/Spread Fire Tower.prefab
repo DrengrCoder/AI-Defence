@@ -217,6 +217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _baseHealth: 100
   _cost: 750
+  Num: 0
   _baseUpgradeCost: 100
   _upgradeCost: 100
   _futureCosts: 640000002c01000058020000e8030000dc050000

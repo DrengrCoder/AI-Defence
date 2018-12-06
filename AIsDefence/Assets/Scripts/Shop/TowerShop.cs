@@ -106,19 +106,19 @@ public class TowerShop : MonoBehaviour {
         StringBuilder range = new StringBuilder();
         StringBuilder firerate = new StringBuilder();
 
-        damage.Append("\nDamage\n");
-        health.Append("\nHealth\n");
-        range.Append("\nRange\n");
-        firerate.Append("\nFire Rate\n");
+        damage.Append("DAMAGE");
+        health.Append("HEALTH");
+        range.Append("RANGE");
+        firerate.Append("FIRE RATE");
 
         foreach (GameObject tower in _towerPrefabs)
         {
             Tower controller = tower.GetComponent<Tower>();
 
-            damage.Append("\n\n\n").Append(controller.GetTowerDamage().ToString());
-            health.Append("\n\n\n").Append(controller.TowerHealth.ToString());
-            range.Append("\n\n\n").Append(tower.GetComponent<SphereCollider>().radius.ToString());
-            firerate.Append("\n\n\n").Append(controller.GetTowerFireRate().ToString("n2"));
+            damage.Append("\n\n").Append(controller.GetTowerDamage().ToString());
+            health.Append("\n\n").Append(controller.TowerHealth.ToString());
+            range.Append("\n\n").Append(tower.GetComponent<SphereCollider>().radius.ToString());
+            firerate.Append("\n\n").Append(controller.GetTowerFireRate().ToString("n2"));
         }
 
         _statTexts[0].GetComponent<Text>().text = damage.ToString();
