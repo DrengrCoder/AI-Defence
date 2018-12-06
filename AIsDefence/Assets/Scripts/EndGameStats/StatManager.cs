@@ -64,6 +64,7 @@ public class StatManager : MonoBehaviour {
     public void CompletedLevel()
     {
         Completed = true;
+
         _save.Save();
 
         _timerText.text = _stats.TimeTaken.ToString();

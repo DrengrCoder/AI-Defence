@@ -30,6 +30,7 @@ public class pauseMenu : MonoBehaviour {
                 Time.timeScale = 0;
                 _on = false;
                 _controller.Pause = true;
+                Cursor.visible = true;
             }
             else
             {
@@ -37,6 +38,11 @@ public class pauseMenu : MonoBehaviour {
                 Time.timeScale = 1;
                 _on = true;
                 _controller.Pause = false;
+
+                if (_controller.gameObject.activeSelf == true)
+                {
+                    Cursor.visible = false;
+                }
             }
         }
     }
