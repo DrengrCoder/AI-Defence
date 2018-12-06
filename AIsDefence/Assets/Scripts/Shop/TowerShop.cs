@@ -70,7 +70,7 @@ public class TowerShop : MonoBehaviour {
         }
     }
 
-    private void ToggleShopMenu()
+    public void ToggleShopMenu()
     {
         if (_playerCharacter.gameObject.activeSelf == false && (Time.timeScale == 1 || (Time.timeScale == 0 && _towerShopMenu.activeSelf == true)))
         {
