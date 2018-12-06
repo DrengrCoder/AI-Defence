@@ -13,15 +13,26 @@ public class EditTowerMenu : MonoBehaviour {
     [SerializeField]
     private PlayerController _playerCharacter;
 
+    [SerializeField]
     private TowerSelection _towerSelection;
+
+    [SerializeField]
+    private GameObject _priorityButtonGroup;
+    
+    [SerializeField]
+    private Button[] _editButtons;
+
+    [SerializeField]
+    private GameObject[] _priorityTexts;
 
     private List<GameObject> _towers = new List<GameObject>();
 
-    private bool _menuOn = false;
-    private TowerType _editingTower = TowerType.None;
+    private TowerType _selectedTower = TowerType.None;
 
-    private AttackChoice _singleFireTarget = AttackChoice.First;
+    private bool _menuOn = false;
+
     private AttackChoice _burstFireTarget = AttackChoice.First;
+    private AttackChoice _singleFireTarget = AttackChoice.First;
     private AttackChoice _spreadFireTarget = AttackChoice.First;
     private AttackChoice _aoeTarget = AttackChoice.First;
 
@@ -42,19 +53,41 @@ public class EditTowerMenu : MonoBehaviour {
             {
                 LoadPreferences();
             }
-            else if (_menuOn)//any other keys whilst menu is on
-            {
-                CheckInputSelection(e);
-                UpdateTree();
-            }
         }
     }
-    void Start()
+
+    private void Start()
     {
-        _towerSelection = GameObject.Find("TowerSelectUI").GetComponent<TowerSelection>();
+        SetTowerPriorityText();
+        
+        _priorityButtonGroup.transform.GetChild(0).GetComponent<Button>().GetComponentInChildren<Text>().text 
+            = AttackChoiceUtils.GetDescription(AttackChoice.First);
+
+        _priorityButtonGroup.transform.GetChild(1).GetComponent<Button>().GetComponentInChildren<Text>().text 
+            = AttackChoiceUtils.GetDescription(AttackChoice.MostHealth);
+
+        _priorityButtonGroup.transform.GetChild(2).GetComponent<Button>().GetComponentInChildren<Text>().text 
+            = AttackChoiceUtils.GetDescription(AttackChoice.MostDamage);
+
+        _priorityButtonGroup.transform.GetChild(3).GetComponent<Button>().GetComponentInChildren<Text>().text 
+            = AttackChoiceUtils.GetDescription(AttackChoice.Last);
+
+        _priorityButtonGroup.transform.GetChild(4).GetComponent<Button>().GetComponentInChildren<Text>().text 
+            = AttackChoiceUtils.GetDescription(AttackChoice.LeastHealth);
+
+        _priorityButtonGroup.transform.GetChild(5).GetComponent<Button>().GetComponentInChildren<Text>().text 
+            = AttackChoiceUtils.GetDescription(AttackChoice.LeastDamage);
     }
 
-    private void ToggleMenu()
+    private void SetTowerPriorityText()
+    {
+        _priorityTexts[0].GetComponent<Text>().text = "Burst Fire Attacking:\n\n" + AttackChoiceUtils.GetDescription(_burstFireTarget);
+        _priorityTexts[1].GetComponent<Text>().text = "Single Fire Attacking:\n\n" + AttackChoiceUtils.GetDescription(_singleFireTarget);
+        _priorityTexts[2].GetComponent<Text>().text = "Spread Fire Attacking:\n\n" + AttackChoiceUtils.GetDescription(_spreadFireTarget);
+        _priorityTexts[3].GetComponent<Text>().text = "AOE Fire Attacking:\n\n" + AttackChoiceUtils.GetDescription(_aoeTarget);
+    }
+
+    public void ToggleMenu()
     {
         if (((Time.timeScale == 0 && _editMenu.activeSelf == true) || (Time.timeScale == 1)) && (_playerCharacter.gameObject.activeSelf == false))
         {
@@ -69,7 +102,8 @@ public class EditTowerMenu : MonoBehaviour {
                 this._editMenu.SetActive(false);
                 Time.timeScale = 1;
                 _menuOn = !_menuOn;
-                ResetText();
+                _selectedTower = TowerType.None;
+                SetSelectedTower();
             }
 
             foreach (Button btn in this._towerSelection._buttons)
@@ -78,117 +112,132 @@ public class EditTowerMenu : MonoBehaviour {
             }
         }
     }
-    
-    private void CheckInputSelection(Event e)
+
+    public void ShowEditOptions(int i)
     {
-        switch (e.keyCode)//selecting tower
+        switch (i)
         {
-            case KeyCode.Q:
-                if (_editingTower != TowerType.SingleFire)
+            case 1:
+                if (_selectedTower == TowerType.BurstFire)
                 {
-                    _editingTower = TowerType.SingleFire;
+                    _selectedTower = TowerType.None;
                 }
                 else
                 {
-                    _editingTower = TowerType.None;
+                    _selectedTower = TowerType.BurstFire;
                 }
                 break;
-            case KeyCode.W:
-                if (_editingTower != TowerType.BurstFire)
+            case 2:
+                if (_selectedTower == TowerType.SingleFire)
                 {
-                    _editingTower = TowerType.BurstFire;
+                    _selectedTower = TowerType.None;
                 }
                 else
                 {
-                    _editingTower = TowerType.None;
+                    _selectedTower = TowerType.SingleFire;
                 }
                 break;
-            case KeyCode.E:
-                if (_editingTower != TowerType.SpreadFire)
+            case 3:
+                if (_selectedTower == TowerType.SpreadFire)
                 {
-                    _editingTower = TowerType.SpreadFire;
+                    _selectedTower = TowerType.None;
                 }
                 else
                 {
-                    _editingTower = TowerType.None;
+                    _selectedTower = TowerType.SpreadFire;
                 }
                 break;
-            case KeyCode.R:
-                if (_editingTower != TowerType.AoeFire)
+            case 4:
+                if (_selectedTower == TowerType.AoeFire)
                 {
-                    _editingTower = TowerType.AoeFire;
+                    _selectedTower = TowerType.None;
                 }
                 else
                 {
-                    _editingTower = TowerType.None;
+                    _selectedTower = TowerType.AoeFire;
                 }
                 break;
             default:
                 break;
         }
 
-        if (_editingTower != TowerType.None)//if a tower is already selected for editing
-        {
-            switch (e.keyCode)//selecting attack parameters
-            {
-                case KeyCode.Alpha1:
-                    UpdateAttackParameters(AttackChoice.First);
-                    break;
-                case KeyCode.Alpha2:
-                    UpdateAttackParameters(AttackChoice.Last);
-                    break;
-                case KeyCode.Alpha3:
-                    UpdateAttackParameters(AttackChoice.MostHealth);
-                    break;
-                case KeyCode.Alpha4:
-                    UpdateAttackParameters(AttackChoice.LeastHealth);
-                    break;
-                case KeyCode.Alpha5:
-                    UpdateAttackParameters(AttackChoice.MostDamage);
-                    break;
-                case KeyCode.Alpha6:
-                    UpdateAttackParameters(AttackChoice.LeastDamage);
-                    break;
-                default:
-                    break;
-            }
-        }
+        SetSelectedTower();
     }
-
-    private void UpdateTree()
+    private void SetSelectedTower()
     {
-        _editMenu.transform.GetChild(4).GetComponent<Text>().text = "Attack First Enemy (1)\nAttack Last Enemy (2)\nAttack Most Health (3)\nAttack Least Health (4)\nAttack Most Damage (5)\nAttack Least Damage (6)";
-
-        switch (this._editingTower)
+        //by default, reset all colours
+        foreach (Button btn in _editButtons)
         {
-            case TowerType.SingleFire:
-                _editMenu.transform.GetChild(3).GetComponent<Text>().text = "Single Fire Tower Selected - Targeting " + AttackChoiceUtils.GetDescription(_singleFireTarget);
-                break;
+            btn.GetComponent<Image>().color = new Color(255, 255, 255);
+        }
+
+        string selectedText = "No Tower Selected";
+
+        _priorityButtonGroup.SetActive(true);
+
+        switch (_selectedTower)
+        {
             case TowerType.BurstFire:
-                _editMenu.transform.GetChild(3).GetComponent<Text>().text = "Burst Fire Tower Selected - Targeting " + AttackChoiceUtils.GetDescription(_burstFireTarget);
+                selectedText = "Burst Fire Tower Selected";
+                _editButtons[0].GetComponent<Image>().color = new Color(0, 255, 0);
+                break;
+            case TowerType.SingleFire:
+                selectedText = "Single Fire Tower Selected";
+                _editButtons[1].GetComponent<Image>().color = new Color(0, 255, 0);
                 break;
             case TowerType.SpreadFire:
-                _editMenu.transform.GetChild(3).GetComponent<Text>().text = "Spread Fire Tower Selected - Targeting " + AttackChoiceUtils.GetDescription(_spreadFireTarget);
+                selectedText = "Spread Fire Tower Selected";
+                _editButtons[2].GetComponent<Image>().color = new Color(0, 255, 0);
                 break;
             case TowerType.AoeFire:
-                _editMenu.transform.GetChild(3).GetComponent<Text>().text = "AOE Tower Selected - Targeting " + AttackChoiceUtils.GetDescription(_aoeTarget);
+                selectedText = "AOE Fire Tower Selected";
+                _editButtons[3].GetComponent<Image>().color = new Color(0, 255, 0);
                 break;
-            default://assumed EditingTower.None;
-                ResetText();
+            default:
+                _priorityButtonGroup.SetActive(false);
                 break;
         }
 
+        _editMenu.transform.GetChild(2).GetComponent<Text>().text = selectedText;
     }
-    private void ResetText()
+
+    public void SetSelectedPriority(int i)
     {
-        _editingTower = TowerType.None;
-        _editMenu.transform.GetChild(3).GetComponent<Text>().text = "No Selected Tower";
-        _editMenu.transform.GetChild(4).GetComponent<Text>().text = "";
+        AttackChoice priority = AttackChoice.First;
+
+        switch (i)
+        {
+            case 1:
+                priority = AttackChoice.First;
+                break;
+            case 2:
+                priority = AttackChoice.MostHealth;
+                break;
+            case 3:
+                priority = AttackChoice.MostDamage;
+                break;
+            case 4:
+                priority = AttackChoice.Last;
+                break;
+            case 5:
+                priority = AttackChoice.LeastHealth;
+                break;
+            case 6:
+                priority = AttackChoice.LeastDamage;
+                break;
+            default:
+                break;
+        }
+
+        UpdateAttackParameters(priority);
+        _selectedTower = TowerType.None;
+        SetTowerPriorityText();
+        SetSelectedTower();
     }
 
     private void UpdateAttackParameters(AttackChoice option)
     {
-        switch (_editingTower)
+        switch (_selectedTower)
         {
             case TowerType.SingleFire:
                 _singleFireTarget = option;
@@ -206,7 +255,7 @@ public class EditTowerMenu : MonoBehaviour {
                 break;
         }
 
-        _editingTower = TowerType.None;
+        _selectedTower = TowerType.None;
         UpdateTowers();
     }
     public void UpdateTowers()
