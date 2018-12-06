@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour{
     public float AttackCooldown = 2.0f;
 
     private float _height;
+    [SerializeField]
     private float _timeTillAttack = 0.0f;
     public bool CanAttack = true;
 
@@ -114,8 +115,8 @@ public class Enemy : MonoBehaviour{
 
             if (_timeTillAttack >= AttackCooldown)
             {
-                _timeTillAttack = 0.0f;
                 CanAttack = true;
+                _timeTillAttack = 0.0f;
             }
         }
     }

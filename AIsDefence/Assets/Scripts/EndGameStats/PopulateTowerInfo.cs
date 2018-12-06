@@ -19,7 +19,8 @@ public class PopulateTowerInfo : MonoBehaviour {
 
     public void Populate(int non)
     {
-        _non.text = non.ToString();
+        int towerNum = non + 1;
+        _non.text = towerNum.ToString();
         _damage.text = _stats.TowerStats[non].Damage.ToString();
         _kills.text = _stats.TowerStats[non].Kills.ToString();
 

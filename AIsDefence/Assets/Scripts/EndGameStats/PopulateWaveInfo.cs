@@ -21,7 +21,8 @@ public class PopulateWaveInfo : MonoBehaviour {
 
     public void Populate(int non)
     {
-        _non.text = non.ToString();
+        int waveNum = non + 1;
+        _non.text = waveNum.ToString();
         _enemies.text = _stats.WaveStats[non].NumEnemies.ToString();
         _bosses.text = _stats.WaveStats[non].Bosses.ToString();
         _enemiesKilled.text = _stats.WaveStats[non].EnemiesKilled.ToString();

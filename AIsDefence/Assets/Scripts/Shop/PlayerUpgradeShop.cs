@@ -27,13 +27,13 @@ public class PlayerUpgradeShop : MonoBehaviour {
         {
             _costs[0].NextCost();
         }
-        _costTexts[0].text = _costs[0].CurrentCosts.ToString() + "QE";
+        _costTexts[0].text = _costs[0].CurrentCosts.ToString() + "S";
 
         for (int i = 0; i < _upgrades.SpeedPointer; i++)
         {
             _costs[1].NextCost();
         }
-        _costTexts[1].text = _costs[1].CurrentCosts.ToString() + "QE";
+        _costTexts[1].text = _costs[1].CurrentCosts.ToString() + "S";
 
         CheckPrices();
     }
@@ -44,7 +44,7 @@ public class PlayerUpgradeShop : MonoBehaviour {
 
         _costs[upgrade].NextCost();
 
-        _costTexts[upgrade].text = _costs[upgrade].CurrentCosts.ToString() + "QE";
+        _costTexts[upgrade].text = _costs[upgrade].CurrentCosts.ToString() + "S";
 
         _shop.UpdateShops();
     }
