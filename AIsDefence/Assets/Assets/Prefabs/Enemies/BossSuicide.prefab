@@ -470,12 +470,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: BasicSuicide
   _maxHealth: 250
-  CreditsOnDeath: 1000
-  Health: 250
-  Damage: 100
+  CreditsOnDeath: 200
+  Health: 100
+  Damage: 200
   DistanceToEnd: 1e+9
   EnemyTarget: {fileID: 0}
   AttackCooldown: 0
+  _timeTillAttack: 0
   CanAttack: 1
   FaceObjective: {fileID: 0}
   _boss: 1

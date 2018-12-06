@@ -6689,11 +6689,11 @@ MonoBehaviour:
   - Spawns: 0a0000000000000000000000
     Boss: 100
     SpawnPoint: 0
-    PlayerCredits: 200
+    PlayerCredits: 100
   - Spawns: 040000000000000006000000
     Boss: 100
     SpawnPoint: 0
-    PlayerCredits: 200
+    PlayerCredits: 150
   - Spawns: 000000000500000005000000
     Boss: 100
     SpawnPoint: 0
@@ -6701,11 +6701,11 @@ MonoBehaviour:
   - Spawns: 0a0000000500000005000000
     Boss: 4
     SpawnPoint: 0
-    PlayerCredits: 200
+    PlayerCredits: 250
   - Spawns: 0a0000000a0000000a000000
     Boss: 4
     SpawnPoint: 0
-    PlayerCredits: 200
+    PlayerCredits: 300
   _pools:
   - Num:
     - {fileID: 0}
@@ -9272,11 +9272,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdf63926302b9c948b450bedb17c4699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 500
+  _maxHealth: 300
   _statManager: {fileID: 1054251982}
   _lowercolour: {r: 0, g: 0, b: 0, a: 1}
   _highercolour: {r: 1, g: 0, b: 1, a: 1}
-  CurrentHealth: 500
+  CurrentHealth: 300
 --- !u!208 &599037292
 NavMeshObstacle:
   m_ObjectHideFlags: 0

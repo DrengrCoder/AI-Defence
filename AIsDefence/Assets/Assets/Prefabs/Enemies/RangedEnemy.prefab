@@ -498,12 +498,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: BasicRanged
   _maxHealth: 10
-  CreditsOnDeath: 250
+  CreditsOnDeath: 60
   Health: 5
   Damage: 5
   DistanceToEnd: 0
   EnemyTarget: {fileID: 0}
   AttackCooldown: 2
+  _timeTillAttack: 0
   CanAttack: 1
   FaceObjective: {fileID: 0}
   _boss: 0

@@ -11,7 +11,7 @@ public class SingleFireTower : Tower {
     [SerializeField]
     private int _force = 4000;
     
-    private int _damage = 50;
+    private int _damage = 30;
     
     private float _fireRate = 0.7f;
 

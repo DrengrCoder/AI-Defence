@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PulseFireTower : Tower {
     
-    private int _damage = 3;
+    private int _damage = 2;
 
     private float _fireRate = 1.0f;
 
