@@ -30,6 +30,6 @@ public class mainMenu : MonoBehaviour {
 
     public void QuitGame()
     {
-        Debug.Log("Quit Button Has Been Pressed!");
+        Application.Quit();
     }
 }

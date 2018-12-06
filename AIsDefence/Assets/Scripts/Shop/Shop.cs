@@ -21,6 +21,11 @@ public class Shop : MonoBehaviour {
     [SerializeField]
     private PlayerUpgradeShop _upgradeShop;
 
+    private void Start()
+    {
+        UpdateShops();
+    }
+
     public void UpdateShops()
     {
         _weaponShop.CheckPrices();

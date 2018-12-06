@@ -19,13 +19,16 @@ public class Melee : MonoBehaviour {
     {
         if (Attacking == true)//attacks player
         {
-            if (other.gameObject.GetComponent<Objective>())
+            if ((!other.gameObject.GetComponent<Enemy>()) && (!other.isTrigger))
             {
-                other.gameObject.GetComponent<Objective>().TakeDamage(Damage);
-            }
-            else if (other.gameObject.GetComponent<Player>())
-            {
-                other.gameObject.GetComponent<Player>().TakeDamage(Damage);
+                if (other.gameObject.GetComponent<Objective>())
+                {
+                    other.gameObject.GetComponent<Objective>().TakeDamage(Damage);
+                }
+                else if (other.gameObject.GetComponent<Player>())
+                {
+                    other.gameObject.GetComponent<Player>().TakeDamage(Damage);
+                }
             }
 
             Attacking = false;
@@ -36,13 +39,16 @@ public class Melee : MonoBehaviour {
     {
         if (Attacking == true)//attacks player
         {
-            if (other.gameObject.GetComponent<Objective>())
+            if ((!other.gameObject.GetComponent<Enemy>()) && (!other.isTrigger))
             {
-                other.gameObject.GetComponent<Objective>().TakeDamage(Damage);
-            }
-            else if (other.gameObject.GetComponent<Player>())
-            {
-                other.gameObject.GetComponent<Player>().TakeDamage(Damage);
+                if (other.gameObject.GetComponent<Objective>())
+                {
+                    other.gameObject.GetComponent<Objective>().TakeDamage(Damage);
+                }
+                else if (other.gameObject.GetComponent<Player>())
+                {
+                    other.gameObject.GetComponent<Player>().TakeDamage(Damage);
+                }
             }
 
             Attacking = false;

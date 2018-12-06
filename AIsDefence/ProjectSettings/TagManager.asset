@@ -9,6 +9,7 @@ TagManager:
   - Guns
   - EnemyBullet
   - Ground
+  - meleeWeapon
   layers:
   - Default
   - TransparentFX

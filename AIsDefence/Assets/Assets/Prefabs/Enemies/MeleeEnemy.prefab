@@ -529,7 +529,7 @@ MonoBehaviour:
   Attacking: 0
   AttackMovement: 0
   _arm: {fileID: 1348014682597068}
-  _upright: 90
+  _upright: 75
   _down: 25
   _slashSpeed: 40
 --- !u!114 &114965419855199716
@@ -551,6 +551,7 @@ MonoBehaviour:
   DistanceToEnd: 0
   EnemyTarget: {fileID: 0}
   AttackCooldown: 1
+  _timeTillAttack: 0
   CanAttack: 1
   FaceObjective: {fileID: 0}
   _boss: 0

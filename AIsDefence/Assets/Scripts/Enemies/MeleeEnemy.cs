@@ -42,6 +42,16 @@ public class MeleeEnemy : Enemy {
         {
             _meleeWeapon.MeleeAttack();
             CanAttack = false;
+
+            if (target.gameObject.activeSelf == false)
+            {
+                GameObject newTarget = FindObjectOfType<Objective>().gameObject;
+
+                EnemyTarget = newTarget;
+                FaceObjective = newTarget;
+                gameObject.GetComponent<NavMeshAgent>().SetDestination(EnemyTarget.transform.position);
+                GetComponent<NavMeshAgent>().isStopped = false;
+            }
         }
     }
 

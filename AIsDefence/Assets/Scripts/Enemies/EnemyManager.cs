@@ -32,7 +32,7 @@ public class EnemyManager : MonoBehaviour {
     [SerializeField]
     private float _delayOnOverSpawn = 3.0f;
     [SerializeField]
-    private float _spawnDelay = 30.0f;
+    private float _spawnDelay = 0.0f;
     private float _spawnIn = 0.0f;
 
     [SerializeField]
@@ -45,7 +45,7 @@ public class EnemyManager : MonoBehaviour {
     private void Start()
     {
         Wave = 0;
-        _spawnIn = 30.0f;
+        _spawnIn = _spawnDelay;
         _waveNum.text = Wave.ToString();
         _waveTimerNum.text = _spawnIn.ToString();
 
