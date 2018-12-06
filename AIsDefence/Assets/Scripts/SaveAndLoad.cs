@@ -13,7 +13,7 @@ public class SaveAndLoad : MonoBehaviour {
     private Upgrades _upgrades;
 
     [SerializeField]
-    private string dataFilePath = "/SaveData/data.json";
+    private string dataFilePath = "/data.json";
 
     private void Awake()
     {
@@ -22,7 +22,7 @@ public class SaveAndLoad : MonoBehaviour {
 
     public void Load()
     {
-        string filePath = Application.dataPath + dataFilePath;
+        string filePath = Application.persistentDataPath + dataFilePath;
 
         if (File.Exists(filePath))
         {
@@ -51,7 +51,7 @@ public class SaveAndLoad : MonoBehaviour {
 
         string dataAsJson = JsonUtility.ToJson(_saveInfo);
 
-        string filePath = Application.dataPath + dataFilePath;
+        string filePath = Application.persistentDataPath + dataFilePath;
         File.WriteAllText(filePath, dataAsJson);
     }
 }
