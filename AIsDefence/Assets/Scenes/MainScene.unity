@@ -6686,8 +6686,24 @@ MonoBehaviour:
   _bossSpawn: {fileID: 1257550256}
   _statManager: {fileID: 1054251982}
   _waves:
-  - Spawns: 000000000000000001000000
+  - Spawns: 0a0000000000000000000000
     Boss: 100
+    SpawnPoint: 0
+    PlayerCredits: 200
+  - Spawns: 040000000000000006000000
+    Boss: 100
+    SpawnPoint: 0
+    PlayerCredits: 200
+  - Spawns: 000000000500000005000000
+    Boss: 100
+    SpawnPoint: 0
+    PlayerCredits: 200
+  - Spawns: 0a0000000500000005000000
+    Boss: 4
+    SpawnPoint: 0
+    PlayerCredits: 200
+  - Spawns: 0a0000000a0000000a000000
+    Boss: 4
     SpawnPoint: 0
     PlayerCredits: 200
   _pools:
@@ -6852,7 +6868,7 @@ MonoBehaviour:
   EnemyTarget: {fileID: 599037290}
   _bulletPool: {fileID: 2076735394}
   _delayOnOverSpawn: 2
-  _spawnDelay: 10
+  _spawnDelay: 60
   _waveNum: {fileID: 586507566}
   _waveTimerNum: {fileID: 283379765}
 --- !u!4 &453446569
@@ -12566,52 +12582,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 0
---- !u!1001 &877074336
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4078442457063152, guid: 0a38bac92a7cecc4c94c4742b81e84e4, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 1.7672206
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078442457063152, guid: 0a38bac92a7cecc4c94c4742b81e84e4, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078442457063152, guid: 0a38bac92a7cecc4c94c4742b81e84e4, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 21.039894
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078442457063152, guid: 0a38bac92a7cecc4c94c4742b81e84e4, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078442457063152, guid: 0a38bac92a7cecc4c94c4742b81e84e4, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078442457063152, guid: 0a38bac92a7cecc4c94c4742b81e84e4, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078442457063152, guid: 0a38bac92a7cecc4c94c4742b81e84e4, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078442457063152, guid: 0a38bac92a7cecc4c94c4742b81e84e4, type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1970940304122638, guid: 0a38bac92a7cecc4c94c4742b81e84e4, type: 2}
-      propertyPath: m_TagString
-      value: meleeWeapon
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 0a38bac92a7cecc4c94c4742b81e84e4, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &879213791
 GameObject:
   m_ObjectHideFlags: 0
