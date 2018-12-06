@@ -45,10 +45,12 @@ public class TowerSelection : MonoBehaviour {
                 if (_costs[i] > _bank.CreditBank)
                 {
                     _buttons[i].interactable = false;
+                    _shortCuts[i].GetComponent<Button>().interactable = false;
                 }
                 else
                 {
                     _buttons[i].interactable = true;
+                    _shortCuts[i].GetComponent<Button>().interactable = true;
                 }
             }
         }
