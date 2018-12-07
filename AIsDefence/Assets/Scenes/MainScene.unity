@@ -11231,6 +11231,9 @@ MonoBehaviour:
   _TowerSelect: {fileID: 1480097535}
   _shopHighlight: {fileID: 560444279}
   _hideTowers: {fileID: 87598748}
+  _ETP: {fileID: 351379372}
+  _TUM: {fileID: 1100053118}
+  _JTA: {fileID: 2044094377}
 --- !u!1001 &659668116
 Prefab:
   m_ObjectHideFlags: 0
@@ -22550,7 +22553,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0

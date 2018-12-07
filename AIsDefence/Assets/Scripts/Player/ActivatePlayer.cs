@@ -13,6 +13,12 @@ public class ActivatePlayer : MonoBehaviour {
     private GameObject _shopHighlight;
     [SerializeField]
     private Button _hideTowers;
+    [SerializeField]
+    private Button _ETP;
+    [SerializeField]
+    private Button _TUM;
+    [SerializeField]
+    private Button _JTA;
 
     private string _button = "PlayCharacter";
     private bool _active = false;
@@ -33,6 +39,10 @@ public class ActivatePlayer : MonoBehaviour {
         _shopHighlight.SetActive(_active);
 
         _TowerSelect.DisableTowers(_active);
+
         _hideTowers.interactable = !(_active);
+        _ETP.interactable = !(_active);
+        _TUM.interactable = !(_active);
+        _JTA.interactable = !(_active);
     }
 }
