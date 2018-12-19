@@ -5,16 +5,15 @@ using UnityEngine;
 public class Gun : MonoBehaviour {
 
     [SerializeField]
+    private int _damage = 1;
+    [SerializeField]
+    private int _range = 50;
+    [SerializeField]
     private float _fireRate = 0.3f;
     private float _nextFire = 0.0f;
 
     [SerializeField]
-    private GameObject _bulletSpawn;
-    [SerializeField]
-    private GameObject _bullet;
-    [SerializeField]
-    private int _numInPool = 20;
-    private GameObject[] _bulletPool;
+    private EndGameStats _stats;
 
     [SerializeField]
     private float _fowardZ = 0.0f;
@@ -22,29 +21,49 @@ public class Gun : MonoBehaviour {
     private float _backZ = 0.0f;
     private float _currentZ = 0.0f;
 
+    [SerializeField]
+    private ParticleSystem _muzzle;
+
     private void Start()
     {
         _currentZ = _fowardZ;
-        _bulletPool = new GameObject[_numInPool];
-
-        for (int i = 0; i < _numInPool; i++)
-        {
-            GameObject temp = Instantiate(_bullet);
-            _bulletPool[i] = temp;
-        }
     }
 
-    private GameObject GetBullet()
+    private void Shoot()
     {
-        for (int i = 0; i < _numInPool; i++)
+        _muzzle.Play();
+
+        Vector3 fwd = transform.TransformDirection(Vector3.forward);
+        Debug.DrawRay(transform.position, fwd * _range, Color.green);
+
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, fwd, out hit))
         {
-            if (_bulletPool[i].activeSelf == false)
+            if (hit.collider.isTrigger == false)
             {
-                return _bulletPool[i];
+                GameObject hitObject = hit.collider.gameObject;
+                if (!hitObject.GetComponent<Player>())
+                {
+                    if (hitObject.GetComponent<Enemy>())//attacks player and tower
+                    {
+                        _stats.Hits = _stats.Hits + 1;
+                        _stats.DamageDealt = _stats.DamageDealt + _damage;
+
+                        bool killed = hitObject.GetComponent<Enemy>().TakeDamage(_damage);
+
+                        if (hitObject.GetComponent<MeleeEnemy>())
+                        {
+                            hitObject.GetComponent<MeleeEnemy>().Enrage();
+                        }
+
+                        if (killed == true)
+                        {
+                            _stats.Kills = _stats.Kills + 1;
+                        }
+                    }
+                }
             }
         }
-
-        return null;
     }
 
     private void Update()
@@ -53,10 +72,8 @@ public class Gun : MonoBehaviour {
         {
             if (Input.GetButton("Fire1") == true)
             {
-                GameObject bullet = GetBullet();
-                bullet.transform.position = _bulletSpawn.transform.position;
-                bullet.transform.rotation = _bulletSpawn.transform.rotation;
-                bullet.SetActive(true);
+                Shoot();
+
                 _nextFire = 0.0f;
                 _currentZ = _currentZ - 0.1f;
                 if (_currentZ < _backZ)
