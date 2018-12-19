@@ -25,6 +25,7 @@ public class Objective : MonoBehaviour {
     {
         CurrentHealth = _maxHealth;
         _material = GetComponent<Renderer>().material;
+        TakeDamage(0);
     }
 
     public void TakeDamage(int damage)
