@@ -14,6 +14,9 @@ public class Objective : MonoBehaviour {
     [SerializeField]
     private Color _highercolour;
 
+    [SerializeField]
+    private Light pointLight;
+
     public int CurrentHealth;
 
     private Material _material;
@@ -33,12 +36,24 @@ public class Objective : MonoBehaviour {
 
         Color lerpedColor = Color.Lerp(_lowercolour, _highercolour, hdrIntensity);
         _material.SetColor("_EmissionColor", lerpedColor);
+        pointLight.color = lerpedColor;
 
         if (CurrentHealth <= 0)
         {
             Death();
         }
     }
+
+    ////For testing \/
+    //private void Update()
+    //{
+    //    float hdrIntensity = 1.0f / _maxHealth;
+    //    hdrIntensity = hdrIntensity * CurrentHealth;
+
+    //    Color lerpedColor = Color.Lerp(_lowercolour, _highercolour, hdrIntensity);
+    //    _material.SetColor("_EmissionColor", lerpedColor);
+    //    pointLight.color = lerpedColor;
+    //}
 
     private void Death()
     {
