@@ -4827,11 +4827,6 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 23641861515535498, guid: 7655ad9320ec4ef4881cdd1e21fc6a21,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 9680a1baa47e90d45a41e83dd86309f1, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7655ad9320ec4ef4881cdd1e21fc6a21, type: 2}
   m_IsPrefabParent: 0
@@ -10098,11 +10093,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 23884216289922052, guid: dfead8bd8fc40e64188c37cf4c73adea,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 9680a1baa47e90d45a41e83dd86309f1, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dfead8bd8fc40e64188c37cf4c73adea, type: 2}
   m_IsPrefabParent: 0
@@ -15335,7 +15325,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -21422,16 +21412,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 23180208400453700, guid: 14f86176d708b9d429f87f2acec5cf86,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 9680a1baa47e90d45a41e83dd86309f1, type: 2}
-    - target: {fileID: 23571339150075104, guid: 14f86176d708b9d429f87f2acec5cf86,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 9680a1baa47e90d45a41e83dd86309f1, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 14f86176d708b9d429f87f2acec5cf86, type: 2}
   m_IsPrefabParent: 0
@@ -25968,7 +25948,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1741446219
 MonoBehaviour:
   m_ObjectHideFlags: 0

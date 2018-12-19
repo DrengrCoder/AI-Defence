@@ -16,8 +16,15 @@ public class Gun : MonoBehaviour {
     private int _numInPool = 20;
     private GameObject[] _bulletPool;
 
+    [SerializeField]
+    private float _fowardZ = 0.0f;
+    [SerializeField]
+    private float _backZ = 0.0f;
+    private float _currentZ = 0.0f;
+
     private void Start()
     {
+        _currentZ = _fowardZ;
         _bulletPool = new GameObject[_numInPool];
 
         for (int i = 0; i < _numInPool; i++)
@@ -51,11 +58,23 @@ public class Gun : MonoBehaviour {
                 bullet.transform.rotation = _bulletSpawn.transform.rotation;
                 bullet.SetActive(true);
                 _nextFire = 0.0f;
+                _currentZ = _currentZ - 0.1f;
+                if (_currentZ < _backZ)
+                {
+                    _currentZ = _backZ;
+                }
+                transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, _currentZ);
             }
         }
         else
         {
-            _nextFire = _nextFire + Time.deltaTime;
+            _currentZ = _currentZ + (0.1f * Time.deltaTime);
+            if (_currentZ > _fowardZ)
+            {
+                _currentZ = _fowardZ;
+            }
+                transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, _currentZ);
+                _nextFire = _nextFire + Time.deltaTime;
         }
     }
 
