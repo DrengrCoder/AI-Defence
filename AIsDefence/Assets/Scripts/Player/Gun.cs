@@ -23,10 +23,13 @@ public class Gun : MonoBehaviour {
 
     [SerializeField]
     private ParticleSystem _muzzle;
+    [SerializeField]
+    private LineRenderer _lazer;
 
     private void Start()
     {
         _currentZ = _fowardZ;
+        _lazer.enabled = false;
     }
 
     private void Shoot()
@@ -36,34 +39,52 @@ public class Gun : MonoBehaviour {
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
         Debug.DrawRay(transform.position, fwd * _range, Color.green);
 
+        //RayCast
+        Ray ray = new Ray(_lazer.gameObject.transform.position, fwd);
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, fwd, out hit))
+        if (Physics.Raycast(ray, out hit))
         {
-            if (hit.collider.isTrigger == false)
-            {
                 GameObject hitObject = hit.collider.gameObject;
-                if (!hitObject.GetComponent<Player>())
+            if (!hitObject.GetComponent<Player>())
+            {
+                if (hitObject.GetComponent<Enemy>())//attacks player and tower
                 {
-                    if (hitObject.GetComponent<Enemy>())//attacks player and tower
+                    _stats.Hits = _stats.Hits + 1;
+                    _stats.DamageDealt = _stats.DamageDealt + _damage;
+
+                    bool killed = hitObject.GetComponent<Enemy>().TakeDamage(_damage);
+
+                    if (hitObject.GetComponent<MeleeEnemy>())
                     {
-                        _stats.Hits = _stats.Hits + 1;
-                        _stats.DamageDealt = _stats.DamageDealt + _damage;
+                        hitObject.GetComponent<MeleeEnemy>().Enrage();
+                    }
 
-                        bool killed = hitObject.GetComponent<Enemy>().TakeDamage(_damage);
-
-                        if (hitObject.GetComponent<MeleeEnemy>())
-                        {
-                            hitObject.GetComponent<MeleeEnemy>().Enrage();
-                        }
-
-                        if (killed == true)
-                        {
-                            _stats.Kills = _stats.Kills + 1;
-                        }
+                    if (killed == true)
+                    {
+                        _stats.Kills = _stats.Kills + 1;
                     }
                 }
             }
+            _lazer.SetPosition(1, hit.point);//Lazer endpoint
         }
+        else
+        {
+            _lazer.SetPosition(1, ray.GetPoint(_range));//Lazer endpoint
+        }
+
+        //Lazer show
+        _lazer.SetPosition(0, ray.origin);
+        StartCoroutine(FireLazer());
+
+    }
+
+    IEnumerator FireLazer()
+    {
+        _lazer.enabled = true;
+
+        yield return new WaitForSeconds(0.03f);
+
+        _lazer.enabled = false;
     }
 
     private void Update()
