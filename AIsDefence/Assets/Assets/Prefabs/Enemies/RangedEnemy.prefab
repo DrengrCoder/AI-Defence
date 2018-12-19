@@ -516,7 +516,7 @@ MonoBehaviour:
   - {fileID: 1529862399881264}
   - {fileID: 1663408842565926}
   - {fileID: 1894824278776502}
-  - {fileID: 1051986094997874}
+  - {fileID: 1191803774346860}
   BulletPool: {fileID: 0}
   _bulletSpawn: {fileID: 1249394339035450}
   _playerTag: Player

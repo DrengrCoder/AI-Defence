@@ -19,19 +19,21 @@ public class Melee : MonoBehaviour {
     {
         if (Attacking == true)//attacks player
         {
+            Debug.Log(other.gameObject.name);
             if ((!other.gameObject.GetComponent<Enemy>()) && (!other.isTrigger))
             {
                 if (other.gameObject.GetComponent<Objective>())
                 {
                     other.gameObject.GetComponent<Objective>().TakeDamage(Damage);
                 }
-                else if (other.gameObject.GetComponent<Player>())
+
+                if (other.gameObject.GetComponent<Player>())
                 {
                     other.gameObject.GetComponent<Player>().TakeDamage(Damage);
                 }
-            }
 
-            Attacking = false;
+                Attacking = false;
+            }
         }
     }
 
@@ -39,19 +41,21 @@ public class Melee : MonoBehaviour {
     {
         if (Attacking == true)//attacks player
         {
+            Debug.Log(other.gameObject.name);
             if ((!other.gameObject.GetComponent<Enemy>()) && (!other.isTrigger))
             {
                 if (other.gameObject.GetComponent<Objective>())
                 {
                     other.gameObject.GetComponent<Objective>().TakeDamage(Damage);
                 }
-                else if (other.gameObject.GetComponent<Player>())
+
+                if (other.gameObject.GetComponent<Player>())
                 {
                     other.gameObject.GetComponent<Player>().TakeDamage(Damage);
                 }
-            }
 
-            Attacking = false;
+                Attacking = false;
+            }
         }
     }
 }

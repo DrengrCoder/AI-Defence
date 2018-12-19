@@ -4823,10 +4823,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1119102863238884, guid: 7655ad9320ec4ef4881cdd1e21fc6a21, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7655ad9320ec4ef4881cdd1e21fc6a21, type: 2}
   m_IsPrefabParent: 0
@@ -7409,7 +7405,7 @@ MonoBehaviour:
   _statManager: {fileID: 1054251982}
   _waves:
   - Spawns: 0a0000000000000000000000
-    Boss: 100
+    Boss: 3
     SpawnPoint: 0
     PlayerCredits: 100
   - Spawns: 040000000000000006000000
