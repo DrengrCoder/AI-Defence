@@ -481,6 +481,14 @@ MonoBehaviour:
   FaceObjective: {fileID: 0}
   _boss: 1
   _stats: {fileID: 11400000, guid: 6f22d35d4c48dd6498355172d68ca31a, type: 2}
+  _originalMaterial: {fileID: 2100000, guid: 29e7f5ddcaf057542b209d5c5108698c, type: 2}
+  _whiteMaterial: {fileID: 2100000, guid: c25a775aeb6073c4791f223d18a0a006, type: 2}
+  _redMaterial: {fileID: 2100000, guid: 2f6fa9b01fc1b904dabfa090400ffb0f, type: 2}
+  _bodyParts:
+  - {fileID: 1848419009408086}
+  - {fileID: 1674417804955018}
+  - {fileID: 1969364316757864}
+  - {fileID: 1531662144703046}
 --- !u!114 &114536397781546896
 MonoBehaviour:
   m_ObjectHideFlags: 1

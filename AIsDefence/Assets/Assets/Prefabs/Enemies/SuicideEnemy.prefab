@@ -375,6 +375,14 @@ MonoBehaviour:
   FaceObjective: {fileID: 0}
   _boss: 0
   _stats: {fileID: 11400000, guid: 6f22d35d4c48dd6498355172d68ca31a, type: 2}
+  _originalMaterial: {fileID: 2100000, guid: 29e7f5ddcaf057542b209d5c5108698c, type: 2}
+  _whiteMaterial: {fileID: 2100000, guid: c25a775aeb6073c4791f223d18a0a006, type: 2}
+  _redMaterial: {fileID: 2100000, guid: 2f6fa9b01fc1b904dabfa090400ffb0f, type: 2}
+  _bodyParts:
+  - {fileID: 1064338608121568}
+  - {fileID: 1723723519316240}
+  - {fileID: 1166590123342434}
+  - {fileID: 1512765197142366}
 --- !u!135 &135277456767133436
 SphereCollider:
   m_ObjectHideFlags: 1

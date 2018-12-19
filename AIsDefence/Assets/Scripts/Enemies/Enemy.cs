@@ -30,6 +30,15 @@ public class Enemy : MonoBehaviour{
     [SerializeField]
     private EndGameStats _stats;
 
+    [SerializeField]
+    private Material _originalMaterial;
+    [SerializeField]
+    private Material _whiteMaterial;
+    [SerializeField]
+    private Material _redMaterial;
+    [SerializeField]
+    private GameObject[] _bodyParts;
+
     private void Start()
     {
         _height = transform.position.y;
@@ -82,7 +91,32 @@ public class Enemy : MonoBehaviour{
             Death();
             return true;
         }
+
+        StartCoroutine(GotHit());
+
         return false;
+    }
+
+    private IEnumerator GotHit()
+    {
+        for (int i = 0; i < _bodyParts.Length; i++)
+        {
+            _bodyParts[i].GetComponent<Renderer>().material = _redMaterial;
+        }
+
+        yield return new WaitForSeconds(0.05f);
+
+        for (int i = 0; i < _bodyParts.Length; i++)
+        {
+            _bodyParts[i].GetComponent<Renderer>().material = _whiteMaterial;
+        }
+
+        yield return new WaitForSeconds(0.05f);
+
+        for (int i = 0; i < _bodyParts.Length; i++)
+        {
+            _bodyParts[i].GetComponent<Renderer>().material = _originalMaterial;
+        }
     }
 
     public void Death()
