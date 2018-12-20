@@ -9,12 +9,8 @@ public class Shop : MonoBehaviour {
 
     [SerializeField]
     private PlayerController _controller;
-    [SerializeField]
-    private GameObject _text;
 
     private bool _on = true;
-    private bool _canShop = false;
-
     //ScrapShops
     [SerializeField]
     private WeaponShop _weaponShop;
@@ -32,27 +28,9 @@ public class Shop : MonoBehaviour {
         _upgradeShop.CheckPrices();
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.GetComponent<Player>())
-        {
-            _canShop = true;
-            _text.SetActive(true);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.GetComponent<Player>())
-        {
-            _canShop = false;
-            _text.SetActive(false);
-        }
-    }
-
     void Update()
     {
-        if (Input.GetButtonDown("Shop") && (_canShop == true))
+        if (Input.GetButtonDown("Shop"))
         {
             SwitchState();
         }
