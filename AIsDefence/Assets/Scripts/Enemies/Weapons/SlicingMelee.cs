@@ -42,7 +42,6 @@ public class SlicingMelee : Melee {
     {
         if (Attacking == true)//attacks player
         {
-            Debug.Log(other.gameObject.name);
             if ((!other.gameObject.GetComponent<Enemy>()) && (!other.isTrigger))
             {
                 if (other.gameObject.GetComponent<Objective>())

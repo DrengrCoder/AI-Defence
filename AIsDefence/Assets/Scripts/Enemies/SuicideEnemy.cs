@@ -29,6 +29,7 @@ public class SuicideEnemy : Enemy {
     {
         MeshRenderer[] children = GetComponentsInChildren<MeshRenderer>();
         _explode.Play();
+        AttackSound.Play();
 
         for (int i = 0; i < children.Length; i++)
         {

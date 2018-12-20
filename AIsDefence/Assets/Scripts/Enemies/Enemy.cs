@@ -39,8 +39,15 @@ public class Enemy : MonoBehaviour{
     [SerializeField]
     private GameObject[] _bodyParts;
 
+    public SoundVolControl _volControl;
+    [SerializeField]
+    private float _volMax;
+
+    public AudioSource AttackSound;//Scales to sfx * master
+
     private void Start()
     {
+        _volControl = FindObjectOfType<SoundVolControl>();
         _height = transform.position.y;
         Health = _maxHealth;
     }
@@ -53,6 +60,13 @@ public class Enemy : MonoBehaviour{
         FaceObjective = EnemyTarget;
         _timeTillAttack = 0.0f;
         CanAttack = true;
+
+        Invoke("ChangeVol", 0.1f);
+    }
+
+    private void ChangeVol()
+    {
+        AttackSound.volume = _volMax * _volControl.GetCorrectSFXVol(AttackSound);
     }
 
     private void OnDisable()
