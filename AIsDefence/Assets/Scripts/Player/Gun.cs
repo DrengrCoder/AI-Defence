@@ -5,39 +5,89 @@ using UnityEngine;
 public class Gun : MonoBehaviour {
 
     [SerializeField]
+    private int _damage = 1;
+    [SerializeField]
+    private int _range = 50;
+    [SerializeField]
     private float _fireRate = 0.3f;
     private float _nextFire = 0.0f;
 
     [SerializeField]
-    private GameObject _bulletSpawn;
+    private EndGameStats _stats;
+
     [SerializeField]
-    private GameObject _bullet;
+    private float _fowardZ = 0.0f;
     [SerializeField]
-    private int _numInPool = 20;
-    private GameObject[] _bulletPool;
+    private float _backZ = 0.0f;
+    private float _currentZ = 0.0f;
+
+    [SerializeField]
+    private ParticleSystem _muzzle;
+    [SerializeField]
+    private LineRenderer _lazer;
 
     private void Start()
     {
-        _bulletPool = new GameObject[_numInPool];
-
-        for (int i = 0; i < _numInPool; i++)
-        {
-            GameObject temp = Instantiate(_bullet);
-            _bulletPool[i] = temp;
-        }
+        _currentZ = _fowardZ;
+        _lazer.enabled = false;
     }
 
-    private GameObject GetBullet()
+    private void Shoot()
     {
-        for (int i = 0; i < _numInPool; i++)
+        _muzzle.Play();
+
+        Vector3 fwd = transform.TransformDirection(Vector3.forward);
+        Debug.DrawRay(_lazer.gameObject.transform.position, fwd * _range, Color.green);
+
+        //RayCast
+        Ray ray = new Ray(_lazer.gameObject.transform.position, fwd * _range);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
         {
-            if (_bulletPool[i].activeSelf == false)
+            GameObject hitObject = hit.collider.gameObject;
+            if (hit.distance <= _range)
             {
-                return _bulletPool[i];
+                if (!hitObject.GetComponent<Player>())
+                {
+                    if (hitObject.GetComponent<Enemy>())//attacks player and tower
+                    {
+                        _stats.Hits = _stats.Hits + 1;
+                        _stats.DamageDealt = _stats.DamageDealt + _damage;
+
+                        bool killed = hitObject.GetComponent<Enemy>().TakeDamage(_damage);
+
+                        if (hitObject.GetComponent<MeleeEnemy>())
+                        {
+                            hitObject.GetComponent<MeleeEnemy>().Enrage();
+                        }
+
+                        if (killed == true)
+                        {
+                            _stats.Kills = _stats.Kills + 1;
+                        }
+                    }
+                }
+                _lazer.SetPosition(1, hit.point);//Lazer endpoint
             }
         }
+        else
+        {
+            _lazer.SetPosition(1, ray.GetPoint(_range));//Lazer endpoint
+        }
 
-        return null;
+        //Lazer show
+        _lazer.SetPosition(0, ray.origin);
+        StartCoroutine(FireLazer());
+
+    }
+
+    IEnumerator FireLazer()
+    {
+        _lazer.enabled = true;
+
+        yield return new WaitForSeconds(0.03f);
+
+        _lazer.enabled = false;
     }
 
     private void Update()
@@ -46,16 +96,26 @@ public class Gun : MonoBehaviour {
         {
             if (Input.GetButton("Fire1") == true)
             {
-                GameObject bullet = GetBullet();
-                bullet.transform.position = _bulletSpawn.transform.position;
-                bullet.transform.rotation = _bulletSpawn.transform.rotation;
-                bullet.SetActive(true);
+                Shoot();
+
                 _nextFire = 0.0f;
+                _currentZ = _currentZ - 0.1f;
+                if (_currentZ < _backZ)
+                {
+                    _currentZ = _backZ;
+                }
+                transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, _currentZ);
             }
         }
         else
         {
-            _nextFire = _nextFire + Time.deltaTime;
+            _currentZ = _currentZ + (0.1f * Time.deltaTime);
+            if (_currentZ > _fowardZ)
+            {
+                _currentZ = _fowardZ;
+            }
+                transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, _currentZ);
+                _nextFire = _nextFire + Time.deltaTime;
         }
     }
 

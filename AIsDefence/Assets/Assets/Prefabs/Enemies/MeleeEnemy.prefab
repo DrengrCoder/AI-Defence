@@ -512,8 +512,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 5, z: 1}
-  m_Center: {x: -1, y: 2.5, z: 0}
+  m_Size: {x: 4, y: 5, z: 1.5}
+  m_Center: {x: -1.5, y: 2.5, z: 0.5}
 --- !u!114 &114675776274056094
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -531,7 +531,7 @@ MonoBehaviour:
   _arm: {fileID: 1348014682597068}
   _upright: 75
   _down: 25
-  _slashSpeed: 40
+  _slashSpeed: 300
 --- !u!114 &114965419855199716
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -556,6 +556,14 @@ MonoBehaviour:
   FaceObjective: {fileID: 0}
   _boss: 0
   _stats: {fileID: 11400000, guid: 6f22d35d4c48dd6498355172d68ca31a, type: 2}
+  _originalMaterial: {fileID: 2100000, guid: 1e5bdf51513564440a94c38dca789807, type: 2}
+  _whiteMaterial: {fileID: 2100000, guid: c25a775aeb6073c4791f223d18a0a006, type: 2}
+  _redMaterial: {fileID: 2100000, guid: 2f6fa9b01fc1b904dabfa090400ffb0f, type: 2}
+  _bodyParts:
+  - {fileID: 1782271319463872}
+  - {fileID: 1026639109733908}
+  - {fileID: 1139812783800650}
+  - {fileID: 1206091266731492}
   _meleeWeapon: {fileID: 114675776274056094}
   _playerTag: Player
 --- !u!135 &135188361350012970

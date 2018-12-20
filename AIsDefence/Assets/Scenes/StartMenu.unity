@@ -2565,6 +2565,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _saveData: {fileID: 11400000, guid: a9cf9b7fc093e0745ba39e0e7c0c1f33, type: 2}
   _upgrades: {fileID: 11400000, guid: a6a2f61ab21837345b42179e7867bd51, type: 2}
+  _settings: {fileID: 11400000, guid: 68ccd69993bc20b42aaac5f6abf0ae6b, type: 2}
   dataFilePath: /SaveData/data.json
 --- !u!1 &1082016668
 GameObject:

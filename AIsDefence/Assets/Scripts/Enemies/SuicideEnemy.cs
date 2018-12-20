@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SuicideEnemy : Enemy {
 
+    [SerializeField]
+    private ParticleSystem _explode;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == EnemyTarget)//ignores players and towers
@@ -19,6 +22,25 @@ public class SuicideEnemy : Enemy {
             target.GetComponent<Objective>().TakeDamage(Damage);
         }
 
+        StartCoroutine(Explode());
+    }
+
+    private IEnumerator Explode()
+    {
+        MeshRenderer[] children = GetComponentsInChildren<MeshRenderer>();
+        _explode.Play();
+
+        for (int i = 0; i < children.Length; i++)
+        {
+            children[i].gameObject.SetActive(false);
+        }
+
+        yield return new WaitForSeconds(3.0f);
+
+        for (int i = 0; i < children.Length; i++)
+        {
+            children[i].gameObject.SetActive(true);
+        }
         CreditsOnDeath = 0;
         Death();
     }
