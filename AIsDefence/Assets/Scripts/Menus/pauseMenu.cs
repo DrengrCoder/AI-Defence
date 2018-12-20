@@ -9,6 +9,8 @@ public class pauseMenu : MonoBehaviour {
 
     [SerializeField]
     private PlayerController _controller;
+    [SerializeField]
+    private AudioSource _Sound;
 
     private bool _on = true;
 
@@ -49,6 +51,16 @@ public class pauseMenu : MonoBehaviour {
 
     public void Exit()
     {
+        StartCoroutine(Delay());
+    }
+
+    private IEnumerator Delay()
+    {
+        Time.timeScale = 1;
+        _Sound.Play();
+
+        yield return new WaitForSeconds(0.3f);
+
         SceneManager.LoadScene("StartMenu", LoadSceneMode.Single);
     }
 

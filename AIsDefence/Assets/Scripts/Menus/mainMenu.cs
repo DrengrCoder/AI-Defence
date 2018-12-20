@@ -9,9 +9,20 @@ public class mainMenu : MonoBehaviour {
     private GameObject _Main;
     [SerializeField]
     private GameObject _Level;
+    [SerializeField]
+    private AudioSource _Sound;
 
     public void ToScene(string scene)
     {
+        StartCoroutine(Delay(scene));
+    }
+
+    private IEnumerator Delay(string scene)
+    {
+        _Sound.Play();
+
+        yield return new WaitForSeconds(0.3f);
+
         SceneManager.LoadScene(scene, LoadSceneMode.Single);
     }
 
@@ -30,6 +41,15 @@ public class mainMenu : MonoBehaviour {
 
     public void QuitGame()
     {
+        StartCoroutine(DelayQuit());
+    }
+
+    private IEnumerator DelayQuit()
+    {
+        _Sound.Play();
+
+        yield return new WaitForSeconds(0.3f);
+
         Application.Quit();
     }
 }

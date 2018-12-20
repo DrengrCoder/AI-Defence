@@ -26,6 +26,9 @@ public class Gun : MonoBehaviour {
     [SerializeField]
     private LineRenderer _lazer;
 
+    [SerializeField]
+    private AudioSource _sound;
+
     private void Start()
     {
         _currentZ = _fowardZ;
@@ -35,6 +38,7 @@ public class Gun : MonoBehaviour {
     private void Shoot()
     {
         _muzzle.Play();
+        _sound.Play();
 
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
         Debug.DrawRay(_lazer.gameObject.transform.position, fwd * _range, Color.green);

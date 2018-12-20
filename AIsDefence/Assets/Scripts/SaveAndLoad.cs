@@ -26,8 +26,6 @@ public class SaveAndLoad : MonoBehaviour {
     {
         string filePath = Application.persistentDataPath + dataFilePath;
 
-        Debug.Log(Application.persistentDataPath);
-
         if (File.Exists(filePath))
         {
             string dataAsJson = File.ReadAllText(filePath);

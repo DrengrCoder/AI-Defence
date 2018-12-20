@@ -39,6 +39,8 @@ public class Enemy : MonoBehaviour{
     [SerializeField]
     private GameObject[] _bodyParts;
 
+    public AudioSource AttackSound;//Scales to sfx * master
+
     private void Start()
     {
         _height = transform.position.y;

@@ -46,6 +46,7 @@ public class RangedEnemy : Enemy {
     {
         if (CanAttack == true)
         {
+            AttackSound.Play();
             GameObject bullet = BulletPool.GetBullet(Damage);
             bullet.transform.position = _bulletSpawn.transform.position;
             bullet.SetActive(true);

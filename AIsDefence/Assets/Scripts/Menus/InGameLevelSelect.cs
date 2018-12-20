@@ -5,9 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class InGameLevelSelect : MonoBehaviour {
 
+    [SerializeField]
+    private AudioSource _Sound;
+
     public void ToScene(string scene)
     {
+        StartCoroutine(Delay(scene));
+    }
+
+    private IEnumerator Delay(string scene)
+    {
         Time.timeScale = 1;
+        _Sound.Play();
+
+        yield return new WaitForSeconds(0.3f);
+
         SceneManager.LoadScene(scene, LoadSceneMode.Single);
     }
 
