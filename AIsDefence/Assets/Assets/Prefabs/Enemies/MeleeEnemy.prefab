@@ -660,6 +660,8 @@ MonoBehaviour:
   - {fileID: 1026639109733908}
   - {fileID: 1139812783800650}
   - {fileID: 1206091266731492}
+  _volControl: {fileID: 0}
+  _volMax: 0.5
   AttackSound: {fileID: 82089100775890432}
   _meleeWeapon: {fileID: 114675776274056094}
   _playerTag: Player

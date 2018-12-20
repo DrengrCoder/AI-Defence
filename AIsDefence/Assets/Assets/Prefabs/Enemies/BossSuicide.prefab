@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114197989401113624}
   - component: {fileID: 114613016095880582}
   - component: {fileID: 136734183465064480}
+  - component: {fileID: 82124598806992616}
   m_Layer: 0
   m_Name: BossSuicide
   m_TagString: Enemy
@@ -57,7 +58,6 @@ GameObject:
   - component: {fileID: 4064726048223140}
   - component: {fileID: 198198398208813382}
   - component: {fileID: 199429098848920080}
-  - component: {fileID: 82488260464116726}
   m_Layer: 0
   m_Name: ExplosivePayload
   m_TagString: Enemy
@@ -468,19 +468,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!82 &82488260464116726
+--- !u!82 &82124598806992616
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1313263275261238}
+  m_GameObject: {fileID: 1214841693572402}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6f7973d71692d084e9f151713fba5c31, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -616,7 +616,9 @@ MonoBehaviour:
   - {fileID: 1674417804955018}
   - {fileID: 1969364316757864}
   - {fileID: 1531662144703046}
-  AttackSound: {fileID: 82488260464116726}
+  _volControl: {fileID: 0}
+  _volMax: 0.2
+  AttackSound: {fileID: 82124598806992616}
   _explode: {fileID: 198198398208813382}
 --- !u!114 &114536397781546896
 MonoBehaviour:

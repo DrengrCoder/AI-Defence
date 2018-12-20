@@ -613,6 +613,8 @@ MonoBehaviour:
   - {fileID: 1663408842565926}
   - {fileID: 1894824278776502}
   - {fileID: 1191803774346860}
+  _volControl: {fileID: 0}
+  _volMax: 0.5
   AttackSound: {fileID: 82238709353132960}
   BulletPool: {fileID: 0}
   _bulletSpawn: {fileID: 1249394339035450}

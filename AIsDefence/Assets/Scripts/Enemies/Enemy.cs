@@ -40,6 +40,8 @@ public class Enemy : MonoBehaviour{
     private GameObject[] _bodyParts;
 
     public SoundVolControl _volControl;
+    [SerializeField]
+    private float _volMax;
 
     public AudioSource AttackSound;//Scales to sfx * master
 
@@ -64,7 +66,7 @@ public class Enemy : MonoBehaviour{
 
     private void ChangeVol()
     {
-        AttackSound.volume = _volControl.GetCorrectSFXVol(AttackSound);
+        AttackSound.volume = _volMax * _volControl.GetCorrectSFXVol(AttackSound);
     }
 
     private void OnDisable()
