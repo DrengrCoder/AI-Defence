@@ -11,6 +11,8 @@ public class SaveAndLoad : MonoBehaviour {
     private SaveData _saveData;
     [SerializeField]
     private Upgrades _upgrades;
+    [SerializeField]
+    private Settings _settings;
 
     [SerializeField]
     private string dataFilePath = "/data.json";
@@ -23,6 +25,8 @@ public class SaveAndLoad : MonoBehaviour {
     public void Load()
     {
         string filePath = Application.persistentDataPath + dataFilePath;
+
+        Debug.Log(Application.persistentDataPath);
 
         if (File.Exists(filePath))
         {
@@ -39,6 +43,12 @@ public class SaveAndLoad : MonoBehaviour {
 
         _upgrades.MaxHealthPointer = _saveInfo.MaxHealthPointer;
         _upgrades.SpeedPointer = _saveInfo.SpeedPointer;
+        _upgrades.Guns = _saveInfo.Guns;
+
+        _settings.Sensitivity = _saveInfo.Sensitivity;
+        _settings.MasterVol = _saveInfo.MasterVol;
+        _settings.MusicVol = _saveInfo.MusicVol;
+        _settings.SFXVol = _saveInfo.SFXVol;
     }
 
     public void Save()
@@ -48,6 +58,25 @@ public class SaveAndLoad : MonoBehaviour {
 
         _saveInfo.MaxHealthPointer = _upgrades.MaxHealthPointer;
         _saveInfo.SpeedPointer = _upgrades.SpeedPointer;
+        _saveInfo.Guns = _upgrades.Guns;
+
+        _saveInfo.Sensitivity = _settings.Sensitivity;
+        _saveInfo.MasterVol = _settings.MasterVol;
+        _saveInfo.MusicVol = _settings.MusicVol;
+        _saveInfo.SFXVol = _settings.SFXVol;
+
+        string dataAsJson = JsonUtility.ToJson(_saveInfo);
+
+        string filePath = Application.persistentDataPath + dataFilePath;
+        File.WriteAllText(filePath, dataAsJson);
+    }
+
+    public void SaveSettings()
+    {
+        _saveInfo.Sensitivity = _settings.Sensitivity;
+        _saveInfo.MasterVol = _settings.MasterVol;
+        _saveInfo.MusicVol = _settings.MusicVol;
+        _saveInfo.SFXVol = _settings.SFXVol;
 
         string dataAsJson = JsonUtility.ToJson(_saveInfo);
 
@@ -59,8 +88,18 @@ public class SaveAndLoad : MonoBehaviour {
 [System.Serializable]
 public class SaveInfo
 {
+    //Player Save Info
     public int PlayerScraps = 0;
     public int LevelsUnlocked = 1;
     public int MaxHealthPointer = 0;
     public int SpeedPointer = 0;
+
+    //Gun Info
+    public List<string> Guns = new List<string>();
+
+    //Settings Info
+    public float Sensitivity = 10.0f;
+    public float MasterVol = 10.0f;
+    public float MusicVol = 10.0f;
+    public float SFXVol = 10.0f;
 }

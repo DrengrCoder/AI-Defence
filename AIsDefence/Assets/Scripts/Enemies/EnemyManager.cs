@@ -39,6 +39,8 @@ public class EnemyManager : MonoBehaviour {
     private Text _waveNum;
     [SerializeField]
     private Text _waveTimerNum;
+    [SerializeField]
+    private Button _skipWave;
 
     private bool _finished = false;
 
@@ -46,6 +48,7 @@ public class EnemyManager : MonoBehaviour {
     {
         Wave = 0;
         _spawnIn = _spawnDelay;
+        StartCoroutine(ResetButton());
         _waveNum.text = Wave.ToString();
         _waveTimerNum.text = _spawnIn.ToString();
 
@@ -63,6 +66,22 @@ public class EnemyManager : MonoBehaviour {
                 _pools[i].Num[j] = temp;
             }
         }
+    }
+
+    public void SkipWave()
+    {
+        _spawnIn = _spawnDelay;
+
+        StartCoroutine(ResetButton());
+    }
+
+    private IEnumerator ResetButton()
+    {
+        _skipWave.interactable = false;
+
+        yield return new WaitForSeconds(10.0f);
+
+        _skipWave.interactable = true;
     }
 
     private void SpawnEnemy()

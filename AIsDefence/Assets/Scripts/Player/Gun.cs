@@ -37,35 +37,38 @@ public class Gun : MonoBehaviour {
         _muzzle.Play();
 
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
-        Debug.DrawRay(transform.position, fwd * _range, Color.green);
+        Debug.DrawRay(_lazer.gameObject.transform.position, fwd * _range, Color.green);
 
         //RayCast
-        Ray ray = new Ray(_lazer.gameObject.transform.position, fwd);
+        Ray ray = new Ray(_lazer.gameObject.transform.position, fwd * _range);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-                GameObject hitObject = hit.collider.gameObject;
-            if (!hitObject.GetComponent<Player>())
+            GameObject hitObject = hit.collider.gameObject;
+            if (hit.distance <= _range)
             {
-                if (hitObject.GetComponent<Enemy>())//attacks player and tower
+                if (!hitObject.GetComponent<Player>())
                 {
-                    _stats.Hits = _stats.Hits + 1;
-                    _stats.DamageDealt = _stats.DamageDealt + _damage;
-
-                    bool killed = hitObject.GetComponent<Enemy>().TakeDamage(_damage);
-
-                    if (hitObject.GetComponent<MeleeEnemy>())
+                    if (hitObject.GetComponent<Enemy>())//attacks player and tower
                     {
-                        hitObject.GetComponent<MeleeEnemy>().Enrage();
-                    }
+                        _stats.Hits = _stats.Hits + 1;
+                        _stats.DamageDealt = _stats.DamageDealt + _damage;
 
-                    if (killed == true)
-                    {
-                        _stats.Kills = _stats.Kills + 1;
+                        bool killed = hitObject.GetComponent<Enemy>().TakeDamage(_damage);
+
+                        if (hitObject.GetComponent<MeleeEnemy>())
+                        {
+                            hitObject.GetComponent<MeleeEnemy>().Enrage();
+                        }
+
+                        if (killed == true)
+                        {
+                            _stats.Kills = _stats.Kills + 1;
+                        }
                     }
                 }
+                _lazer.SetPosition(1, hit.point);//Lazer endpoint
             }
-            _lazer.SetPosition(1, hit.point);//Lazer endpoint
         }
         else
         {
