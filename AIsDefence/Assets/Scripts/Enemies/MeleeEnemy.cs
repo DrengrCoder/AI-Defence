@@ -40,7 +40,7 @@ public class MeleeEnemy : Enemy {
     {
         if (CanAttack == true)
         {
-            //AttackSound.Play();
+            AttackSound.Play();
             _meleeWeapon.MeleeAttack();
             CanAttack = false;
 

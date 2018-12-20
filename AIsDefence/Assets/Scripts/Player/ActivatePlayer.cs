@@ -19,6 +19,8 @@ public class ActivatePlayer : MonoBehaviour {
     private Button _JTA;
     [SerializeField]
     private Button _PS;
+    [SerializeField]
+    private Button _SW;
 
     private string _button = "PlayCharacter";
     private bool _active = false;
@@ -44,5 +46,6 @@ public class ActivatePlayer : MonoBehaviour {
         _TUM.interactable = !(_active);
         _JTA.interactable = !(_active);
         _PS.interactable = !(_active);
+        _SW.interactable = !(_active);
     }
 }

@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class SoundVolControl : MonoBehaviour {
 
-    [SerializeField]
-    private AudioSource[] _SFXSounds;//Scaled to sfx * master
+    public List<AudioSource> SFXSounds = new List<AudioSource>();//Scaled to sfx * master
     [SerializeField]
     private AudioSource _MusicSound;//Scaled to music * master
     [SerializeField]
@@ -18,13 +17,20 @@ public class SoundVolControl : MonoBehaviour {
         VolumeChange();
     }
 
+    public float GetCorrectSFXVol(AudioSource source)
+    {
+        SFXSounds.Add(source);
+        float val = _settings.SFXVol * _settings.MasterVol;
+        return val;
+    }
+
     public void VolumeChange()
     {
         //_MusicSound.volume = _settings.MusicVol * _settings.MasterVol;
 
-        for (int i = 0; i < _SFXSounds.Length; i++)
+        for (int i = 0; i < SFXSounds.Count; i++)
         {
-            _SFXSounds[i].volume = _settings.SFXVol * _settings.MasterVol;
+            SFXSounds[i].volume = _settings.SFXVol * _settings.MasterVol;
         }
 
         for (int i = 0; i < _UISounds.Length; i++)
