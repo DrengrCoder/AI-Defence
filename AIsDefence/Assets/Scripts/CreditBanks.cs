@@ -17,6 +17,9 @@ public class CreditBanks : MonoBehaviour {
     [SerializeField]
     private SaveData _saveData;
 
+    [SerializeField]
+    private PlayerController _playerCharacter;
+
     private void Start()
     {
         PlayerCreditBank = _saveData.PlayerScraps;
@@ -31,7 +34,10 @@ public class CreditBanks : MonoBehaviour {
 
         _CreditDisplay.text = CreditBank.ToString();
 
-        _towerSelection.CreditUpdated();
+        if (_playerCharacter.gameObject.activeSelf == false)
+        {
+            _towerSelection.CreditUpdated();
+        }
     }
 
     public void MinusCredits(int credits)

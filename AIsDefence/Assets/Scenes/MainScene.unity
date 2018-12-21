@@ -6827,6 +6827,7 @@ MonoBehaviour:
   _towerSelection: {fileID: 1480097535}
   _PlayerCreditDisplay: {fileID: 77453197}
   _saveData: {fileID: 11400000, guid: a9cf9b7fc093e0745ba39e0e7c0c1f33, type: 2}
+  _playerCharacter: {fileID: 1741446219}
 --- !u!1001 &392929805
 Prefab:
   m_ObjectHideFlags: 0
