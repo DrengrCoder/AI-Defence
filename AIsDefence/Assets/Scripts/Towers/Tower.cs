@@ -15,6 +15,11 @@ public abstract class Tower : MonoBehaviour {
     //This is for the end game stats, should only be edited by InstantiateObjectOnclick.cs
     public int Num = 0;
 
+    //This is for radial menu, used with above Num variable. Denoates if radial wheel
+    //is active over the current instantiated tower, only used in radial menu controller script.
+    [HideInInspector]
+    public bool MenuActiveOverThis = false;
+
     //upgrade properties
     public /*const*/ int _baseUpgradeCost = 100;//cant be accessed if its a const variable
     public int _upgradeCost = 100;
