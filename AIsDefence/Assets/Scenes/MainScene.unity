@@ -5066,11 +5066,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1119102863238884, guid: 7655ad9320ec4ef4881cdd1e21fc6a21,
     type: 2}
   m_PrefabInternal: {fileID: 279530541}
---- !u!82 &279530544 stripped
-AudioSource:
-  m_PrefabParentObject: {fileID: 82983560541445510, guid: 7655ad9320ec4ef4881cdd1e21fc6a21,
-    type: 2}
-  m_PrefabInternal: {fileID: 279530541}
 --- !u!1 &283379763
 GameObject:
   m_ObjectHideFlags: 0
@@ -10841,11 +10836,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1280464742482768, guid: dfead8bd8fc40e64188c37cf4c73adea,
     type: 2}
   m_PrefabInternal: {fileID: 592324098}
---- !u!82 &592324101 stripped
-AudioSource:
-  m_PrefabParentObject: {fileID: 82248374824594144, guid: dfead8bd8fc40e64188c37cf4c73adea,
-    type: 2}
-  m_PrefabInternal: {fileID: 592324098}
 --- !u!1001 &599037288
 Prefab:
   m_ObjectHideFlags: 0
@@ -13788,6 +13778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShopMenu: {fileID: 880247514}
   _controller: {fileID: 1741446219}
+  _towerSelection: {fileID: 1480097535}
   _weaponShop: {fileID: 797521236}
   _upgradeShop: {fileID: 797521235}
 --- !u!4 &797521243
@@ -18459,10 +18450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4163acda05bda234e8debab5d14c22b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _SFXSounds:
-  - {fileID: 1404649113}
-  - {fileID: 279530544}
-  - {fileID: 592324101}
+  SFXSounds: []
   _MusicSound: {fileID: 0}
   _UISounds:
   - {fileID: 1054251984}
@@ -23352,11 +23340,6 @@ Transform:
 --- !u!1 &1404649112 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1606948265102568, guid: 14f86176d708b9d429f87f2acec5cf86,
-    type: 2}
-  m_PrefabInternal: {fileID: 1404649110}
---- !u!82 &1404649113 stripped
-AudioSource:
-  m_PrefabParentObject: {fileID: 82600002529214142, guid: 14f86176d708b9d429f87f2acec5cf86,
     type: 2}
   m_PrefabInternal: {fileID: 1404649110}
 --- !u!1 &1408473864
@@ -34306,7 +34289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.46666667, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.46666667, g: 1, b: 1, a: 0.78431374}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

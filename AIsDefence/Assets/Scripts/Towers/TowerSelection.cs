@@ -102,10 +102,7 @@ public class TowerSelection : MonoBehaviour {
         }
         else
         {
-            for (int i = 0; i < _shortCuts.Length; i++)
-            {
-                _shortCuts[i].GetComponent<Button>().interactable = true;
-            }
+            CreditUpdated();
         }
     }
 
