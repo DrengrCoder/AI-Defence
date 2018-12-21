@@ -83,9 +83,10 @@ public class TowerShop : MonoBehaviour {
 
                 CheckPrices();
 
-                foreach (Button btn in _towerSelector._buttons)
+                for (int i = 0; i < this._towerSelector._buttons.Length; i++)
                 {
-                    btn.interactable = false;
+                    this._towerSelector._buttons[i].interactable = false;
+                    this._towerSelector._shortCuts[i].GetComponent<Button>().interactable = false;
                 }
             }
             else

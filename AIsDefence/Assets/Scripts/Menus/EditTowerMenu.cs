@@ -96,6 +96,12 @@ public class EditTowerMenu : MonoBehaviour {
                 this._editMenu.SetActive(true);
                 Time.timeScale = 0;
                 _menuOn = !_menuOn;
+
+                for (int i = 0; i < this._towerSelection._buttons.Length; i++)
+                {
+                    this._towerSelection._buttons[i].interactable = false;
+                    this._towerSelection._shortCuts[i].GetComponent<Button>().interactable = false;
+                }
             }
             else
             {
@@ -104,11 +110,7 @@ public class EditTowerMenu : MonoBehaviour {
                 _menuOn = !_menuOn;
                 _selectedTower = TowerType.None;
                 SetSelectedTower();
-            }
-
-            foreach (Button btn in this._towerSelection._buttons)
-            {
-                btn.interactable = !_menuOn;
+                this._towerSelection.CreditUpdated();
             }
         }
     }

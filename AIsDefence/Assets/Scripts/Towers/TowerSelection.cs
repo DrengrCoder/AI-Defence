@@ -6,9 +6,8 @@ using UnityEngine.UI;
 public class TowerSelection : MonoBehaviour {
     
     public Button[] _buttons;
-
-    [SerializeField]
-    private Image[] _shortCuts;
+    
+    public Image[] _shortCuts;
 
     [SerializeField]
     private float _hiddenX = 0;
