@@ -2,6 +2,8 @@
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
+using UnityEditor;
+using System;
 
 [AddComponentMenu("Radial Menu Framework/RMF Element")]
 public class RMF_RadialMenuElement : MonoBehaviour {
@@ -14,7 +16,7 @@ public class RMF_RadialMenuElement : MonoBehaviour {
     [Tooltip("Each radial element needs a button. This is generally a child one level below this primary radial element game object.")]
     public Button button;
 
-    [Tooltip("This is the text label that will appear in the center of the radial menu when this option is moused over. Best to keep it short.")]
+    [Tooltip("This is the name of affected property when pushing this button")]
     public string label;
 
     [HideInInspector]
@@ -31,6 +33,18 @@ public class RMF_RadialMenuElement : MonoBehaviour {
     // Use this for initialization
 
     private CanvasGroup cg;
+
+    //================================================
+    //custom entered code - Dylan McAdam
+    //================================================
+
+    public bool _usingToolTips;
+    public GameObject _toolTipText;
+    public GameObject _toolTipBox;
+
+    //================================================
+    //end of custom entered code
+    //================================================
 
     void Awake() {
 
@@ -106,6 +120,12 @@ public class RMF_RadialMenuElement : MonoBehaviour {
         active = true;
         setParentMenuLable(label);
 
+        if (_usingToolTips == true)
+        {
+            _toolTipBox.transform.position = this.gameObject.transform.GetChild(0).transform.position;
+            _toolTipBox.SetActive(true);
+        }
+
     }
 
     //Sets the label of the parent menu. Is set to public so you can call this elsewhere if you need to show a special label for something.
@@ -127,7 +147,10 @@ public class RMF_RadialMenuElement : MonoBehaviour {
         if (!parentRM.useLazySelection)
             setParentMenuLable(" ");
 
-
+        if (_usingToolTips == true)
+        {
+            _toolTipBox.SetActive(false);
+        }
     }
 
     //Just a quick little test you can run to ensure things are working properly.
@@ -139,6 +162,50 @@ public class RMF_RadialMenuElement : MonoBehaviour {
     }
 
 
+    private void ActivateToolTip()
+    {
+        _toolTipBox.transform.position = this.gameObject.transform.GetChild(0).transform.position;
+        _toolTipBox.SetActive(true);
+    }
 
-
+    private void DeactivateToolTip()
+    {
+        _toolTipBox.SetActive(false);
+    }
+    
 }
+
+//================================================
+//custom entered code = Dylan McAdam
+//================================================
+
+//[CustomEditor(typeof(RMF_RadialMenuElement))]
+//public class RMF_RadialMenuElementEditor : Editor
+//{
+//    public override void OnInspectorGUI()
+//    {
+//        var myScript = target as RMF_RadialMenuElement;
+
+//        myScript.button = (Button)EditorGUILayout.ObjectField("Button", myScript.button, typeof(Button), false, null);
+//        myScript.label = EditorGUILayout.TextField("Label", myScript.label);
+
+//        myScript._usingToolTips = EditorGUILayout.Toggle("Using Tool Tips", myScript._usingToolTips);
+        
+//        using (var group = new EditorGUILayout.FadeGroupScope(Convert.ToSingle(myScript._usingToolTips)))
+//        {
+//            if (group.visible == true)
+//            {
+//                EditorGUI.indentLevel++;
+//                //EditorGUILayout.PrefixLabel("Tool Tip Object");
+//                myScript._toolTipBox = (GameObject)EditorGUILayout.ObjectField("Tool Tip Object", myScript._toolTipBox, typeof(GameObject), false);
+//                //EditorGUILayout.PrefixLabel("Tool Tip Text");
+//                myScript._toolTipText = (GameObject)EditorGUILayout.ObjectField("Tool Tip Text", myScript._toolTipText, typeof(GameObject), false);
+//                EditorGUI.indentLevel--;
+//            }
+//        }
+//    }
+//}
+
+//================================================
+//end of custom entered code
+//================================================

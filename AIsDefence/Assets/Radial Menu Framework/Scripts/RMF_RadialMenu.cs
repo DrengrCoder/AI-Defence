@@ -151,18 +151,33 @@ public class RMF_RadialMenu : MonoBehaviour {
 
     }
 
+    private void OnDisable()
+    {
+        for (int i = 0; i < elementCount; i++)
+        {
+            if (elements[i] == null)
+            {
+                continue;
+            }
+
+            RMF_RadialMenuElement elementScript = elements[i].GetComponent<RMF_RadialMenuElement>();
+            if (elementScript._usingToolTips == true)
+            {
+                elementScript._toolTipBox.SetActive(false);
+            }
+        }
+    }
 
     //Selects the button with the specified index.
     private void selectButton(int i) {
 
           if (elements[i].active == false) {
 
-            elements[i].highlightThisElement(pointer); //Select this one
-
             if (previousActiveIndex != i) 
                 elements[previousActiveIndex].unHighlightThisElement(pointer); //Deselect the last one.
-            
 
+            elements[i].highlightThisElement(pointer); //Select this one
+            
         }
 
         previousActiveIndex = i;
