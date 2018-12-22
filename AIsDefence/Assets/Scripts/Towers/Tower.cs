@@ -7,7 +7,7 @@ public abstract class Tower : MonoBehaviour {
 
     //stats / properties
     public int _baseHealth = 100;
-    private int _maxHealth = 100;
+    public int _maxHealth = 100;
     private int _health = 100;
     [SerializeField]
     private int _cost;

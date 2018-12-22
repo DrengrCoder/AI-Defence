@@ -39,8 +39,11 @@ public class RMF_RadialMenuElement : MonoBehaviour {
     //================================================
 
     public bool _usingToolTips;
-    public GameObject _toolTipText;
+    public Text _toolTipText;
     public GameObject _toolTipBox;
+
+    [HideInInspector]
+    public Tower _selectedTower;
 
     //================================================
     //end of custom entered code
@@ -122,6 +125,7 @@ public class RMF_RadialMenuElement : MonoBehaviour {
 
         if (_usingToolTips == true)
         {
+            LoadText();
             _toolTipBox.transform.position = this.gameObject.transform.GetChild(0).transform.position;
             _toolTipBox.SetActive(true);
         }
@@ -161,22 +165,36 @@ public class RMF_RadialMenuElement : MonoBehaviour {
 
     }
 
+    
 
-    private void ActivateToolTip()
+    private void LoadText()
     {
-        _toolTipBox.transform.position = this.gameObject.transform.GetChild(0).transform.position;
-        _toolTipBox.SetActive(true);
-    }
-
-    private void DeactivateToolTip()
-    {
-        _toolTipBox.SetActive(false);
+        switch (this.label)
+        {
+            case "Health":
+                _toolTipText.text = this.label;
+                break;
+            case "Damage":
+                _toolTipText.text = this.label;
+                break;
+            case "Firerate":
+                _toolTipText.text = this.label;
+                break;
+            case "Range":
+                _toolTipText.text = this.label;
+                break;
+            default:
+                break;
+        }
     }
     
 }
 
 //================================================
 //custom entered code = Dylan McAdam
+//this was an attempt to get the fields to appear and disappear in the inspector,
+//it worked, but you had to pass prefab objects in to the fields in the inspector 
+//and for some reason it didnt work that way
 //================================================
 
 //[CustomEditor(typeof(RMF_RadialMenuElement))]
