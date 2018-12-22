@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PulseFireTower : Tower {
-    
+
+    [SerializeField]
     private int _damage = 2;
 
+    [SerializeField]
     private float _fireRate = 1.0f;
 
     private TowerType _type = TowerType.PulseFire;

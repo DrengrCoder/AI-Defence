@@ -42,13 +42,13 @@ public class RMF_RadialMenuElement : MonoBehaviour {
     public Text _toolTipText;
     public GameObject _toolTipBox;
 
-    [HideInInspector]
-    public Tower _selectedTower;
+    [SerializeField]
+    private RadialMenuController _rmc;
 
     //================================================
     //end of custom entered code
     //================================================
-
+    
     void Awake() {
 
         rt = gameObject.GetComponent<RectTransform>();
@@ -172,16 +172,24 @@ public class RMF_RadialMenuElement : MonoBehaviour {
         switch (this.label)
         {
             case "Health":
-                _toolTipText.text = this.label;
+                _toolTipText.text = this.label + ": " + _rmc._hitTower.TowerHealth + "/" + _rmc._hitTower._maxHealth + "\n" +
+                                    "Level: " + _rmc._hitTower._upgradePointer + " => " + (_rmc._hitTower._upgradePointer + 1) + "\n" +
+                                    "Value: ";
                 break;
             case "Damage":
-                _toolTipText.text = this.label;
+                _toolTipText.text = this.label + ": " + _rmc._hitTower.GetTowerDamage() + "\n" +
+                                    "Level: " + _rmc._hitTower._upgradePointer + " => " + (_rmc._hitTower._upgradePointer + 1) + "\n" +
+                                    "Value: ";
                 break;
             case "Firerate":
-                _toolTipText.text = this.label;
+                _toolTipText.text = this.label + ": " + _rmc._hitTower.GetTowerFireRate() + "\n" +
+                                    "Level: " + _rmc._hitTower._upgradePointer + " => " + (_rmc._hitTower._upgradePointer + 1) + "\n" +
+                                    "Value: ";
                 break;
             case "Range":
-                _toolTipText.text = this.label;
+                _toolTipText.text = this.label + ": " + _rmc._hitTower.GetComponent<SphereCollider>().radius + "\n" +
+                                    "Level: " + _rmc._hitTower._upgradePointer + " => " + (_rmc._hitTower._upgradePointer + 1) + "\n" +
+                                    "Value: ";
                 break;
             default:
                 break;

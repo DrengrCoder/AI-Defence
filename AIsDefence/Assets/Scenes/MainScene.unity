@@ -958,7 +958,7 @@ MonoBehaviour:
   _usingToolTips: 1
   _toolTipText: {fileID: 2077209049}
   _toolTipBox: {fileID: 1843124232}
-  _selectedTower: {fileID: 0}
+  _rmc: {fileID: 58731043}
 --- !u!1 &56316645
 GameObject:
   m_ObjectHideFlags: 0
@@ -1164,6 +1164,7 @@ MonoBehaviour:
   _extensionWheels:
   - {fileID: 2145714212}
   - {fileID: 1633107104}
+  _hitTower: {fileID: 0}
 --- !u!1 &73698222
 GameObject:
   m_ObjectHideFlags: 0
@@ -6888,7 +6889,7 @@ MonoBehaviour:
   _usingToolTips: 1
   _toolTipText: {fileID: 422496223}
   _toolTipBox: {fileID: 798751944}
-  _selectedTower: {fileID: 0}
+  _rmc: {fileID: 58731043}
 --- !u!1 &339759250
 GameObject:
   m_ObjectHideFlags: 0
@@ -7749,7 +7750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 658287b9abd4bfb458763a94248ae618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CreditBank: 800
+  CreditBank: 2000
   PlayerCreditBank: 200
   _CreditDisplay: {fileID: 682610538}
   _towerSelection: {fileID: 1480097535}
@@ -14693,7 +14694,7 @@ MonoBehaviour:
   _usingToolTips: 1
   _toolTipText: {fileID: 1878815254}
   _toolTipBox: {fileID: 2048589076}
-  _selectedTower: {fileID: 0}
+  _rmc: {fileID: 58731043}
 --- !u!1 &770893213
 GameObject:
   m_ObjectHideFlags: 0
@@ -23702,7 +23703,7 @@ MonoBehaviour:
   _usingToolTips: 1
   _toolTipText: {fileID: 46417524}
   _toolTipBox: {fileID: 197288411}
-  _selectedTower: {fileID: 0}
+  _rmc: {fileID: 58731043}
 --- !u!1 &1256670692
 GameObject:
   m_ObjectHideFlags: 0
@@ -38084,4 +38085,3 @@ MonoBehaviour:
   globalOffset: 25
   currentAngle: 0
   index: 0
-  _selectedTower: {fileID: 0}

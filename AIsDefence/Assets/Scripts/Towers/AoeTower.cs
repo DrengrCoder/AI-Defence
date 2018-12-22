@@ -10,8 +10,10 @@ public class AoeTower : Tower {
     
     private int _force = 4000;
 
+    [SerializeField]
     private int _damage = 3;
-    
+
+    [SerializeField]
     private float _fireRate = 1.0f;
 
     private TowerType _type = TowerType.AoeFire;

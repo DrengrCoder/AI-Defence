@@ -52,10 +52,7 @@ public class RMF_RadialMenu : MonoBehaviour {
     private int previousActiveIndex = 0; //Used to determine which buttons to unhighlight in lazy selection.
 
     private PointerEventData pointer;
-
-    [HideInInspector]
-    public Tower _selectedTower;
-
+    
     void Awake() {
 
         pointer = new PointerEventData(EventSystem.current);
@@ -78,8 +75,6 @@ public class RMF_RadialMenu : MonoBehaviour {
                 //Debug.LogError("Radial Menu: element " + i.ToString() + " in the radial menu " + gameObject.name + " is null!");
                 continue;
             }
-            elements[i]._selectedTower = _selectedTower;
-
             elements[i].parentRM = this;
 
             elements[i].setAllAngles((angleOffset * i) + globalOffset, angleOffset);

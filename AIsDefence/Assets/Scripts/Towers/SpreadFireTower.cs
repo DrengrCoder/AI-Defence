@@ -11,8 +11,10 @@ public class SpreadFireTower : Tower {
     [SerializeField]
     private int _force = 3000;
 
+    [SerializeField]
     private int _damage = 1;
 
+    [SerializeField]
     private float _fireRate = 0.75f;
 
     private TowerType _type = TowerType.SpreadFire;

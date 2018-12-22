@@ -11,6 +11,7 @@ public class BurstFireTower : Tower {
     [SerializeField]
     private int _force = 5000;
 
+    [SerializeField]
     private int _damage = 2;
 
     private float _originalDelay = 0.1f;
