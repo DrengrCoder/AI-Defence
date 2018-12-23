@@ -216,6 +216,9 @@ public class RMF_RadialMenu : MonoBehaviour {
             Tower tower = element._rmc._hitTower;
             Button button = element.transform.GetChild(0).GetComponent<Button>();
 
+            if (tower == null)
+                return;
+            
             switch (element.label)
             {
                 case "Health":

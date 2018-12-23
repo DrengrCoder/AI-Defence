@@ -14,10 +14,6 @@ public class ActivatePlayer : MonoBehaviour {
     [SerializeField]
     private Button _hideTowers;
     [SerializeField]
-    private Button _ETP;
-    [SerializeField]
-    private Button _TUM;
-    [SerializeField]
     private Button _JTA;
     [SerializeField]
     private Button _PS;
@@ -50,8 +46,6 @@ public class ActivatePlayer : MonoBehaviour {
         _TowerSelect.DisableTowers(_active);
 
         _hideTowers.interactable = !(_active);
-        _ETP.interactable = !(_active);
-        _TUM.interactable = !(_active);
         _JTA.interactable = !(_active);
         _PS.interactable = !(_active);
         _SW.interactable = !(_active);

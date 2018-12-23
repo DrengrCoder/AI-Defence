@@ -11,6 +11,7 @@ TagManager:
   - Ground
   - meleeWeapon
   - RadialWheelButton
+  - TowerSpawn
   layers:
   - Default
   - TransparentFX

@@ -83,6 +83,10 @@ public class RadialMenuController : MonoBehaviour {
                     _hitTower.MenuActiveOverThis = !_hitTower.MenuActiveOverThis;
                     // ===========================================================================
                 }
+                else if (_hit.transform.tag == "TowerSpawn")
+                {
+
+                }
             }
         }
         else if (Input.GetKeyDown(KeyCode.Mouse1))
