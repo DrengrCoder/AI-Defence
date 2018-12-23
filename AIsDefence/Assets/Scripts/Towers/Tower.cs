@@ -55,7 +55,6 @@ public abstract class Tower : MonoBehaviour {
     //object references
     [HideInInspector]
     public ProjectileManager _projectileManager;
-    private EditTowerMenu _towerEditMenu;
 
     //System
     private void OnEnable()
@@ -66,9 +65,6 @@ public abstract class Tower : MonoBehaviour {
     void Start ()
     {
         _projectileManager = GameObject.Find("ProjectileManager").GetComponent<ProjectileManager>();
-        _towerEditMenu = GameObject.Find("UI/Menus").GetComponent<EditTowerMenu>();
-        _towerEditMenu.AddTower(this.gameObject);
-        _towerEditMenu.UpdateTowers();
     }
 	void Update ()
     {
@@ -190,7 +186,6 @@ public abstract class Tower : MonoBehaviour {
 
         if (_health <= 0)
         {
-            _towerEditMenu.RemoveTower(this.gameObject);
             Destroy(this.gameObject);
         }
     }
