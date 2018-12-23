@@ -88,6 +88,13 @@ public class RadialMenuController : MonoBehaviour {
 
             //disable base wheel
             _baseRadialWheel.SetActive(false);
+
+            //reset ALL tower menu-status
+            Tower[] towers = GameObject.FindObjectsOfType<Tower>();
+            foreach (Tower tower in towers)
+            {
+                tower.MenuActiveOverThis = false;
+            }
         }
     }
 

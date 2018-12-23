@@ -111,19 +111,4 @@ public class SingleFireTower : Tower {
     {
         return _type;
     }
-
-    public override int BaseDamage()
-    {
-        return 10;
-    }
-
-    public override float BaseFireRate()
-    {
-        return 0.5f;
-    }
-
-    public override int BaseRange()
-    {
-        return 50;
-    }
 }

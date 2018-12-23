@@ -125,19 +125,4 @@ public class BurstFireTower : Tower {
     {
         return _type;
     }
-
-    public override int BaseDamage()
-    {
-        return 5;
-    }
-
-    public override float BaseFireRate()
-    {
-        return 0.7f;
-    }
-
-    public override int BaseRange()
-    {
-        return 50;
-    }
 }

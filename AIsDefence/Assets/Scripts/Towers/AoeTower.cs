@@ -110,19 +110,4 @@ public class AoeTower : Tower {
     {
         return _type;
     }
-
-    public override int BaseDamage()
-    {
-        return 10;
-    }
-
-    public override float BaseFireRate()
-    {
-        return 1.0f;
-    }
-
-    public override int BaseRange()
-    {
-        return 25;
-    }
 }

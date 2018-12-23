@@ -4,9 +4,7 @@ using System.ComponentModel;
 using UnityEngine;
 
 public abstract class Tower : MonoBehaviour {
-
-    //stats / properties
-    public int _baseHealth = 100;
+    
     public int _maxHealth = 100;
     private int _health = 100;
 
@@ -37,13 +35,6 @@ public abstract class Tower : MonoBehaviour {
     [HideInInspector]
     public int _rangeLevel = 0;
     public int[] _rangeLevelCosts;
-
-    //below variables may be redundent soon
-    //public /*const*/ int _baseUpgradeCost = 100;//cant be accessed if its a const variable
-    //public int _currentUpgradeCost;
-    //public int[] _futureCosts;
-    //public /*const*/ int _maxUpgrades = 5;
-    //public int _futureCostPointer = 0;
     
     //firing mechanics variables
     [HideInInspector]
@@ -224,10 +215,6 @@ public abstract class Tower : MonoBehaviour {
     public abstract int GetRadiusUpgrade();
 
     public abstract TowerType GetTowerType();
-
-    public abstract int BaseDamage();
-    public abstract float BaseFireRate();
-    public abstract int BaseRange();
 
 }
 

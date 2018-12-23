@@ -111,19 +111,4 @@ public class SpreadFireTower : Tower {
     {
         return _type;
     }
-
-    public override int BaseDamage()
-    {
-        return 3;
-    }
-
-    public override float BaseFireRate()
-    {
-        return 0.75f;
-    }
-
-    public override int BaseRange()
-    {
-        return 30;
-    }
 }
