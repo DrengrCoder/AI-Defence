@@ -9,6 +9,8 @@ public class RadialMenuController : MonoBehaviour {
     [SerializeField]
     private GameObject _baseRadialWheel;
     public GameObject[] _extensionWheels;
+    [SerializeField]
+    private GameObject _towerSelectionWheel;
 
     public CreditBanks _bank;
 
@@ -20,7 +22,9 @@ public class RadialMenuController : MonoBehaviour {
 
     [SerializeField]
     private ActivatePlayer _player;
-    
+
+    private InstantiateObjectOnclick _hitSpawnPoint;
+
     void Update()
     {
         //ray cast
@@ -85,7 +89,28 @@ public class RadialMenuController : MonoBehaviour {
                 }
                 else if (_hit.transform.tag == "TowerSpawn")
                 {
+                    _hitSpawnPoint = _hit.transform.GetComponent<InstantiateObjectOnclick>();
 
+                    if (_hitSpawnPoint.MenuActiveOverThis == true)
+                    {
+                        _towerSelectionWheel.SetActive(false);
+                    }
+                    else
+                    {
+                        _towerSelectionWheel.SetActive(false);
+                        _towerSelectionWheel.transform.position = Input.mousePosition;
+                        _towerSelectionWheel.SetActive(true);
+                    }
+
+                    InstantiateObjectOnclick[] spawnPoints = GameObject.FindObjectsOfType<InstantiateObjectOnclick>();
+                    foreach (InstantiateObjectOnclick spawnPoint in spawnPoints)
+                    {
+                        if (spawnPoint != _hitSpawnPoint)
+                        {
+                            spawnPoint.MenuActiveOverThis = false;
+                        }
+                    }
+                    _hitSpawnPoint.MenuActiveOverThis = !_hitSpawnPoint.MenuActiveOverThis;
                 }
             }
         }
@@ -96,6 +121,12 @@ public class RadialMenuController : MonoBehaviour {
             DisableWheel();
         }
     }
+
+    //=========================================================================
+    //
+    //upgrade and targetting wheels
+    //
+    //=========================================================================
 
     public void DisableWheel()
     {
@@ -178,4 +209,23 @@ public class RadialMenuController : MonoBehaviour {
             _extensionWheels[1].SetActive(false);
         }
     }
+
+    //=========================================================================
+    //=========================================================================
+
+
+
+    //=========================================================================
+    //
+    //tower selection wheel
+    //
+    //=========================================================================
+
+    public void SpawnObject(GameObject obj)
+    {
+        this._hitSpawnPoint.SpawnObject(obj);
+    }
+
+    //=========================================================================
+    //=========================================================================
 }
