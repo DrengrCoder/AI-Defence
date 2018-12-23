@@ -181,6 +181,7 @@ public class RMF_RadialMenuElement : MonoBehaviour {
     {
         switch (this.label)
         {
+            //upgrades
             case "Health":
                 _toolTipText.text = this.label + ": " + _rmc._hitTower.TowerHealth + "/" + _rmc._hitTower._maxHealth + " => " + 
                                     (_rmc._hitTower._maxHealth + _rmc._hitTower.GetHealthUpgrade()) + "\n" +
@@ -201,6 +202,25 @@ public class RMF_RadialMenuElement : MonoBehaviour {
                                     (_rmc._hitTower.GetComponent<SphereCollider>().radius + _rmc._hitTower.GetRadiusUpgrade()) + "\n" +
                                     "Level: " + _rmc._hitTower._rangeLevel + " => " + (_rmc._hitTower._rangeLevel + 1);
                 break;
+            //attack priorities
+            case "First Enemy":
+                _toolTipText.text = AttackChoiceUtils.GetDescription(AttackChoice.First);
+                break;
+            case "Last Enemy":
+                _toolTipText.text = AttackChoiceUtils.GetDescription(AttackChoice.Last);
+                break;
+            case "Most Damage":
+                _toolTipText.text = AttackChoiceUtils.GetDescription(AttackChoice.MostDamage);
+                break;
+            case "Least Damage":
+                _toolTipText.text = AttackChoiceUtils.GetDescription(AttackChoice.LeastDamage);
+                break;
+            case "Most Health":
+                _toolTipText.text = AttackChoiceUtils.GetDescription(AttackChoice.MostHealth);
+                break;
+            case "Least Health":
+                _toolTipText.text = AttackChoiceUtils.GetDescription(AttackChoice.LeastHealth);
+                break;
             default:
                 break;
         }
@@ -214,6 +234,7 @@ public class RMF_RadialMenuElement : MonoBehaviour {
 
         switch (this.label)
         {
+            //upgrades
             case "Health":
                 
                 if (tower._healthLevel < tower._maxUpgrades)
@@ -246,6 +267,25 @@ public class RMF_RadialMenuElement : MonoBehaviour {
                     this.button.interactable = false;
 
                 break;
+            //attack priorities
+            case "First Enemy":
+                buttonText = AttackChoiceUtils.GetBaseText(AttackChoice.First);
+                break;
+            case "Last Enemy":
+                buttonText = AttackChoiceUtils.GetBaseText(AttackChoice.Last);
+                break;
+            case "Most Damage":
+                buttonText = AttackChoiceUtils.GetBaseText(AttackChoice.MostDamage);
+                break;
+            case "Least Damage":
+                buttonText = AttackChoiceUtils.GetBaseText(AttackChoice.LeastDamage);
+                break;
+            case "Most Health":
+                buttonText = AttackChoiceUtils.GetBaseText(AttackChoice.MostHealth);
+                break;
+            case "Least Health":
+                buttonText = AttackChoiceUtils.GetBaseText(AttackChoice.LeastHealth);
+                break;
             default:
                 break;
         }
@@ -255,12 +295,13 @@ public class RMF_RadialMenuElement : MonoBehaviour {
     }
 
 
-    public void BuyUpgrade()
+    public void ExecuteFunction()
     {
         Tower tower = _rmc._hitTower;
 
         switch (this.label)
         {
+            //upgrades
             case "Health":
 
                 //take away money
@@ -308,6 +349,25 @@ public class RMF_RadialMenuElement : MonoBehaviour {
 
                 tower._rangeLevel++;
 
+                break;
+            //attack priorities
+            case "First Enemy":
+                tower.TargetParameters = AttackChoice.First;
+                break;
+            case "Last Enemy":
+                tower.TargetParameters = AttackChoice.Last;
+                break;
+            case "Most Damage":
+                tower.TargetParameters = AttackChoice.MostDamage;
+                break;
+            case "Least Damage":
+                tower.TargetParameters = AttackChoice.LeastDamage;
+                break;
+            case "Most Health":
+                tower.TargetParameters = AttackChoice.MostHealth;
+                break;
+            case "Least Health":
+                tower.TargetParameters = AttackChoice.LeastHealth;
                 break;
             default:
                 break;

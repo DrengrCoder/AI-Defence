@@ -228,17 +228,17 @@ public static class AttackChoiceUtils
         switch (option)
         {
             case AttackChoice.First:
-                return "Enemy Closest to base";
+                return "The Enemy Closest to base";
             case AttackChoice.Last:
-                return "Enemy Furthest from base";
+                return "The Enemy Furthest from base";
             case AttackChoice.MostHealth:
-                return "Enemy with Most Health";
+                return "The Enemy with the Most Health";
             case AttackChoice.LeastHealth:
-                return "Enemy with Least Health";
+                return "The Enemy with the Least Health";
             case AttackChoice.MostDamage:
-                return "Enemy with Most Damage";
+                return "The Enemy with the Most Damage";
             case AttackChoice.LeastDamage:
-                return "Enemy with Least Damage";
+                return "The Enemy with the Least Damage";
             default:
                 return "";
         }
