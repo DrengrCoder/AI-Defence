@@ -58,7 +58,7 @@ public class RMF_RadialMenuElement : MonoBehaviour {
 
     }
 
-    void Awake() {
+    private void Awake() {
 
         rt = gameObject.GetComponent<RectTransform>();
 
@@ -73,10 +73,10 @@ public class RMF_RadialMenuElement : MonoBehaviour {
 
         if (button == null)
             Debug.LogError("Radial Menu: No button attached to " + gameObject.name + "!");
-
+        
     }
 
-    void Start () {
+    private void Start () {
 
         rt.rotation = Quaternion.Euler(0, 0, -angleOffset); //Apply rotation determined by the parent radial menu.
 
