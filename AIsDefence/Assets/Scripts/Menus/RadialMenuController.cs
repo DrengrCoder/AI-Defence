@@ -11,6 +11,8 @@ public class RadialMenuController : MonoBehaviour {
     [SerializeField]
     private GameObject[] _extensionWheels;
 
+    public CreditBanks _bank;
+
     private Ray _ray;
     private RaycastHit _hit;
 
@@ -53,6 +55,7 @@ public class RadialMenuController : MonoBehaviour {
                         _baseRadialWheel.transform.position = Input.mousePosition;
                         //reactivate the base wheel
                         _baseRadialWheel.gameObject.SetActive(true);
+                        ResetButtonActivity();
                     }
 
                     // === this will ensure the correct towers menu-status is toggled or reset ===
@@ -73,16 +76,41 @@ public class RadialMenuController : MonoBehaviour {
                 }
             }
         }
+        else if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            //if the right mouse was clicked, disable all wheel menus
+
+            //disable extension wheels
+            foreach (GameObject obj in _extensionWheels)
+            {
+                obj.SetActive(false);
+            }
+
+            //disable base wheel
+            _baseRadialWheel.SetActive(false);
+        }
+    }
+
+    private void ResetButtonActivity()
+    {
+        foreach (RMF_RadialMenuElement element in 
+            _baseRadialWheel.GetComponent<RMF_RadialMenu>().elements)
+        {
+            element.transform.GetChild(0).GetComponent<Button>().enabled = true;
+        }
     }
     
     public void ExtendUpgradeWheel(Button button)
     {
+        ResetButtonActivity();
+
         _extensionWheels[1].SetActive(false);
 
         if (_extensionWheels[0].activeSelf == false)
         {
             _extensionWheels[0].transform.position = button.transform.position;
             _extensionWheels[0].SetActive(true);
+            button.enabled = false;
         }
         else
         {
@@ -92,12 +120,15 @@ public class RadialMenuController : MonoBehaviour {
 
     public void ExtendAttackWheel(Button button)
     {
+        ResetButtonActivity();
+
         _extensionWheels[0].SetActive(false);
 
         if (_extensionWheels[1].activeSelf == false)
         {
             _extensionWheels[1].transform.position = button.transform.position;
             _extensionWheels[1].SetActive(true);
+            button.enabled = false;
         }
         else
         {

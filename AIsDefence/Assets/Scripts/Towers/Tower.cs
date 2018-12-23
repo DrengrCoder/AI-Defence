@@ -9,6 +9,7 @@ public abstract class Tower : MonoBehaviour {
     public int _baseHealth = 100;
     public int _maxHealth = 100;
     private int _health = 100;
+
     [SerializeField]
     private int _cost;
 
@@ -21,11 +22,28 @@ public abstract class Tower : MonoBehaviour {
     public bool MenuActiveOverThis = false;
 
     //upgrade properties
-    public /*const*/ int _baseUpgradeCost = 100;//cant be accessed if its a const variable
-    public int _upgradeCost = 100;
-    public int[] _futureCosts;
-    public /*const*/ int _maxUpgrades = 5;
-    public int _upgradePointer = 0;
+    [HideInInspector]
+    public int _healthLevel = 0;
+    public int[] _healthLevelCosts;
+
+    [HideInInspector]
+    public int _damageLevel = 0;
+    public int[] _damageLevelCosts;
+
+    [HideInInspector]
+    public int _fireRateLevel = 0;
+    public int[] _fireRateLevelCosts;
+
+    [HideInInspector]
+    public int _rangeLevel = 0;
+    public int[] _rangeLevelCosts;
+
+    //below variables may be redundent soon
+    //public /*const*/ int _baseUpgradeCost = 100;//cant be accessed if its a const variable
+    //public int _currentUpgradeCost;
+    //public int[] _futureCosts;
+    //public /*const*/ int _maxUpgrades = 5;
+    //public int _futureCostPointer = 0;
     
     //firing mechanics variables
     [HideInInspector]

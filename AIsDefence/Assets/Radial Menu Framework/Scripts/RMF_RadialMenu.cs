@@ -75,6 +75,7 @@ public class RMF_RadialMenu : MonoBehaviour {
                 //Debug.LogError("Radial Menu: element " + i.ToString() + " in the radial menu " + gameObject.name + " is null!");
                 continue;
             }
+
             elements[i].parentRM = this;
 
             elements[i].setAllAngles((angleOffset * i) + globalOffset, angleOffset);

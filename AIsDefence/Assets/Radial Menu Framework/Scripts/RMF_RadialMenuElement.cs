@@ -33,7 +33,7 @@ public class RMF_RadialMenuElement : MonoBehaviour {
     // Use this for initialization
 
     private CanvasGroup cg;
-
+    
     //================================================
     //custom entered code - Dylan McAdam
     //================================================
@@ -48,7 +48,17 @@ public class RMF_RadialMenuElement : MonoBehaviour {
     //================================================
     //end of custom entered code
     //================================================
-    
+
+    private void OnEnable()
+    {
+
+        if (_usingToolTips == true)
+        {
+            UpdateButton();
+        }
+
+    }
+
     void Awake() {
 
         rt = gameObject.GetComponent<RectTransform>();
@@ -175,28 +185,120 @@ public class RMF_RadialMenuElement : MonoBehaviour {
             case "Health":
                 _toolTipText.text = this.label + ": " + _rmc._hitTower.TowerHealth + "/" + _rmc._hitTower._maxHealth + " => " + 
                                     (_rmc._hitTower._maxHealth + _rmc._hitTower.GetHealthUpgrade()) + "\n" +
-                                    "Level: " + _rmc._hitTower._upgradePointer + " => " + (_rmc._hitTower._upgradePointer + 1);
+                                    "Level: " + _rmc._hitTower._healthLevel + " => " + (_rmc._hitTower._healthLevel + 1);
                 break;
             case "Damage":
                 _toolTipText.text = this.label + ": " + _rmc._hitTower.GetTowerDamage() + " => " +
                                     (_rmc._hitTower.GetTowerDamage() + _rmc._hitTower.GetDamageUpgrade()) + "\n" +
-                                    "Level: " + _rmc._hitTower._upgradePointer + " => " + (_rmc._hitTower._upgradePointer + 1);
+                                    "Level: " + _rmc._hitTower._damageLevel + " => " + (_rmc._hitTower._damageLevel + 1);
                 break;
             case "Firerate":
                 _toolTipText.text = this.label + ": " + _rmc._hitTower.GetTowerFireRate() + " => " +
                                     (_rmc._hitTower.GetTowerFireRate() - _rmc._hitTower.GetFirerateUpgrade()) + "\n" +
-                                    "Level: " + _rmc._hitTower._upgradePointer + " => " + (_rmc._hitTower._upgradePointer + 1);
+                                    "Level: " + _rmc._hitTower._fireRateLevel + " => " + (_rmc._hitTower._fireRateLevel + 1);
                 break;
             case "Range":
                 _toolTipText.text = this.label + ": " + _rmc._hitTower.GetComponent<SphereCollider>().radius + " => " +
                                     (_rmc._hitTower.GetComponent<SphereCollider>().radius + _rmc._hitTower.GetRadiusUpgrade()) + "\n" +
-                                    "Level: " + _rmc._hitTower._upgradePointer + " => " + (_rmc._hitTower._upgradePointer + 1);
+                                    "Level: " + _rmc._hitTower._rangeLevel + " => " + (_rmc._hitTower._rangeLevel + 1);
                 break;
             default:
                 break;
         }
     }
-    
+
+
+    public void UpdateButton()
+    {
+        string buttonText = "MAXED";
+        Tower tower = _rmc._hitTower;
+
+        switch (this.label)
+        {
+            case "Health":
+                if (tower._healthLevel < tower._healthLevelCosts.Length)
+                    buttonText = tower._healthLevelCosts[tower._healthLevel].ToString() + " QE";
+                else
+                    this.button.interactable = false;
+                break;
+            case "Damage":
+                if (tower._damageLevel < tower._damageLevelCosts.Length)
+                    buttonText = tower._damageLevelCosts[tower._damageLevel].ToString() + " QE";
+                else
+                    this.button.interactable = false;
+                break;
+            case "Firerate":
+                if (tower._fireRateLevel < tower._fireRateLevelCosts.Length)
+                    buttonText = tower._fireRateLevelCosts[tower._fireRateLevel].ToString() + " QE";
+                else
+                    this.button.interactable = false;
+                break;
+            case "Range":
+                if (tower._rangeLevel < tower._rangeLevelCosts.Length)
+                    buttonText = tower._rangeLevelCosts[tower._rangeLevel].ToString() + " QE";
+                else
+                    this.button.interactable = false;
+                break;
+            default:
+                break;
+        }
+
+        this.button.transform.GetChild(0).GetComponent<Text>().text = buttonText;
+
+        if (this.button.interactable == false)
+        {
+            this._usingToolTips = false;
+            this._toolTipBox.SetActive(false);
+        }
+    }
+
+
+    public void BuyUpgrade()
+    {
+        Debug.Log("bought upgrade");
+        Tower tower = _rmc._hitTower;
+
+        switch (this.label)
+        {
+            case "Health":
+                //take away money
+                _rmc._bank.MinusCredits(tower._healthLevelCosts[tower._healthLevel]);
+                //set new stats
+                tower.TowerHealth = tower.TowerHealth + tower.GetHealthUpgrade();
+                tower._healthLevel++;
+                break;
+            case "Damage":
+                //take away money
+                _rmc._bank.MinusCredits(tower._damageLevelCosts[tower._damageLevel]);
+                //set new stats
+                tower.SetTowerDamage(tower.GetTowerDamage() + tower.GetDamageUpgrade());
+                tower._damageLevel++;
+                break;
+            case "Firerate":
+                //take away money
+                _rmc._bank.MinusCredits(tower._fireRateLevelCosts[tower._fireRateLevel]);
+                //set new stats
+                if (tower.GetTowerFireRate() > 0.25f)
+                {
+                    tower.SetTowerFireRate(tower.GetTowerFireRate() - tower.GetFirerateUpgrade());
+                }
+                tower._fireRateLevel++;
+                break;
+            case "Range":
+                //take away money
+                _rmc._bank.MinusCredits(tower._rangeLevelCosts[tower._rangeLevel]);
+                //set new stats
+                tower.gameObject.GetComponent<SphereCollider>().radius = 
+                    tower.gameObject.GetComponent<SphereCollider>().radius + tower.GetRadiusUpgrade();
+                tower._rangeLevel++;
+                break;
+            default:
+                break;
+        }
+
+        UpdateButton();
+    }
+
 }
 
 //================================================
@@ -217,7 +319,7 @@ public class RMF_RadialMenuElement : MonoBehaviour {
 //        myScript.label = EditorGUILayout.TextField("Label", myScript.label);
 
 //        myScript._usingToolTips = EditorGUILayout.Toggle("Using Tool Tips", myScript._usingToolTips);
-        
+
 //        using (var group = new EditorGUILayout.FadeGroupScope(Convert.ToSingle(myScript._usingToolTips)))
 //        {
 //            if (group.visible == true)

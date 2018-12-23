@@ -10,6 +10,7 @@ TagManager:
   - EnemyBullet
   - Ground
   - meleeWeapon
+  - RadialWheelButton
   layers:
   - Default
   - TransparentFX

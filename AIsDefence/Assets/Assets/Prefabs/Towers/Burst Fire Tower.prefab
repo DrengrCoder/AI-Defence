@@ -142,20 +142,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _baseHealth: 100
+  _maxHealth: 100
   _cost: 400
   Num: 0
   MenuActiveOverThis: 0
-  _baseUpgradeCost: 100
-  _upgradeCost: 100
-  _futureCosts: 640000002c01000058020000e8030000dc050000
-  _maxUpgrades: 5
-  _upgradePointer: 0
+  _healthLevel: 0
+  _healthLevelCosts: 640000002c01000058020000e8030000dc050000
+  _damageLevel: 0
+  _damageLevelCosts: 640000002c01000058020000e8030000dc050000
+  _fireRateLevel: 0
+  _fireRateLevelCosts: 640000002c01000058020000e8030000dc050000
+  _rangeLevel: 0
+  _rangeLevelCosts: 640000002c01000058020000e8030000dc050000
   _canFire: 0
   _currentTarget: {fileID: 0}
   _inRangeEnemies: []
   _projectileManager: {fileID: 0}
   _bullet: {fileID: 1195412905759990, guid: 3f26251a6a5e3cc4eb27be0c9f0ad369, type: 2}
   _force: 5000
+  _damage: 5
+  _damageUpgrade: 1
+  _burstDelay: 0.7
+  _fireRateUpgrade: 0.05
+  _healthUpgrade: 25
+  _rangeUpgrade: 10
 --- !u!135 &135275391025205404
 SphereCollider:
   m_ObjectHideFlags: 1
