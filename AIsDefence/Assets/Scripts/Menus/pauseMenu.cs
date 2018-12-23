@@ -12,6 +12,9 @@ public class pauseMenu : MonoBehaviour {
     [SerializeField]
     private AudioSource _Sound;
 
+    [SerializeField]
+    private RadialMenuController _rmc;
+
     private bool _on = true;
 
     void Update()
@@ -33,6 +36,7 @@ public class pauseMenu : MonoBehaviour {
                 _on = false;
                 _controller.Pause = true;
                 Cursor.visible = true;
+                _rmc.PauseWheel(true);
             }
             else
             {
@@ -45,6 +49,8 @@ public class pauseMenu : MonoBehaviour {
                 {
                     Cursor.visible = false;
                 }
+
+                _rmc.PauseWheel(false);
             }
         }
     }

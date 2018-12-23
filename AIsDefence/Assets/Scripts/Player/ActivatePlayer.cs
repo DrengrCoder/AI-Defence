@@ -8,6 +8,8 @@ public class ActivatePlayer : MonoBehaviour {
     [SerializeField]
     private GameObject _character;
     [SerializeField]
+    private RadialMenuController _wheelMenuController;
+    [SerializeField]
     private TowerSelection _TowerSelect;
     [SerializeField]
     private Button _hideTowers;
@@ -23,7 +25,8 @@ public class ActivatePlayer : MonoBehaviour {
     private Button _SW;
 
     private string _button = "PlayCharacter";
-    private bool _active = false;
+    [HideInInspector]
+    public bool _active = false;
 
     private void Update()
     {
@@ -38,6 +41,11 @@ public class ActivatePlayer : MonoBehaviour {
         _active = !_active;
 
         _character.SetActive(_active);
+
+        if (_active)
+        {
+            _wheelMenuController.DisableWheel();
+        }
 
         _TowerSelect.DisableTowers(_active);
 

@@ -17,11 +17,21 @@ public class RadialMenuController : MonoBehaviour {
 
     [HideInInspector]
     public Tower _hitTower;
+
+    [SerializeField]
+    private ActivatePlayer _player;
     
     void Update()
     {
         //ray cast
         _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (_player._active == true || Time.timeScale == 0)
+        {
+            //we no longer want to operate the wheel menu in player-mode
+            //or if the timescale has been set to 0 (meaning a menu is open)
+            return;
+        }
         
         //check for left mouse down
         if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -79,21 +89,44 @@ public class RadialMenuController : MonoBehaviour {
         {
             //if the right mouse was clicked, disable all wheel menus
 
-            //disable extension wheels
-            foreach (GameObject obj in _extensionWheels)
-            {
-                obj.SetActive(false);
-            }
+            DisableWheel();
+        }
+    }
 
-            //disable base wheel
-            _baseRadialWheel.SetActive(false);
+    public void DisableWheel()
+    {
+        //disable extension wheels
+        foreach (GameObject obj in _extensionWheels)
+        {
+            obj.SetActive(false);
+        }
 
-            //reset ALL tower menu-status
-            Tower[] towers = GameObject.FindObjectsOfType<Tower>();
-            foreach (Tower tower in towers)
+        //disable base wheel
+        _baseRadialWheel.SetActive(false);
+
+        //reset ALL tower menu-status
+        Tower[] towers = GameObject.FindObjectsOfType<Tower>();
+        foreach (Tower tower in towers)
+        {
+            tower.MenuActiveOverThis = false;
+        }
+    }
+
+    public void PauseWheel(bool pausing)
+    {
+        foreach (GameObject obj in _extensionWheels)
+        {
+            foreach (RMF_RadialMenuElement element in obj.GetComponent<RMF_RadialMenu>().elements)
             {
-                tower.MenuActiveOverThis = false;
+                if (element != null)
+                    element.button.interactable = !pausing;
             }
+        }
+
+        foreach (RMF_RadialMenuElement element in _baseRadialWheel.GetComponent<RMF_RadialMenu>().elements)
+        {
+            if (element != null)
+                element.button.interactable = !pausing;
         }
     }
 
