@@ -135,7 +135,7 @@ public class RMF_RadialMenuElement : MonoBehaviour {
 
         if (_usingToolTips == true)
         {
-            LoadText();
+            LoadTooltipText();
             Transform button = this.gameObject.transform.GetChild(0);
             _toolTipBox.transform.position = button.position + button.TransformDirection(new Vector3(0, 30, 0));
             _toolTipBox.SetActive(true);
@@ -178,7 +178,7 @@ public class RMF_RadialMenuElement : MonoBehaviour {
 
     
 
-    private void LoadText()
+    private void LoadTooltipText()
     {
         switch (this.label)
         {
@@ -297,6 +297,7 @@ public class RMF_RadialMenuElement : MonoBehaviour {
         }
 
         UpdateButton();
+        LoadTooltipText();
     }
 
 }
