@@ -1664,6 +1664,16 @@ Prefab:
       propertyPath: m_TagString
       value: RadialWheelButton
       objectReference: {fileID: 0}
+    - target: {fileID: 114258098748511690, guid: 10f3737ee58558c4ebb184d6caadc208,
+        type: 2}
+      propertyPath: _rmc
+      value: 
+      objectReference: {fileID: 58731043}
+    - target: {fileID: 114636085564955754, guid: 10f3737ee58558c4ebb184d6caadc208,
+        type: 2}
+      propertyPath: _rmc
+      value: 
+      objectReference: {fileID: 58731043}
     m_RemovedComponents:
     - {fileID: 114531448780324240, guid: 10f3737ee58558c4ebb184d6caadc208, type: 2}
     - {fileID: 114906009757501066, guid: 10f3737ee58558c4ebb184d6caadc208, type: 2}
@@ -7766,6 +7776,7 @@ MonoBehaviour:
   _PlayerCreditDisplay: {fileID: 77453197}
   _saveData: {fileID: 11400000, guid: a9cf9b7fc093e0745ba39e0e7c0c1f33, type: 2}
   _playerCharacter: {fileID: 1741446219}
+  _radialWheel: {fileID: 58731043}
 --- !u!1001 &392929805
 Prefab:
   m_ObjectHideFlags: 0

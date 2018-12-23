@@ -20,6 +20,9 @@ public class CreditBanks : MonoBehaviour {
     [SerializeField]
     private PlayerController _playerCharacter;
 
+    [SerializeField]
+    private RadialMenuController _radialWheel;
+
     private void Start()
     {
         PlayerCreditBank = _saveData.PlayerScraps;
@@ -37,6 +40,7 @@ public class CreditBanks : MonoBehaviour {
         if (_playerCharacter.gameObject.activeSelf == false)
         {
             _towerSelection.CreditUpdated();
+            _radialWheel._extensionWheels[0].GetComponent<RMF_RadialMenu>().CheckPrices();
         }
     }
 

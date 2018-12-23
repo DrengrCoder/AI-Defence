@@ -8,8 +8,7 @@ public class RadialMenuController : MonoBehaviour {
 
     [SerializeField]
     private GameObject _baseRadialWheel;
-    [SerializeField]
-    private GameObject[] _extensionWheels;
+    public GameObject[] _extensionWheels;
 
     public CreditBanks _bank;
 

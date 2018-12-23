@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-
+using System;
 
 [AddComponentMenu("Radial Menu Framework/RMF Core Script")]
 public class RMF_RadialMenu : MonoBehaviour {
@@ -52,7 +52,14 @@ public class RMF_RadialMenu : MonoBehaviour {
     private int previousActiveIndex = 0; //Used to determine which buttons to unhighlight in lazy selection.
 
     private PointerEventData pointer;
-    
+
+
+    private void OnEnable()
+    {
+        CheckPrices();
+    }
+
+
     void Awake() {
 
         pointer = new PointerEventData(EventSystem.current);
@@ -198,4 +205,46 @@ public class RMF_RadialMenu : MonoBehaviour {
     }
 
 
+
+    public void CheckPrices()
+    {
+        foreach (RMF_RadialMenuElement element in this.elements)
+        {
+            if (element == null)
+                continue;
+
+            Tower tower = element._rmc._hitTower;
+            Button button = element.transform.GetChild(0).GetComponent<Button>();
+
+            switch (element.label)
+            {
+                case "Health":
+
+                    button.interactable = 
+                        (tower._healthLevelCosts[tower._healthLevel] <= element._rmc._bank.CreditBank);
+
+                    break;
+                case "Damage":
+
+                    button.interactable =
+                        (tower._damageLevelCosts[tower._damageLevel] <= element._rmc._bank.CreditBank);
+
+                    break;
+                case "Firerate":
+
+                    button.interactable =
+                        (tower._fireRateLevelCosts[tower._fireRateLevel] <= element._rmc._bank.CreditBank);
+
+                    break;
+                case "Range":
+
+                    button.interactable =
+                        (tower._rangeLevelCosts[tower._rangeLevel] <= element._rmc._bank.CreditBank);
+
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
 }

@@ -41,9 +41,8 @@ public class RMF_RadialMenuElement : MonoBehaviour {
     public bool _usingToolTips;
     public Text _toolTipText;
     public GameObject _toolTipBox;
-
-    [SerializeField]
-    private RadialMenuController _rmc;
+    
+    public RadialMenuController _rmc;
 
     //================================================
     //end of custom entered code
@@ -216,86 +215,105 @@ public class RMF_RadialMenuElement : MonoBehaviour {
         switch (this.label)
         {
             case "Health":
-                if (tower._healthLevel < tower._healthLevelCosts.Length)
+                
+                if (tower._healthLevel < tower._maxUpgrades)
                     buttonText = tower._healthLevelCosts[tower._healthLevel].ToString() + " QE";
                 else
                     this.button.interactable = false;
+
                 break;
             case "Damage":
-                if (tower._damageLevel < tower._damageLevelCosts.Length)
+                
+                if (tower._damageLevel < tower._maxUpgrades)
                     buttonText = tower._damageLevelCosts[tower._damageLevel].ToString() + " QE";
                 else
                     this.button.interactable = false;
+
                 break;
             case "Firerate":
-                if (tower._fireRateLevel < tower._fireRateLevelCosts.Length)
+                
+                if (tower._fireRateLevel < tower._maxUpgrades)
                     buttonText = tower._fireRateLevelCosts[tower._fireRateLevel].ToString() + " QE";
                 else
                     this.button.interactable = false;
+
                 break;
             case "Range":
-                if (tower._rangeLevel < tower._rangeLevelCosts.Length)
+                
+                if (tower._rangeLevel < tower._maxUpgrades)
                     buttonText = tower._rangeLevelCosts[tower._rangeLevel].ToString() + " QE";
                 else
                     this.button.interactable = false;
+
                 break;
             default:
                 break;
         }
 
         this.button.transform.GetChild(0).GetComponent<Text>().text = buttonText;
-
-        if (this.button.interactable == false)
-        {
-            this._usingToolTips = false;
-            this._toolTipBox.SetActive(false);
-        }
+        
     }
 
 
     public void BuyUpgrade()
     {
-        Debug.Log("bought upgrade");
         Tower tower = _rmc._hitTower;
 
         switch (this.label)
         {
             case "Health":
+
                 //take away money
                 _rmc._bank.MinusCredits(tower._healthLevelCosts[tower._healthLevel]);
+
                 //set new stats
                 tower.TowerHealth = tower.TowerHealth + tower.GetHealthUpgrade();
+
                 tower._healthLevel++;
+
                 break;
             case "Damage":
+
                 //take away money
                 _rmc._bank.MinusCredits(tower._damageLevelCosts[tower._damageLevel]);
+
                 //set new stats
                 tower.SetTowerDamage(tower.GetTowerDamage() + tower.GetDamageUpgrade());
+
                 tower._damageLevel++;
+
                 break;
             case "Firerate":
+
                 //take away money
                 _rmc._bank.MinusCredits(tower._fireRateLevelCosts[tower._fireRateLevel]);
+
                 //set new stats
                 if (tower.GetTowerFireRate() > 0.25f)
                 {
                     tower.SetTowerFireRate(tower.GetTowerFireRate() - tower.GetFirerateUpgrade());
                 }
+
                 tower._fireRateLevel++;
+
                 break;
             case "Range":
+
                 //take away money
                 _rmc._bank.MinusCredits(tower._rangeLevelCosts[tower._rangeLevel]);
+
                 //set new stats
                 tower.gameObject.GetComponent<SphereCollider>().radius = 
                     tower.gameObject.GetComponent<SphereCollider>().radius + tower.GetRadiusUpgrade();
+
                 tower._rangeLevel++;
+
                 break;
             default:
                 break;
         }
 
+        parentRM.CheckPrices();
         UpdateButton();
         LoadTooltipText();
     }

@@ -21,6 +21,9 @@ public abstract class Tower : MonoBehaviour {
 
     //upgrade properties
     [HideInInspector]
+    public int _maxUpgrades = 5;
+
+    [HideInInspector]
     public int _healthLevel = 0;
     public int[] _healthLevelCosts;
 
