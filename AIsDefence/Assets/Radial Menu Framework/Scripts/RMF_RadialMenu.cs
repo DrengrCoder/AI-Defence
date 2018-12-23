@@ -38,6 +38,17 @@ public class RMF_RadialMenu : MonoBehaviour {
     public float globalOffset = 0f;
 
 
+    [SerializeField]
+    private GameObject _burstPrefab;
+    [SerializeField]
+    private GameObject _singlePrefab;
+    [SerializeField]
+    private GameObject _spreadPrefab;
+    [SerializeField]
+    private GameObject _aoePrefab;
+    [SerializeField]
+    private GameObject _pulsePrefab;
+
     [HideInInspector]
     public float currentAngle = 0f; //Our current angle from the center of the radial menu.
 
@@ -214,39 +225,67 @@ public class RMF_RadialMenu : MonoBehaviour {
                 continue;
 
             Tower tower = element._rmc._hitTower;
+            InstantiateObjectOnclick spawnPoint = element._rmc._hitSpawnPoint;
             Button button = element.transform.GetChild(0).GetComponent<Button>();
 
-            if (tower == null)
-                return;
-            
-            switch (element.label)
+            if (tower != null)
             {
-                case "Health":
+                switch (element.label)
+                {
+                    //upgrades
+                    case "Health":
 
-                    button.interactable = 
-                        (tower._healthLevelCosts[tower._healthLevel] <= element._rmc._bank.CreditBank);
+                        button.interactable =
+                            (tower._healthLevelCosts[tower._healthLevel] <= element._rmc._bank.CreditBank);
 
-                    break;
-                case "Damage":
+                        break;
+                    case "Damage":
 
-                    button.interactable =
-                        (tower._damageLevelCosts[tower._damageLevel] <= element._rmc._bank.CreditBank);
+                        button.interactable =
+                            (tower._damageLevelCosts[tower._damageLevel] <= element._rmc._bank.CreditBank);
 
-                    break;
-                case "Firerate":
+                        break;
+                    case "Firerate":
 
-                    button.interactable =
-                        (tower._fireRateLevelCosts[tower._fireRateLevel] <= element._rmc._bank.CreditBank);
+                        button.interactable =
+                            (tower._fireRateLevelCosts[tower._fireRateLevel] <= element._rmc._bank.CreditBank);
 
-                    break;
-                case "Range":
+                        break;
+                    case "Range":
 
-                    button.interactable =
-                        (tower._rangeLevelCosts[tower._rangeLevel] <= element._rmc._bank.CreditBank);
+                        button.interactable =
+                            (tower._rangeLevelCosts[tower._rangeLevel] <= element._rmc._bank.CreditBank);
 
-                    break;
-                default:
-                    break;
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            if (spawnPoint != null)
+            {
+                switch (element.label)
+                {
+                    //tower selections
+                    case "Burst Fire":
+                        button.interactable = (_burstPrefab.GetComponent<Tower>()._cost <= element._rmc._bank.CreditBank);
+                        break;
+                    case "Single Fire":
+                        button.interactable = (_singlePrefab.GetComponent<Tower>()._cost <= element._rmc._bank.CreditBank);
+                        break;
+                    case "Spread Fire":
+                        button.interactable = (_spreadPrefab.GetComponent<Tower>()._cost <= element._rmc._bank.CreditBank);
+                        break;
+                    case "AOE Fire":
+                        button.interactable = (_aoePrefab.GetComponent<Tower>()._cost <= element._rmc._bank.CreditBank);
+                        break;
+                    case "Pulse Fire":
+                        button.interactable = (_pulsePrefab.GetComponent<Tower>()._cost <= element._rmc._bank.CreditBank);
+                        break;
+                    default:
+                        break;
+                }
+
             }
         }
     }

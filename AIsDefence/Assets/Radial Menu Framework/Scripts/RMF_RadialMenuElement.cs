@@ -221,6 +221,22 @@ public class RMF_RadialMenuElement : MonoBehaviour {
             case "Least Health":
                 _toolTipText.text = AttackChoiceUtils.GetDescription(AttackChoice.LeastHealth);
                 break;
+            //tower selections
+            case "Burst Fire":
+                _toolTipText.text = "3-round burst, high speed, low damage, mid firerate.";
+                break;
+            case "Single Fire":
+                _toolTipText.text = "Single-shot, mid speed, high damage, mid firerate.";
+                break;
+            case "Spread Fire":
+                _toolTipText.text = "Shotgun Spread, low speed, mid damage, low firerate";
+                break;
+            case "AOE Fire":
+                _toolTipText.text = "Grenade exposion, low speed, mid damage, low firerate";
+                break;
+            case "Pulse Fire":
+                _toolTipText.text = "Eletro-pulse effect, low speed, low damage, low firerate";
+                break;
             default:
                 break;
         }
@@ -285,6 +301,22 @@ public class RMF_RadialMenuElement : MonoBehaviour {
                 break;
             case "Least Health":
                 buttonText = AttackChoiceUtils.GetBaseText(AttackChoice.LeastHealth);
+                break;
+            //tower selections
+            case "Burst Fire":
+                buttonText = "Burst";
+                break;
+            case "Single Fire":
+                buttonText = "Single";
+                break;
+            case "Spread Fire":
+                buttonText = "Spread";
+                break;
+            case "AOE Fire":
+                buttonText = "AOE";
+                break;
+            case "Pulse Fire":
+                buttonText = "Pulse";
                 break;
             default:
                 break;

@@ -9,8 +9,7 @@ public class RadialMenuController : MonoBehaviour {
     [SerializeField]
     private GameObject _baseRadialWheel;
     public GameObject[] _extensionWheels;
-    [SerializeField]
-    private GameObject _towerSelectionWheel;
+    public GameObject _towerSelectionWheel;
 
     public CreditBanks _bank;
 
@@ -23,7 +22,8 @@ public class RadialMenuController : MonoBehaviour {
     [SerializeField]
     private ActivatePlayer _player;
 
-    private InstantiateObjectOnclick _hitSpawnPoint;
+    [HideInInspector]
+    public InstantiateObjectOnclick _hitSpawnPoint;
 
     void Update()
     {
@@ -223,6 +223,8 @@ public class RadialMenuController : MonoBehaviour {
 
     public void SpawnObject(GameObject obj)
     {
+        _towerSelectionWheel.SetActive(false);
+        _hitSpawnPoint.MenuActiveOverThis = false;
         this._hitSpawnPoint.SpawnObject(obj);
     }
 

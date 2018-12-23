@@ -41,6 +41,7 @@ public class CreditBanks : MonoBehaviour {
         {
             _towerSelection.CreditUpdated();
             _radialWheel._extensionWheels[0].GetComponent<RMF_RadialMenu>().CheckPrices();
+            _radialWheel._towerSelectionWheel.GetComponent<RMF_RadialMenu>().CheckPrices();
         }
     }
 
@@ -51,6 +52,8 @@ public class CreditBanks : MonoBehaviour {
         _CreditDisplay.text = CreditBank.ToString();
 
         _towerSelection.CreditUpdated();
+
+        _radialWheel._towerSelectionWheel.GetComponent<RMF_RadialMenu>().CheckPrices();
     }
 
     public void AddPlayerCredits(int credits)

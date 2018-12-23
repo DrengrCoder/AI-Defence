@@ -7,9 +7,8 @@ public abstract class Tower : MonoBehaviour {
     
     public int _maxHealth = 100;
     private int _health = 100;
-
-    [SerializeField]
-    private int _cost;
+    
+    public int _cost;
 
     //This is for the end game stats, should only be edited by InstantiateObjectOnclick.cs
     public int Num = 0;
