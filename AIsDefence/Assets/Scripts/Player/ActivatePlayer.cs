@@ -10,10 +10,6 @@ public class ActivatePlayer : MonoBehaviour {
     [SerializeField]
     private RadialMenuController _wheelMenuController;
     [SerializeField]
-    private TowerSelection _TowerSelect;
-    [SerializeField]
-    private Button _hideTowers;
-    [SerializeField]
     private Button _JTA;
     [SerializeField]
     private Button _PS;
@@ -41,11 +37,9 @@ public class ActivatePlayer : MonoBehaviour {
         if (_active)
         {
             _wheelMenuController.DisableTowerWheel();
+            _wheelMenuController.DisableSelectionWheel();
         }
-
-        _TowerSelect.DisableTowers(_active);
-
-        _hideTowers.interactable = !(_active);
+        
         _JTA.interactable = !(_active);
         _PS.interactable = !(_active);
         _SW.interactable = !(_active);

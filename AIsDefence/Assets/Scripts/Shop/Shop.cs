@@ -10,10 +10,7 @@ public class Shop : MonoBehaviour {
 
     [SerializeField]
     private PlayerController _controller;
-
-    [SerializeField]
-    private TowerSelection _towerSelection;
-
+    
     private bool _on = true;
     //ScrapShops
     [SerializeField]
@@ -51,12 +48,7 @@ public class Shop : MonoBehaviour {
                 _on = false;
                 _controller.Pause = true;
                 Cursor.visible = true;
-
-                for (int i = 0; i < this._towerSelection._buttons.Length; i++)
-                {
-                    this._towerSelection._buttons[i].interactable = false;
-                    this._towerSelection._shortCuts[i].GetComponent<Button>().interactable = false;
-                }
+                
             }
             else
             {
@@ -65,7 +57,6 @@ public class Shop : MonoBehaviour {
                 _on = true;
                 _controller.Pause = false;
                 Cursor.visible = false;
-                this._towerSelection.CreditUpdated();
             }
         }
     }

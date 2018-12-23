@@ -11,8 +11,6 @@ public class CreditBanks : MonoBehaviour {
     [SerializeField]
     private Text _CreditDisplay;
     [SerializeField]
-    private TowerSelection _towerSelection;
-    [SerializeField]
     private Text _PlayerCreditDisplay;
     [SerializeField]
     private SaveData _saveData;
@@ -39,7 +37,6 @@ public class CreditBanks : MonoBehaviour {
 
         if (_playerCharacter.gameObject.activeSelf == false)
         {
-            _towerSelection.CreditUpdated();
             _radialWheel._extensionWheels[0].GetComponent<RMF_RadialMenu>().CheckPrices();
             _radialWheel._towerSelectionWheel.GetComponent<RMF_RadialMenu>().CheckPrices();
         }
@@ -50,8 +47,6 @@ public class CreditBanks : MonoBehaviour {
         CreditBank = CreditBank - credits;
 
         _CreditDisplay.text = CreditBank.ToString();
-
-        _towerSelection.CreditUpdated();
 
         _radialWheel._towerSelectionWheel.GetComponent<RMF_RadialMenu>().CheckPrices();
     }

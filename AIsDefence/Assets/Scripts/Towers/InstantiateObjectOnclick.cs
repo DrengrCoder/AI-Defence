@@ -20,9 +20,7 @@ public class InstantiateObjectOnclick : MonoBehaviour {
     private GameObject _spreadFireTower;
     [SerializeField]
     private GameObject _pulseFireTower;
-
-    private TowerSelection _towerSelection;
-
+    
     private GameObject _thisSpot;
 
 
@@ -32,45 +30,44 @@ public class InstantiateObjectOnclick : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		this._towerSelection = GameObject.Find("TowerSelectUI").GetComponent<TowerSelection>();
         this._thisSpot = this.gameObject;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //_ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Input.GetKey(KeyCode.Mouse0))
-        {
-            if (Physics.Raycast(_ray, out _hit))
-            {
-                if (this._hit.transform.name == this._thisSpot.name && TowerIsSelected())
-                {
-                    if (this._towerSelection.AoeTowerSelected())
-                    {
-                        SpawnObject(_aoeTower);
-                    }
-                    else if (this._towerSelection.SingleFireTowerSelected())
-                    {
-                        SpawnObject(_singleFireTower);
-                    }
-                    else if (this._towerSelection.BurstFireTowerSelected())
-                    {
-                        SpawnObject(_burstFireTower);
-                    }
-                    else if (this._towerSelection.PulseTowerSelected())
-                    {
-                        SpawnObject(_pulseFireTower);
-                    }
-                    else if (this._towerSelection.SpreadTowerSelected())
-                    {
-                        SpawnObject(_spreadFireTower);
-                    }
+        //if (Input.GetKey(KeyCode.Mouse0))
+        //{
+        //    if (Physics.Raycast(_ray, out _hit))
+        //    {
+        //        if (this._hit.transform.name == this._thisSpot.name && TowerIsSelected())
+        //        {
+        //            if (this._towerSelection.AoeTowerSelected())
+        //            {
+        //                SpawnObject(_aoeTower);
+        //            }
+        //            else if (this._towerSelection.SingleFireTowerSelected())
+        //            {
+        //                SpawnObject(_singleFireTower);
+        //            }
+        //            else if (this._towerSelection.BurstFireTowerSelected())
+        //            {
+        //                SpawnObject(_burstFireTower);
+        //            }
+        //            else if (this._towerSelection.PulseTowerSelected())
+        //            {
+        //                SpawnObject(_pulseFireTower);
+        //            }
+        //            else if (this._towerSelection.SpreadTowerSelected())
+        //            {
+        //                SpawnObject(_spreadFireTower);
+        //            }
                     
-                    this._towerSelection.ResetButtons();
-                }
-            }
-        }
+        //            this._towerSelection.ResetButtons();
+        //        }
+        //    }
+        //}
     }
 
 
@@ -89,14 +86,5 @@ public class InstantiateObjectOnclick : MonoBehaviour {
     {
         return new Vector3(this._thisSpot.transform.position.x, this._thisSpot.transform.position.y, this._thisSpot.transform.position.z);
     }
-
-    private bool TowerIsSelected()
-    {
-        return this._towerSelection.AoeTowerSelected() || 
-            this._towerSelection.SingleFireTowerSelected() || 
-            this._towerSelection.BurstFireTowerSelected() ||
-            this._towerSelection.PulseTowerSelected() ||
-            this._towerSelection.SpreadTowerSelected();
-    }
-
+    
 }
