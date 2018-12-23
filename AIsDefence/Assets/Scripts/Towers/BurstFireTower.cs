@@ -13,10 +13,21 @@ public class BurstFireTower : Tower {
 
     [SerializeField]
     private int _damage = 2;
+    [SerializeField]
+    private int _damageUpgrade = 1;
 
     private float _originalDelay = 0.1f;
+    [SerializeField]
     private float _burstDelay = 0.7f;
     private float _fireRate = 0.1f;
+
+    [SerializeField]
+    private float _fireRateUpgrade = 0.05f;
+
+    [SerializeField]
+    private int _healthUpgrade = 25;
+    [SerializeField]
+    private int _rangeUpgrade = 10;
 
     private int _burstCount = 0;
     private const int _maxBurst = 3;
@@ -70,7 +81,7 @@ public class BurstFireTower : Tower {
 
     public override void SetTowerFireRate(float rate)
     {
-        _fireRate = rate;
+        _burstDelay = rate;
     }
 
     public override void SetTowerDamage(int damage)
@@ -80,13 +91,35 @@ public class BurstFireTower : Tower {
 
     public override float GetTowerFireRate()
     {
-        return _fireRate;
+        return _burstDelay;
     }
 
     public override int GetTowerDamage()
     {
         return _damage;
     }
+
+
+    public override int GetDamageUpgrade()
+    {
+        return this._damageUpgrade;
+    }
+
+    public override int GetHealthUpgrade()
+    {
+        return this._healthUpgrade;
+    }
+
+    public override float GetFirerateUpgrade()
+    {
+        return this._fireRateUpgrade;
+    }
+
+    public override int GetRadiusUpgrade()
+    {
+        return this._rangeUpgrade;
+    }
+
 
     public override TowerType GetTowerType()
     {

@@ -13,9 +13,18 @@ public class SingleFireTower : Tower {
 
     [SerializeField]
     private int _damage = 30;
+    [SerializeField]
+    private int _damageUpgrade = 5;
 
     [SerializeField]
     private float _fireRate = 0.7f;
+    [SerializeField]
+    private float _fireRateUpgrade = 0.1f;
+
+    [SerializeField]
+    private int _healthUpgrade = 20;
+    [SerializeField]
+    private int _rangeUpgrade = 20;
 
     private const TowerType _type = TowerType.SingleFire;
     
@@ -75,6 +84,28 @@ public class SingleFireTower : Tower {
     {
         return _damage;
     }
+
+
+    public override int GetDamageUpgrade()
+    {
+        return this._damageUpgrade;
+    }
+
+    public override int GetHealthUpgrade()
+    {
+        return this._healthUpgrade;
+    }
+
+    public override float GetFirerateUpgrade()
+    {
+        return this._fireRateUpgrade;
+    }
+
+    public override int GetRadiusUpgrade()
+    {
+        return this._rangeUpgrade;
+    }
+
 
     public override TowerType GetTowerType()
     {

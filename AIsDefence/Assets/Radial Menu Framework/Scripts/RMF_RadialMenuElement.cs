@@ -126,7 +126,8 @@ public class RMF_RadialMenuElement : MonoBehaviour {
         if (_usingToolTips == true)
         {
             LoadText();
-            _toolTipBox.transform.position = this.gameObject.transform.GetChild(0).transform.position;
+            Transform button = this.gameObject.transform.GetChild(0);
+            _toolTipBox.transform.position = button.position + button.TransformDirection(new Vector3(0, 30, 0));
             _toolTipBox.SetActive(true);
         }
 
@@ -172,24 +173,24 @@ public class RMF_RadialMenuElement : MonoBehaviour {
         switch (this.label)
         {
             case "Health":
-                _toolTipText.text = this.label + ": " + _rmc._hitTower.TowerHealth + "/" + _rmc._hitTower._maxHealth + "\n" +
-                                    "Level: " + _rmc._hitTower._upgradePointer + " => " + (_rmc._hitTower._upgradePointer + 1) + "\n" +
-                                    "Value: ";
+                _toolTipText.text = this.label + ": " + _rmc._hitTower.TowerHealth + "/" + _rmc._hitTower._maxHealth + " => " + 
+                                    (_rmc._hitTower._maxHealth + _rmc._hitTower.GetHealthUpgrade()) + "\n" +
+                                    "Level: " + _rmc._hitTower._upgradePointer + " => " + (_rmc._hitTower._upgradePointer + 1);
                 break;
             case "Damage":
-                _toolTipText.text = this.label + ": " + _rmc._hitTower.GetTowerDamage() + "\n" +
-                                    "Level: " + _rmc._hitTower._upgradePointer + " => " + (_rmc._hitTower._upgradePointer + 1) + "\n" +
-                                    "Value: ";
+                _toolTipText.text = this.label + ": " + _rmc._hitTower.GetTowerDamage() + " => " +
+                                    (_rmc._hitTower.GetTowerDamage() + _rmc._hitTower.GetDamageUpgrade()) + "\n" +
+                                    "Level: " + _rmc._hitTower._upgradePointer + " => " + (_rmc._hitTower._upgradePointer + 1);
                 break;
             case "Firerate":
-                _toolTipText.text = this.label + ": " + _rmc._hitTower.GetTowerFireRate() + "\n" +
-                                    "Level: " + _rmc._hitTower._upgradePointer + " => " + (_rmc._hitTower._upgradePointer + 1) + "\n" +
-                                    "Value: ";
+                _toolTipText.text = this.label + ": " + _rmc._hitTower.GetTowerFireRate() + " => " +
+                                    (_rmc._hitTower.GetTowerFireRate() - _rmc._hitTower.GetFirerateUpgrade()) + "\n" +
+                                    "Level: " + _rmc._hitTower._upgradePointer + " => " + (_rmc._hitTower._upgradePointer + 1);
                 break;
             case "Range":
-                _toolTipText.text = this.label + ": " + _rmc._hitTower.GetComponent<SphereCollider>().radius + "\n" +
-                                    "Level: " + _rmc._hitTower._upgradePointer + " => " + (_rmc._hitTower._upgradePointer + 1) + "\n" +
-                                    "Value: ";
+                _toolTipText.text = this.label + ": " + _rmc._hitTower.GetComponent<SphereCollider>().radius + " => " +
+                                    (_rmc._hitTower.GetComponent<SphereCollider>().radius + _rmc._hitTower.GetRadiusUpgrade()) + "\n" +
+                                    "Level: " + _rmc._hitTower._upgradePointer + " => " + (_rmc._hitTower._upgradePointer + 1);
                 break;
             default:
                 break;

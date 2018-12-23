@@ -199,6 +199,12 @@ public abstract class Tower : MonoBehaviour {
     public abstract void SetTowerDamage(int damage);
     public abstract float GetTowerFireRate();
     public abstract int GetTowerDamage();
+
+    public abstract int GetDamageUpgrade();
+    public abstract int GetHealthUpgrade();
+    public abstract float GetFirerateUpgrade();
+    public abstract int GetRadiusUpgrade();
+
     public abstract TowerType GetTowerType();
 
     public abstract int BaseDamage();
