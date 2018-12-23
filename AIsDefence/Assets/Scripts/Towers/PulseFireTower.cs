@@ -80,7 +80,7 @@ public class PulseFireTower : Tower {
         _damage = damage;
     }
 
-    public override float GetTowerFireRate()
+    public override float GetTowerFireRate(bool burstDelay)
     {
         return _fireRate;
     }

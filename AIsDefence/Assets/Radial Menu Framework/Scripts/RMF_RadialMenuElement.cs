@@ -193,8 +193,8 @@ public class RMF_RadialMenuElement : MonoBehaviour {
                                     "Level: " + _rmc._hitTower._damageLevel + " => " + (_rmc._hitTower._damageLevel + 1);
                 break;
             case "Firerate":
-                _toolTipText.text = this.label + ": " + _rmc._hitTower.GetTowerFireRate() + " => " +
-                                    (_rmc._hitTower.GetTowerFireRate() - _rmc._hitTower.GetFirerateUpgrade()) + "\n" +
+                _toolTipText.text = this.label + ": " + _rmc._hitTower.GetTowerFireRate(false) + " => " +
+                                    (_rmc._hitTower.GetTowerFireRate(false) - _rmc._hitTower.GetFirerateUpgrade()) + "\n" +
                                     "Level: " + _rmc._hitTower._fireRateLevel + " => " + (_rmc._hitTower._fireRateLevel + 1);
                 break;
             case "Range":
@@ -330,9 +330,9 @@ public class RMF_RadialMenuElement : MonoBehaviour {
                 _rmc._bank.MinusCredits(tower._fireRateLevelCosts[tower._fireRateLevel]);
 
                 //set new stats
-                if (tower.GetTowerFireRate() > 0.25f)
+                if (tower.GetTowerFireRate(false) > 0.25f)
                 {
-                    tower.SetTowerFireRate(tower.GetTowerFireRate() - tower.GetFirerateUpgrade());
+                    tower.SetTowerFireRate(tower.GetTowerFireRate(false) - tower.GetFirerateUpgrade());
                 }
 
                 tower._fireRateLevel++;

@@ -43,8 +43,6 @@ public abstract class Tower : MonoBehaviour {
     [HideInInspector]
     public bool _canFire = true;
     private float _currentWaitTime = 0.0f;
-    private bool _resettingDelay = false;
-    private float _resetTime = 0.0f;
     //firing mechanics object references
     private AttackChoice _attackParameters = AttackChoice.First;
     [HideInInspector]
@@ -77,14 +75,8 @@ public abstract class Tower : MonoBehaviour {
         {
             _currentWaitTime = _currentWaitTime + Time.deltaTime;
 
-            if (_currentWaitTime >= GetTowerFireRate())
+            if (_currentWaitTime >= GetTowerFireRate(true))
             {
-                if (_resettingDelay)//currently only reset for burst tower
-                {
-                    _resettingDelay = false;
-                    SetTowerFireRate(_resetTime);
-                }
-
                 _currentWaitTime = 0.0f;
                 _canFire = true;
             }
@@ -162,23 +154,7 @@ public abstract class Tower : MonoBehaviour {
             this._currentTarget = _inRangeEnemies[0];
         }
     }
-
-    //Firing reset (for burst fire)
-    public bool ResettingDelay
-    {
-        set
-        {
-            _resettingDelay = value;
-        }
-    }
-    public float ResetDelayTo
-    {
-        set
-        {
-            _resetTime = value;
-        }
-    }
-
+    
     //Update / Return variables
     public void TakeDamage(int damage)
     {
@@ -204,7 +180,7 @@ public abstract class Tower : MonoBehaviour {
 
     public abstract void SetTowerFireRate(float rate);
     public abstract void SetTowerDamage(int damage);
-    public abstract float GetTowerFireRate();
+    public abstract float GetTowerFireRate(bool burstDelay);
     public abstract int GetTowerDamage();
 
     public abstract int GetDamageUpgrade();

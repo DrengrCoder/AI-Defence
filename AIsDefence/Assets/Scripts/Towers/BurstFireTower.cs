@@ -16,7 +16,7 @@ public class BurstFireTower : Tower {
     [SerializeField]
     private int _damageUpgrade = 1;
 
-    private float _originalDelay = 0.1f;
+    private float _roundDelay = 0.1f;
     [SerializeField]
     private float _burstDelay = 0.7f;
     private float _fireRate = 0.1f;
@@ -50,6 +50,15 @@ public class BurstFireTower : Tower {
         {
             Attack();
             _canFire = false;
+
+            _fireRate = _roundDelay;
+
+            if (++_burstCount >= _maxBurst)
+            {
+                _burstCount = 0;
+                _fireRate = _burstDelay;
+            }
+
         }
     }
 
@@ -67,14 +76,6 @@ public class BurstFireTower : Tower {
 
     private void Attack()
     {
-        if (++_burstCount >= _maxBurst)
-        {
-            _burstCount = 0;
-            _fireRate = _burstDelay;
-            ResettingDelay = true;
-            ResetDelayTo = _originalDelay;
-        }
-
         _projectileManager.FireProjectile(this.gameObject, _currentTarget.GetComponent<CapsuleCollider>(), _bullet, _force, _damage, Num);
     }
 
@@ -89,9 +90,12 @@ public class BurstFireTower : Tower {
         _damage = damage;
     }
 
-    public override float GetTowerFireRate()
+    public override float GetTowerFireRate(bool burstDelay)
     {
-        return _burstDelay;
+        if (burstDelay == true)
+            return _fireRate;
+        else
+            return _burstDelay;
     }
 
     public override int GetTowerDamage()
