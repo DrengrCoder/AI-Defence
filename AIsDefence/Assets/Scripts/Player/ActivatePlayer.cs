@@ -40,7 +40,7 @@ public class ActivatePlayer : MonoBehaviour {
 
         if (_active)
         {
-            _wheelMenuController.DisableWheel();
+            _wheelMenuController.DisableTowerWheel();
         }
 
         _TowerSelect.DisableTowers(_active);

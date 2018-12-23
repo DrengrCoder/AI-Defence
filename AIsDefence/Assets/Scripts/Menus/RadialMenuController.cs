@@ -46,6 +46,8 @@ public class RadialMenuController : MonoBehaviour {
                 //check if that target was a tower
                 if (_hit.transform.tag == "Tower")
                 {
+                    DisableSelectionWheel();
+
                     _hitTower = _hit.transform.parent.GetComponent<Tower>();
 
                     //disable extension wheels to begin with
@@ -89,6 +91,8 @@ public class RadialMenuController : MonoBehaviour {
                 }
                 else if (_hit.transform.tag == "TowerSpawn")
                 {
+                    DisableTowerWheel();
+
                     _hitSpawnPoint = _hit.transform.GetComponent<InstantiateObjectOnclick>();
 
                     if (_hitSpawnPoint.MenuActiveOverThis == true)
@@ -118,7 +122,8 @@ public class RadialMenuController : MonoBehaviour {
         {
             //if the right mouse was clicked, disable all wheel menus
 
-            DisableWheel();
+            DisableTowerWheel();
+            DisableSelectionWheel();
         }
     }
 
@@ -128,7 +133,7 @@ public class RadialMenuController : MonoBehaviour {
     //
     //=========================================================================
 
-    public void DisableWheel()
+    public void DisableTowerWheel()
     {
         //disable extension wheels
         foreach (GameObject obj in _extensionWheels)
@@ -147,7 +152,7 @@ public class RadialMenuController : MonoBehaviour {
         }
     }
 
-    public void PauseWheel(bool pausing)
+    public void PauseWheels(bool pausing)
     {
         foreach (GameObject obj in _extensionWheels)
         {
@@ -163,7 +168,28 @@ public class RadialMenuController : MonoBehaviour {
             if (element != null)
                 element.button.interactable = !pausing;
         }
+
+        foreach (RMF_RadialMenuElement element in _towerSelectionWheel.GetComponent<RMF_RadialMenu>().elements)
+        {
+            if (element != null)
+                element.button.interactable = !pausing;
+        }
     }
+
+
+    public void DisableSelectionWheel()
+    {
+        //disable tower selection wheel
+        _towerSelectionWheel.SetActive(false);
+
+        //reset ALL spawn point menu-status
+        InstantiateObjectOnclick[] spawnPoints = GameObject.FindObjectsOfType<InstantiateObjectOnclick>();
+        foreach (InstantiateObjectOnclick spawnPoint in spawnPoints)
+        {
+            spawnPoint.MenuActiveOverThis = false;
+        }
+    }
+
 
     private void ResetButtonActivity()
     {

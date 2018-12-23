@@ -36,7 +36,7 @@ public class pauseMenu : MonoBehaviour {
                 _on = false;
                 _controller.Pause = true;
                 Cursor.visible = true;
-                _rmc.PauseWheel(true);
+                _rmc.PauseWheels(true);
             }
             else
             {
@@ -50,7 +50,7 @@ public class pauseMenu : MonoBehaviour {
                     Cursor.visible = false;
                 }
 
-                _rmc.PauseWheel(false);
+                _rmc.PauseWheels(false);
             }
         }
     }
