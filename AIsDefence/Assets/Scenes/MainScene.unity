@@ -365,7 +365,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 58731043}
-        m_MethodName: DisableWheel
+        m_MethodName: DisableTowerWheel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6987,7 +6987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 658287b9abd4bfb458763a94248ae618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CreditBank: 2000
+  CreditBank: 200000
   PlayerCreditBank: 200
   _CreditDisplay: {fileID: 682610538}
   _PlayerCreditDisplay: {fileID: 77453197}
@@ -11064,7 +11064,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 58731043}
-        m_MethodName: DisableWheel
+        m_MethodName: DisableTowerWheel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -24485,7 +24485,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 58731043}
-        m_MethodName: DisableWheel
+        m_MethodName: DisableTowerWheel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -28060,7 +28060,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 58731043}
-        m_MethodName: DisableWheel
+        m_MethodName: DisableTowerWheel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -32468,7 +32468,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 58731043}
-        m_MethodName: DisableWheel
+        m_MethodName: DisableTowerWheel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -34338,7 +34338,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 58731043}
-        m_MethodName: DisableWheel
+        m_MethodName: DisableTowerWheel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

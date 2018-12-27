@@ -235,11 +235,23 @@ public class RMF_RadialMenu : MonoBehaviour {
                     //upgrades
                     case "Health":
 
+                        if (tower._healthLevel >= tower._healthLevelCosts.Length)
+                        {
+                            button.interactable = false;
+                            break;
+                        }
+
                         button.interactable =
                             (tower._healthLevelCosts[tower._healthLevel] <= element._rmc._bank.CreditBank);
 
                         break;
                     case "Damage":
+
+                        if (tower._damageLevel >= tower._damageLevelCosts.Length)
+                        {
+                            button.interactable = false;
+                            break;
+                        }
 
                         button.interactable =
                             (tower._damageLevelCosts[tower._damageLevel] <= element._rmc._bank.CreditBank);
@@ -247,11 +259,23 @@ public class RMF_RadialMenu : MonoBehaviour {
                         break;
                     case "Firerate":
 
+                        if (tower._fireRateLevel >= tower._fireRateLevelCosts.Length)
+                        {
+                            button.interactable = false;
+                            break;
+                        }
+
                         button.interactable =
                             (tower._fireRateLevelCosts[tower._fireRateLevel] <= element._rmc._bank.CreditBank);
 
                         break;
                     case "Range":
+
+                        if (tower._rangeLevel >= tower._rangeLevelCosts.Length)
+                        {
+                            button.interactable = false;
+                            break;
+                        }
 
                         button.interactable =
                             (tower._rangeLevelCosts[tower._rangeLevel] <= element._rmc._bank.CreditBank);
