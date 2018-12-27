@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class Shop : MonoBehaviour {
@@ -9,7 +10,7 @@ public class Shop : MonoBehaviour {
 
     [SerializeField]
     private PlayerController _controller;
-
+    
     private bool _on = true;
     //ScrapShops
     [SerializeField]
@@ -47,6 +48,7 @@ public class Shop : MonoBehaviour {
                 _on = false;
                 _controller.Pause = true;
                 Cursor.visible = true;
+                
             }
             else
             {

@@ -11,9 +11,20 @@ public class SpreadFireTower : Tower {
     [SerializeField]
     private int _force = 3000;
 
+    [SerializeField]
     private int _damage = 1;
+    [SerializeField]
+    private int _damageUpgrade = 1;
 
+    [SerializeField]
     private float _fireRate = 0.75f;
+    [SerializeField]
+    private float _fireRateUpgrade = 0.05f;
+
+    [SerializeField]
+    private int _healthUpgrade = 25;
+    [SerializeField]
+    private int _rangeUpgrade = 10;
 
     private TowerType _type = TowerType.SpreadFire;
 
@@ -64,7 +75,7 @@ public class SpreadFireTower : Tower {
         _damage = damage;
     }
 
-    public override float GetTowerFireRate()
+    public override float GetTowerFireRate(bool burstDelay)
     {
         return _fireRate;
     }
@@ -74,23 +85,30 @@ public class SpreadFireTower : Tower {
         return _damage;
     }
 
+
+    public override int GetDamageUpgrade()
+    {
+        return this._damageUpgrade;
+    }
+
+    public override int GetHealthUpgrade()
+    {
+        return this._healthUpgrade;
+    }
+
+    public override float GetFirerateUpgrade()
+    {
+        return this._fireRateUpgrade;
+    }
+
+    public override int GetRadiusUpgrade()
+    {
+        return this._rangeUpgrade;
+    }
+
+
     public override TowerType GetTowerType()
     {
         return _type;
-    }
-
-    public override int BaseDamage()
-    {
-        return 3;
-    }
-
-    public override float BaseFireRate()
-    {
-        return 0.75f;
-    }
-
-    public override int BaseRange()
-    {
-        return 30;
     }
 }

@@ -4,10 +4,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PulseFireTower : Tower {
-    
-    private int _damage = 2;
 
+    [SerializeField]
+    private int _damage = 2;
+    [SerializeField]
+    private int _damageUpgrade = 1;
+
+    [SerializeField]
     private float _fireRate = 1.0f;
+    [SerializeField]
+    private float _fireRateUpgrade = 0.1f;
+
+    [SerializeField]
+    private int _healthUpgrade = 25;
+    [SerializeField]
+    private int _rangeUpgrade = 15;
 
     private TowerType _type = TowerType.PulseFire;
 
@@ -69,7 +80,7 @@ public class PulseFireTower : Tower {
         _damage = damage;
     }
 
-    public override float GetTowerFireRate()
+    public override float GetTowerFireRate(bool burstDelay)
     {
         return _fireRate;
     }
@@ -79,23 +90,30 @@ public class PulseFireTower : Tower {
         return _damage;
     }
 
+
+    public override int GetDamageUpgrade()
+    {
+        return this._damageUpgrade;
+    }
+
+    public override int GetHealthUpgrade()
+    {
+        return this._healthUpgrade;
+    }
+
+    public override float GetFirerateUpgrade()
+    {
+        return this._fireRateUpgrade;
+    }
+
+    public override int GetRadiusUpgrade()
+    {
+        return this._rangeUpgrade;
+    }
+
+
     public override TowerType GetTowerType()
     {
         return _type;
-    }
-
-    public override int BaseDamage()
-    {
-        return 1;
-    }
-
-    public override float BaseFireRate()
-    {
-        return 1.0f;
-    }
-
-    public override int BaseRange()
-    {
-        return 35;
     }
 }

@@ -10,9 +10,20 @@ public class AoeTower : Tower {
     
     private int _force = 4000;
 
+    [SerializeField]
     private int _damage = 3;
-    
+    [SerializeField]
+    private int _damageUpgrade = 3;
+
+    [SerializeField]
     private float _fireRate = 1.0f;
+    [SerializeField]
+    private float _fireRateUpgrade = 0.1f;
+
+    [SerializeField]
+    private int _healthUpgrade = 25;
+    [SerializeField]
+    private int _rangeUpgrade = 10;
 
     private TowerType _type = TowerType.AoeFire;
     
@@ -63,7 +74,7 @@ public class AoeTower : Tower {
         _damage = damage;
     }
 
-    public override float GetTowerFireRate()
+    public override float GetTowerFireRate(bool burstDelay)
     {
         return _fireRate;
     }
@@ -73,23 +84,30 @@ public class AoeTower : Tower {
         return _damage;
     }
 
+
+    public override int GetDamageUpgrade()
+    {
+        return this._damageUpgrade;
+    }
+
+    public override int GetHealthUpgrade()
+    {
+        return this._healthUpgrade;
+    }
+
+    public override float GetFirerateUpgrade()
+    {
+        return this._fireRateUpgrade;
+    }
+
+    public override int GetRadiusUpgrade()
+    {
+        return this._rangeUpgrade;
+    }
+
+    
     public override TowerType GetTowerType()
     {
         return _type;
-    }
-
-    public override int BaseDamage()
-    {
-        return 10;
-    }
-
-    public override float BaseFireRate()
-    {
-        return 1.0f;
-    }
-
-    public override int BaseRange()
-    {
-        return 25;
     }
 }

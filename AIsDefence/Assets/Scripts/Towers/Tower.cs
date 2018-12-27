@@ -4,30 +4,44 @@ using System.ComponentModel;
 using UnityEngine;
 
 public abstract class Tower : MonoBehaviour {
-
-    //stats / properties
-    public int _baseHealth = 100;
-    private int _maxHealth = 100;
+    
+    public int _maxHealth = 100;
     private int _health = 100;
-    [SerializeField]
-    private int _cost;
+    
+    public int _cost;
 
     //This is for the end game stats, should only be edited by InstantiateObjectOnclick.cs
     public int Num = 0;
 
+    //This is for radial menu, used with above Num variable. Denoates if radial wheel
+    //is active over the current instantiated tower, only used in radial menu controller script.
+    [HideInInspector]
+    public bool MenuActiveOverThis = false;
+
     //upgrade properties
-    public /*const*/ int _baseUpgradeCost = 100;//cant be accessed if its a const variable
-    public int _upgradeCost = 100;
-    public int[] _futureCosts;
-    public /*const*/ int _maxUpgrades = 5;
-    public int _upgradePointer = 0;
+    [HideInInspector]
+    public int _maxUpgrades = 5;
+
+    [HideInInspector]
+    public int _healthLevel = 0;
+    public int[] _healthLevelCosts;
+
+    [HideInInspector]
+    public int _damageLevel = 0;
+    public int[] _damageLevelCosts;
+
+    [HideInInspector]
+    public int _fireRateLevel = 0;
+    public int[] _fireRateLevelCosts;
+
+    [HideInInspector]
+    public int _rangeLevel = 0;
+    public int[] _rangeLevelCosts;
     
     //firing mechanics variables
     [HideInInspector]
     public bool _canFire = true;
     private float _currentWaitTime = 0.0f;
-    private bool _resettingDelay = false;
-    private float _resetTime = 0.0f;
     //firing mechanics object references
     private AttackChoice _attackParameters = AttackChoice.First;
     [HideInInspector]
@@ -38,7 +52,6 @@ public abstract class Tower : MonoBehaviour {
     //object references
     [HideInInspector]
     public ProjectileManager _projectileManager;
-    private EditTowerMenu _towerEditMenu;
 
     //System
     private void OnEnable()
@@ -49,9 +62,6 @@ public abstract class Tower : MonoBehaviour {
     void Start ()
     {
         _projectileManager = GameObject.Find("ProjectileManager").GetComponent<ProjectileManager>();
-        _towerEditMenu = GameObject.Find("UI/Menus").GetComponent<EditTowerMenu>();
-        _towerEditMenu.AddTower(this.gameObject);
-        _towerEditMenu.UpdateTowers();
     }
 	void Update ()
     {
@@ -64,14 +74,8 @@ public abstract class Tower : MonoBehaviour {
         {
             _currentWaitTime = _currentWaitTime + Time.deltaTime;
 
-            if (_currentWaitTime >= GetTowerFireRate())
+            if (_currentWaitTime >= GetTowerFireRate(true))
             {
-                if (_resettingDelay)//currently only reset for burst tower
-                {
-                    _resettingDelay = false;
-                    SetTowerFireRate(_resetTime);
-                }
-
                 _currentWaitTime = 0.0f;
                 _canFire = true;
             }
@@ -149,23 +153,7 @@ public abstract class Tower : MonoBehaviour {
             this._currentTarget = _inRangeEnemies[0];
         }
     }
-
-    //Firing reset (for burst fire)
-    public bool ResettingDelay
-    {
-        set
-        {
-            _resettingDelay = value;
-        }
-    }
-    public float ResetDelayTo
-    {
-        set
-        {
-            _resetTime = value;
-        }
-    }
-
+    
     //Update / Return variables
     public void TakeDamage(int damage)
     {
@@ -173,7 +161,6 @@ public abstract class Tower : MonoBehaviour {
 
         if (_health <= 0)
         {
-            _towerEditMenu.RemoveTower(this.gameObject);
             Destroy(this.gameObject);
         }
     }
@@ -192,13 +179,15 @@ public abstract class Tower : MonoBehaviour {
 
     public abstract void SetTowerFireRate(float rate);
     public abstract void SetTowerDamage(int damage);
-    public abstract float GetTowerFireRate();
+    public abstract float GetTowerFireRate(bool burstDelay);
     public abstract int GetTowerDamage();
-    public abstract TowerType GetTowerType();
 
-    public abstract int BaseDamage();
-    public abstract float BaseFireRate();
-    public abstract int BaseRange();
+    public abstract int GetDamageUpgrade();
+    public abstract int GetHealthUpgrade();
+    public abstract float GetFirerateUpgrade();
+    public abstract int GetRadiusUpgrade();
+
+    public abstract TowerType GetTowerType();
 
 }
 
@@ -209,17 +198,17 @@ public static class AttackChoiceUtils
         switch (option)
         {
             case AttackChoice.First:
-                return "Enemy Closest to base";
+                return "The Enemy Closest to base";
             case AttackChoice.Last:
-                return "Enemy Furthest from base";
+                return "The Enemy Furthest from base";
             case AttackChoice.MostHealth:
-                return "Enemy with Most Health";
+                return "The Enemy with the Most Health";
             case AttackChoice.LeastHealth:
-                return "Enemy with Least Health";
+                return "The Enemy with the Least Health";
             case AttackChoice.MostDamage:
-                return "Enemy with Most Damage";
+                return "The Enemy with the Most Damage";
             case AttackChoice.LeastDamage:
-                return "Enemy with Least Damage";
+                return "The Enemy with the Least Damage";
             default:
                 return "";
         }

@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65730660447525724}
   m_Layer: 0
   m_Name: satelliteDishAntenna
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,17 +140,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _baseHealth: 100
+  _maxHealth: 100
   _cost: 1000
   Num: 0
-  _baseUpgradeCost: 100
-  _upgradeCost: 100
-  _futureCosts: 640000002c01000058020000e8030000dc050000
-  _maxUpgrades: 5
-  _upgradePointer: 0
+  MenuActiveOverThis: 0
+  _healthLevel: 0
+  _healthLevelCosts: 640000002c01000058020000e8030000dc050000
+  _damageLevel: 0
+  _damageLevelCosts: 640000002c01000058020000e8030000dc050000
+  _fireRateLevel: 0
+  _fireRateLevelCosts: 640000002c01000058020000e8030000dc050000
+  _rangeLevel: 0
+  _rangeLevelCosts: 640000002c01000058020000e8030000dc050000
   _canFire: 0
   _currentTarget: {fileID: 0}
   _inRangeEnemies: []
   _projectileManager: {fileID: 0}
+  _damage: 1
+  _damageUpgrade: 1
+  _fireRate: 1
+  _fireRateUpgrade: 0.1
+  _healthUpgrade: 25
+  _rangeUpgrade: 15
   _stats: {fileID: 11400000, guid: 6f22d35d4c48dd6498355172d68ca31a, type: 2}
 --- !u!135 &135218179687731978
 SphereCollider:
