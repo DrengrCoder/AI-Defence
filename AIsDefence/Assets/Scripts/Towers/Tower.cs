@@ -13,6 +13,11 @@ public abstract class Tower : MonoBehaviour {
     //[HideInInspector]
     //public float _currentRecoilTime = 0f;
     //private bool _reversingRecoil = false;
+    
+    public ParticleSystem _pulseEffect;
+    [HideInInspector]
+    public bool _emittingPulse = false;
+    private int _scale = 0;
 
     public int _maxHealth = 100;
     private int _health = 100;
@@ -95,6 +100,25 @@ public abstract class Tower : MonoBehaviour {
         if (_currentTarget != null)
         {
             transform.LookAt(new Vector3(_currentTarget.transform.position.x, 0, _currentTarget.transform.position.z));
+        }
+
+        if (_emittingPulse)
+        {
+            _scale++;
+
+            var sm = _pulseEffect.shape;
+            sm.radius = _scale * (Time.deltaTime * 4);
+            
+            if (_scale >= GetTowerFireRate(false) * 60)//multiplying a constant so speed scales with firerate
+            {
+                _emittingPulse = false;
+
+                sm.radius = 0.01f;
+                _scale = 0;
+
+                var em = _pulseEffect.emission;
+                em.enabled = false;
+            }
         }
 
         //if (_recoiling)

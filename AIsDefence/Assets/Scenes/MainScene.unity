@@ -4831,7 +4831,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &243733863
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10216,7 +10216,7 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -11160,7 +11160,7 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -26376,7 +26376,7 @@ MonoBehaviour:
   _spreadPrefab: {fileID: 1752187486771094, guid: f3094cefa7e83884782f6ea860f1f953,
     type: 2}
   _aoePrefab: {fileID: 1530597613545732, guid: f32ed324b7181e8458b753337275beae, type: 2}
-  _pulsePrefab: {fileID: 1107466246391842, guid: a14a554444e157c49b11597d88980336,
+  _pulsePrefab: {fileID: 1009842872239954, guid: a14a554444e157c49b11597d88980336,
     type: 2}
   currentAngle: 0
   index: 0
@@ -37868,7 +37868,7 @@ MonoBehaviour:
         m_MethodName: SpawnObject
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1107466246391842, guid: a14a554444e157c49b11597d88980336,
+          m_ObjectArgument: {fileID: 1009842872239954, guid: a14a554444e157c49b11597d88980336,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 10

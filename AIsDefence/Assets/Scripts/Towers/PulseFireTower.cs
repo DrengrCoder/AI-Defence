@@ -57,7 +57,10 @@ public class PulseFireTower : Tower {
 
     private void Attack()
     {
-        //this sound play work differently, waiting until finished
+        var em = _pulseEffect.emission;
+        em.enabled = true;
+        _emittingPulse = true;
+
         AttackSound.Play();
 
         foreach (GameObject enemy in _inRangeEnemies)
