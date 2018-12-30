@@ -13,6 +13,11 @@ public class BombProjectile : MonoBehaviour {
 
     public int _tVal = 0;
 
+    [SerializeField]
+    private AudioClip _explosionAudio;
+    [SerializeField]
+    private ParticleSystem _explosionVisual;
+
     private void OnEnable()
     {
         if (_tVal != 0)
@@ -67,6 +72,8 @@ public class BombProjectile : MonoBehaviour {
     
     private void DestroyBullet()
     {
+        AudioSource.PlayClipAtPoint(_explosionAudio, GameObject.FindGameObjectWithTag("MainCamera").transform.position);
+
         this.gameObject.GetComponent<Rigidbody>().isKinematic = true;
         this.gameObject.SetActive(false);
         this.gameObject.GetComponent<Rigidbody>().isKinematic = false;

@@ -53,6 +53,8 @@ public abstract class Tower : MonoBehaviour {
     [HideInInspector]
     public ProjectileManager _projectileManager;
 
+    public AudioSource AttackSound;
+
     //System
     private void OnEnable()
     {

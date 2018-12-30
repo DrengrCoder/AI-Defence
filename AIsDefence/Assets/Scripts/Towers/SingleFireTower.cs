@@ -61,6 +61,7 @@ public class SingleFireTower : Tower {
 
     private void Attack()
     {
+        AttackSound.Play();
         _projectileManager.FireProjectile(this.gameObject, _currentTarget.GetComponent<CapsuleCollider>(), _bullet, _force, _damage, Num);
     }
 

@@ -61,6 +61,7 @@ public class SpreadFireTower : Tower {
 
     private void Attack()
     {
+        AttackSound.Play();
         _projectileManager.FireSpreadProjectile(this.gameObject, _currentTarget.GetComponent<CapsuleCollider>(), _bullet, _force, _damage, Num);
     }
 

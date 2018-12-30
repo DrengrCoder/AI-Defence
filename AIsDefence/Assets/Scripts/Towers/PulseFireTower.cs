@@ -57,6 +57,9 @@ public class PulseFireTower : Tower {
 
     private void Attack()
     {
+        //this sound play work differently, waiting until finished
+        AttackSound.Play();
+
         foreach (GameObject enemy in _inRangeEnemies)
         {
             bool killed = enemy.GetComponent<Enemy>().TakeDamage(_damage);

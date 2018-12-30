@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4572776138755676}
   - component: {fileID: 135908634062376512}
   - component: {fileID: 114752706611338784}
+  - component: {fileID: 82246259511734966}
   m_Layer: 2
   m_Name: AOE Tower
   m_TagString: Tower
@@ -129,6 +130,101 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10.920005, y: 8.77, z: 8.82}
   m_Center: {x: 0, y: 4.37, z: -1.2}
+--- !u!82 &82246259511734966
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1530597613545732}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: ec55a34b4792b5240ad19f4b1e740215, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &114752706611338784
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -140,11 +236,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe8236b18cfc8374d9def09022681652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseHealth: 100
   _maxHealth: 100
   _cost: 1000
   Num: 0
   MenuActiveOverThis: 0
+  _maxUpgrades: 5
   _healthLevel: 0
   _healthLevelCosts: 640000002c01000058020000e8030000dc050000
   _damageLevel: 0
@@ -157,7 +253,8 @@ MonoBehaviour:
   _currentTarget: {fileID: 0}
   _inRangeEnemies: []
   _projectileManager: {fileID: 0}
-  _bullet: {fileID: 1808151321666730, guid: a44d5d444f103e54e8f3e9c0360fe465, type: 2}
+  AttackSound: {fileID: 82246259511734966}
+  _bullet: {fileID: 1644848693728838, guid: a44d5d444f103e54e8f3e9c0360fe465, type: 2}
   _damage: 10
   _damageUpgrade: 3
   _fireRate: 1

@@ -13,6 +13,11 @@ public class RMF_RadialMenuElement : MonoBehaviour {
     [HideInInspector]
     public RMF_RadialMenu parentRM;
 
+    [SerializeField]
+    private AudioClip _clickAudio;
+    [SerializeField]
+    private AudioClip _highlightAudio;
+
     [Tooltip("Each radial element needs a button. This is generally a child one level below this primary radial element game object.")]
     public Button button;
 
@@ -127,6 +132,11 @@ public class RMF_RadialMenuElement : MonoBehaviour {
     //Highlights this button. Unity's default button wasn't really meant to be controlled through code so event handlers are necessary here.
     //I would highly recommend not messing with this stuff unless you know what you're doing, if one event handler is wrong then the whole thing can break.
     public void highlightThisElement(PointerEventData p) {
+
+        if (_highlightAudio != null)
+        {
+            AudioSource.PlayClipAtPoint(_highlightAudio, GameObject.FindGameObjectWithTag("MainCamera").transform.position);
+        }
 
         ExecuteEvents.Execute(button.gameObject, p, ExecuteEvents.selectHandler);
         active = true;
@@ -329,6 +339,11 @@ public class RMF_RadialMenuElement : MonoBehaviour {
 
     public void ExecuteFunction()
     {
+        if (_clickAudio != null)
+        {
+            AudioSource.PlayClipAtPoint(_clickAudio, GameObject.FindGameObjectWithTag("MainCamera").transform.position);
+        }
+
         Tower tower = _rmc._hitTower;
 
         switch (this.label)

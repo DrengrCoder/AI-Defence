@@ -251,6 +251,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
   m_IsPrefabParent: 0
@@ -591,6 +595,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
   m_IsPrefabParent: 0
@@ -706,6 +714,7 @@ GameObject:
   m_Component:
   - component: {fileID: 55722790}
   - component: {fileID: 55722791}
+  - component: {fileID: 55722792}
   m_Layer: 5
   m_Name: HealthWheelButton
   m_TagString: RadialWheelButton
@@ -747,6 +756,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rt: {fileID: 0}
   parentRM: {fileID: 0}
+  _clickAudio: {fileID: 8300000, guid: f580131257312ee4a85a691aa08a5d2f, type: 3}
+  _highlightAudio: {fileID: 8300000, guid: 401f70bcc1901ab42b54dfeb672c5ded, type: 3}
   button: {fileID: 925257574}
   label: Health
   angleMin: 0
@@ -758,6 +769,101 @@ MonoBehaviour:
   _toolTipText: {fileID: 2077209049}
   _toolTipBox: {fileID: 1843124232}
   _rmc: {fileID: 58731043}
+--- !u!82 &55722792
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 55722789}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &58731038
 GameObject:
   m_ObjectHideFlags: 0
@@ -1583,6 +1689,7 @@ GameObject:
   m_Component:
   - component: {fileID: 102177761}
   - component: {fileID: 102177762}
+  - component: {fileID: 102177763}
   m_Layer: 5
   m_Name: FirstEnemyButton
   m_TagString: Untagged
@@ -1624,6 +1731,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rt: {fileID: 0}
   parentRM: {fileID: 0}
+  _clickAudio: {fileID: 8300000, guid: 0b1fa326ef6ee7b4e9daebcdb7acb84c, type: 3}
+  _highlightAudio: {fileID: 8300000, guid: 401f70bcc1901ab42b54dfeb672c5ded, type: 3}
   button: {fileID: 23400672}
   label: First Enemy
   angleMin: 0
@@ -1635,6 +1744,101 @@ MonoBehaviour:
   _toolTipText: {fileID: 610267997}
   _toolTipBox: {fileID: 531177444}
   _rmc: {fileID: 58731043}
+--- !u!82 &102177763
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 102177760}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &104314934
 GameObject:
   m_ObjectHideFlags: 0
@@ -1732,6 +1936,10 @@ Prefab:
     - target: {fileID: 100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
@@ -1989,6 +2197,10 @@ Prefab:
     - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
@@ -2406,6 +2618,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
   m_IsPrefabParent: 0
@@ -2628,6 +2844,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
   m_IsPrefabParent: 0
@@ -2831,7 +3051,7 @@ GameObject:
   - component: {fileID: 161027924}
   m_Layer: 0
   m_Name: buildingCorridor
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -2958,6 +3178,10 @@ Prefab:
     - target: {fileID: 100000, guid: bb9c060af11babc4ab76252d0f18ea85, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: bb9c060af11babc4ab76252d0f18ea85, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb9c060af11babc4ab76252d0f18ea85, type: 3}
@@ -3170,6 +3394,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
   m_IsPrefabParent: 0
@@ -3374,6 +3602,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
   m_IsPrefabParent: 0
@@ -3426,6 +3658,7 @@ GameObject:
   m_Component:
   - component: {fileID: 202980079}
   - component: {fileID: 202980078}
+  - component: {fileID: 202980080}
   m_Layer: 5
   m_Name: AttackWheelButton
   m_TagString: RadialWheelButton
@@ -3447,6 +3680,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rt: {fileID: 0}
   parentRM: {fileID: 0}
+  _clickAudio: {fileID: 0}
+  _highlightAudio: {fileID: 8300000, guid: 401f70bcc1901ab42b54dfeb672c5ded, type: 3}
   button: {fileID: 212711826}
   label: Attack Wheel Button
   angleMin: 0
@@ -3478,6 +3713,101 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!82 &202980080
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 202980077}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &204921652
 GameObject:
   m_ObjectHideFlags: 0
@@ -4083,6 +4413,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
   m_IsPrefabParent: 0
@@ -4395,6 +4729,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
   m_IsPrefabParent: 0
@@ -4464,6 +4802,10 @@ Prefab:
     - target: {fileID: 100000, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
@@ -4598,6 +4940,10 @@ Prefab:
     - target: {fileID: 100000, guid: b9328177ca8d14943a3f34773292b09e, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b9328177ca8d14943a3f34773292b09e, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b9328177ca8d14943a3f34773292b09e, type: 3}
@@ -4878,6 +5224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 256331272}
   - component: {fileID: 256331273}
+  - component: {fileID: 256331274}
   m_Layer: 5
   m_Name: LeastDamageEnemyButton
   m_TagString: Untagged
@@ -4919,6 +5266,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rt: {fileID: 0}
   parentRM: {fileID: 0}
+  _clickAudio: {fileID: 8300000, guid: 0b1fa326ef6ee7b4e9daebcdb7acb84c, type: 3}
+  _highlightAudio: {fileID: 8300000, guid: 401f70bcc1901ab42b54dfeb672c5ded, type: 3}
   button: {fileID: 1954926999}
   label: Least Damage
   angleMin: 0
@@ -4930,6 +5279,101 @@ MonoBehaviour:
   _toolTipText: {fileID: 220631981}
   _toolTipBox: {fileID: 520395273}
   _rmc: {fileID: 58731043}
+--- !u!82 &256331274
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 256331271}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &266345335
 GameObject:
   m_ObjectHideFlags: 0
@@ -5482,6 +5926,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
   m_IsPrefabParent: 0
@@ -5517,7 +5965,7 @@ GameObject:
   - component: {fileID: 324601155}
   m_Layer: 0
   m_Name: buildingCorridor (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
@@ -5834,6 +6282,14 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 7767c7724120ac144be61a6242bd2c41, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7767c7724120ac144be61a6242bd2c41, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7767c7724120ac144be61a6242bd2c41, type: 3}
   m_IsPrefabParent: 0
@@ -5995,7 +6451,7 @@ GameObject:
   - component: {fileID: 335749763}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -6079,6 +6535,7 @@ GameObject:
   m_Component:
   - component: {fileID: 339566290}
   - component: {fileID: 339566291}
+  - component: {fileID: 339566292}
   m_Layer: 5
   m_Name: FirerateWheelButton
   m_TagString: RadialWheelButton
@@ -6119,6 +6576,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rt: {fileID: 0}
   parentRM: {fileID: 0}
+  _clickAudio: {fileID: 8300000, guid: f580131257312ee4a85a691aa08a5d2f, type: 3}
+  _highlightAudio: {fileID: 8300000, guid: 401f70bcc1901ab42b54dfeb672c5ded, type: 3}
   button: {fileID: 1654448084}
   label: Firerate
   angleMin: 0
@@ -6130,6 +6589,101 @@ MonoBehaviour:
   _toolTipText: {fileID: 422496223}
   _toolTipBox: {fileID: 798751944}
   _rmc: {fileID: 58731043}
+--- !u!82 &339566292
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 339566289}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &339759250
 GameObject:
   m_ObjectHideFlags: 0
@@ -6345,6 +6899,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
   m_IsPrefabParent: 0
@@ -6401,7 +6959,7 @@ GameObject:
   - component: {fileID: 354878818}
   m_Layer: 0
   m_Name: buildingCorridor (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
@@ -7057,6 +7615,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
   m_IsPrefabParent: 0
@@ -7230,7 +7792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefabProjectiles:
   - {fileID: 1195412905759990, guid: 3f26251a6a5e3cc4eb27be0c9f0ad369, type: 2}
-  - {fileID: 1808151321666730, guid: a44d5d444f103e54e8f3e9c0360fe465, type: 2}
+  - {fileID: 1644848693728838, guid: a44d5d444f103e54e8f3e9c0360fe465, type: 2}
   _pool: []
 --- !u!1 &407635374
 GameObject:
@@ -8044,6 +8606,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
   m_IsPrefabParent: 0
@@ -8690,6 +9256,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
   m_IsPrefabParent: 0
@@ -8707,7 +9277,7 @@ GameObject:
   - component: {fileID: 468674244}
   m_Layer: 0
   m_Name: Rocks
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9016,6 +9586,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
   m_IsPrefabParent: 0
@@ -9279,6 +9853,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
   m_IsPrefabParent: 0
@@ -9348,6 +9926,10 @@ Prefab:
     - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
@@ -9492,6 +10074,10 @@ Prefab:
     - target: {fileID: 100002, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
       propertyPath: m_Name
       value: crater (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
@@ -9803,6 +10389,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
   m_IsPrefabParent: 0
@@ -9977,6 +10567,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
   m_IsPrefabParent: 0
@@ -10121,6 +10715,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
   m_IsPrefabParent: 0
@@ -10258,6 +10856,10 @@ Prefab:
     - target: {fileID: 100000, guid: bb9c060af11babc4ab76252d0f18ea85, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: bb9c060af11babc4ab76252d0f18ea85, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb9c060af11babc4ab76252d0f18ea85, type: 3}
@@ -10400,6 +11002,10 @@ Prefab:
     - target: {fileID: 100000, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
@@ -10695,6 +11301,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
   m_IsPrefabParent: 0
@@ -10781,6 +11391,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
   m_IsPrefabParent: 0
@@ -10850,6 +11464,10 @@ Prefab:
     - target: {fileID: 100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
@@ -10949,6 +11567,10 @@ Prefab:
     - target: {fileID: 100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
       propertyPath: m_Name
       value: metalFence (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
@@ -11390,6 +12012,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
   m_IsPrefabParent: 0
@@ -11587,6 +12213,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
   m_IsPrefabParent: 0
@@ -11673,6 +12303,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
   m_IsPrefabParent: 0
@@ -11690,6 +12324,7 @@ GameObject:
   m_Component:
   - component: {fileID: 603461347}
   - component: {fileID: 603461348}
+  - component: {fileID: 603461349}
   m_Layer: 5
   m_Name: MostDamageEnemyButton
   m_TagString: Untagged
@@ -11731,6 +12366,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rt: {fileID: 0}
   parentRM: {fileID: 0}
+  _clickAudio: {fileID: 8300000, guid: 0b1fa326ef6ee7b4e9daebcdb7acb84c, type: 3}
+  _highlightAudio: {fileID: 8300000, guid: 401f70bcc1901ab42b54dfeb672c5ded, type: 3}
   button: {fileID: 1575868481}
   label: Most Damage
   angleMin: 0
@@ -11742,6 +12379,101 @@ MonoBehaviour:
   _toolTipText: {fileID: 1443630970}
   _toolTipBox: {fileID: 1917231427}
   _rmc: {fileID: 58731043}
+--- !u!82 &603461349
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 603461346}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &604376044
 GameObject:
   m_ObjectHideFlags: 0
@@ -11919,6 +12651,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
   m_IsPrefabParent: 0
@@ -11935,6 +12671,7 @@ GameObject:
   m_Component:
   - component: {fileID: 616069163}
   - component: {fileID: 616069164}
+  - component: {fileID: 616069165}
   m_Layer: 5
   m_Name: SingleFireWheelButton
   m_TagString: Untagged
@@ -11976,6 +12713,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rt: {fileID: 0}
   parentRM: {fileID: 0}
+  _clickAudio: {fileID: 8300000, guid: be075a1a08cbe904bbf4f54ebdeb1886, type: 3}
+  _highlightAudio: {fileID: 8300000, guid: 401f70bcc1901ab42b54dfeb672c5ded, type: 3}
   button: {fileID: 420293788}
   label: Single Fire
   angleMin: 0
@@ -11987,6 +12726,101 @@ MonoBehaviour:
   _toolTipText: {fileID: 149580177}
   _toolTipBox: {fileID: 1951122050}
   _rmc: {fileID: 58731043}
+--- !u!82 &616069165
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 616069162}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &617144362
 GameObject:
   m_ObjectHideFlags: 0
@@ -12212,6 +13046,10 @@ Prefab:
     - target: {fileID: 100000, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
@@ -12531,6 +13369,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
   m_IsPrefabParent: 0
@@ -12632,6 +13474,10 @@ Prefab:
     - target: {fileID: 100000, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
@@ -12843,6 +13689,10 @@ Prefab:
     - target: {fileID: 100000, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
@@ -13192,6 +14042,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: b0280560dee51024c8fab46f7ad86d0f, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0280560dee51024c8fab46f7ad86d0f, type: 3}
   m_IsPrefabParent: 0
@@ -13476,6 +14330,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
   m_IsPrefabParent: 0
@@ -13562,6 +14420,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ebfb42af6b0984d458bfdeac68822f40, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ebfb42af6b0984d458bfdeac68822f40, type: 3}
   m_IsPrefabParent: 0
@@ -13631,6 +14493,10 @@ Prefab:
     - target: {fileID: 100000, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
@@ -13702,6 +14568,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
   m_IsPrefabParent: 0
@@ -13719,6 +14589,7 @@ GameObject:
   m_Component:
   - component: {fileID: 766822147}
   - component: {fileID: 766822148}
+  - component: {fileID: 766822149}
   m_Layer: 5
   m_Name: RangeWheelButton
   m_TagString: RadialWheelButton
@@ -13759,6 +14630,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rt: {fileID: 0}
   parentRM: {fileID: 0}
+  _clickAudio: {fileID: 8300000, guid: f580131257312ee4a85a691aa08a5d2f, type: 3}
+  _highlightAudio: {fileID: 8300000, guid: 401f70bcc1901ab42b54dfeb672c5ded, type: 3}
   button: {fileID: 974167474}
   label: Range
   angleMin: 0
@@ -13770,6 +14643,101 @@ MonoBehaviour:
   _toolTipText: {fileID: 1878815254}
   _toolTipBox: {fileID: 2048589076}
   _rmc: {fileID: 58731043}
+--- !u!82 &766822149
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 766822146}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &770893213
 GameObject:
   m_ObjectHideFlags: 0
@@ -13780,7 +14748,7 @@ GameObject:
   - component: {fileID: 770893214}
   m_Layer: 0
   m_Name: Fence
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13891,6 +14859,10 @@ Prefab:
     - target: {fileID: 100000, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
@@ -14007,6 +14979,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: bb9c060af11babc4ab76252d0f18ea85, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb9c060af11babc4ab76252d0f18ea85, type: 3}
   m_IsPrefabParent: 0
@@ -14076,6 +15052,10 @@ Prefab:
     - target: {fileID: 100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
@@ -14652,6 +15632,7 @@ GameObject:
   m_Component:
   - component: {fileID: 812818625}
   - component: {fileID: 812818626}
+  - component: {fileID: 812818627}
   m_Layer: 5
   m_Name: PulseFireWheelButton
   m_TagString: Untagged
@@ -14693,6 +15674,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rt: {fileID: 0}
   parentRM: {fileID: 0}
+  _clickAudio: {fileID: 8300000, guid: be075a1a08cbe904bbf4f54ebdeb1886, type: 3}
+  _highlightAudio: {fileID: 8300000, guid: 401f70bcc1901ab42b54dfeb672c5ded, type: 3}
   button: {fileID: 2028645026}
   label: Pulse Fire
   angleMin: 0
@@ -14704,6 +15687,101 @@ MonoBehaviour:
   _toolTipText: {fileID: 1054662027}
   _toolTipBox: {fileID: 1762038740}
   _rmc: {fileID: 58731043}
+--- !u!82 &812818627
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 812818624}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &823071889
 GameObject:
   m_ObjectHideFlags: 0
@@ -15260,6 +16338,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: bb9c060af11babc4ab76252d0f18ea85, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb9c060af11babc4ab76252d0f18ea85, type: 3}
   m_IsPrefabParent: 0
@@ -15702,6 +16784,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
   m_IsPrefabParent: 0
@@ -16005,6 +17091,10 @@ Prefab:
     - target: {fileID: 100000, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
@@ -16393,6 +17483,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
   m_IsPrefabParent: 0
@@ -16667,6 +17761,10 @@ Prefab:
       propertyPath: m_Name
       value: crater (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
   m_IsPrefabParent: 0
@@ -16882,6 +17980,10 @@ Prefab:
     - target: {fileID: 100000, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
@@ -17222,6 +18324,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
   m_IsPrefabParent: 0
@@ -17529,7 +18635,7 @@ GameObject:
   - component: {fileID: 986849930}
   m_Layer: 0
   m_Name: buildingCorridor (3)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
@@ -17604,6 +18710,7 @@ GameObject:
   m_Component:
   - component: {fileID: 988306176}
   - component: {fileID: 988306177}
+  - component: {fileID: 988306178}
   m_Layer: 5
   m_Name: MostHealthEnemyButton
   m_TagString: Untagged
@@ -17645,6 +18752,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rt: {fileID: 0}
   parentRM: {fileID: 0}
+  _clickAudio: {fileID: 8300000, guid: 0b1fa326ef6ee7b4e9daebcdb7acb84c, type: 3}
+  _highlightAudio: {fileID: 8300000, guid: 401f70bcc1901ab42b54dfeb672c5ded, type: 3}
   button: {fileID: 1850945562}
   label: Most Health
   angleMin: 0
@@ -17656,6 +18765,101 @@ MonoBehaviour:
   _toolTipText: {fileID: 1302925089}
   _toolTipBox: {fileID: 855599046}
   _rmc: {fileID: 58731043}
+--- !u!82 &988306178
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 988306175}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &992288745
 GameObject:
   m_ObjectHideFlags: 0
@@ -17788,6 +18992,10 @@ Prefab:
     - target: {fileID: 100002, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
       propertyPath: m_Name
       value: crater (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
@@ -18027,6 +19235,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
   m_IsPrefabParent: 0
@@ -18096,6 +19308,10 @@ Prefab:
     - target: {fileID: 100002, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
       propertyPath: m_Name
       value: crater (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
@@ -18167,6 +19383,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
   m_IsPrefabParent: 0
@@ -18236,6 +19456,10 @@ Prefab:
     - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
@@ -18506,6 +19730,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
   m_IsPrefabParent: 0
@@ -18591,6 +19819,10 @@ Prefab:
     - target: {fileID: 100000, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
@@ -18736,6 +19968,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
   m_IsPrefabParent: 0
@@ -18755,7 +19991,7 @@ GameObject:
   - component: {fileID: 1053472341}
   m_Layer: 0
   m_Name: buildingCorridor (3)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
@@ -19235,6 +20471,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
   m_IsPrefabParent: 0
@@ -19435,6 +20675,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
   m_IsPrefabParent: 0
@@ -19500,6 +20744,10 @@ Prefab:
     - target: {fileID: 100000, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
@@ -19939,6 +21187,10 @@ Prefab:
     - target: {fileID: 100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
@@ -20539,6 +21791,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
   m_IsPrefabParent: 0
@@ -20639,6 +21895,10 @@ Prefab:
     - target: {fileID: 100000, guid: bb9c060af11babc4ab76252d0f18ea85, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: bb9c060af11babc4ab76252d0f18ea85, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb9c060af11babc4ab76252d0f18ea85, type: 3}
@@ -20952,6 +22212,10 @@ Prefab:
     - target: {fileID: 100000, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
@@ -21387,6 +22651,10 @@ Prefab:
       propertyPath: m_Name
       value: crater (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
   m_IsPrefabParent: 0
@@ -21456,6 +22724,10 @@ Prefab:
     - target: {fileID: 100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
@@ -21616,6 +22888,10 @@ Prefab:
     - target: {fileID: 100000, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
@@ -21848,6 +23124,10 @@ Prefab:
     - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
@@ -22296,6 +23576,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
   m_IsPrefabParent: 0
@@ -22365,6 +23649,10 @@ Prefab:
     - target: {fileID: 100000, guid: bb9c060af11babc4ab76252d0f18ea85, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: bb9c060af11babc4ab76252d0f18ea85, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb9c060af11babc4ab76252d0f18ea85, type: 3}
@@ -22497,6 +23785,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1241551444}
   - component: {fileID: 1241551445}
+  - component: {fileID: 1241551446}
   m_Layer: 5
   m_Name: DamageWheelButton
   m_TagString: RadialWheelButton
@@ -22537,6 +23826,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rt: {fileID: 0}
   parentRM: {fileID: 0}
+  _clickAudio: {fileID: 8300000, guid: f580131257312ee4a85a691aa08a5d2f, type: 3}
+  _highlightAudio: {fileID: 8300000, guid: 401f70bcc1901ab42b54dfeb672c5ded, type: 3}
   button: {fileID: 1862494484}
   label: Damage
   angleMin: 0
@@ -22548,6 +23839,101 @@ MonoBehaviour:
   _toolTipText: {fileID: 46417524}
   _toolTipBox: {fileID: 197288411}
   _rmc: {fileID: 58731043}
+--- !u!82 &1241551446
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1241551443}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1256670692
 GameObject:
   m_ObjectHideFlags: 0
@@ -22831,6 +24217,10 @@ Prefab:
     - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
@@ -23183,6 +24573,10 @@ Prefab:
       propertyPath: m_Name
       value: crater (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
   m_IsPrefabParent: 0
@@ -23252,6 +24646,10 @@ Prefab:
     - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
@@ -23866,7 +25264,7 @@ GameObject:
   - component: {fileID: 1336628537}
   m_Layer: 0
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23951,6 +25349,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
   m_IsPrefabParent: 0
@@ -24021,6 +25423,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
   m_IsPrefabParent: 0
@@ -24090,6 +25496,10 @@ Prefab:
     - target: {fileID: 100002, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
       propertyPath: m_Name
       value: crater (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
@@ -24211,6 +25621,10 @@ Prefab:
     - target: {fileID: 100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
@@ -24689,6 +26103,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
   m_IsPrefabParent: 0
@@ -24705,6 +26123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1383697859}
   - component: {fileID: 1383697860}
+  - component: {fileID: 1383697861}
   m_Layer: 5
   m_Name: AoeFireWheelButton
   m_TagString: Untagged
@@ -24746,6 +26165,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rt: {fileID: 0}
   parentRM: {fileID: 0}
+  _clickAudio: {fileID: 8300000, guid: be075a1a08cbe904bbf4f54ebdeb1886, type: 3}
+  _highlightAudio: {fileID: 8300000, guid: 401f70bcc1901ab42b54dfeb672c5ded, type: 3}
   button: {fileID: 1269229347}
   label: AOE Fire
   angleMin: 0
@@ -24757,6 +26178,101 @@ MonoBehaviour:
   _toolTipText: {fileID: 1311892716}
   _toolTipBox: {fileID: 1165559359}
   _rmc: {fileID: 58731043}
+--- !u!82 &1383697861
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1383697858}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1404649110
 Prefab:
   m_ObjectHideFlags: 0
@@ -25036,6 +26552,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
   m_IsPrefabParent: 0
@@ -25178,6 +26698,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: b0280560dee51024c8fab46f7ad86d0f, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0280560dee51024c8fab46f7ad86d0f, type: 3}
   m_IsPrefabParent: 0
@@ -25316,6 +26840,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
   m_IsPrefabParent: 0
@@ -25424,7 +26952,7 @@ GameObject:
   - component: {fileID: 1440847062}
   m_Layer: 0
   m_Name: Plane (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -25560,6 +27088,10 @@ Prefab:
     - target: {fileID: 100000, guid: b9328177ca8d14943a3f34773292b09e, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b9328177ca8d14943a3f34773292b09e, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b9328177ca8d14943a3f34773292b09e, type: 3}
@@ -25729,6 +27261,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
   m_IsPrefabParent: 0
@@ -25814,6 +27350,10 @@ Prefab:
     - target: {fileID: 100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
@@ -25926,6 +27466,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: b0280560dee51024c8fab46f7ad86d0f, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0280560dee51024c8fab46f7ad86d0f, type: 3}
   m_IsPrefabParent: 0
@@ -25995,6 +27539,10 @@ Prefab:
     - target: {fileID: 100000, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
@@ -26150,6 +27698,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: bb9c060af11babc4ab76252d0f18ea85, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb9c060af11babc4ab76252d0f18ea85, type: 3}
   m_IsPrefabParent: 0
@@ -26234,6 +27786,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1490750580}
   - component: {fileID: 1490750581}
+  - component: {fileID: 1490750582}
   m_Layer: 5
   m_Name: BurstFireWheelButton
   m_TagString: Untagged
@@ -26275,6 +27828,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rt: {fileID: 0}
   parentRM: {fileID: 0}
+  _clickAudio: {fileID: 8300000, guid: be075a1a08cbe904bbf4f54ebdeb1886, type: 3}
+  _highlightAudio: {fileID: 8300000, guid: 401f70bcc1901ab42b54dfeb672c5ded, type: 3}
   button: {fileID: 1555913473}
   label: Burst Fire
   angleMin: 0
@@ -26286,6 +27841,101 @@ MonoBehaviour:
   _toolTipText: {fileID: 266345337}
   _toolTipBox: {fileID: 645403212}
   _rmc: {fileID: 58731043}
+--- !u!82 &1490750582
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1490750579}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1497831374
 Prefab:
   m_ObjectHideFlags: 0
@@ -26348,6 +27998,10 @@ Prefab:
     - target: {fileID: 100000, guid: ebfb42af6b0984d458bfdeac68822f40, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ebfb42af6b0984d458bfdeac68822f40, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ebfb42af6b0984d458bfdeac68822f40, type: 3}
@@ -26528,6 +28182,10 @@ Prefab:
     - target: {fileID: 100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
@@ -26925,6 +28583,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
   m_IsPrefabParent: 0
@@ -26944,7 +28606,7 @@ GameObject:
   - component: {fileID: 1516999281}
   m_Layer: 0
   m_Name: buildingCorridor (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
@@ -27096,6 +28758,10 @@ Prefab:
     - target: {fileID: 100000, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
@@ -27519,6 +29185,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
   m_IsPrefabParent: 0
@@ -27912,6 +29582,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: bb9c060af11babc4ab76252d0f18ea85, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb9c060af11babc4ab76252d0f18ea85, type: 3}
   m_IsPrefabParent: 0
@@ -27981,6 +29655,10 @@ Prefab:
     - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
@@ -28482,7 +30160,7 @@ GameObject:
   - component: {fileID: 1611618996}
   m_Layer: 0
   m_Name: buildingCorridor (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
@@ -28736,6 +30414,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
   m_IsPrefabParent: 0
@@ -28970,6 +30652,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
   m_IsPrefabParent: 0
@@ -29040,6 +30726,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
   m_IsPrefabParent: 0
@@ -29102,7 +30792,7 @@ GameObject:
   - component: {fileID: 1644838941}
   m_Layer: 0
   m_Name: buildingCorridor
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29186,6 +30876,10 @@ Prefab:
     - target: {fileID: 100002, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
       propertyPath: m_Name
       value: crater (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
@@ -29566,6 +31260,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
   m_IsPrefabParent: 0
@@ -29725,6 +31423,10 @@ Prefab:
     - target: {fileID: 100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
@@ -29925,7 +31627,7 @@ GameObject:
   - component: {fileID: 1700476118}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -30061,6 +31763,10 @@ Prefab:
     - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
@@ -30242,6 +31948,10 @@ Prefab:
     - target: {fileID: 100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
@@ -31170,6 +32880,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
   m_IsPrefabParent: 0
@@ -31235,6 +32949,10 @@ Prefab:
     - target: {fileID: 100000, guid: ebfb42af6b0984d458bfdeac68822f40, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ebfb42af6b0984d458bfdeac68822f40, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ebfb42af6b0984d458bfdeac68822f40, type: 3}
@@ -31306,6 +33024,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
   m_IsPrefabParent: 0
@@ -31375,6 +33097,10 @@ Prefab:
     - target: {fileID: 100000, guid: b0280560dee51024c8fab46f7ad86d0f, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: b0280560dee51024c8fab46f7ad86d0f, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0280560dee51024c8fab46f7ad86d0f, type: 3}
@@ -31446,6 +33172,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
   m_IsPrefabParent: 0
@@ -31515,6 +33245,10 @@ Prefab:
     - target: {fileID: 100002, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
       propertyPath: m_Name
       value: crater (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
@@ -31586,6 +33320,10 @@ Prefab:
       propertyPath: m_Name
       value: crater (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
   m_IsPrefabParent: 0
@@ -31603,6 +33341,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1822899298}
   - component: {fileID: 1822899299}
+  - component: {fileID: 1822899300}
   m_Layer: 5
   m_Name: LastEnemyButton
   m_TagString: Untagged
@@ -31644,6 +33383,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rt: {fileID: 0}
   parentRM: {fileID: 0}
+  _clickAudio: {fileID: 8300000, guid: 0b1fa326ef6ee7b4e9daebcdb7acb84c, type: 3}
+  _highlightAudio: {fileID: 8300000, guid: 401f70bcc1901ab42b54dfeb672c5ded, type: 3}
   button: {fileID: 581105441}
   label: Last Enemy
   angleMin: 0
@@ -31655,6 +33396,101 @@ MonoBehaviour:
   _toolTipText: {fileID: 1235855826}
   _toolTipBox: {fileID: 1666452171}
   _rmc: {fileID: 58731043}
+--- !u!82 &1822899300
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1822899297}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1823756970
 Prefab:
   m_ObjectHideFlags: 0
@@ -31717,6 +33553,10 @@ Prefab:
     - target: {fileID: 100000, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
@@ -31934,6 +33774,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1a486742b770c5449b367cdd6bc18da, type: 3}
   m_IsPrefabParent: 0
@@ -32053,6 +33897,10 @@ Prefab:
     - target: {fileID: 100000, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
@@ -32315,6 +34163,10 @@ Prefab:
     - target: {fileID: 100000, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cc70ed889fcb8e4f92a3545f960ee83, type: 3}
@@ -32597,6 +34449,10 @@ Prefab:
     - target: {fileID: 100000, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
@@ -33097,6 +34953,10 @@ Prefab:
       propertyPath: m_Name
       value: crater (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
   m_IsPrefabParent: 0
@@ -33114,6 +34974,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1878605304}
   - component: {fileID: 1878605305}
+  - component: {fileID: 1878605306}
   m_Layer: 5
   m_Name: LeastHealthEnemyButton
   m_TagString: Untagged
@@ -33155,6 +35016,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rt: {fileID: 0}
   parentRM: {fileID: 0}
+  _clickAudio: {fileID: 8300000, guid: 0b1fa326ef6ee7b4e9daebcdb7acb84c, type: 3}
+  _highlightAudio: {fileID: 8300000, guid: 401f70bcc1901ab42b54dfeb672c5ded, type: 3}
   button: {fileID: 1378110049}
   label: Least Health
   angleMin: 0
@@ -33166,6 +35029,101 @@ MonoBehaviour:
   _toolTipText: {fileID: 2050239184}
   _toolTipBox: {fileID: 113714214}
   _rmc: {fileID: 58731043}
+--- !u!82 &1878605306
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1878605303}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1878815252
 GameObject:
   m_ObjectHideFlags: 0
@@ -33258,7 +35216,7 @@ GameObject:
   - component: {fileID: 1884078035}
   m_Layer: 0
   m_Name: BaseLevel
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33346,6 +35304,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
   m_IsPrefabParent: 0
@@ -33363,6 +35325,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1895687232}
   - component: {fileID: 1895687233}
+  - component: {fileID: 1895687234}
   m_Layer: 5
   m_Name: UpgradeWheelButton
   m_TagString: RadialWheelButton
@@ -33404,6 +35367,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rt: {fileID: 0}
   parentRM: {fileID: 0}
+  _clickAudio: {fileID: 0}
+  _highlightAudio: {fileID: 8300000, guid: 401f70bcc1901ab42b54dfeb672c5ded, type: 3}
   button: {fileID: 1375692860}
   label: Upgrade Wheel Button
   angleMin: 0
@@ -33415,6 +35380,101 @@ MonoBehaviour:
   _toolTipText: {fileID: 0}
   _toolTipBox: {fileID: 0}
   _rmc: {fileID: 58731043}
+--- !u!82 &1895687234
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1895687231}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1898180180
 GameObject:
   m_ObjectHideFlags: 0
@@ -33524,6 +35584,10 @@ Prefab:
       propertyPath: m_Name
       value: crater (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
   m_IsPrefabParent: 0
@@ -33594,6 +35658,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
   m_IsPrefabParent: 0
@@ -33663,6 +35731,10 @@ Prefab:
     - target: {fileID: 100000, guid: bb9c060af11babc4ab76252d0f18ea85, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: bb9c060af11babc4ab76252d0f18ea85, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb9c060af11babc4ab76252d0f18ea85, type: 3}
@@ -33978,6 +36050,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
   m_IsPrefabParent: 0
@@ -34192,6 +36268,10 @@ Prefab:
     - target: {fileID: 100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
@@ -35001,6 +37081,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1999131630}
   - component: {fileID: 1999131631}
+  - component: {fileID: 1999131632}
   m_Layer: 5
   m_Name: SpreadFireWheelButton
   m_TagString: Untagged
@@ -35042,6 +37123,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rt: {fileID: 0}
   parentRM: {fileID: 0}
+  _clickAudio: {fileID: 8300000, guid: be075a1a08cbe904bbf4f54ebdeb1886, type: 3}
+  _highlightAudio: {fileID: 8300000, guid: 401f70bcc1901ab42b54dfeb672c5ded, type: 3}
   button: {fileID: 1587989903}
   label: Spread Fire
   angleMin: 0
@@ -35053,6 +37136,101 @@ MonoBehaviour:
   _toolTipText: {fileID: 415016313}
   _toolTipBox: {fileID: 87019499}
   _rmc: {fileID: 58731043}
+--- !u!82 &1999131632
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1999131629}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2005145177
 GameObject:
   m_ObjectHideFlags: 0
@@ -35189,6 +37367,10 @@ Prefab:
     - target: {fileID: 100000, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
@@ -35331,6 +37513,10 @@ Prefab:
     - target: {fileID: 100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
@@ -35500,6 +37686,10 @@ Prefab:
     - target: {fileID: 100000, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
@@ -36215,6 +38405,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
   m_IsPrefabParent: 0
@@ -36362,6 +38556,10 @@ Prefab:
     - target: {fileID: 100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
@@ -36633,6 +38831,10 @@ Prefab:
     - target: {fileID: 100000, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a83fd096aeb0744a8cc3884bcb088cf, type: 3}
@@ -36916,6 +39118,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
   m_IsPrefabParent: 0
@@ -36985,6 +39191,10 @@ Prefab:
     - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
@@ -37180,6 +39390,10 @@ Prefab:
     - target: {fileID: 100000, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
@@ -37445,6 +39659,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9fd69d00e93b6049b4ed82d3645d4ba, type: 3}
   m_IsPrefabParent: 0
@@ -37587,6 +39805,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ecf41c1d00fdb44996c5a2f5e663605, type: 3}
   m_IsPrefabParent: 0
@@ -37656,6 +39878,10 @@ Prefab:
     - target: {fileID: 100000, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ec133746880aaf43b06a30605ea5cb7, type: 3}
