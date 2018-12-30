@@ -10209,7 +10209,7 @@ Prefab:
     - target: {fileID: 11449134, guid: 8b178b10bc5b66249b02589196f8879d, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 58731038}
+      objectReference: {fileID: 58731043}
     - target: {fileID: 11423478, guid: 8b178b10bc5b66249b02589196f8879d, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -10253,6 +10253,14 @@ Prefab:
     - target: {fileID: 127748, guid: 8b178b10bc5b66249b02589196f8879d, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11449134, guid: 8b178b10bc5b66249b02589196f8879d, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SellTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 11449134, guid: 8b178b10bc5b66249b02589196f8879d, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11433386, guid: 8b178b10bc5b66249b02589196f8879d, type: 2}
