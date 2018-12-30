@@ -215,13 +215,17 @@ public abstract class Tower : MonoBehaviour {
     }
     
     //Update / Return variables
+    public void Death()
+    {
+        Destroy(this.gameObject);
+    }
     public void TakeDamage(int damage)
     {
         _health -= damage;
 
         if (_health <= 0)
         {
-            Destroy(this.gameObject);
+            Death();
         }
     }
     public int TowerHealth
