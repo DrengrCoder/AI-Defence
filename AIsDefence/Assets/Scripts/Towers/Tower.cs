@@ -4,7 +4,16 @@ using System.ComponentModel;
 using UnityEngine;
 
 public abstract class Tower : MonoBehaviour {
-    
+
+    //public GameObject _recoilComponent;
+    //[HideInInspector]
+    //public bool _recoiling = false;
+    //[HideInInspector]
+    //public float _recoilTime = 0f;
+    //[HideInInspector]
+    //public float _currentRecoilTime = 0f;
+    //private bool _reversingRecoil = false;
+
     public int _maxHealth = 100;
     private int _health = 100;
     
@@ -87,12 +96,37 @@ public abstract class Tower : MonoBehaviour {
         {
             transform.LookAt(new Vector3(_currentTarget.transform.position.x, 0, _currentTarget.transform.position.z));
         }
+
+        //if (_recoiling)
+        //{
+        //    _currentRecoilTime += Time.deltaTime;
+
+        //    if (_reversingRecoil == false)
+        //    {
+        //        _recoilComponent.transform.localPosition = new Vector3(0, 0, 2);
+
+        //        if (_currentRecoilTime >= _recoilTime / 2)
+        //        {
+        //            _reversingRecoil = true;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        _recoilComponent.transform.localPosition = new Vector3(0, 0, -2);
+
+        //        if (_currentRecoilTime >= _recoilTime)
+        //        {
+        //            _reversingRecoil = false;
+        //            _recoiling = false;
+        //        }
+        //    }
+        //}
     }
     void FixedUpdate()
     {
         AllocateNewTarget();
     }
-
+    
     //Targeting
     public AttackChoice TargetParameters
     {

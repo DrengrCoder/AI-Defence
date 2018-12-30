@@ -61,6 +61,8 @@ public class SpreadFireTower : Tower {
 
     private void Attack()
     {
+        //_recoilTime = this._fireRate - 0.1f;
+        //_recoiling = true;
         AttackSound.Play();
         _projectileManager.FireSpreadProjectile(this.gameObject, _currentTarget.GetComponent<CapsuleCollider>(), _bullet, _force, _damage, Num);
     }

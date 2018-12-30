@@ -254,7 +254,7 @@ MonoBehaviour:
   _inRangeEnemies: []
   _projectileManager: {fileID: 0}
   AttackSound: {fileID: 82246259511734966}
-  _bullet: {fileID: 1644848693728838, guid: a44d5d444f103e54e8f3e9c0360fe465, type: 2}
+  _bullet: {fileID: 1210979705272566, guid: a44d5d444f103e54e8f3e9c0360fe465, type: 2}
   _damage: 10
   _damageUpgrade: 3
   _fireRate: 1

@@ -65,15 +65,24 @@ public class BombProjectile : MonoBehaviour {
                 }
             }
 
-            DestroyBullet();
+            StartCoroutine(DestroyBullet());
         }
     }
 
     
-    private void DestroyBullet()
+    private IEnumerator DestroyBullet()
     {
         AudioSource.PlayClipAtPoint(_explosionAudio, GameObject.FindGameObjectWithTag("MainCamera").transform.position);
+        _explosionVisual.Play();
 
+        MeshRenderer child = GetComponentInChildren<MeshRenderer>();
+        
+        if (child != null)
+            child.gameObject.SetActive(false);
+
+        yield return new WaitForSeconds(3.0f);
+
+        child.gameObject.SetActive(true);
         this.gameObject.GetComponent<Rigidbody>().isKinematic = true;
         this.gameObject.SetActive(false);
         this.gameObject.GetComponent<Rigidbody>().isKinematic = false;

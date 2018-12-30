@@ -6729,15 +6729,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _num: 5
-  _aoeTower: {fileID: 1530597613545732, guid: f32ed324b7181e8458b753337275beae, type: 2}
-  _singleFireTower: {fileID: 1359006265239668, guid: bcfe2f4495705064ab55712f57c3dba0,
-    type: 2}
-  _burstFireTower: {fileID: 1377249397616218, guid: 210b0e33f3a1d7144a927aa8f11123d5,
-    type: 2}
-  _spreadFireTower: {fileID: 1752187486771094, guid: f3094cefa7e83884782f6ea860f1f953,
-    type: 2}
-  _pulseFireTower: {fileID: 1107466246391842, guid: a14a554444e157c49b11597d88980336,
-    type: 2}
   MenuActiveOverThis: 0
 --- !u!65 &339759253
 BoxCollider:
@@ -7792,7 +7783,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefabProjectiles:
   - {fileID: 1195412905759990, guid: 3f26251a6a5e3cc4eb27be0c9f0ad369, type: 2}
-  - {fileID: 1644848693728838, guid: a44d5d444f103e54e8f3e9c0360fe465, type: 2}
+  - {fileID: 1210979705272566, guid: a44d5d444f103e54e8f3e9c0360fe465, type: 2}
   _pool: []
 --- !u!1 &407635374
 GameObject:
@@ -9726,15 +9717,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _num: 6
-  _aoeTower: {fileID: 1530597613545732, guid: f32ed324b7181e8458b753337275beae, type: 2}
-  _singleFireTower: {fileID: 1359006265239668, guid: bcfe2f4495705064ab55712f57c3dba0,
-    type: 2}
-  _burstFireTower: {fileID: 1377249397616218, guid: 210b0e33f3a1d7144a927aa8f11123d5,
-    type: 2}
-  _spreadFireTower: {fileID: 1752187486771094, guid: f3094cefa7e83884782f6ea860f1f953,
-    type: 2}
-  _pulseFireTower: {fileID: 1107466246391842, guid: a14a554444e157c49b11597d88980336,
-    type: 2}
   MenuActiveOverThis: 0
 --- !u!65 &493083633
 BoxCollider:
@@ -13746,15 +13728,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _num: 8
-  _aoeTower: {fileID: 1530597613545732, guid: f32ed324b7181e8458b753337275beae, type: 2}
-  _singleFireTower: {fileID: 1359006265239668, guid: bcfe2f4495705064ab55712f57c3dba0,
-    type: 2}
-  _burstFireTower: {fileID: 1377249397616218, guid: 210b0e33f3a1d7144a927aa8f11123d5,
-    type: 2}
-  _spreadFireTower: {fileID: 1752187486771094, guid: f3094cefa7e83884782f6ea860f1f953,
-    type: 2}
-  _pulseFireTower: {fileID: 1107466246391842, guid: a14a554444e157c49b11597d88980336,
-    type: 2}
   MenuActiveOverThis: 0
 --- !u!65 &662198985
 BoxCollider:
@@ -19607,15 +19580,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _num: 3
-  _aoeTower: {fileID: 1530597613545732, guid: f32ed324b7181e8458b753337275beae, type: 2}
-  _singleFireTower: {fileID: 1359006265239668, guid: bcfe2f4495705064ab55712f57c3dba0,
-    type: 2}
-  _burstFireTower: {fileID: 1377249397616218, guid: 210b0e33f3a1d7144a927aa8f11123d5,
-    type: 2}
-  _spreadFireTower: {fileID: 1752187486771094, guid: f3094cefa7e83884782f6ea860f1f953,
-    type: 2}
-  _pulseFireTower: {fileID: 1107466246391842, guid: a14a554444e157c49b11597d88980336,
-    type: 2}
   MenuActiveOverThis: 0
 --- !u!65 &1020187724
 BoxCollider:
@@ -23209,15 +23173,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _num: 2
-  _aoeTower: {fileID: 1530597613545732, guid: f32ed324b7181e8458b753337275beae, type: 2}
-  _singleFireTower: {fileID: 1359006265239668, guid: bcfe2f4495705064ab55712f57c3dba0,
-    type: 2}
-  _burstFireTower: {fileID: 1377249397616218, guid: 210b0e33f3a1d7144a927aa8f11123d5,
-    type: 2}
-  _spreadFireTower: {fileID: 1752187486771094, guid: f3094cefa7e83884782f6ea860f1f953,
-    type: 2}
-  _pulseFireTower: {fileID: 1107466246391842, guid: a14a554444e157c49b11597d88980336,
-    type: 2}
   MenuActiveOverThis: 0
 --- !u!65 &1191928316
 BoxCollider:
@@ -28456,15 +28411,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _num: 1
-  _aoeTower: {fileID: 1530597613545732, guid: f32ed324b7181e8458b753337275beae, type: 2}
-  _singleFireTower: {fileID: 1359006265239668, guid: bcfe2f4495705064ab55712f57c3dba0,
-    type: 2}
-  _burstFireTower: {fileID: 1377249397616218, guid: 210b0e33f3a1d7144a927aa8f11123d5,
-    type: 2}
-  _spreadFireTower: {fileID: 1752187486771094, guid: f3094cefa7e83884782f6ea860f1f953,
-    type: 2}
-  _pulseFireTower: {fileID: 1107466246391842, guid: a14a554444e157c49b11597d88980336,
-    type: 2}
   MenuActiveOverThis: 0
 --- !u!65 &1512032722
 BoxCollider:
@@ -29058,15 +29004,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _num: 7
-  _aoeTower: {fileID: 1530597613545732, guid: f32ed324b7181e8458b753337275beae, type: 2}
-  _singleFireTower: {fileID: 1359006265239668, guid: bcfe2f4495705064ab55712f57c3dba0,
-    type: 2}
-  _burstFireTower: {fileID: 1377249397616218, guid: 210b0e33f3a1d7144a927aa8f11123d5,
-    type: 2}
-  _spreadFireTower: {fileID: 1752187486771094, guid: f3094cefa7e83884782f6ea860f1f953,
-    type: 2}
-  _pulseFireTower: {fileID: 1107466246391842, guid: a14a554444e157c49b11597d88980336,
-    type: 2}
   MenuActiveOverThis: 0
 --- !u!65 &1532524770
 BoxCollider:
@@ -35851,15 +35788,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _num: 4
-  _aoeTower: {fileID: 1530597613545732, guid: f32ed324b7181e8458b753337275beae, type: 2}
-  _singleFireTower: {fileID: 1359006265239668, guid: bcfe2f4495705064ab55712f57c3dba0,
-    type: 2}
-  _burstFireTower: {fileID: 1377249397616218, guid: 210b0e33f3a1d7144a927aa8f11123d5,
-    type: 2}
-  _spreadFireTower: {fileID: 1752187486771094, guid: f3094cefa7e83884782f6ea860f1f953,
-    type: 2}
-  _pulseFireTower: {fileID: 1107466246391842, guid: a14a554444e157c49b11597d88980336,
-    type: 2}
   MenuActiveOverThis: 0
 --- !u!65 &1920236090
 BoxCollider:
