@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class Tower : MonoBehaviour {
 
@@ -13,13 +14,17 @@ public abstract class Tower : MonoBehaviour {
     //[HideInInspector]
     //public float _currentRecoilTime = 0f;
     //private bool _reversingRecoil = false;
-    
+
+    [SerializeField]
+    private Slider _healthBar;
+
     public ParticleSystem _pulseEffect;
     [HideInInspector]
     public bool _emittingPulse = false;
     private int _scale = 0;
 
     public int _maxHealth = 100;
+    [SerializeField]
     private int _health = 100;
     
     public int _cost;
@@ -78,6 +83,8 @@ public abstract class Tower : MonoBehaviour {
     void Start ()
     {
         _projectileManager = GameObject.Find("ProjectileManager").GetComponent<ProjectileManager>();
+        _healthBar.maxValue = _maxHealth;
+        _healthBar.value = _maxHealth;
     }
 	void Update ()
     {
@@ -149,6 +156,7 @@ public abstract class Tower : MonoBehaviour {
     void FixedUpdate()
     {
         AllocateNewTarget();
+        _healthBar.value = _health;
     }
     
     //Targeting
@@ -222,7 +230,7 @@ public abstract class Tower : MonoBehaviour {
     public void TakeDamage(int damage)
     {
         _health -= damage;
-
+        
         if (_health <= 0)
         {
             Death();

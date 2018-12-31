@@ -171,7 +171,17 @@ public class Enemy : MonoBehaviour{
 
     public void FaceTarget(GameObject enemyTarget)
     {
-        Vector3 lookPos = enemyTarget.transform.position - transform.position;
+        Vector3 lookPos = new Vector3();
+
+        if (enemyTarget != null)
+        {
+            lookPos = enemyTarget.transform.position - transform.position;
+        }
+        else
+        {
+            lookPos = EnemyTarget.transform.position;
+        }
+
         lookPos.y = 0;
         Quaternion rotation = Quaternion.LookRotation(lookPos);
         float rotateSpeed = gameObject.GetComponent<NavMeshAgent>().angularSpeed;

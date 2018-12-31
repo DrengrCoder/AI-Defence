@@ -8085,7 +8085,7 @@ MonoBehaviour:
         m_MethodName: SpawnObject
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1359006265239668, guid: bcfe2f4495705064ab55712f57c3dba0,
+          m_ObjectArgument: {fileID: 1578160197510798, guid: f0c15763a95608147994c520611ea56a,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 5
@@ -25292,7 +25292,7 @@ MonoBehaviour:
         m_MethodName: SpawnObject
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1530597613545732, guid: f32ed324b7181e8458b753337275beae,
+          m_ObjectArgument: {fileID: 1147584563686610, guid: a0ecdad6ce338fd48816726ecb32547d,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 10
@@ -27395,14 +27395,14 @@ MonoBehaviour:
   - {fileID: 1383697860}
   - {fileID: 812818626}
   globalOffset: 0
-  _burstPrefab: {fileID: 1377249397616218, guid: 210b0e33f3a1d7144a927aa8f11123d5,
+  _burstPrefab: {fileID: 1058120358826558, guid: b6cd040884d3d484c914e5a17d17bd02,
     type: 2}
-  _singlePrefab: {fileID: 1359006265239668, guid: bcfe2f4495705064ab55712f57c3dba0,
+  _singlePrefab: {fileID: 1578160197510798, guid: f0c15763a95608147994c520611ea56a,
     type: 2}
-  _spreadPrefab: {fileID: 1752187486771094, guid: f3094cefa7e83884782f6ea860f1f953,
+  _spreadPrefab: {fileID: 1336717236076940, guid: c788c65b8c9af0146b27b4437c1428ca,
     type: 2}
-  _aoePrefab: {fileID: 1530597613545732, guid: f32ed324b7181e8458b753337275beae, type: 2}
-  _pulsePrefab: {fileID: 1009842872239954, guid: a14a554444e157c49b11597d88980336,
+  _aoePrefab: {fileID: 1147584563686610, guid: a0ecdad6ce338fd48816726ecb32547d, type: 2}
+  _pulsePrefab: {fileID: 1205392216143936, guid: cb95cfb3446bc504982fb9820285e325,
     type: 2}
   currentAngle: 0
   index: 0
@@ -30362,7 +30362,7 @@ MonoBehaviour:
         m_MethodName: SpawnObject
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1377249397616218, guid: 210b0e33f3a1d7144a927aa8f11123d5,
+          m_ObjectArgument: {fileID: 1058120358826558, guid: b6cd040884d3d484c914e5a17d17bd02,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 1
@@ -31077,7 +31077,7 @@ MonoBehaviour:
         m_MethodName: SpawnObject
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1752187486771094, guid: f3094cefa7e83884782f6ea860f1f953,
+          m_ObjectArgument: {fileID: 1336717236076940, guid: c788c65b8c9af0146b27b4437c1428ca,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 10
@@ -39153,7 +39153,7 @@ MonoBehaviour:
         m_MethodName: SpawnObject
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1009842872239954, guid: a14a554444e157c49b11597d88980336,
+          m_ObjectArgument: {fileID: 1205392216143936, guid: cb95cfb3446bc504982fb9820285e325,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 10
