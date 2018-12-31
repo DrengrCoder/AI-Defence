@@ -52,7 +52,19 @@ public class RMF_RadialMenuElement : MonoBehaviour {
     //================================================
     //end of custom entered code
     //================================================
-    
+
+    private void OnEnable()
+    {
+        if (label == "Attack Wheel Button" && _rmc._hitTower != null && _rmc._hitTower.GetTowerType() == TowerType.PulseFire)
+        {
+            button.interactable = false;
+        }
+        else
+        {
+            button.interactable = true;
+        }
+    }
+
     private void Awake() {
 
         rt = gameObject.GetComponent<RectTransform>();
@@ -68,6 +80,7 @@ public class RMF_RadialMenuElement : MonoBehaviour {
 
         if (button == null)
             Debug.LogError("Radial Menu: No button attached to " + gameObject.name + "!");
+        
         
     }
 
