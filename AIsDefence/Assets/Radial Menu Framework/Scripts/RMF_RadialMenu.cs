@@ -37,17 +37,12 @@ public class RMF_RadialMenu : MonoBehaviour {
     [Tooltip("Controls the total angle offset for all elements. For example, if set to 45, all elements will be shifted +45 degrees. Good values are generally 45, 90, or 180")]
     public float globalOffset = 0f;
 
-
-    [SerializeField]
-    private GameObject _burstPrefab;
-    [SerializeField]
-    private GameObject _singlePrefab;
-    [SerializeField]
-    private GameObject _spreadPrefab;
-    [SerializeField]
-    private GameObject _aoePrefab;
-    [SerializeField]
-    private GameObject _pulsePrefab;
+    
+    public GameObject _burstPrefab;
+    public GameObject _singlePrefab;
+    public GameObject _spreadPrefab;
+    public GameObject _aoePrefab;
+    public GameObject _pulsePrefab;
 
     [HideInInspector]
     public float currentAngle = 0f; //Our current angle from the center of the radial menu.
@@ -95,6 +90,8 @@ public class RMF_RadialMenu : MonoBehaviour {
             }
 
             elements[i].parentRM = this;
+
+            elements[i].UpdateButton();
 
             elements[i].setAllAngles((angleOffset * i) + globalOffset, angleOffset);
 

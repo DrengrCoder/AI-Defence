@@ -261,36 +261,39 @@ public class RadialMenuController : MonoBehaviour {
     //selling tower button
     //=========================================================================
 
-    public void SellTower()
+    public int CalculateSelectedTowerRefund()
     {
-        //get hit tower base cost
-        float totalCost = _hitTower._cost;
-
+        float cost = _hitTower._cost;
+        
         //get each of the costs spent on upgrades (all levels bought)
         for (int i = 0; i < _hitTower._healthLevel; i++)
         {
-            totalCost += _hitTower._healthLevelCosts[i];
+            cost += _hitTower._healthLevelCosts[i];
         }
 
         for (int i = 0; i < _hitTower._damageLevel; i++)
         {
-            totalCost += _hitTower._damageLevelCosts[i];
+            cost += _hitTower._damageLevelCosts[i];
         }
 
         for (int i = 0; i < _hitTower._fireRateLevel; i++)
         {
-            totalCost += _hitTower._fireRateLevelCosts[i];
+            cost += _hitTower._fireRateLevelCosts[i];
         }
 
         for (int i = 0; i < _hitTower._rangeLevel; i++)
         {
-            totalCost += _hitTower._rangeLevelCosts[i];
+            cost += _hitTower._rangeLevelCosts[i];
         }
+        
+        int refund = (int)(cost * 0.75f);
+        return refund;
+    }
 
+    public void SellTower()
+    {
         DisableTowerWheel();
-        //multiply the total cost spent by a percentage to refund to the player
-        int refund = (int)(totalCost * 0.75f);
-        _bank.AddCredits(refund);
+        _bank.AddCredits(CalculateSelectedTowerRefund());
         _hitTower.Death();
     }
 

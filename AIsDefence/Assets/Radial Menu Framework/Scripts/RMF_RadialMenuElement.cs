@@ -52,17 +52,7 @@ public class RMF_RadialMenuElement : MonoBehaviour {
     //================================================
     //end of custom entered code
     //================================================
-
-    private void OnEnable()
-    {
-
-        if (_usingToolTips == true)
-        {
-            UpdateButton();
-        }
-
-    }
-
+    
     private void Awake() {
 
         rt = gameObject.GetComponent<RectTransform>();
@@ -193,24 +183,36 @@ public class RMF_RadialMenuElement : MonoBehaviour {
         {
             //upgrades
             case "Health":
-                _toolTipText.text = this.label + ": " + _rmc._hitTower.TowerHealth + "/" + _rmc._hitTower._maxHealth + " => " + 
-                                    (_rmc._hitTower._maxHealth + _rmc._hitTower.GetHealthUpgrade()) + "\n" +
-                                    "Level: " + _rmc._hitTower._healthLevel + " => " + (_rmc._hitTower._healthLevel + 1);
+                _toolTipText.text = this.label + ": " + _rmc._hitTower.TowerHealth + "/" + _rmc._hitTower._maxHealth +          //stat label
+                                    ((_rmc._hitTower._healthLevel < _rmc._hitTower._maxUpgrades) ?                              //check stat level
+                                        " => " + (_rmc._hitTower._maxHealth + _rmc._hitTower.GetHealthUpgrade()) : "") + "\n" + //display next value if below max
+                                    "Level: " + _rmc._hitTower._healthLevel +                                                   //level label
+                                    ((_rmc._hitTower._healthLevel < _rmc._hitTower._maxUpgrades) ?                              //check stat level
+                                        " => " + (_rmc._hitTower._healthLevel + 1) : "");                                       //display next value if below max
                 break;
             case "Damage":
-                _toolTipText.text = this.label + ": " + _rmc._hitTower.GetTowerDamage() + " => " +
-                                    (_rmc._hitTower.GetTowerDamage() + _rmc._hitTower.GetDamageUpgrade()) + "\n" +
-                                    "Level: " + _rmc._hitTower._damageLevel + " => " + (_rmc._hitTower._damageLevel + 1);
+                _toolTipText.text = this.label + ": " + _rmc._hitTower.GetTowerDamage() + 
+                                    ((_rmc._hitTower._damageLevel < _rmc._hitTower._maxUpgrades) ?
+                                        " => " + (_rmc._hitTower.GetTowerDamage() + _rmc._hitTower.GetDamageUpgrade()) : "") + "\n" +
+                                    "Level: " + _rmc._hitTower._damageLevel + 
+                                    ((_rmc._hitTower._damageLevel < _rmc._hitTower._maxUpgrades) ?
+                                        " => " + (_rmc._hitTower._damageLevel + 1) : "");
                 break;
             case "Firerate":
-                _toolTipText.text = this.label + ": " + _rmc._hitTower.GetTowerFireRate(false) + " => " +
-                                    (_rmc._hitTower.GetTowerFireRate(false) - _rmc._hitTower.GetFirerateUpgrade()) + "\n" +
-                                    "Level: " + _rmc._hitTower._fireRateLevel + " => " + (_rmc._hitTower._fireRateLevel + 1);
+                _toolTipText.text = this.label + ": " + _rmc._hitTower.GetTowerFireRate(false) + 
+                                    ((_rmc._hitTower._fireRateLevel < _rmc._hitTower._maxUpgrades) ?
+                                        " => " + (_rmc._hitTower.GetTowerFireRate(false) - _rmc._hitTower.GetFirerateUpgrade()).ToString("F2") : "") + "\n" +
+                                    "Level: " + _rmc._hitTower._fireRateLevel + 
+                                    ((_rmc._hitTower._fireRateLevel < _rmc._hitTower._maxUpgrades) ?
+                                        " => " + (_rmc._hitTower._fireRateLevel + 1) : "");
                 break;
             case "Range":
-                _toolTipText.text = this.label + ": " + _rmc._hitTower.GetComponent<SphereCollider>().radius + " => " +
-                                    (_rmc._hitTower.GetComponent<SphereCollider>().radius + _rmc._hitTower.GetRadiusUpgrade()) + "\n" +
-                                    "Level: " + _rmc._hitTower._rangeLevel + " => " + (_rmc._hitTower._rangeLevel + 1);
+                _toolTipText.text = this.label + ": " + _rmc._hitTower.GetComponent<SphereCollider>().radius + 
+                                    ((_rmc._hitTower._rangeLevel < _rmc._hitTower._maxUpgrades) ?
+                                        " => " + (_rmc._hitTower.GetComponent<SphereCollider>().radius + _rmc._hitTower.GetRadiusUpgrade()) : "") + "\n" +
+                                    "Level: " + _rmc._hitTower._rangeLevel + 
+                                    ((_rmc._hitTower._rangeLevel < _rmc._hitTower._maxUpgrades) ?
+                                        " => " + (_rmc._hitTower._rangeLevel + 1) : "");
                 break;
             //attack priorities
             case "First Enemy":
@@ -246,6 +248,9 @@ public class RMF_RadialMenuElement : MonoBehaviour {
                 break;
             case "Pulse Fire":
                 _toolTipText.text = "Eletro-pulse effect, low speed, low damage, low firerate";
+                break;
+            case "Sell Tower Wheel Button":
+                _toolTipText.text = "Refund: " + _rmc.CalculateSelectedTowerRefund() + "QE";
                 break;
             default:
                 break;
@@ -314,25 +319,26 @@ public class RMF_RadialMenuElement : MonoBehaviour {
                 break;
             //tower selections
             case "Burst Fire":
-                buttonText = "Burst";
+                buttonText = "Burst " + parentRM._burstPrefab.GetComponent<Tower>()._cost.ToString() + "QE";
                 break;
             case "Single Fire":
-                buttonText = "Single";
+                buttonText = "Single " + parentRM._singlePrefab.GetComponent<Tower>()._cost.ToString() + "QE";
                 break;
             case "Spread Fire":
-                buttonText = "Spread";
+                buttonText = "Spread " + parentRM._spreadPrefab.GetComponent<Tower>()._cost.ToString() + "QE";
                 break;
             case "AOE Fire":
-                buttonText = "AOE";
+                buttonText = "AOE " + parentRM._aoePrefab.GetComponent<Tower>()._cost.ToString() + "QE";
                 break;
             case "Pulse Fire":
-                buttonText = "Pulse";
+                buttonText = "Pulse " + parentRM._pulsePrefab.GetComponent<Tower>()._cost.ToString() + "QE";
                 break;
             default:
                 break;
         }
-
-        this.button.transform.GetChild(0).GetComponent<Text>().text = buttonText;
+        
+        if (this.button.transform.GetChild(0).GetComponent<Text>() != null)
+            this.button.transform.GetChild(0).GetComponent<Text>().text = buttonText;
         
     }
 
