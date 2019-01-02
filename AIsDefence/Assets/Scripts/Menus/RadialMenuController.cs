@@ -25,6 +25,7 @@ public class RadialMenuController : MonoBehaviour {
     [HideInInspector]
     public InstantiateObjectOnclick _hitSpawnPoint;
 
+    //update is used to load the base radial wheel and the tower selection wheel
     void Update()
     {
         //ray cast
@@ -124,6 +125,24 @@ public class RadialMenuController : MonoBehaviour {
 
             DisableTowerWheel();
             DisableSelectionWheel();
+        }
+    }
+
+    public void UpdateButtonElements()
+    {
+        //we only need the upgrade extension wheel, which is element 0
+        foreach (RMF_RadialMenuElement element in _extensionWheels[0].GetComponent<RMF_RadialMenu>().elements)
+        {
+            //update each element
+            if (element != null)
+                element.UpdateButton();
+        }
+
+        //update all buttons in the tower selection wheel
+        foreach (RMF_RadialMenuElement element in _towerSelectionWheel.GetComponent<RMF_RadialMenu>().elements)
+        {
+            if (element != null)
+                element.UpdateButton();
         }
     }
 

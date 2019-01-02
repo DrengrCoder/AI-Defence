@@ -63,6 +63,8 @@ public class RMF_RadialMenuElement : MonoBehaviour {
         {
             button.interactable = true;
         }
+
+        UpdateButton();
     }
 
     private void Awake() {
@@ -280,35 +282,55 @@ public class RMF_RadialMenuElement : MonoBehaviour {
         {
             //upgrades
             case "Health":
-                
+
                 if (tower._healthLevel < tower._maxUpgrades)
+                {
                     buttonText = tower._healthLevelCosts[tower._healthLevel].ToString() + " QE";
+                    button.interactable = (tower._healthLevelCosts[tower._healthLevel] <= _rmc._bank.CreditBank);
+                }
                 else
+                {
                     this.button.interactable = false;
+                }
 
                 break;
             case "Damage":
-                
+
                 if (tower._damageLevel < tower._maxUpgrades)
+                {
                     buttonText = tower._damageLevelCosts[tower._damageLevel].ToString() + " QE";
+                    button.interactable = (tower._damageLevelCosts[tower._damageLevel] <= _rmc._bank.CreditBank);
+                }
                 else
+                {
                     this.button.interactable = false;
+                }
 
                 break;
             case "Firerate":
-                
+
                 if (tower._fireRateLevel < tower._maxUpgrades)
+                {
                     buttonText = tower._fireRateLevelCosts[tower._fireRateLevel].ToString() + " QE";
+                    button.interactable = (tower._fireRateLevelCosts[tower._fireRateLevel] <= _rmc._bank.CreditBank);
+                }
                 else
+                {
                     this.button.interactable = false;
+                }
 
                 break;
             case "Range":
-                
+
                 if (tower._rangeLevel < tower._maxUpgrades)
+                {
                     buttonText = tower._rangeLevelCosts[tower._rangeLevel].ToString() + " QE";
+                    button.interactable = (tower._rangeLevelCosts[tower._rangeLevel] <= _rmc._bank.CreditBank);
+                }
                 else
+                {
                     this.button.interactable = false;
+                }
 
                 break;
             //attack priorities
@@ -333,18 +355,23 @@ public class RMF_RadialMenuElement : MonoBehaviour {
             //tower selections
             case "Burst Fire":
                 buttonText = "Burst " + parentRM._burstPrefab.GetComponent<Tower>()._cost.ToString() + "QE";
+                button.interactable = (parentRM._burstPrefab.GetComponent<Tower>()._cost <= _rmc._bank.CreditBank);
                 break;
             case "Single Fire":
                 buttonText = "Single " + parentRM._singlePrefab.GetComponent<Tower>()._cost.ToString() + "QE";
+                button.interactable = (parentRM._singlePrefab.GetComponent<Tower>()._cost <= _rmc._bank.CreditBank);
                 break;
             case "Spread Fire":
                 buttonText = "Spread " + parentRM._spreadPrefab.GetComponent<Tower>()._cost.ToString() + "QE";
+                button.interactable = (parentRM._spreadPrefab.GetComponent<Tower>()._cost <= _rmc._bank.CreditBank);
                 break;
             case "AOE Fire":
                 buttonText = "AOE " + parentRM._aoePrefab.GetComponent<Tower>()._cost.ToString() + "QE";
+                button.interactable = (parentRM._aoePrefab.GetComponent<Tower>()._cost <= _rmc._bank.CreditBank);
                 break;
             case "Pulse Fire":
                 buttonText = "Pulse " + parentRM._pulsePrefab.GetComponent<Tower>()._cost.ToString() + "QE";
+                button.interactable = (parentRM._pulsePrefab.GetComponent<Tower>()._cost <= _rmc._bank.CreditBank);
                 break;
             default:
                 break;
@@ -438,8 +465,7 @@ public class RMF_RadialMenuElement : MonoBehaviour {
             default:
                 break;
         }
-
-        parentRM.CheckPrices();
+        
         UpdateButton();
         LoadTooltipText();
     }
