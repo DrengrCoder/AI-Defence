@@ -226,7 +226,7 @@ public class RadialMenuController : MonoBehaviour {
 
         if (_extensionWheels[1].activeSelf == false)
         {
-            _extensionWheels[1].transform.position = button.transform.position;
+            _extensionWheels[1].transform.position = button.transform.position + new Vector3(-15, -15, 0);
             _extensionWheels[1].SetActive(true);
             button.enabled = false;
         }
