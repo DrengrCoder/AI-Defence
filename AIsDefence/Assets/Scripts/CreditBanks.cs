@@ -35,11 +35,7 @@ public class CreditBanks : MonoBehaviour {
 
         _CreditDisplay.text = CreditBank.ToString();
 
-        if (_playerCharacter.gameObject.activeSelf == false)
-        {
-            _radialWheel._extensionWheels[0].GetComponent<RMF_RadialMenu>().CheckPrices();
-            _radialWheel._towerSelectionWheel.GetComponent<RMF_RadialMenu>().CheckPrices();
-        }
+        _radialWheel.UpdateButtonElements();
     }
 
     public void MinusCredits(int credits)
@@ -47,8 +43,7 @@ public class CreditBanks : MonoBehaviour {
         CreditBank = CreditBank - credits;
 
         _CreditDisplay.text = CreditBank.ToString();
-
-        _radialWheel._towerSelectionWheel.GetComponent<RMF_RadialMenu>().CheckPrices();
+        
     }
 
     public void AddPlayerCredits(int credits)
