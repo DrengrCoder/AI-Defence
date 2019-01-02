@@ -10,16 +10,16 @@ public class InstantiateObjectOnclick : MonoBehaviour {
     [SerializeField]
     private int _num = 0;
 
-    [SerializeField]
-    private GameObject _aoeTower;
-    [SerializeField]
-    private GameObject _singleFireTower;
-    [SerializeField]
-    private GameObject _burstFireTower;
-    [SerializeField]
-    private GameObject _spreadFireTower;
-    [SerializeField]
-    private GameObject _pulseFireTower;
+    //[SerializeField]
+    //private GameObject _aoeTower;
+    //[SerializeField]
+    //private GameObject _singleFireTower;
+    //[SerializeField]
+    //private GameObject _burstFireTower;
+    //[SerializeField]
+    //private GameObject _spreadFireTower;
+    //[SerializeField]
+    //private GameObject _pulseFireTower;
     
     private GameObject _thisSpot;
 

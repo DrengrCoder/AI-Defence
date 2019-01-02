@@ -54,9 +54,9 @@ public class RangedEnemyProjectile : MonoBehaviour {
                 other.gameObject.GetComponent<Player>().TakeDamage(Damage);
                 gameObject.SetActive(false);
             }
-            else if (other.gameObject.GetComponent<Tower>())
+            else if (other.gameObject.transform.parent.GetComponent<Tower>())
             {
-                other.gameObject.GetComponent<Tower>().TakeDamage(Damage);
+                other.gameObject.transform.parent.GetComponent<Tower>().TakeDamage(Damage);
                 gameObject.SetActive(false);
             }
             else

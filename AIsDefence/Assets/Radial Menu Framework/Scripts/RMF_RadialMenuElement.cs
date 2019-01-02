@@ -13,6 +13,11 @@ public class RMF_RadialMenuElement : MonoBehaviour {
     [HideInInspector]
     public RMF_RadialMenu parentRM;
 
+    [SerializeField]
+    private AudioClip _clickAudio;
+    [SerializeField]
+    private AudioClip _highlightAudio;
+
     [Tooltip("Each radial element needs a button. This is generally a child one level below this primary radial element game object.")]
     public Button button;
 
@@ -50,12 +55,14 @@ public class RMF_RadialMenuElement : MonoBehaviour {
 
     private void OnEnable()
     {
-
-        if (_usingToolTips == true)
+        if (label == "Attack Wheel Button" && _rmc._hitTower != null && _rmc._hitTower.GetTowerType() == TowerType.PulseFire)
         {
-            UpdateButton();
+            button.interactable = false;
         }
-
+        else
+        {
+            button.interactable = true;
+        }
     }
 
     private void Awake() {
@@ -73,6 +80,7 @@ public class RMF_RadialMenuElement : MonoBehaviour {
 
         if (button == null)
             Debug.LogError("Radial Menu: No button attached to " + gameObject.name + "!");
+        
         
     }
 
@@ -127,6 +135,11 @@ public class RMF_RadialMenuElement : MonoBehaviour {
     //Highlights this button. Unity's default button wasn't really meant to be controlled through code so event handlers are necessary here.
     //I would highly recommend not messing with this stuff unless you know what you're doing, if one event handler is wrong then the whole thing can break.
     public void highlightThisElement(PointerEventData p) {
+
+        if (_highlightAudio != null)
+        {
+            AudioSource.PlayClipAtPoint(_highlightAudio, GameObject.FindGameObjectWithTag("MainCamera").transform.position);
+        }
 
         ExecuteEvents.Execute(button.gameObject, p, ExecuteEvents.selectHandler);
         active = true;
@@ -183,24 +196,36 @@ public class RMF_RadialMenuElement : MonoBehaviour {
         {
             //upgrades
             case "Health":
-                _toolTipText.text = this.label + ": " + _rmc._hitTower.TowerHealth + "/" + _rmc._hitTower._maxHealth + " => " + 
-                                    (_rmc._hitTower._maxHealth + _rmc._hitTower.GetHealthUpgrade()) + "\n" +
-                                    "Level: " + _rmc._hitTower._healthLevel + " => " + (_rmc._hitTower._healthLevel + 1);
+                _toolTipText.text = this.label + ": " + _rmc._hitTower.TowerHealth + "/" + _rmc._hitTower._maxHealth +          //stat label
+                                    ((_rmc._hitTower._healthLevel < _rmc._hitTower._maxUpgrades) ?                              //check stat level
+                                        " => " + (_rmc._hitTower._maxHealth + _rmc._hitTower.GetHealthUpgrade()) : "") + "\n" + //display next value if below max
+                                    "Level: " + _rmc._hitTower._healthLevel +                                                   //level label
+                                    ((_rmc._hitTower._healthLevel < _rmc._hitTower._maxUpgrades) ?                              //check stat level
+                                        " => " + (_rmc._hitTower._healthLevel + 1) : "");                                       //display next value if below max
                 break;
             case "Damage":
-                _toolTipText.text = this.label + ": " + _rmc._hitTower.GetTowerDamage() + " => " +
-                                    (_rmc._hitTower.GetTowerDamage() + _rmc._hitTower.GetDamageUpgrade()) + "\n" +
-                                    "Level: " + _rmc._hitTower._damageLevel + " => " + (_rmc._hitTower._damageLevel + 1);
+                _toolTipText.text = this.label + ": " + _rmc._hitTower.GetTowerDamage() + 
+                                    ((_rmc._hitTower._damageLevel < _rmc._hitTower._maxUpgrades) ?
+                                        " => " + (_rmc._hitTower.GetTowerDamage() + _rmc._hitTower.GetDamageUpgrade()) : "") + "\n" +
+                                    "Level: " + _rmc._hitTower._damageLevel + 
+                                    ((_rmc._hitTower._damageLevel < _rmc._hitTower._maxUpgrades) ?
+                                        " => " + (_rmc._hitTower._damageLevel + 1) : "");
                 break;
             case "Firerate":
-                _toolTipText.text = this.label + ": " + _rmc._hitTower.GetTowerFireRate(false) + " => " +
-                                    (_rmc._hitTower.GetTowerFireRate(false) - _rmc._hitTower.GetFirerateUpgrade()) + "\n" +
-                                    "Level: " + _rmc._hitTower._fireRateLevel + " => " + (_rmc._hitTower._fireRateLevel + 1);
+                _toolTipText.text = this.label + ": " + _rmc._hitTower.GetTowerFireRate(false) + 
+                                    ((_rmc._hitTower._fireRateLevel < _rmc._hitTower._maxUpgrades) ?
+                                        " => " + (_rmc._hitTower.GetTowerFireRate(false) - _rmc._hitTower.GetFirerateUpgrade()).ToString("F2") : "") + "\n" +
+                                    "Level: " + _rmc._hitTower._fireRateLevel + 
+                                    ((_rmc._hitTower._fireRateLevel < _rmc._hitTower._maxUpgrades) ?
+                                        " => " + (_rmc._hitTower._fireRateLevel + 1) : "");
                 break;
             case "Range":
-                _toolTipText.text = this.label + ": " + _rmc._hitTower.GetComponent<SphereCollider>().radius + " => " +
-                                    (_rmc._hitTower.GetComponent<SphereCollider>().radius + _rmc._hitTower.GetRadiusUpgrade()) + "\n" +
-                                    "Level: " + _rmc._hitTower._rangeLevel + " => " + (_rmc._hitTower._rangeLevel + 1);
+                _toolTipText.text = this.label + ": " + _rmc._hitTower.GetComponent<SphereCollider>().radius + 
+                                    ((_rmc._hitTower._rangeLevel < _rmc._hitTower._maxUpgrades) ?
+                                        " => " + (_rmc._hitTower.GetComponent<SphereCollider>().radius + _rmc._hitTower.GetRadiusUpgrade()) : "") + "\n" +
+                                    "Level: " + _rmc._hitTower._rangeLevel + 
+                                    ((_rmc._hitTower._rangeLevel < _rmc._hitTower._maxUpgrades) ?
+                                        " => " + (_rmc._hitTower._rangeLevel + 1) : "");
                 break;
             //attack priorities
             case "First Enemy":
@@ -236,6 +261,9 @@ public class RMF_RadialMenuElement : MonoBehaviour {
                 break;
             case "Pulse Fire":
                 _toolTipText.text = "Eletro-pulse effect, low speed, low damage, low firerate";
+                break;
+            case "Sell Tower Wheel Button":
+                _toolTipText.text = "Refund: " + _rmc.CalculateSelectedTowerRefund() + "QE";
                 break;
             default:
                 break;
@@ -304,31 +332,37 @@ public class RMF_RadialMenuElement : MonoBehaviour {
                 break;
             //tower selections
             case "Burst Fire":
-                buttonText = "Burst";
+                buttonText = "Burst " + parentRM._burstPrefab.GetComponent<Tower>()._cost.ToString() + "QE";
                 break;
             case "Single Fire":
-                buttonText = "Single";
+                buttonText = "Single " + parentRM._singlePrefab.GetComponent<Tower>()._cost.ToString() + "QE";
                 break;
             case "Spread Fire":
-                buttonText = "Spread";
+                buttonText = "Spread " + parentRM._spreadPrefab.GetComponent<Tower>()._cost.ToString() + "QE";
                 break;
             case "AOE Fire":
-                buttonText = "AOE";
+                buttonText = "AOE " + parentRM._aoePrefab.GetComponent<Tower>()._cost.ToString() + "QE";
                 break;
             case "Pulse Fire":
-                buttonText = "Pulse";
+                buttonText = "Pulse " + parentRM._pulsePrefab.GetComponent<Tower>()._cost.ToString() + "QE";
                 break;
             default:
                 break;
         }
-
-        this.button.transform.GetChild(0).GetComponent<Text>().text = buttonText;
+        
+        if (this.button.transform.GetChild(0).GetComponent<Text>() != null)
+            this.button.transform.GetChild(0).GetComponent<Text>().text = buttonText;
         
     }
 
 
     public void ExecuteFunction()
     {
+        if (_clickAudio != null)
+        {
+            AudioSource.PlayClipAtPoint(_clickAudio, GameObject.FindGameObjectWithTag("MainCamera").transform.position);
+        }
+
         Tower tower = _rmc._hitTower;
 
         switch (this.label)

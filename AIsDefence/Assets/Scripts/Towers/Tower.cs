@@ -2,10 +2,29 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class Tower : MonoBehaviour {
-    
+
+    //public GameObject _recoilComponent;
+    //[HideInInspector]
+    //public bool _recoiling = false;
+    //[HideInInspector]
+    //public float _recoilTime = 0f;
+    //[HideInInspector]
+    //public float _currentRecoilTime = 0f;
+    //private bool _reversingRecoil = false;
+
+    [SerializeField]
+    private Slider _healthBar;
+
+    public ParticleSystem _pulseEffect;
+    [HideInInspector]
+    public bool _emittingPulse = false;
+    private int _scale = 0;
+
     public int _maxHealth = 100;
+    [SerializeField]
     private int _health = 100;
     
     public int _cost;
@@ -53,6 +72,8 @@ public abstract class Tower : MonoBehaviour {
     [HideInInspector]
     public ProjectileManager _projectileManager;
 
+    public AudioSource AttackSound;
+
     //System
     private void OnEnable()
     {
@@ -62,6 +83,8 @@ public abstract class Tower : MonoBehaviour {
     void Start ()
     {
         _projectileManager = GameObject.Find("ProjectileManager").GetComponent<ProjectileManager>();
+        _healthBar.maxValue = _maxHealth;
+        _healthBar.value = _maxHealth;
     }
 	void Update ()
     {
@@ -85,12 +108,57 @@ public abstract class Tower : MonoBehaviour {
         {
             transform.LookAt(new Vector3(_currentTarget.transform.position.x, 0, _currentTarget.transform.position.z));
         }
+
+        if (_emittingPulse)
+        {
+            _scale++;
+
+            var sm = _pulseEffect.shape;
+            sm.radius = _scale * (Time.deltaTime * 4);
+            
+            if (_scale >= GetTowerFireRate(false) * 60)//multiplying a constant so speed scales with firerate
+            {
+                _emittingPulse = false;
+
+                sm.radius = 0.01f;
+                _scale = 0;
+
+                var em = _pulseEffect.emission;
+                em.enabled = false;
+            }
+        }
+
+        //if (_recoiling)
+        //{
+        //    _currentRecoilTime += Time.deltaTime;
+
+        //    if (_reversingRecoil == false)
+        //    {
+        //        _recoilComponent.transform.localPosition = new Vector3(0, 0, 2);
+
+        //        if (_currentRecoilTime >= _recoilTime / 2)
+        //        {
+        //            _reversingRecoil = true;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        _recoilComponent.transform.localPosition = new Vector3(0, 0, -2);
+
+        //        if (_currentRecoilTime >= _recoilTime)
+        //        {
+        //            _reversingRecoil = false;
+        //            _recoiling = false;
+        //        }
+        //    }
+        //}
     }
     void FixedUpdate()
     {
         AllocateNewTarget();
+        _healthBar.value = _health;
     }
-
+    
     //Targeting
     public AttackChoice TargetParameters
     {
@@ -155,13 +223,17 @@ public abstract class Tower : MonoBehaviour {
     }
     
     //Update / Return variables
+    public void Death()
+    {
+        Destroy(this.gameObject);
+    }
     public void TakeDamage(int damage)
     {
         _health -= damage;
-
+        
         if (_health <= 0)
         {
-            Destroy(this.gameObject);
+            Death();
         }
     }
     public int TowerHealth
