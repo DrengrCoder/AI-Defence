@@ -5,23 +5,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public abstract class Tower : MonoBehaviour {
-
-    //public GameObject _recoilComponent;
-    //[HideInInspector]
-    //public bool _recoiling = false;
-    //[HideInInspector]
-    //public float _recoilTime = 0f;
-    //[HideInInspector]
-    //public float _currentRecoilTime = 0f;
-    //private bool _reversingRecoil = false;
-
+    
     [SerializeField]
     private Slider _healthBar;
 
     public ParticleSystem _pulseEffect;
-    [HideInInspector]
-    public bool _emittingPulse = false;
-    private int _scale = 0;
 
     public int _maxHealth = 100;
     [SerializeField]
@@ -108,50 +96,7 @@ public abstract class Tower : MonoBehaviour {
         {
             transform.LookAt(new Vector3(_currentTarget.transform.position.x, 0, _currentTarget.transform.position.z));
         }
-
-        if (_emittingPulse)
-        {
-            _scale++;
-
-            var sm = _pulseEffect.shape;
-            sm.radius = _scale * (Time.deltaTime * 4);
-            
-            if (_scale >= GetTowerFireRate(false) * 60)//multiplying a constant so speed scales with firerate
-            {
-                _emittingPulse = false;
-
-                sm.radius = 0.01f;
-                _scale = 0;
-
-                var em = _pulseEffect.emission;
-                em.enabled = false;
-            }
-        }
-
-        //if (_recoiling)
-        //{
-        //    _currentRecoilTime += Time.deltaTime;
-
-        //    if (_reversingRecoil == false)
-        //    {
-        //        _recoilComponent.transform.localPosition = new Vector3(0, 0, 2);
-
-        //        if (_currentRecoilTime >= _recoilTime / 2)
-        //        {
-        //            _reversingRecoil = true;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        _recoilComponent.transform.localPosition = new Vector3(0, 0, -2);
-
-        //        if (_currentRecoilTime >= _recoilTime)
-        //        {
-        //            _reversingRecoil = false;
-        //            _recoiling = false;
-        //        }
-        //    }
-        //}
+        
     }
     void FixedUpdate()
     {

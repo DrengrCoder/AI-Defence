@@ -18,38 +18,38 @@ namespace ExtendedTMPro
         /// <summary>
         /// 
         /// </summary>
-        protected override void Start()
-        {
-            base.Start();
+        //protected override void Start()
+        //{
+        //    base.Start();
 
-            vertexCurve.preWrapMode = WrapMode.Clamp;
-            vertexCurve.postWrapMode = WrapMode.Clamp;
+        //    vertexCurve.preWrapMode = WrapMode.Clamp;
+        //    vertexCurve.postWrapMode = WrapMode.Clamp;
 
-            this.OnValidate();
-        }
+        //    //this.OnValidate();
+        //}
 
         /// <summary>
         /// 
         /// </summary>
-        protected override void OnValidate()
-        {
-            base.OnValidate();
-            Rebuild(CanvasUpdate.PreRender);
-        }
+        //protected override void OnValidate()
+        //{
+        //    base.OnValidate();
+        //    Rebuild(CanvasUpdate.PreRender);
+        //}
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="update"></param>
-        public override void Rebuild(CanvasUpdate update)
-        {
-            base.Rebuild(update);
+        //public override void Rebuild(CanvasUpdate update)
+        //{
+        //    base.Rebuild(update);
 
-            if (update == CanvasUpdate.PreRender)
-            {
-                UpdateVertexPositionWarps();
-            }
-        }
+        //    if (update == CanvasUpdate.PreRender)
+        //    {
+        //        UpdateVertexPositionWarps();
+        //    }
+        //}
 
         /// <summary>
         /// 

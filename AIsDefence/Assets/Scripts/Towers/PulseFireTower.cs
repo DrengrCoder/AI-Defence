@@ -57,9 +57,7 @@ public class PulseFireTower : Tower {
 
     private void Attack()
     {
-        var em = _pulseEffect.emission;
-        em.enabled = true;
-        _emittingPulse = true;
+        _pulseEffect.Play();
 
         AttackSound.Play();
 
