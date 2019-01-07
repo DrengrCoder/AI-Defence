@@ -33,6 +33,7 @@ public class Shop : MonoBehaviour {
     {
         if (Input.GetButtonDown("Shop"))
         {
+            UpdateShops();
             SwitchState();
         }
     }
