@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class RadialMenuController : MonoBehaviour {
-
+    
     [SerializeField]
     private GameObject _baseRadialWheel;
     public GameObject[] _extensionWheels;
@@ -318,4 +318,13 @@ public class RadialMenuController : MonoBehaviour {
 
     //=========================================================================
     //=========================================================================
+
+    //=========================================================================
+    //playing powerup audio
+    //=========================================================================
+
+    public void PlayAudio(AudioClip clip)
+    {
+        AudioSource.PlayClipAtPoint(clip, GameObject.FindGameObjectWithTag("MainCamera").transform.position);
+    }
 }
