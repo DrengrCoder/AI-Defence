@@ -26,7 +26,7 @@ public class SoundVolControl : MonoBehaviour {
 
     public void VolumeChange()
     {
-        //_MusicSound.volume = _settings.MusicVol * _settings.MasterVol;
+        _MusicSound.volume = _settings.MusicVol * _settings.MasterVol;
 
         for (int i = 0; i < SFXSounds.Count; i++)
         {
