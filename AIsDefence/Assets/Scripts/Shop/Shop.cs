@@ -56,7 +56,10 @@ public class Shop : MonoBehaviour {
                 Time.timeScale = 1;
                 _on = true;
                 _controller.Pause = false;
-                Cursor.visible = false;
+                if (_controller.gameObject.activeSelf == true)
+                {
+                    Cursor.visible = false;
+                }
             }
         }
     }
