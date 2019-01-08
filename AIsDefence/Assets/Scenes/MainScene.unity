@@ -7058,8 +7058,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 658287b9abd4bfb458763a94248ae618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CreditBank: 2000
-  PlayerCreditBank: 200
+  CreditBank: 500
+  PlayerCreditBank: 0
   _CreditDisplay: {fileID: 682610538}
   _PlayerCreditDisplay: {fileID: 77453197}
   _saveData: {fileID: 11400000, guid: a9cf9b7fc093e0745ba39e0e7c0c1f33, type: 2}
