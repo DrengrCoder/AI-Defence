@@ -54,6 +54,10 @@ public class Enemy : MonoBehaviour{
 
     private void OnEnable()
     {
+        for (int i = 0; i < _bodyParts.Length; i++)
+        {
+            _bodyParts[i].GetComponent<Renderer>().material = _originalMaterial;
+        }
         _height = transform.position.y;
         Health = _maxHealth;
         gameObject.GetComponent<NavMeshAgent>().SetDestination(EnemyTarget.transform.position);

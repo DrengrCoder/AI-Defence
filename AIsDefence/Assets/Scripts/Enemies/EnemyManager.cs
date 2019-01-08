@@ -157,9 +157,10 @@ public class EnemyManager : MonoBehaviour {
 
         if (bossNum != 100)
         {
+            bool spawnedBoss = false;
             for (int j = 0; j < _pools[bossNum].Num.Length; j++)
             {
-                if (_pools[bossNum].Num[j].activeSelf == false)
+                if ((_pools[bossNum].Num[j].activeSelf == false) && (spawnedBoss == false))
                 {
                     GameObject boss = _pools[bossNum].Num[j];
 
@@ -171,6 +172,8 @@ public class EnemyManager : MonoBehaviour {
                     boss.GetComponent<Enemy>().EnemyTarget = EnemyTarget;
                     boss.SetActive(true);
                     boss.GetComponent<Enemy>().SetWaveNum(Wave - 1);
+
+                    spawnedBoss = true;
                 }
             }
         }
